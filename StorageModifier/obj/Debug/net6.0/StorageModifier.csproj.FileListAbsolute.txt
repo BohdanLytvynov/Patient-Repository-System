@@ -1,0 +1,17 @@
+F:\PatientRep\StorageModifier\bin\Debug\net6.0\StorageModifier.exe
+F:\PatientRep\StorageModifier\bin\Debug\net6.0\StorageModifier.deps.json
+F:\PatientRep\StorageModifier\bin\Debug\net6.0\StorageModifier.runtimeconfig.json
+F:\PatientRep\StorageModifier\bin\Debug\net6.0\StorageModifier.dll
+F:\PatientRep\StorageModifier\bin\Debug\net6.0\StorageModifier.pdb
+F:\PatientRep\StorageModifier\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.csproj.AssemblyReference.cache
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.AssemblyInfoInputs.cache
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.AssemblyInfo.cs
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.csproj.CoreCompileInputs.cache
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.csproj.CopyComplete
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.dll
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\refint\StorageModifier.dll
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.pdb
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\StorageModifier.genruntimeconfig.cache
+F:\PatientRep\StorageModifier\obj\Debug\net6.0\ref\StorageModifier.dll

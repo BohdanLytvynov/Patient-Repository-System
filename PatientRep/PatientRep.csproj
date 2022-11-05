@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Icons\IconsError.png" />
+    <None Remove="Resources\Icons\IconsOk.png" />
+    <None Remove="Resources\Icons\IconsProcessing.png" />
+    <None Remove="Resources\Icons\OKIcon20.20.png" />
+    <None Remove="Views\413yrs1v.vex~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Icons\IconsError.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\IconsOk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\IconsProcessing.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\OKIcon20.20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome5" Version="2.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConvertersLib\ConvertersLib.csproj" />
+    <ProjectReference Include="..\CRUDControllerLib\CRUDControllerLib.csproj" />
+    <ProjectReference Include="..\CustomIconsLib\CustomIconsLib.csproj" />
+    <ProjectReference Include="..\DataValidation\DataValidation.csproj" />
+    <ProjectReference Include="..\IntegartedDataLib\IntegartedDataLib.csproj" />
+    <ProjectReference Include="..\JsonDataProviderLibDNC\JsonDataProviderLibDNC.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\ReportBuilderLib\ReportBuilderLib.csproj" />
+    <ProjectReference Include="..\SmartControlls\SmartControlls.csproj" />
+    <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj" />
+  </ItemGroup>
+
+</Project>

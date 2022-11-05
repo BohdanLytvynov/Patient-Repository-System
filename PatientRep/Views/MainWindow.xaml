@@ -1,0 +1,1319 @@
+﻿<Window x:Class="PatientRep.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatientRep"
+        xmlns:vm="clr-namespace:PatientRep.ViewModels"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:enums="clr-namespace:CRUDControllerLib.Enums;assembly=CRUDControllerLib"
+        xmlns:sc="clr-namespace:SmartControlls;assembly=SmartControlls"
+        xmlns:CustomIcons="clr-namespace:CustomIconsLib;assembly=CustomIconsLib"
+        xmlns:reps="clr-namespace:ReportBuilderLib.Enums;assembly=ReportBuilderLib"
+        Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ObjectDataProvider x:Key="SearchCon" MethodName="GetValues" 
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:SearchCondition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="StrCoincidence" MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:StringCoincidence"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="RepType" MethodName="GetValues" 
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="reps:ReportType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+
+    <Grid x:Name="Main_Grid">
+
+        <!--<Grid x:Name="InfoGrid" Panel.ZIndex="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="1" x:Name="MessageGrid">
+                <Border BorderBrush="Green" BorderThickness="2,2,0,2" 
+                        CornerRadius="10" 
+                        Background="#4C177827">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="1" Source="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>-->
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+
+            <!--#region Borders -->
+
+            <Rectangle Grid.ColumnSpan="3" Style="{StaticResource Border}"/>
+
+            <Rectangle Grid.Row="2"
+                   Grid.ColumnSpan="3" Style="{StaticResource Border}"/>
+
+            <Rectangle Grid.Row="4"
+                   Grid.ColumnSpan="3" Style="{StaticResource Border}"/>
+
+            <Rectangle Grid.Row="6"
+                   Grid.ColumnSpan="3" Style="{StaticResource Border}"/>
+
+            <Rectangle Grid.RowSpan="6" Style="{StaticResource Border}"/>
+
+            <Rectangle Grid.RowSpan="6" Grid.Column="2" Style="{StaticResource Border}"/>
+
+            <!--#endregion-->
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="445"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" Text="{Binding NoteCount,
+                UpdateSourceTrigger=PropertyChanged,
+                StringFormat=Кількість_Записів: {0} шт.}"
+                       FontSize="{StaticResource TxtBoxFontSize}"/>
+                <Button Grid.Column="3" Style="{StaticResource Buttons2}">
+                    <Button.Content>
+                        <Polygon Points="{Binding GearPoints,
+                        UpdateSourceTrigger=PropertyChanged}"
+                             Height="30" Width="30"
+                             Stroke="White"       
+                             StrokeThickness="2"
+                             RenderTransformOrigin="0.5, 0.5"
+                             >
+                            <Polygon.DataContext>
+                                <CustomIcons:GearIcon/>
+                            </Polygon.DataContext>
+                            <Polygon.RenderTransform>
+                                <RotateTransform x:Name="rot" Angle="0"/>
+                            </Polygon.RenderTransform>
+                        </Polygon>
+                    </Button.Content>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames
+                                       Storyboard.TargetName="rot"
+                                        Storyboard.TargetProperty="Angle"
+                                        Duration="0:0:1.5">
+
+                                            <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                                <LinearDoubleKeyFrame KeyTime="0%" Value="0"/>
+                                                <LinearDoubleKeyFrame KeyTime="50%" Value="180"/>
+                                                <LinearDoubleKeyFrame KeyTime="100%" Value="360"/>
+                                            </DoubleAnimationUsingKeyFrames.KeyFrames>
+
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames
+                                       Storyboard.TargetName="rot"
+                                        Storyboard.TargetProperty="Angle"
+                                        Duration="0:0:1.5">
+
+                                            <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                                <LinearDoubleKeyFrame KeyTime="0%" Value="360"/>
+                                                <LinearDoubleKeyFrame KeyTime="50%" Value="180"/>
+                                                <LinearDoubleKeyFrame KeyTime="100%" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames.KeyFrames>
+
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
+
+            <TextBlock Grid.Row ="1" Grid.Column="1" 
+                   Text="Patient Notebook V 3.0"
+                   FontSize="20" HorizontalAlignment="Center"/>
+
+            <TabControl Grid.Row="3" Grid.Column="1">
+                <TabItem Header="Пошук хворого" 
+                     FontSize="{StaticResource TabItemHeaderFontSize}">
+
+                    <Grid x:Name="SearchGridMAin" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="500"/>
+                        </Grid.ColumnDefinitions>
+
+                        <GridSplitter Style="{StaticResource GridSplitterVertical}"
+                                  Grid.Column="1"/>
+
+                        <Grid x:Name="GridLeft">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <ListView Margin="8" BorderBrush="Green" BorderThickness="2"                                  
+                                  ItemsSource="{Binding SearchResult,
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                  HorizontalContentAlignment="Stretch"
+                                  Grid.Row="3"/>
+
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="18.98"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <TextBlock Text="Сортування:" Grid.Column="1" FontSize="17" VerticalAlignment="Center"/>
+
+                                <Button Grid.Column="3" Content="За Датою" Style="{StaticResource Buttons2}"
+                                    Command="{Binding OnSortByDateButtonPressed}"/>
+
+                                <Button Grid.Column="5" Content="За Статусом" Style="{StaticResource Buttons2}"
+                                    Command="{Binding OnSortByStatusButtonPressed}"/>
+
+                            </Grid>
+
+                            <Grid Grid.Row="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32*"/>
+                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="107*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource Buttons2}" Grid.Column="1"
+                                    Content="Отримати всі записи"
+                                    Command="{Binding OnGetAllNotesPressed}"/>
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid x:Name="GridRight" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="76*"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="9*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid x:Name="Sbuttons" Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="72"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="1" Content="Пошук"
+                                    Command="{Binding OnSearchButtonPressed}" Background="White"
+                                    Style="{StaticResource Buttons2}"
+                                    >
+                                    <Button.InputBindings>
+                                        <KeyBinding Command="{Binding OnSearchButtonPressed}" Key="Enter"/>
+                                    </Button.InputBindings>
+                                </Button>
+
+                                <Button Grid.Column="3" Content="Очистити Поля"
+                                    Command="{Binding OnClearSearchFieldsPressed}" Background="#FF909090"  
+                                     Style="{StaticResource Buttons}"
+                                    />
+
+                            </Grid>
+
+                            <Grid Grid.Row="1" x:Name="CmbGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="300"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <ComboBox Grid.Column="1" IsEditable="True"
+                                      ItemsSource="{Binding Source= {StaticResource SearchCon}}"
+                                      SelectedItem="{Binding SearchCon, UpdateSourceTrigger=PropertyChanged,
+                                Mode=TwoWay}"/>
+
+                            </Grid>
+
+                            <Grid x:Name="Case_Surename" Grid.Row="2" 
+                              Visibility="{Binding SurSearcherGridVisibility, UpdateSourceTrigger=PropertyChanged,
+                            Mode=OneWay}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="20"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50*"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="100*"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="180*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <ComboBox Grid.Column="1" IsEditable="True"
+                                          ItemsSource="{Binding Source={StaticResource StrCoincidence}}"
+                                          SelectedItem="{Binding StrCoincidence,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}"/>
+                                </Grid>
+
+                                <Grid Grid.Row="3" Grid.Column="1" x:Name="SerchInput">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Прізвище:"/>
+
+                                    <TextBox Grid.Column="2" Style="{StaticResource TxtBoxInputStyle}">
+                                        <TextBox.Text>
+                                            <Binding Path="SearchSurename" 
+                                                 UpdateSourceTrigger="PropertyChanged" 
+                                                 Mode="TwoWay">
+                                                <Binding.ValidationRules>
+                                                    <DataErrorValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+
+                                </Grid>
+                            </Grid>
+
+                            <Grid x:Name="Case_Code" Grid.Row="2" 
+                              Visibility="{Binding CodeSearchGridVisibility, UpdateSourceTrigger=PropertyChanged}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="63*"/>
+                                    <RowDefinition Height="52"/>
+                                    <RowDefinition Height="130*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="160*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="313*"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="1" Text="№ направлення:"/>
+
+                                    <sc:SmartCodeField Grid.Column="3"
+                                                   CodeNumber="{Binding SearchCode,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}"
+                                                   IsCodeCorrect="{Binding IsSerchCodeCorrect,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}"/>
+
+                                    <!--<TextBox Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox.Text>
+                                        <Binding Path="SearchCode"
+                                                 UpdateSourceTrigger="PropertyChanged"
+                                                 Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>-->
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid x:Name="Case_Date" Grid.Row="2" 
+                              Visibility="{Binding DateSearchGridVisibility, UpdateSourceTrigger=PropertyChanged}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="19*"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="15*"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="110*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="1" Text="Початок пошуку:"/>
+
+                                    <TextBlock Grid.Column="3" Text="Кінець пошуку:"/>
+
+
+                                </Grid>
+
+                                <Grid Grid.Row="3" x:Name="DateGrid" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <DatePicker Grid.Column="1" SelectedDate="{Binding DateSearchStart
+                                    , UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Text" Value="Початок Пошуку:"/>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+
+                                    <DatePicker Grid.Column="3" SelectedDate="{Binding DateSearchEnd,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Text" Value="Кінець Пошуку:"/>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid x:Name="CaseStatusSearch" Grid.Row="2" Visibility="{Binding StatusSearchGridVisibility
+                            , UpdateSourceTrigger=PropertyChanged}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="83*"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="125*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <ComboBox Grid.Column="1" IsEditable="True"
+                                          ItemsSource="{Binding Source= {StaticResource PatientStatus}}"
+                                          SelectedItem="{Binding SearchStatus,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}"/>
+
+                                </Grid>
+                            </Grid>
+
+                            <Grid x:Name="CaseDate_StatusSearch" Grid.Row="2" 
+                              Visibility="{Binding DateStatusSearchGridVisibility, UpdateSourceTrigger=PropertyChanged,
+                            Mode=OneWay}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="44*"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="39*"/>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="82*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1" x:Name="DateGrid2" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <DatePicker Grid.Column="1" SelectedDate="{Binding DateSearchStart
+                                    , UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Text" Value="Початок Пошуку:"/>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+
+                                    <DatePicker Grid.Column="3" SelectedDate="{Binding DateSearchEnd,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="DatePickerTextBox">
+                                                <Setter Property="Text" Value="Кінець Пошуку:"/>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <ComboBox Grid.Column="1" IsEditable="True"
+                                          ItemsSource="{Binding Source= {StaticResource PatientStatus}}"
+                                          SelectedItem="{Binding SearchStatus,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=TwoWay}"/>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="Додати хворого"
+                     FontSize="{StaticResource TabItemHeaderFontSize}">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="114*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="70*"/>
+                        </Grid.ColumnDefinitions>
+                        <GridSplitter Style="{StaticResource GridSplitterVertical}" Grid.Column="1"/>
+
+                        <Grid x:Name="LGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="21*"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="21*"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="21*"/>
+                                <RowDefinition Height="52"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="107*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource InpTextblock}"
+                               Text="Прізвище:" />
+                            <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource InpTextblock}"
+                               Text="Ім'я:" />
+                            <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource InpTextblock}"
+                               Text="Побатькові:" />
+                            <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource InpTextblock}"
+                               Text="Напрвлення:" />
+                            <TextBlock Grid.Row="10" Grid.Column="1" Style="{StaticResource InpTextblock}"
+                               Text="Висновок:" VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Row="9" Grid.Column="1" Style="{StaticResource InpTextblock}"
+                               Text="Дата реєстрації е. н.:" VerticalAlignment="Center"/>
+
+
+
+                            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                <TextBox.Text>
+                                    <Binding Path="Surename" 
+                                     UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <TextBox Grid.Row="3" Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                <TextBox.Text>
+                                    <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                <TextBox.Text>
+                                    <Binding Path="Lastname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                        <Binding.ValidationRules>
+                                            <DataErrorValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+
+                            <sc:SmartCodeField Grid.Row="7" Grid.Column="3"
+                                           CodeNumber="{Binding Code,
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           IsCodeCorrect="{Binding IsInputCodeCorrect,
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           />
+
+                            <!--<TextBox Grid.Row="7" Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}" 
+                            >
+                            <TextBox.Text>
+                                <Binding Path="Code" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>-->
+
+                            <Grid Grid.Row="9" Grid.Column="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45.921"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <DatePicker  Grid.Column="1" 
+                                SelectedDate="{Binding NewRegisterDate, UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay}">
+
+                                    <DatePicker.Resources>
+                                        <Style TargetType="DatePickerTextBox">
+                                            <Setter Property="Text" Value="Обрати дату:"/>
+                                        </Style>
+                                    </DatePicker.Resources>
+
+                                </DatePicker>
+
+                            </Grid>
+
+
+
+                            <Grid Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="64*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="23*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="5"/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap"
+                             AcceptsTab="True" AcceptsReturn="True" 
+                                     Text="{Binding Diagnosis, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             />
+
+                                    <Grid x:Name="ButtonsGrid" Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="150"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Column="3"
+                                     Content="Додати"
+                                    Command="{Binding OnAddNewPatientButtonPressed}"
+                                        Style="{StaticResource Buttons2}" />
+
+                                        <Button Grid.Column="5" Content="Очистити поля"
+                                    Command="{Binding OnClearFialdsButtonPressed}"
+                                        Style="{StaticResource Buttons}"/>
+
+                                        <Polygon Grid.Column="1"
+                                         >
+
+                                        </Polygon>
+                                    </Grid>
+
+                                </Grid>
+
+                                <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource GridSplitterHor}"/>
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Додаткова інформація:" Grid.Row="1" HorizontalAlignment="Left" FontSize="25"/>
+
+                            <Grid Grid.Row="3" x:Name="RGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="10"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="10"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="+" Style="{StaticResource Buttons2}"
+                                 Grid.Row="1" Grid.Column="1"
+                                Command="{Binding OnAddNewAddInfoNotePressed}"/>
+
+                                <Button Content="-" Style="{StaticResource Buttons}"
+                                 Grid.Row="3" Grid.Column="1"
+                                Command="{Binding OnRemoveAddInfoButtonPressed}"/>
+
+                                <ListView x:Name="AddInfo"
+                                  Grid.Row="1" Grid.Column="2" Grid.RowSpan="4"
+                                  Margin="5" BorderBrush="Green" BorderThickness="2"
+                                  ItemsSource="{Binding AddInfoCol, 
+                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                  SelectedIndex="{Binding SelectedAddInfoIndex, UpdateSourceTrigger=PropertyChanged,
+                            Mode=TwoWay}" HorizontalContentAlignment="Stretch"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </TabItem>
+
+                <TabItem Header="Реєстрація та перегляд Історії Хвороб" FontSize="{StaticResource TabItemHeaderFontSize}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="1" Content="Реєстрація"
+                                Style="{StaticResource Buttons2}"
+                                Margin="2"
+                                Command="{Binding RegisterHistoryNotes}"/>
+                            <Button Grid.Column="3" Content="Перегляд"
+                                Style="{StaticResource Buttons2}"
+                                Margin="2"
+                                Command="{Binding ViewHistorryNotes}"/>
+
+                            <TextBlock Grid.Column="4" Margin="350,0,50,0"
+                                   Text="{Binding HistoryNotesCount, UpdateSourceTrigger=PropertyChanged,
+                            Mode=OneWay, StringFormat=Кількість_Записів: ({0}) шт. }"/>
+
+                        </Grid>
+
+                        <Border Grid.Row="2" Margin="3"
+                            BorderThickness="2" 
+                            BorderBrush="Black"
+                            Visibility="{Binding CaseRegisterHistory, UpdateSourceTrigger=PropertyChanged}">
+                            <Grid x:Name="CaseRegisterHistory"
+                           >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="51*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="56*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <GridSplitter Grid.Column="1"
+                                      Style="{StaticResource GridSplitterVertical}"/>
+                                <Grid x:Name="LeftGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="20"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="12"/>
+                                            <ColumnDefinition Width="170"/>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="160"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Дата дослідження:" Grid.Column="1"/>
+
+                                        <DatePicker Grid.Column="3" 
+                                                SelectedDate="{Binding HistoryRegistrationDate,
+                                        UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                            <DatePicker.Resources>
+                                                <Style TargetType="DatePickerTextBox">
+                                                    <Setter Property="Text" Value="Обрати дату:"/>
+                                                </Style>
+                                            </DatePicker.Resources>
+                                        </DatePicker>
+
+                                    </Grid>
+
+
+                                    <sc:SmartDateChecker Grid.Row="3"
+                                                     IsClearFieldsEnabled="{Binding ClearDate,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                     Date="{Binding HospitalDateTime,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Mode=OneWayToSource}"
+                                                     IsElectroneDirExists="{Binding IsDirExists,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                         OkUri="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"
+                                                         ErrorUri="pack://siteoforigin:,,,/Resources/Icons/IconsError.png"
+                                                        IsCorrect="{Binding IsDateCorrect, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                     />
+
+                                    <Grid Grid.Row="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="10"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Прізвище:" Grid.Column="1"/>
+                                        <TextBox Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                            <TextBox.Text>
+                                                <Binding Path="PatientSurename"
+                                                     UpdateSourceTrigger="PropertyChanged"
+                                                     Mode="TwoWay"
+                                                     >
+                                                    <Binding.ValidationRules>
+                                                        <DataErrorValidationRule/>
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
+
+                                    <Grid Grid.Row="7">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="10"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Ім'я:" Grid.Column="1"/>
+                                        <TextBox Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                            <TextBox.Text>
+                                                <Binding Path="PatientName"
+                                                     UpdateSourceTrigger="PropertyChanged"
+                                                     Mode="TwoWay">
+                                                    <Binding.ValidationRules>
+                                                        <DataErrorValidationRule/>
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
+
+                                    <Grid Grid.Row="9">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="10"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Побатькові:" Grid.Column="1"/>
+                                        <TextBox Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                            <TextBox.Text>
+                                                <Binding Path="PatientLastName"
+                                                     UpdateSourceTrigger="PropertyChanged"
+                                                     Mode="TwoWay"
+                                                     >
+                                                    <Binding.ValidationRules>
+                                                        <DataErrorValidationRule/>
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </TextBox.Text>
+                                        </TextBox>
+                                    </Grid>
+
+                                    <Grid Grid.Row="11">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="140"/>
+                                            <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="200"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="65"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="10"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Центр:" Grid.Column="1"/>
+                                            <TextBox Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                                <TextBox.Text>
+                                                    <Binding Path="Center"
+                                                     UpdateSourceTrigger="PropertyChanged"
+                                                     Mode="TwoWay">
+                                                        <Binding.ValidationRules>
+                                                            <DataErrorValidationRule/>
+                                                        </Binding.ValidationRules>
+                                                    </Binding>
+                                                </TextBox.Text>
+                                            </TextBox>
+                                        </Grid>
+
+                                        <Grid Grid.Column="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="105"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="10"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Відділення:" Grid.Column="1"/>
+                                            <TextBox Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                                                <TextBox.Text>
+                                                    <Binding Path="Department"
+                                                     UpdateSourceTrigger="PropertyChanged"
+                                                     Mode="TwoWay">
+                                                        <Binding.ValidationRules>
+                                                            <DataErrorValidationRule/>
+                                                        </Binding.ValidationRules>
+                                                    </Binding>
+                                                </TextBox.Text>
+                                            </TextBox>
+                                        </Grid>
+
+                                    </Grid>
+
+                                </Grid>
+
+                                <Grid x:Name="RightGrid" Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="120*"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="167*"/>
+                                    </Grid.RowDefinitions>
+                                    <GridSplitter Grid.Row="1" Style="{StaticResource GridSplitterHor}"/>
+
+                                    <Grid x:Name="Upper">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="17*"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="17*"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="17*"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="9*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="3" 
+                                          Visibility="{Binding PhysicianVisibility,
+                                        UpdateSourceTrigger=PropertyChanged}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Лікар:" Grid.Column="1"/>
+                                            <ComboBox Grid.Column="3" IsEditable="True"
+                                                  SelectedItem="{Binding Physician, 
+                                            UpdateSourceTrigger=PropertyChanged,
+                                            Mode=TwoWay}"
+                                                  ItemsSource="{DynamicResource Doctors}"/>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="170"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Напр. відсутнє, бо:" Grid.Column="1"/>
+                                            <ComboBox Grid.Column="3" IsEditable="True"
+                                                  Text="{Binding Reason,
+                                            UpdateSourceTrigger=PropertyChanged,
+                                            Mode=TwoWay}"
+                                                  ItemsSource="{DynamicResource Reasons}"
+                                                  />
+                                        </Grid>
+
+                                        <Grid Grid.Row="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="170"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Дослідження:" Grid.Column="1"/>
+                                            <ComboBox Grid.Column="3" IsEditable="True"
+                                                  Text="{Binding InvestType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                  ItemsSource="{DynamicResource Investigations}"
+                                                  />
+                                        </Grid>
+
+
+
+                                    </Grid>
+
+                                    <Grid x:Name="Lower" Grid.Row="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="35"/>
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Text="Примітки:" Grid.Row="0"
+                                           Margin="20,0,0,0"/>
+
+                                        <Border BorderBrush="DarkGreen" 
+                                        Margin="5"
+                                        BorderThickness="2" Grid.Row="1">
+                                            <Grid  x:Name="addInfo" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="10"/>
+                                                    <RowDefinition Height="40"/>
+                                                    <RowDefinition Height="40"/>
+                                                    <RowDefinition Height="40"/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="47"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <ListView Grid.Column="1" Grid.Row="1"
+                                              Grid.RowSpan="4"
+                                                  ItemsSource="{Binding HistoryRegistrationAddInfoCollection,
+                                            UpdateSourceTrigger=PropertyChanged,
+                                            Mode=TwoWay}"
+                                                  SelectedIndex="{Binding HistoryRegistrationSelectedIndex,
+                                            UpdateSourceTrigger=PropertyChanged,
+                                            Mode=TwoWay}"
+                                                  HorizontalContentAlignment="Stretch"
+                                                      Margin="5"
+                                                  />
+
+                                                <Button Grid.Row="1" Content="+"
+                                            FontSize="25" Margin="3"
+                                            Style="{StaticResource Buttons2}"
+                                                Command="{Binding OnAddNewAddInfoHistoryNote}"/>
+
+                                                <Button Grid.Row="2" Content="-"
+                                            FontSize="25" Margin="3"
+                                            Style="{StaticResource Buttons}"
+                                                Command="{Binding OnRemoveNewAddInfoHistoryNote}"/>
+
+                                                <Button Grid.Row="3" Content="C"
+                                            FontSize="25" Margin="3"
+                                            Style="{StaticResource Buttons}"
+                                                Command="{Binding OnClearAllNewAddInfoHistoryNotes}"
+                                                />
+                                            </Grid>
+                                        </Border>
+                                        <Grid Grid.Row="2" Margin="3">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="150"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Button Content="Додати"
+                                                Grid.Column="1"
+                                                Style="{StaticResource Buttons2}"
+                                                Command="{Binding OnAddNewHistoryNote}"
+                                                />
+
+                                            <Button Content="Очистити Поля"
+                                                Grid.Column="3"
+                                                Style="{StaticResource Buttons}"
+                                                Command="{Binding RegisterSystemClearAllFields}"
+                                                />
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+
+
+
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Row="2" Margin="3" 
+                            BorderBrush="Black"
+                            BorderThickness="2" 
+                            Visibility="{Binding CaseSearchHistory, UpdateSourceTrigger=PropertyChanged}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="797*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="280*"/>
+                                </Grid.ColumnDefinitions>
+                                <GridSplitter Grid.Column="1"
+                                          Style="{StaticResource GridSplitterVertical}"/>
+                                <Grid x:Name="left">
+                                    <ListView HorizontalContentAlignment="Stretch"
+                                          ItemsSource="{Binding HistoryNotesVisualModelCollection,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                </Grid>
+
+                                <Grid x:Name="right" Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="10"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="232*"/>
+                                        <ColumnDefinition Width="10*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle Grid.Column="0"
+                                           Grid.ColumnSpan="3"
+                                           Grid.Row="1"
+                                           Style="{StaticResource Border}"/>
+                                    <Grid Grid.Column="1"
+                                      Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="210"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button 
+                                        Content="Отримати всі записи"
+                                        Style="{StaticResource Buttons2}"
+                                        Grid.Column="1"
+                                        Margin="5"
+                                        Command="{Binding GetAllHistoryNotes}"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="5.088"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="70"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="122"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button Grid.Column="1" Content="Пошук" Style="{StaticResource Buttons2}"
+                                                    Command="{Binding OnSearchConditionsButtonPressed}"/>
+
+                                            <Button Grid.Column="3" Content="Сторити звіт" Style="{StaticResource Buttons2}"
+                                                    Command="{Binding OnReportConditionsButtonPressed}"/>
+                                        </Grid>
+
+                                        <Grid Grid.Row="2" x:Name="SearchSettngs" 
+                                              Visibility="{Binding CaseSearchNotesVisibility, UpdateSourceTrigger=PropertyChanged}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="15*"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="15*"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="82*"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="37*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="85"/>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="150"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Column="1" Text="Початок:"/>
+                                                <DatePicker Grid.Column="3" 
+                                                            SelectedDate="{Binding NoteSearchStart,
+                                                    UpdateSourceTrigger=PropertyChanged,
+                                                    Mode=TwoWay}"/>
+                                            </Grid>
+
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="85"/>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="150"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Column="1" Text="Кінець:"/>
+                                                <DatePicker Grid.Column="3"
+                                                            SelectedDate="{Binding NoteSearchEnd,
+                                                    UpdateSourceTrigger=PropertyChanged,
+                                                    Mode=TwoWay}"/>
+                                            </Grid>
+
+                                            <Grid Grid.Row="5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="45*"/>
+                                                    <ColumnDefinition Width="61*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Button Grid.Column="1" Content="Пошук" 
+                                                        Style="{StaticResource Buttons2}"
+                                                        Command="{Binding OnSearchHistoryNotesButtonPressed}"/>
+
+                                            </Grid>
+
+                                        </Grid>
+
+                                        <Grid Grid.Row="2" x:Name="ReportSettings"
+                                              Visibility="{Binding CaseReportSystemVisibility, UpdateSourceTrigger=PropertyChanged}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="94*"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="37*"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="86"/>
+                                                    <ColumnDefinition Width="10"/>
+                                                    <ColumnDefinition Width="140"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="1" 
+                                                           Text="Тип звіту:"/>
+
+                                                <ComboBox IsEditable="True" Grid.Column="3"
+                                                          ItemsSource="{Binding Source={StaticResource RepType}}"
+                                                          SelectedItem="{Binding RepType, UpdateSourceTrigger=PropertyChanged,
+                                                    Mode=TwoWay}"/>
+                                            </Grid>
+
+                                            <Grid Grid.Row="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="10"/>
+                                                    <ColumnDefinition Width="170"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="1" 
+                                                        Content="Сгенерувати звіт"
+                                                        Style="{StaticResource Buttons2}"
+                                                        Command="{Binding OnCreateReportButtonPressed}"/>
+                                            </Grid>
+                                        </Grid>
+
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,30 @@
+F:\PatientRep\Tester\bin\Release\net6.0\Tester.exe
+F:\PatientRep\Tester\bin\Release\net6.0\Tester.deps.json
+F:\PatientRep\Tester\bin\Release\net6.0\Tester.runtimeconfig.json
+F:\PatientRep\Tester\bin\Release\net6.0\Tester.dll
+F:\PatientRep\Tester\bin\Release\net6.0\Tester.pdb
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.csproj.AssemblyReference.cache
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.AssemblyInfoInputs.cache
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.AssemblyInfo.cs
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.csproj.CoreCompileInputs.cache
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.dll
+F:\PatientRep\Tester\obj\Release\net6.0\refint\Tester.dll
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.pdb
+F:\PatientRep\Tester\obj\Release\net6.0\Tester.genruntimeconfig.cache
+F:\PatientRep\Tester\obj\Release\net6.0\ref\Tester.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\bin\Release\net6.0\Tester.exe
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\bin\Release\net6.0\Tester.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\bin\Release\net6.0\Tester.runtimeconfig.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\bin\Release\net6.0\Tester.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\bin\Release\net6.0\Tester.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\refint\Tester.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\Tester.genruntimeconfig.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Tester\obj\Release\net6.0\ref\Tester.dll

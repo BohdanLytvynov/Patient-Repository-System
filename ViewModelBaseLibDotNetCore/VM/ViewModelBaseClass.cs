@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ViewModelBaseLibDotNetCore.VM
+{
+    public class ViewModelBaseClass : INotifyPropertyChanged, IDataErrorInfo
+    {
+        protected bool[] m_ValidationArray;
+
+        public virtual string this[string columnName] => throw new NotImplementedException();
+
+        public virtual string Error { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string prop)
+        {
+            var temp = Volatile.Read(ref PropertyChanged);
+
+            temp?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public bool Set<T>(ref T field, T value, string prop)
+        {
+            if (field == null)
+            {
+                return false;
+            }
+
+            if (field.Equals(value))
+            {
+                return false;
+            }
+            else
+            {
+                field = value;
+                OnPropertyChanged(prop);
+                return true;
+            }
+        }
+
+        protected virtual bool CheckValidArray()
+        {
+            foreach (bool item in m_ValidationArray)
+            {
+                if (item == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+    }
+}

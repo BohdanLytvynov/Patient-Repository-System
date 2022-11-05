@@ -1,0 +1,137 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {
+      "DataValidation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DataValidation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataValidation.dll": {}
+        }
+      },
+      "IntegartedDataLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/IntegartedDataLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IntegartedDataLib.dll": {}
+        }
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ViewModelBaseLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ViewModelBaseLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "DataValidation/1.0.0": {
+      "type": "project",
+      "path": "../DataValidation/DataValidation.csproj",
+      "msbuildProject": "../DataValidation/DataValidation.csproj"
+    },
+    "IntegartedDataLib/1.0.0": {
+      "type": "project",
+      "path": "../IntegartedDataLib/IntegartedDataLib.csproj",
+      "msbuildProject": "../IntegartedDataLib/IntegartedDataLib.csproj"
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "path": "../ViewModelBaseLib/ViewModelBaseLib.csproj",
+      "msbuildProject": "../ViewModelBaseLib/ViewModelBaseLib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": [
+      "DataValidation >= 1.0.0",
+      "IntegartedDataLib >= 1.0.0",
+      "ViewModelBaseLib >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Models\\Models.csproj",
+      "projectName": "Models",
+      "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Models\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\DataValidation\\DataValidation.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\DataValidation\\DataValidation.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\IntegartedDataLib\\IntegartedDataLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\IntegartedDataLib\\IntegartedDataLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+E:\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+E:\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll
+F:\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+F:\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep V 3\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll

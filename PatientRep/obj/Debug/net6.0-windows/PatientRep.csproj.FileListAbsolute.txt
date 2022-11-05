@@ -1,0 +1,324 @@
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C#\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+D:\C#\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.pdb
+E:\PatientRep\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+F:\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.dll
+E:\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.pdb
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.dll
+F:\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\FontAwesome5.Net.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\FontAwesome5.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CustomIconsLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CustomIconsLib.pdb
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.baml
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\IntegartedDataLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\FontAwesome5.Net.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\FontAwesome5.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CustomIconsLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\IntegartedDataLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\CustomIconsLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.g.cs
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.baml
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsError.png
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsOk.png
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsProcessing.png
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_Content.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\OKIcon20.20.png
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsError.png
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsOk.png
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsProcessing.png
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\OKIcon20.20.png
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_Content.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.g.cs
+E:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.baml
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ReportBuilderLib.dll
+E:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ReportBuilderLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.g.cs
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ReportBuilderLib.dll
+F:\PatientRep V 3\PatientRep\PatientRep\bin\Debug\net6.0-windows\ReportBuilderLib.pdb
+F:\PatientRep V 3\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.baml
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsError.png
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsOk.png
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsProcessing.png
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\OKIcon20.20.png
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.exe
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.runtimeconfig.json
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\PatientRep.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\FontAwesome5.Net.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\FontAwesome5.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\CustomIconsLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\IntegartedDataLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ReportBuilderLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ConvertersLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\CRUDControllerLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\CustomIconsLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\DataValidation.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\JsonDataProviderLibDNC.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\Models.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ReportBuilderLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\SmartControlls.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.g.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.g.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_Content.g.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\App.baml
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.baml
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.baml
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\refint\PatientRep.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll

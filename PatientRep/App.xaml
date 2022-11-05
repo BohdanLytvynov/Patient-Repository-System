@@ -1,0 +1,1241 @@
+﻿<Application x:Class="PatientRep.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PatientRep" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:p="clr-namespace:Models.PatientModel.PatientVisualModel;assembly=Models"
+             xmlns:ad="clr-namespace:Models;assembly=Models"
+             xmlns:ps="clr-namespace:Models.PatientModel.Enums;assembly=Models"
+             xmlns:hn="clr-namespace:Models.HistoryNoteModels.VisualModel;assembly=Models"
+             xmlns:converters="clr-namespace:ConvertersLib;assembly=ConvertersLib"
+             xmlns:id="clr-namespace:IntegartedDataLib;assembly=IntegartedDataLib"
+             xmlns:report="clr-namespace:Models.ReportModels.ReportVisualModel;assembly=Models"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+
+        <!--#region Resources Icons-->
+
+        <Image x:Key="OkIcon" Source="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"/>
+
+        <Image x:Key="ErrorIcon" Source="pack://siteoforigin:,,,/Resources/Icons/IconsError.png"/>
+
+        <Image x:Key="ProcessIcon" Source="pack://siteoforigin:,,,/Resources/Icons/IconsProcessing.png"/>
+
+        <!--#endregion-->
+
+        <!--#region Inegrated data-->
+
+        <id:Physicians x:Key="Doctors">
+        </id:Physicians>
+
+        <id:Reasons x:Key="Reasons"/>
+
+        <id:Investigations x:Key="Investigations"/>
+
+        <!--#endregion-->
+
+        <!--#region Enums Init-->
+
+        <converters:StringToDateTimeConverter x:Key="StringToDateTime"/>
+
+        <ObjectDataProvider x:Key="PatientStatus" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ps:PatientStatus"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <!--#endregion-->
+
+        <!--#region FontSize -->
+
+        <system:Double x:Key="TabItemHeaderFontSize">20
+        </system:Double>
+
+        <system:Double x:Key="GridSplitterWidth">5
+        </system:Double>
+
+        <system:Double x:Key="GridSplitterHeight">5
+        </system:Double>
+
+        <system:Double x:Key="InpTxtBlockFontSize">18
+        </system:Double>
+
+        <system:Double x:Key="TxtBoxFontSize">18
+        </system:Double>
+
+        <system:Double x:Key="brdWidth">3
+        </system:Double>
+
+        <Duration x:Key="animDur">0:0:0:0.2
+        </Duration>
+               
+        <!--#endregion-->
+
+        <!--#region Colors -->
+
+
+        <!--#region Button Colors-->
+
+        <SolidColorBrush x:Key="HistNoteBorderBrush">orange
+        </SolidColorBrush>
+
+        <Color x:Key="btn1TypeInit">#FFD65252
+        </Color>
+
+        <Color x:Key="btn1TypeOver">#FFB84141
+        </Color>
+
+        <Color x:Key="btn1TypePressed">#FF7E2929
+        </Color>
+
+        <Color x:Key="btn2TypeInit">#FF2F4EC8
+        </Color>
+
+        <Color x:Key="btn2TypeOver">#FF192D7E
+        </Color>
+
+        <Color x:Key="btn2TypePressed">#FF142464
+        </Color>
+
+        <Color x:Key="btn2TypeDisabled">#FF909090
+        </Color>
+
+        <!--#endregion-->
+
+        <SolidColorBrush x:Key="ExtractableItemColor" Color="Orange"/>
+
+
+        <SolidColorBrush x:Key="brdPatColoFired">#239E5E
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="brdPatColorError">Orangered
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="brdPatColorNotFired">Orange
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="BordColor">black
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="GridSplitColorInit">black
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="GridSplitColorOver">green
+        </SolidColorBrush>
+
+        <SolidColorBrush x:Key="BordBrushInputColor">Black
+        </SolidColorBrush>
+        <!--#endregion-->
+
+        <!--#region Styles -->
+
+        <Style x:Key="TogButton" TargetType="ToggleButton">
+            <Style.Setters>
+                <Setter Property="Template" >
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Border x:Name="bord" BorderThickness="2" CornerRadius="5">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="BrdColor" Color="{DynamicResource btn2TypeInit}"/>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="BrdBackColor" Color="{DynamicResource btn2TypeInit}"/>
+                                </Border.Background>
+                                <Canvas Height="25" Width="25">
+                                    <Path Data="M5, 8, 12.5,17 20,8 Z" Stroke="White" Fill="White" StrokeThickness="0" x:Name="path"/>
+                                    <Canvas.RenderTransform>
+                                        <RotateTransform x:Name="rotor" Angle="0" CenterX="12.5" CenterY="12.5"/>
+                                    </Canvas.RenderTransform>
+                                </Canvas>
+
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                Storyboard.TargetName="BrdBackColor"
+                                                Storyboard.TargetProperty="Color"
+                                                Duration="{StaticResource animDur}"
+                                                To="{DynamicResource btn2TypeInit}"
+                                                />
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="StrokeThickness"
+                                                    Storyboard.TargetName="path"
+                                                    Duration="{StaticResource animDur}"
+                                                    To="0"
+                                                    />
+
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="rotor"
+                                                    Storyboard.TargetProperty="Angle"
+                                                    Duration="{StaticResource animDur}"
+                                                    To="0"
+                                                    />
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                Storyboard.TargetName="BrdBackColor"
+                                                Storyboard.TargetProperty="Color"
+                                                Duration="{StaticResource animDur}"
+                                                To="{DynamicResource btn2TypeOver}"
+                                                />
+
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="StrokeThickness"
+                                                    Storyboard.TargetName="path"
+                                                    Duration="{StaticResource animDur}"
+                                                    To="1"
+                                                    />
+                                                
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="rotor"
+                                                    Storyboard.TargetProperty="Angle"
+                                                    Duration="{StaticResource animDur}"
+                                                    To="180"
+                                                    />
+
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="StrokeThickness"
+                                                    Storyboard.TargetName="path"
+                                                    Duration="{StaticResource animDur}"
+                                                    To="1"
+                                                    />
+                                            </Storyboard>
+                                        </VisualState>
+                                        
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="Buttons" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="brd" BorderThickness="2" CornerRadius="4">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="BrdColor" Color="{StaticResource btn1TypeInit}"/>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="BrdBackColor" Color="{StaticResource btn1TypeInit}"/>
+                                </Border.Background>
+
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn1TypeInit}"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ColorAnimation>
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn1TypeInit}"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ColorAnimation>
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="2"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ThicknessAnimation>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn1TypeOver}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn1TypeOver}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="2"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ThicknessAnimation>
+
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn1TypePressed}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="5"
+                                                    Duration="{StaticResource animDur}"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeDisabled}"/>
+
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeDisabled}"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+
+
+        <Style x:Key="Buttons2" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Foreground" Value="White"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="brd" BorderThickness="2" CornerRadius="4">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="BrdColor" Color="{StaticResource btn2TypeInit}"/>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="BrdBackColor" Color="{StaticResource btn2TypeInit}"/>
+                                </Border.Background>
+
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeInit}"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ColorAnimation>
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeInit}"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ColorAnimation>
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="2"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ThicknessAnimation>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeOver}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeOver}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="2"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ThicknessAnimation>
+
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypePressed}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="5"
+                                                    Duration="{StaticResource animDur}"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeDisabled}"/>
+
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeDisabled}"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="Stacks" TargetType="StackPanel">
+            <Style.Setters>
+                <Setter Property="ItemsControl.FontSize" Value="20"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="PatientFieldsTxtBox" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="BorderBrush" Value="OrangeRed"/>
+                        <Setter Property="BorderThickness" Value="3"/>
+                    </Trigger.Setters>
+                </Trigger>
+
+                <Trigger Property="Validation.HasError" Value="False">
+                    <Trigger.Setters>
+                        <Setter Property="BorderBrush" Value="Green"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="TxtBoxInputStyle" TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="ItemsControl.FontSize" Value="{StaticResource TxtBoxFontSize}"/>
+                <Setter Property="ItemsControl.BorderBrush" Value="{StaticResource BordBrushInputColor}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Border BorderBrush="OrangeRed" BorderThickness="3">
+                                <Grid>
+                                    <AdornedElementPlaceholder/>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="OrangeRed"
+                                               VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="12"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="False">
+                    <Setter Property="BorderBrush" Value="#FF23A829"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="InpTextblock" TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="{StaticResource InpTxtBlockFontSize}"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="Border" TargetType="Rectangle">
+            <Style.Setters>
+                <Setter Property="Fill" Value="{StaticResource BordColor}"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="GridSplitterVertical" TargetType="GridSplitter">
+            <Style.Setters>
+                <Setter Property="Background" Value="{StaticResource GridSplitColorInit}"/>
+                <Setter Property="Width" Value="{StaticResource GridSplitterWidth}"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Background" Value="{StaticResource GridSplitColorOver}"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="GridSplitterHor" TargetType="GridSplitter">
+            <Style.Setters>
+                <Setter Property="Background" Value="{StaticResource GridSplitColorInit}"/>
+                <Setter Property="Height" Value="{StaticResource GridSplitterHeight}"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Background" Value="{StaticResource GridSplitColorOver}"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--#endregion-->
+
+        <!--#region PatientdataTemplate-->
+
+        <DataTemplate DataType="{x:Type p:Patient}">
+            <Border x:Name="bord" BorderThickness="2" BorderBrush="Black" CornerRadius="10">
+
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Horizontal" Style="{StaticResource Stacks}">
+                        <TextBlock Text="{Binding Number, UpdateSourceTrigger=PropertyChanged, Mode=OneWay,
+                        StringFormat=№ {0}}" Margin="5"/>
+
+                        <StackPanel Orientation="Vertical" Margin="5">
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="П:  " />
+                                <TextBox Style="{StaticResource PatientFieldsTxtBox}">
+                                    <TextBox.Text>
+                                        <Binding Path="Surename" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="І:  "/>
+                                <TextBox Style="{StaticResource PatientFieldsTxtBox}">
+                                    <TextBox.Text>
+                                        <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Б:  "/>
+                                <TextBox Style="{StaticResource PatientFieldsTxtBox}">
+                                    <TextBox.Text>
+                                        <Binding Path="Lastname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" Margin="5">
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="№ направлення:  "/>
+                                <TextBox Style="{StaticResource PatientFieldsTxtBox}">
+                                    <TextBox.Text>
+                                        <Binding Path="Code" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Дата реєстрації:  "/>
+                                <TextBox Style="{StaticResource PatientFieldsTxtBox}">
+                                    <TextBox.Text>
+                                        <Binding Path="RegisterDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"
+                                             StringFormat="dd.MM.yyyy" Converter="{StaticResource StringToDateTime}">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="Дата дослідження:  "/>
+                                <TextBox Style="{StaticResource PatientFieldsTxtBox}">
+                                    <TextBox.Text>
+                                        <Binding Path="InvestigationDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"
+                                             StringFormat="dd.MM.yyyy" Converter="{StaticResource StringToDateTime}">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+
+                            <Button 
+                                    Margin="10" Style="{StaticResource Buttons2}" Content="Вствновити дату дослідження" Command="{Binding OnSetInvestigationDatePressed}"/>
+
+                            <ComboBox ItemsSource="{Binding Source= {StaticResource PatientStatus}}" 
+                                  SelectedItem="{Binding Status, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                  IsEditable="True"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" Margin="10,5,10,0">
+
+                            <Expander Margin="5" Header="Висновок:">
+
+                                <Grid Height="200" Width="600">
+                                    <TextBox Margin="5" Text="{Binding Diagnosis, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                             TextWrapping="Wrap" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
+                             AcceptsReturn="True" AcceptsTab="True"/>
+                                </Grid>
+
+                            </Expander>
+
+                            <Expander Margin="5,40,0,0">
+                                <Expander.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Додаткова інформація:"/>
+                                        <TextBlock Text="{Binding AddInfoVMCollection.Count, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, StringFormat=({0}) шт.}"/>
+                                    </StackPanel>
+                                </Expander.Header>
+                                <StackPanel Orientation="Vertical">
+
+                                    <Grid Margin="5">
+                                        <Border BorderBrush="Green" BorderThickness="2" CornerRadius="4">
+                                            <ListView x:Name="adInfoViewer" ItemsSource="{Binding AddInfoVMCollection, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                              SelectedIndex="{Binding SelectedAddInfoIndex, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        </Border>
+                                    </Grid>
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Button x:Name="Add" Margin="5" Content="+" Style="{StaticResource Buttons2}" Width="100" FontSize="20"
+                                        Command="{Binding OnAddAdditionalInfoButtonPressed}"/>
+
+                                        <Button x:Name="Rem" Content="-" Style="{StaticResource Buttons}" Width="100" FontSize="20" Margin="20,5,5,5"
+                                        Command="{Binding OnRemoveAdditionalInfoButtonPressed}"/>
+
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </Expander>
+
+                        </StackPanel>
+
+
+
+                        <StackPanel Orientation="Vertical" Margin="5">
+
+                            <Button Margin="5,5,5,40" Content="Зберегти зміни" Command="{Binding SaveChangesButtonPressed}" Style="{StaticResource Buttons2}"/>
+
+                            <Button Margin="5,5,5,40" Content="Видалити" Command="{Binding RemoveButtonPressed}" Style="{StaticResource Buttons}"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <TextBlock x:Name="adorner" Margin="60,0"/>
+
+                </StackPanel>
+            </Border>
+
+            <DataTemplate.Triggers>
+
+                <DataTrigger Binding="{Binding IsRemoved, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="bord" Property="Visibility" Value="Collapsed"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsRemoved, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="bord" Property="Visibility" Value="Visible"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Status}" Value="1">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Orange"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="2"/>
+                        <Setter TargetName="adorner" Property="Text" Value="Не Погашено!!!"/>
+                        <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="DarkOrange"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Status}" Value="2">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Green"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="2"/>
+                        <Setter TargetName="adorner" Property="Text" Value="Погашено. Все Ок! ЗП прийде :)"/>
+                        <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="Green"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Status}" Value="3">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Red"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="2"/>
+                        <Setter TargetName="adorner" Property="Text" Value="Цей хворий вже не прийде! І грощі за нього не дадуть! ):"/>
+                        <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="Red"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+            </DataTemplate.Triggers>
+
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ad:AdditionalInfoViewModel}">
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Margin="5">
+                <StackPanel Orientation="Horizontal" Style="{StaticResource Stacks}" Margin="3">
+                    <TextBlock Text="{Binding ShowNumber, UpdateSourceTrigger=PropertyChanged, StringFormat=№ {0})}"/>
+
+                    <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="20,0,0,0"
+                             />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <!--#endregion-->
+
+        <!--#region HistoryNoteDataTemplate-->
+
+        <DataTemplate DataType="{x:Type hn:HistoryNote}">
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10" x:Name="bord">
+
+                <StackPanel Orientation="Vertical" Style="{StaticResource Stacks}">
+
+                    <Border BorderBrush="Blue" BorderThickness="0,0,0,2" Margin="10">
+                        <TextBlock Text="{Binding InvestDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, StringFormat=Дата_Дослідження: {0:dd.MM.yyyy}}"
+                               Margin="5"
+                               />
+                    </Border>
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="{Binding ShowNumber, UpdateSourceTrigger=PropertyChanged, StringFormat=№ {0}}"
+                                   Margin="3"/>
+
+                        <Border BorderBrush="{StaticResource HistNoteBorderBrush}" BorderThickness="2,0,2,0">
+
+                            <StackPanel Orientation="Vertical" Margin="10">
+
+                                <TextBox Style="{StaticResource TxtBoxInputStyle}" Margin="0,0,0,10">
+                                    <TextBox.Text>
+                                        <Binding Path="Surename" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+
+                                <TextBox Style="{StaticResource TxtBoxInputStyle}" Margin="0,0,0,10">
+                                    <TextBox.Text>
+                                        <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+
+                                <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox.Text>
+                                        <Binding Path="Lastname" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+
+                                <Button Content="Зберегти" Margin="0,45,0,0" Style="{StaticResource Buttons2}" Command="{Binding OnSaveNotesButtonPressed}"/>
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource HistNoteBorderBrush}" BorderThickness="0,0,2,0">
+
+                            <StackPanel Orientation="Vertical" Margin="10">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Центр:"/>
+
+                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                        <TextBox.Text>
+                                            <Binding Path="Center" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                                <Binding.ValidationRules>
+                                                    <DataErrorValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+
+                                    <TextBlock Text="Відділення:"/>
+
+                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                        <TextBox.Text>
+                                            <Binding Path="Department" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                                <Binding.ValidationRules>
+                                                    <DataErrorValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+
+                                </StackPanel>
+
+                                <Button Content="Видалити" Margin="0,84,0,0" Style="{StaticResource Buttons}" Command="{Binding OnRemoveNoteButtonPressed}"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource HistNoteBorderBrush}" BorderThickness="0,0,2,0">
+
+                            <StackPanel Orientation="Vertical" Margin="10">
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock Text="Дата Госпіталізації:"/>
+
+                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                        <TextBox.Text>
+                                            <Binding Path="Date" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                                <Binding.ValidationRules>
+                                                    <DataErrorValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+
+                                    <TextBlock Text="Час Госпіталізації:"/>
+
+                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                        <TextBox.Text>
+                                            <Binding Path="Time" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                                <Binding.ValidationRules>
+                                                    <DataErrorValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource HistNoteBorderBrush}" BorderThickness="0,0,2,0">
+
+                            <StackPanel Orientation="Vertical" Margin="10">
+
+                                <TextBlock Text="Напр відсутнє, бо:" Margin="0,0,0,5"/>
+
+                                <ComboBox ItemsSource="{DynamicResource Reasons}" Text="{Binding Reason, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                          Margin="0,6,0,0" IsEditable="True"/>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,24,0,0" 
+                                            Visibility="{Binding DoctorsField, UpdateSourceTrigger=PropertyChanged}"
+                                            >
+
+                                    <TextBlock Text="Лікар:"/>
+
+                                    <ComboBox ItemsSource="{DynamicResource Doctors}" 
+                                              Text="{Binding Doctor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"                                              
+                                              IsEditable="True"/>
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,24, 0,0">
+
+                                    <TextBlock Text="Тип дослідження:"/>
+
+                                    <ComboBox ItemsSource="{DynamicResource Investigations}"
+                                              Text="{Binding Investigation, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource HistNoteBorderBrush}" BorderThickness="0,0,2,0">
+
+                            <StackPanel Orientation="Horizontal" Margin="10">
+
+                                <StackPanel Orientation="Vertical" Margin="10">
+                                    <Button Content=" + " FontSize="30" Margin="5" Style="{StaticResource Buttons2}"
+                                            Command="{Binding OnAddNewAddInfoNotePressed}"/>
+                                    <Button Content=" - " FontSize="30" Margin="5" Style="{StaticResource Buttons}"
+                                            Command="{Binding OnRemoveAddInfoNotePressed}"/>
+                                    <Button Content=" C " FontSize="30" Margin="5" Style="{StaticResource Buttons}"
+                                            Command="{Binding OnRemoveAllAddInfoPressed}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Vertical">
+
+                                    <TextBlock Text="Додаткова інформація:" Margin="10,0,0,10"/>
+
+                                    <Border BorderBrush="Green" BorderThickness="2" CornerRadius="5">
+                                        <ListView ItemsSource="{Binding AddInfoCollection, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                      HorizontalContentAlignment="Stretch" Margin="3"
+                                                  SelectedIndex="{Binding SelectedAddNoteIndex,
+                                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                  />
+                                    </Border>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Border>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsRemoved, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter Property="Visibility" TargetName="bord" Value="Collapsed"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsRemoved, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter Property="Visibility" TargetName="bord" Value="Visible"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+
+        </DataTemplate>
+
+        <!--#region Report System -->
+
+
+        <!--#region Report DataTemplate-->
+
+        <DataTemplate DataType="{x:Type report:Report}">
+            <Border BorderThickness="2" x:Name="bord" BorderBrush="Black" CornerRadius="10" Margin="10" Height="630">
+                <StackPanel Orientation="Vertical" Style="{StaticResource Stacks}">
+
+                    <StackPanel Orientation="Horizontal" Margin="10">
+
+                        <TextBlock Text="{Binding Date, UpdateSourceTrigger=PropertyChanged, StringFormat=Дата: {0:dd.MM.yyyy}}"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="700,0,20,0">
+                            <TextBlock Text="Експортувати: "/>
+                            <CheckBox IsChecked="{Binding IsExport, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Text="{Binding DayCount, UpdateSourceTrigger=PropertyChanged, 
+                        StringFormat=Стаціонарних_хворих_за_день: {0} шт. }" Margin="10"/>
+
+                    <Border BorderBrush="DarkGreen" BorderThickness="2" CornerRadius="10" Margin="20" Height="500">
+                        <ListView ItemsSource="{Binding Notes, UpdateSourceTrigger=PropertyChanged}" Margin="5" BorderBrush="{x:Null}"/>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsExport, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter Property="ItemsControl.BorderBrush" TargetName="bord" 
+                                Value="{DynamicResource ExtractableItemColor}"/>
+                        <Setter Property="ItemsControl.BorderThickness" TargetName="bord" Value="3"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsExport, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter Property="ItemsControl.BorderBrush" TargetName="bord"
+                                Value="DarkBlue"/>
+                        <Setter Property="ItemsControl.BorderThickness" TargetName="bord" Value="2"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!--#endregion-->
+
+        <!--#region  NoteReport DataTemplate-->
+
+        <DataTemplate DataType="{x:Type report:NoteReport}">
+            <Border BorderThickness="2" x:Name="bord" BorderBrush="Black" CornerRadius="5" Margin="10">
+
+                <StackPanel Orientation="Vertical" Style="{StaticResource Stacks}">
+
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="{Binding Reason, UpdateSourceTrigger=PropertyChanged
+                        }"/>
+
+                        <TextBlock Text="{Binding Count, UpdateSourceTrigger=PropertyChanged,
+                            StringFormat= |->: {0} шт.}"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="100,0,20,0">
+                            <TextBlock Text="Експортувати: "/>
+                            <CheckBox IsChecked="{Binding IsExport, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Переглянути список хворих" Margin="0,0,20,0" />
+                        <ToggleButton x:Name="show" Style="{StaticResource TogButton}">
+                            
+                        </ToggleButton>
+                    </StackPanel>
+
+                    <Border BorderBrush="DarkSeaGreen" BorderThickness="2" CornerRadius="5" Margin="10" x:Name="addInfo">
+                        <ListView x:Name="addInfoLv" ItemsSource="{Binding PatientAddInfo, UpdateSourceTrigger=PropertyChanged}"
+                              HorizontalContentAlignment="Stretch" Margin="5" Height="345" BorderBrush="{x:Null}"/>
+                    </Border>
+                </StackPanel>
+
+            </Border>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding ElementName=show, Path=IsChecked,UpdateSourceTrigger=PropertyChanged}" 
+                             Value="True">
+                    <DataTrigger.Setters>
+                        <Setter Property="Visibility" TargetName="addInfoLv" Value="Visible"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding ElementName=show, Path=IsChecked,UpdateSourceTrigger=PropertyChanged}" 
+                             Value="False">
+                    <DataTrigger.Setters>
+                        <Setter Property="Visibility" TargetName="addInfo" Value="Collapsed"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsExport, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter Property="ItemsControl.BorderBrush" TargetName="bord" 
+                                Value="{DynamicResource ExtractableItemColor}"/>
+                        <Setter Property="ItemsControl.BorderThickness" TargetName="bord" Value="3"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsExport, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter Property="ItemsControl.BorderBrush" TargetName="bord"
+                                Value="DarkBlue"/>
+                        <Setter Property="ItemsControl.BorderThickness" TargetName="bord" Value="2"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+
+        </DataTemplate>
+
+        <!--#endregion-->
+
+        <!--#region PatientAddInfo DataTemplate-->
+
+        <DataTemplate DataType="{x:Type report:PatientAddInfo}">
+
+            <Border BorderThickness="1" CornerRadius="5" BorderBrush="Blue" Margin="5" x:Name="bord">
+                <StackPanel Orientation="Vertical" Margin="5" Style="{StaticResource Stacks}">
+
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <TextBlock Text="{Binding ShowNumber, UpdateSourceTrigger=PropertyChanged,
+                            StringFormat=№ {0}}" Margin="5"/>
+
+                        <Border BorderBrush="Blue" BorderThickness="2,0,2,0">
+                            <StackPanel Orientation="Vertical" Margin="5">
+
+                                <TextBlock Text="{Binding Surename,UpdateSourceTrigger=PropertyChanged}"/>
+
+                                <TextBlock Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
+
+                                <TextBlock Text="{Binding Lastname,UpdateSourceTrigger=PropertyChanged}"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="Blue" BorderThickness="0,0,2,0">
+                            <StackPanel Orientation="Vertical" Margin="5">
+                                
+                                <StackPanel Orientation="Vertical">
+                                    
+                                    <TextBlock Text="Дата, Час Госп:"/>
+
+                                    <TextBlock Text="{Binding HospdateTime, UpdateSourceTrigger=PropertyChanged, StringFormat=.{0:dd.MM.yyyy hh:mm}}"/>
+                                </StackPanel>
+                                
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="Blue" BorderThickness="0,0,2,0">
+
+                            <StackPanel Orientation="Vertical" Margin="5">
+
+                                <TextBlock Text="{Binding Center, UpdateSourceTrigger=PropertyChanged, StringFormat=Центр: {0}}"/>
+
+                                <TextBlock Text="{Binding Department, UpdateSourceTrigger=PropertyChanged, StringFormat=Відділ: {0}}"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="Blue" BorderThickness="0,0,2,0">
+
+                            <StackPanel Orientation="Vertical" Margin="5">
+                                <TextBlock Text="{Binding Investigation, UpdateSourceTrigger=PropertyChanged, StringFormat=Дослідження: {0}}"/>
+
+                                <TextBlock Text="{Binding Doctor, UpdateSourceTrigger=PropertyChanged, StringFormat=Лікар: {0}}"/>
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border BorderBrush="Blue" x:Name="brdlv">
+
+                            <ListView ItemsSource="{Binding AddInfoCollection, UpdateSourceTrigger=PropertyChanged}" 
+                                      HorizontalContentAlignment="Stretch"
+                                      x:Name="adinfolv"/>
+
+                        </Border>
+
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text="Експортувати: "/>
+                            <CheckBox IsChecked="{Binding IsExport, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+            <DataTemplate.Triggers>
+
+                <DataTrigger Binding="{Binding IsExport, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter Property="ItemsControl.BorderBrush" TargetName="bord" 
+                                Value="{DynamicResource ExtractableItemColor}"/>
+                        <Setter Property="ItemsControl.BorderThickness" TargetName="bord" Value="3"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsExport, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter Property="ItemsControl.BorderBrush" TargetName="bord"
+                                Value="DarkBlue"/>
+                        <Setter Property="ItemsControl.BorderThickness" TargetName="bord" Value="2"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsAddInfoVisible, UpdateSourceTrigger=PropertyChanged}"
+                             Value="True">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="adinfolv" Property="Visibility" Value="Visible"/>
+                        <Setter TargetName="brdlv" Property="ItemsControl.BorderThickness" Value="0,0,2,0"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsAddInfoVisible, UpdateSourceTrigger=PropertyChanged}"
+                             Value="False">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="adinfolv" Property="Visibility" Value="Collapsed"/>
+                        <Setter TargetName="brdlv" Property="ItemsControl.BorderThickness" Value="0,0,0,0"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!--#endregion-->
+
+
+
+
+        <!--#endregion-->
+
+        <!--#endregion-->
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,123 @@
+D:\C#\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+D:\C#\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+D:\C#\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+D:\C#\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C#\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+D:\C#\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll
+E:\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+E:\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+E:\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+E:\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+E:\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+E:\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+E:\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+E:\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll
+E:\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.dll
+E:\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.pdb
+F:\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+F:\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+F:\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+F:\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.dll
+F:\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.pdb
+F:\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+F:\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+F:\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+F:\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.dll
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.pdb
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+E:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.dll
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.pdb
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+F:\PatientRep V 3\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\IntegartedDataLib.dll
+E:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\IntegartedDataLib.dll
+F:\PatientRep V 3\PatientRep\Models\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\Models.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\Models.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\Models.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\IntegartedDataLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\DataValidation.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\refint\Models.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\Models.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\Models\obj\Debug\net6.0-windows\ref\Models.dll

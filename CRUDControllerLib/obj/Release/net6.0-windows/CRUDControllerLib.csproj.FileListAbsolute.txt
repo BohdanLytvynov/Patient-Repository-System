@@ -1,0 +1,42 @@
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\CRUDControllerLib.deps.json
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\CRUDControllerLib.dll
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\CRUDControllerLib.pdb
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ControllerBaseLib.dll
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\DataValidation.dll
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\Models.dll
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ControllerBaseLib.pdb
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\Models.pdb
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\DataValidation.pdb
+F:\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.csproj.AssemblyReference.cache
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.AssemblyInfoInputs.cache
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.AssemblyInfo.cs
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.csproj.CoreCompileInputs.cache
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.csproj.CopyComplete
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.dll
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\refint\CRUDControllerLib.dll
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.pdb
+F:\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\ref\CRUDControllerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\CRUDControllerLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\CRUDControllerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\CRUDControllerLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\Models.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\DataValidation.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\refint\CRUDControllerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\CRUDControllerLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\CRUDControllerLib\obj\Release\net6.0-windows\ref\CRUDControllerLib.dll

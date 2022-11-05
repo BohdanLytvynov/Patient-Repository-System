@@ -1,0 +1,90 @@
+E:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+E:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+E:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+E:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+E:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
+F:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+F:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+F:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+F:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+F:\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+E:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+F:\PatientRep V 3\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll

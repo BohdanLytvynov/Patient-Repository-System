@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="SmartControlls.SmartCodeField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartControlls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="389" MaxHeight="50" MinHeight="50" MinWidth="389">
+    
+    <Grid Background="White">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Margin="10,0" Width="54" x:Name="Field1" TextChanged="Field1_TextChanged" MaxLength="4" MaxLines="1"/>
+
+                <TextBlock Text="-" FontSize="18"/>
+
+                <TextBox Margin="10,0" Width="54" x:Name="Field2" TextChanged="Field2_TextChanged" MaxLength="4" MaxLines="1"/>
+
+                <TextBlock Text="-" FontSize="18"/>
+
+                <TextBox Margin="10,0" Width="54" x:Name="Field3" TextChanged="Field3_TextChanged" MaxLength="4" MaxLines="1"/>
+
+                <TextBlock Text="-" FontSize="18"/>
+
+                <TextBox Margin="10,0,0,0" Width="54" x:Name="Field4" TextChanged="Field4_TextChanged" MaxLength="4" MaxLines="1"/>
+            </StackPanel>
+            <TextBlock Text="" Margin="20,5,0,0" FontSize="12" x:Name="Adorner" Visibility="Collapsed"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

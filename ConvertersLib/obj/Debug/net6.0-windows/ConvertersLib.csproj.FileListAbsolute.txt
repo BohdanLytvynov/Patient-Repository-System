@@ -1,0 +1,72 @@
+F:\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.deps.json
+F:\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.dll
+F:\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.dll
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\refint\ConvertersLib.dll
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ref\ConvertersLib.dll
+E:\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.deps.json
+E:\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.dll
+E:\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.dll
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\refint\ConvertersLib.dll
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ref\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\refint\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ref\ConvertersLib.dll
+E:\PatientRep V 3\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.deps.json
+E:\PatientRep V 3\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.dll
+E:\PatientRep V 3\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.dll
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\refint\ConvertersLib.dll
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.pdb
+E:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ref\ConvertersLib.dll
+F:\PatientRep V 3\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.deps.json
+F:\PatientRep V 3\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.dll
+F:\PatientRep V 3\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.dll
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\refint\ConvertersLib.dll
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep V 3\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ref\ConvertersLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\bin\Debug\net6.0-windows\ConvertersLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\refint\ConvertersLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ConvertersLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ConvertersLib\obj\Debug\net6.0-windows\ref\ConvertersLib.dll

@@ -1,0 +1,199 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "PatientRep/1.0.0": {
+        "dependencies": {
+          "CRUDControllerLib": "1.0.0",
+          "ConvertersLib": "1.0.0",
+          "CustomIconsLib": "1.0.0",
+          "DataValidation": "1.0.0",
+          "FontAwesome5": "2.1.11",
+          "IntegartedDataLib": "1.0.0",
+          "JsonDataProviderLibDNC": "1.0.0",
+          "Models": "1.0.0",
+          "ReportBuilderLib": "1.0.0",
+          "SmartControlls": "1.0.0",
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "PatientRep.dll": {}
+        }
+      },
+      "FontAwesome5/2.1.11": {
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
+            "assemblyVersion": "2.1.11.0",
+            "fileVersion": "2.1.11.0"
+          },
+          "lib/net6.0-windows7.0/FontAwesome5.dll": {
+            "assemblyVersion": "2.1.11.0",
+            "fileVersion": "2.1.11.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "ControllerBaseLib/1.0.0": {
+        "runtime": {
+          "ControllerBaseLib.dll": {}
+        }
+      },
+      "ConvertersLib/1.0.0": {
+        "runtime": {
+          "ConvertersLib.dll": {}
+        }
+      },
+      "CRUDControllerLib/1.0.0": {
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "CRUDControllerLib.dll": {}
+        }
+      },
+      "CustomIconsLib/1.0.0": {
+        "dependencies": {
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "CustomIconsLib.dll": {}
+        }
+      },
+      "DataValidation/1.0.0": {
+        "runtime": {
+          "DataValidation.dll": {}
+        }
+      },
+      "IntegartedDataLib/1.0.0": {
+        "runtime": {
+          "IntegartedDataLib.dll": {}
+        }
+      },
+      "JsonDataProviderLibDNC/1.0.0": {
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "JsonDataProviderLibDNC.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "dependencies": {
+          "DataValidation": "1.0.0",
+          "IntegartedDataLib": "1.0.0",
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "Models.dll": {}
+        }
+      },
+      "ReportBuilderLib/1.0.0": {
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "ReportBuilderLib.dll": {}
+        }
+      },
+      "SmartControlls/1.0.0": {
+        "runtime": {
+          "SmartControlls.dll": {}
+        }
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "runtime": {
+          "ViewModelBaseLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PatientRep/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FontAwesome5/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OGwy+ZJoJR7U71eA3BenwP7rdVviVYp8p6ptdBEhoMRuRsSV4vGM/LypVBhonBI43WSxXBysSoE5uQ2SkYKNvA==",
+      "path": "fontawesome5/2.1.11",
+      "hashPath": "fontawesome5.2.1.11.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "ControllerBaseLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConvertersLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CRUDControllerLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CustomIconsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataValidation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IntegartedDataLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JsonDataProviderLibDNC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ReportBuilderLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SmartControlls/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

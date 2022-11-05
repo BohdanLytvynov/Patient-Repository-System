@@ -1,0 +1,24 @@
+F:\PatientRep\ViewModelBaseLib\bin\Release\net6.0-windows\ViewModelBaseLib.deps.json
+F:\PatientRep\ViewModelBaseLib\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep\ViewModelBaseLib\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.csproj.AssemblyReference.cache
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.AssemblyInfoInputs.cache
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.AssemblyInfo.cs
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.csproj.CoreCompileInputs.cache
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\refint\ViewModelBaseLib.dll
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ref\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\bin\Release\net6.0-windows\ViewModelBaseLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\refint\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ViewModelBaseLib\obj\Release\net6.0-windows\ref\ViewModelBaseLib.dll

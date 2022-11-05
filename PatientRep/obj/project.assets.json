@@ -1,0 +1,434 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {
+      "FontAwesome5/2.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/FontAwesome5.dll": {
+            "related": ".Net.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/FontAwesome5.dll": {
+            "related": ".Net.xml;.xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ControllerBaseLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ControllerBaseLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ControllerBaseLib.dll": {}
+        }
+      },
+      "ConvertersLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ConvertersLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConvertersLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "CRUDControllerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CRUDControllerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CRUDControllerLib.dll": {}
+        }
+      },
+      "CustomIconsLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CustomIconsLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CustomIconsLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "DataValidation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DataValidation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataValidation.dll": {}
+        }
+      },
+      "IntegartedDataLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/IntegartedDataLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IntegartedDataLib.dll": {}
+        }
+      },
+      "JsonDataProviderLibDNC/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/JsonDataProviderLibDNC.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JsonDataProviderLibDNC.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataValidation": "1.0.0",
+          "IntegartedDataLib": "1.0.0",
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      },
+      "ReportBuilderLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ReportBuilderLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ReportBuilderLib.dll": {}
+        }
+      },
+      "SmartControlls/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SmartControlls.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SmartControlls.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ViewModelBaseLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ViewModelBaseLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "FontAwesome5/2.1.11": {
+      "sha512": "OGwy+ZJoJR7U71eA3BenwP7rdVviVYp8p6ptdBEhoMRuRsSV4vGM/LypVBhonBI43WSxXBysSoE5uQ2SkYKNvA==",
+      "type": "package",
+      "path": "fontawesome5/2.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome5.2.1.11.nupkg.sha512",
+        "fontawesome5.nuspec",
+        "icon.png",
+        "lib/net40/FontAwesome5.Net.dll",
+        "lib/net40/FontAwesome5.Net.xml",
+        "lib/net40/FontAwesome5.dll",
+        "lib/net40/FontAwesome5.xml",
+        "lib/net462/FontAwesome5.Net.dll",
+        "lib/net462/FontAwesome5.Net.xml",
+        "lib/net462/FontAwesome5.dll",
+        "lib/net462/FontAwesome5.xml",
+        "lib/net472/FontAwesome5.Net.dll",
+        "lib/net472/FontAwesome5.Net.xml",
+        "lib/net472/FontAwesome5.dll",
+        "lib/net472/FontAwesome5.xml",
+        "lib/net5.0-windows7.0/FontAwesome5.Net.dll",
+        "lib/net5.0-windows7.0/FontAwesome5.Net.xml",
+        "lib/net5.0-windows7.0/FontAwesome5.dll",
+        "lib/net5.0-windows7.0/FontAwesome5.xml",
+        "lib/net5.0/FontAwesome5.dll",
+        "lib/net5.0/FontAwesome5.xml",
+        "lib/net6.0-windows7.0/FontAwesome5.Net.dll",
+        "lib/net6.0-windows7.0/FontAwesome5.Net.xml",
+        "lib/net6.0-windows7.0/FontAwesome5.dll",
+        "lib/net6.0-windows7.0/FontAwesome5.xml",
+        "lib/net6.0/FontAwesome5.dll",
+        "lib/net6.0/FontAwesome5.xml",
+        "lib/netcoreapp3.1/FontAwesome5.Net.dll",
+        "lib/netcoreapp3.1/FontAwesome5.Net.xml",
+        "lib/netcoreapp3.1/FontAwesome5.dll",
+        "lib/netcoreapp3.1/FontAwesome5.xml",
+        "lib/netstandard1.4/FontAwesome5.dll",
+        "lib/netstandard1.4/FontAwesome5.xml",
+        "lib/netstandard2.1/FontAwesome5.dll",
+        "lib/netstandard2.1/FontAwesome5.xml",
+        "lib/uap10.0/FontAwesome5.UWP.XML",
+        "lib/uap10.0/FontAwesome5.UWP.dll",
+        "lib/uap10.0/FontAwesome5.UWP.pri",
+        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Brands-Regular-400.otf",
+        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Regular-400.otf",
+        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Solid-900.otf",
+        "lib/uap10.0/FontAwesome5.dll",
+        "lib/uap10.0/FontAwesome5.xml"
+      ]
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "ControllerBaseLib/1.0.0": {
+      "type": "project",
+      "path": "../ControllerBaseLib/ControllerBaseLib.csproj",
+      "msbuildProject": "../ControllerBaseLib/ControllerBaseLib.csproj"
+    },
+    "ConvertersLib/1.0.0": {
+      "type": "project",
+      "path": "../ConvertersLib/ConvertersLib.csproj",
+      "msbuildProject": "../ConvertersLib/ConvertersLib.csproj"
+    },
+    "CRUDControllerLib/1.0.0": {
+      "type": "project",
+      "path": "../CRUDControllerLib/CRUDControllerLib.csproj",
+      "msbuildProject": "../CRUDControllerLib/CRUDControllerLib.csproj"
+    },
+    "CustomIconsLib/1.0.0": {
+      "type": "project",
+      "path": "../CustomIconsLib/CustomIconsLib.csproj",
+      "msbuildProject": "../CustomIconsLib/CustomIconsLib.csproj"
+    },
+    "DataValidation/1.0.0": {
+      "type": "project",
+      "path": "../DataValidation/DataValidation.csproj",
+      "msbuildProject": "../DataValidation/DataValidation.csproj"
+    },
+    "IntegartedDataLib/1.0.0": {
+      "type": "project",
+      "path": "../IntegartedDataLib/IntegartedDataLib.csproj",
+      "msbuildProject": "../IntegartedDataLib/IntegartedDataLib.csproj"
+    },
+    "JsonDataProviderLibDNC/1.0.0": {
+      "type": "project",
+      "path": "../JsonDataProviderLibDNC/JsonDataProviderLibDNC.csproj",
+      "msbuildProject": "../JsonDataProviderLibDNC/JsonDataProviderLibDNC.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    },
+    "ReportBuilderLib/1.0.0": {
+      "type": "project",
+      "path": "../ReportBuilderLib/ReportBuilderLib.csproj",
+      "msbuildProject": "../ReportBuilderLib/ReportBuilderLib.csproj"
+    },
+    "SmartControlls/1.0.0": {
+      "type": "project",
+      "path": "../SmartControlls/SmartControlls.csproj",
+      "msbuildProject": "../SmartControlls/SmartControlls.csproj"
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "path": "../ViewModelBaseLib/ViewModelBaseLib.csproj",
+      "msbuildProject": "../ViewModelBaseLib/ViewModelBaseLib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": [
+      "CRUDControllerLib >= 1.0.0",
+      "ConvertersLib >= 1.0.0",
+      "CustomIconsLib >= 1.0.0",
+      "DataValidation >= 1.0.0",
+      "FontAwesome5 >= 2.1.11",
+      "IntegartedDataLib >= 1.0.0",
+      "JsonDataProviderLibDNC >= 1.0.0",
+      "Models >= 1.0.0",
+      "ReportBuilderLib >= 1.0.0",
+      "SmartControlls >= 1.0.0",
+      "ViewModelBaseLib >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\PatientRep\\PatientRep.csproj",
+      "projectName": "PatientRep",
+      "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\PatientRep\\PatientRep.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\PatientRep\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\ConvertersLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\ConvertersLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\CRUDControllerLib\\CRUDControllerLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\CRUDControllerLib\\CRUDControllerLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\CustomIconsLib\\CustomIconsLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\CustomIconsLib\\CustomIconsLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\DataValidation\\DataValidation.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\DataValidation\\DataValidation.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\IntegartedDataLib\\IntegartedDataLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\IntegartedDataLib\\IntegartedDataLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Models\\Models.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Models\\Models.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ReportBuilderLib\\ReportBuilderLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ReportBuilderLib\\ReportBuilderLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\SmartControlls\\SmartControlls.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\SmartControlls\\SmartControlls.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "FontAwesome5": {
+            "target": "Package",
+            "version": "[2.1.11, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

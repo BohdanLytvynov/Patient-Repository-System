@@ -1,0 +1,36 @@
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.deps.json
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.dll
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.pdb
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.dll
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\refint\IntegartedDataLib.dll
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.pdb
+E:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\ref\IntegartedDataLib.dll
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.deps.json
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.dll
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.pdb
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.dll
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\refint\IntegartedDataLib.dll
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.pdb
+F:\PatientRep V 3\PatientRep\IntegartedDataLib\obj\Debug\net6.0\ref\IntegartedDataLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\refint\IntegartedDataLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\ref\IntegartedDataLib.dll

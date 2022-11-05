@@ -1,0 +1,113 @@
+﻿using ControllerBaseLib.Enums;
+using ControllerBaseLib.EventArgs;
+using System.Buffers;
+
+namespace ControllerBaseLib
+{
+    public abstract class ControllerBaseClass
+    {
+        #region Delegates
+
+        public delegate void OnOperationFinishedDelegate(object s, OperationFinishedEventArgs e);
+
+        #endregion
+
+        #region Events
+
+        public event OnOperationFinishedDelegate OnOperationFinished;
+
+        #endregion
+        
+        #region Ctor
+        public ControllerBaseClass()
+        {
+
+        }
+        #endregion
+
+        #region Methods
+
+        public void ExecuteFunctionAdnGetResultThroughEvent<ToperType>(ToperType operType, Func<object, dynamic> func, object state = null)
+            where ToperType : struct
+        {
+            Exception ex = null;
+
+            Status operStatus = Status.Succed;
+
+            dynamic res = null;
+
+            try
+            {
+                res = func.Invoke(state);
+
+                operStatus = Status.Succed;
+            }
+            catch (Exception e)
+            {
+                operStatus = Status.Failed;
+
+                ex = e;
+            }
+            finally
+            {
+                OperationFinishedEventArgs e = new OperationFinishedEventArgs(operStatus);
+
+                e.Result = res;
+
+                e.OperationType = operType;
+
+                OnOperationFinished.Invoke(this, e);
+            }
+        }
+
+        public async Task ExecuteFunctionAndGetResultThroughEventAsync<TOperType>(TOperType operType, Func<object, CancellationTokenSource, dynamic> func,
+            object state = null, CancellationTokenSource cts = null)
+            where TOperType : struct
+        {
+            Exception ex = null;
+
+            Status operStatus = Status.Succed;
+
+            dynamic res = null;
+
+            await Task.Run(() =>
+            {
+                try
+                {
+                    res = func.Invoke(state, cts);
+
+                    if (cts != null)
+                    {
+                        if (cts.IsCancellationRequested)
+                        {
+                            operStatus = Status.Canceled;
+                        }                        
+                    }
+                    else
+                    {
+                        operStatus = Status.Succed;
+                    }
+                }
+                catch (Exception e)
+                {
+                    ex = e;
+
+                    operStatus = Status.Failed;
+                }
+            });
+
+            OperationFinishedEventArgs e = new OperationFinishedEventArgs(operStatus);
+
+            e.Result = res;
+
+            e.Exception = ex;
+
+            e.OperationType = operType;
+
+            OnOperationFinished.Invoke(this, e);
+        }
+
+        #endregion
+
+    }
+}

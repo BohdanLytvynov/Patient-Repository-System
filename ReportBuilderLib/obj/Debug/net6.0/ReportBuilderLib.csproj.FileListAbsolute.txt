@@ -1,0 +1,45 @@
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.deps.json
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.dll
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.pdb
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ControllerBaseLib.dll
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.CopyComplete
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.dll
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\refint\ReportBuilderLib.dll
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.pdb
+E:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ref\ReportBuilderLib.dll
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.deps.json
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.dll
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.pdb
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ControllerBaseLib.dll
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.dll
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\refint\ReportBuilderLib.dll
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.pdb
+F:\PatientRep V 3\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ref\ReportBuilderLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ReportBuilderLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\refint\ReportBuilderLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ReportBuilderLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\ReportBuilderLib\obj\Debug\net6.0\ref\ReportBuilderLib.dll

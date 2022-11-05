@@ -1,0 +1,24 @@
+F:\PatientRep\ConvertersLib\bin\Release\net6.0-windows\ConvertersLib.deps.json
+F:\PatientRep\ConvertersLib\bin\Release\net6.0-windows\ConvertersLib.dll
+F:\PatientRep\ConvertersLib\bin\Release\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.dll
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\refint\ConvertersLib.dll
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.pdb
+F:\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ref\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\bin\Release\net6.0-windows\ConvertersLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\bin\Release\net6.0-windows\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\bin\Release\net6.0-windows\ConvertersLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\refint\ConvertersLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ConvertersLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\ConvertersLib\obj\Release\net6.0-windows\ref\ConvertersLib.dll

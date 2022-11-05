@@ -1,0 +1,45 @@
+E:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.deps.json
+E:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.dll
+E:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.pdb
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.dll
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\refint\CustomIconsLib.dll
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.pdb
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\ref\CustomIconsLib.dll
+E:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+E:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+E:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.deps.json
+F:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.dll
+F:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.pdb
+F:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep V 3\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.dll
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\refint\CustomIconsLib.dll
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.pdb
+F:\PatientRep V 3\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\ref\CustomIconsLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.deps.json
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\CustomIconsLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\refint\CustomIconsLib.dll
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\CustomIconsLib.pdb
+D:\C# Projects\Work\DBKLMP\PatientRep\CustomIconsLib\obj\Debug\net6.0-windows\ref\CustomIconsLib.dll

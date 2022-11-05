@@ -1,0 +1,58 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Models/1.0.0": {
+        "dependencies": {
+          "DataValidation": "1.0.0",
+          "IntegartedDataLib": "1.0.0",
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "Models.dll": {}
+        }
+      },
+      "DataValidation/1.0.0": {
+        "runtime": {
+          "DataValidation.dll": {}
+        }
+      },
+      "IntegartedDataLib/1.0.0": {
+        "runtime": {
+          "IntegartedDataLib.dll": {}
+        }
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "runtime": {
+          "ViewModelBaseLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataValidation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IntegartedDataLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

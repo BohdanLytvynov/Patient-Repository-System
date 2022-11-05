@@ -1,0 +1,34 @@
+F:\PatientRep\SmartControlls\bin\Release\net6.0-windows\SmartControlls.deps.json
+F:\PatientRep\SmartControlls\bin\Release\net6.0-windows\SmartControlls.dll
+F:\PatientRep\SmartControlls\bin\Release\net6.0-windows\SmartControlls.pdb
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.csproj.AssemblyReference.cache
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartCodeField.g.cs
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls_MarkupCompile.cache
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls_MarkupCompile.lref
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartCodeField.baml
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.g.resources
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.AssemblyInfoInputs.cache
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.AssemblyInfo.cs
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.csproj.CoreCompileInputs.cache
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.dll
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\refint\SmartControlls.dll
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.pdb
+F:\PatientRep\SmartControlls\obj\Release\net6.0-windows\ref\SmartControlls.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\bin\Release\net6.0-windows\SmartControlls.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\bin\Release\net6.0-windows\SmartControlls.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\bin\Release\net6.0-windows\SmartControlls.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartCodeField.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls_MarkupCompile.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls_MarkupCompile.lref
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartCodeField.baml
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.g.resources
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\refint\SmartControlls.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\SmartControlls.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\SmartControlls\obj\Release\net6.0-windows\ref\SmartControlls.dll

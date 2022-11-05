@@ -1,0 +1,34 @@
+F:\PatientRep\Models\bin\Release\net6.0-windows\Models.deps.json
+F:\PatientRep\Models\bin\Release\net6.0-windows\Models.dll
+F:\PatientRep\Models\bin\Release\net6.0-windows\Models.pdb
+F:\PatientRep\Models\bin\Release\net6.0-windows\DataValidation.dll
+F:\PatientRep\Models\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+F:\PatientRep\Models\bin\Release\net6.0-windows\DataValidation.pdb
+F:\PatientRep\Models\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.csproj.AssemblyReference.cache
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.AssemblyInfoInputs.cache
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.AssemblyInfo.cs
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.csproj.CopyComplete
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.dll
+F:\PatientRep\Models\obj\Release\net6.0-windows\refint\Models.dll
+F:\PatientRep\Models\obj\Release\net6.0-windows\Models.pdb
+F:\PatientRep\Models\obj\Release\net6.0-windows\ref\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\Models.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\Models.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\DataValidation.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\refint\Models.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\Models.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\Models\obj\Release\net6.0-windows\ref\Models.dll

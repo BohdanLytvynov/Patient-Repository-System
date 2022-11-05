@@ -1,0 +1,66 @@
+E:\PatientRep\Tester\bin\Debug\net6.0\Tester.exe
+E:\PatientRep\Tester\bin\Debug\net6.0\Tester.deps.json
+E:\PatientRep\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+E:\PatientRep\Tester\bin\Debug\net6.0\Tester.dll
+E:\PatientRep\Tester\bin\Debug\net6.0\Tester.pdb
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.dll
+E:\PatientRep\Tester\obj\Debug\net6.0\refint\Tester.dll
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.pdb
+E:\PatientRep\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
+E:\PatientRep\Tester\obj\Debug\net6.0\ref\Tester.dll
+F:\PatientRep\Tester\bin\Debug\net6.0\Tester.exe
+F:\PatientRep\Tester\bin\Debug\net6.0\Tester.deps.json
+F:\PatientRep\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+F:\PatientRep\Tester\bin\Debug\net6.0\Tester.dll
+F:\PatientRep\Tester\bin\Debug\net6.0\Tester.pdb
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.dll
+F:\PatientRep\Tester\obj\Debug\net6.0\refint\Tester.dll
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.pdb
+F:\PatientRep\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
+F:\PatientRep\Tester\obj\Debug\net6.0\ref\Tester.dll
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.exe
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.deps.json
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.dll
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.pdb
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.dll
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\refint\Tester.dll
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.pdb
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\ref\Tester.dll
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.exe
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.deps.json
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.dll
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\Tester.pdb
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.dll
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\refint\Tester.dll
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.pdb
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\ref\Tester.dll
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\TimerLib.dll
+E:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\TimerLib.pdb
+E:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.CopyComplete
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\TimerLib.dll
+F:\PatientRep V 3\PatientRep\Tester\bin\Debug\net6.0\TimerLib.pdb
+F:\PatientRep V 3\PatientRep\Tester\obj\Debug\net6.0\Tester.csproj.CopyComplete

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Report.cs\**" />
+    <EmbeddedResource Remove="Report.cs\**" />
+    <None Remove="Report.cs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataValidation\DataValidation.csproj" />
+    <ProjectReference Include="..\IntegartedDataLib\IntegartedDataLib.csproj" />
+    <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj" />
+  </ItemGroup>
+
+</Project>

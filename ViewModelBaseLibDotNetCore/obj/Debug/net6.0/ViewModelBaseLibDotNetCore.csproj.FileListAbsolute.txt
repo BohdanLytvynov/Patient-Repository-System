@@ -1,0 +1,5 @@
+D:\C#\PatientRep\ViewModelBaseLibDotNetCore\obj\Debug\net6.0\ViewModelBaseLibDotNetCore.csproj.AssemblyReference.cache
+D:\C#\PatientRep\ViewModelBaseLibDotNetCore\obj\Debug\net6.0\ViewModelBaseLibDotNetCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\PatientRep\ViewModelBaseLibDotNetCore\obj\Debug\net6.0\ViewModelBaseLibDotNetCore.AssemblyInfoInputs.cache
+D:\C#\PatientRep\ViewModelBaseLibDotNetCore\obj\Debug\net6.0\ViewModelBaseLibDotNetCore.AssemblyInfo.cs
+D:\C#\PatientRep\ViewModelBaseLibDotNetCore\obj\Debug\net6.0\ViewModelBaseLibDotNetCore.csproj.CoreCompileInputs.cache

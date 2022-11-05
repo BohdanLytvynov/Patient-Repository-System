@@ -1,0 +1,20 @@
+﻿PatientRep
+1.0.0.0
+
+winexe
+C#
+.cs
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\obj\Debug\net6.0-windows\
+PatientRep
+none
+false
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+D:\C# Projects\Work\DBKLMP\PatientRep\PatientRep\App.xaml
+3-1583128474
+4-642022768
+13-300725411
+208-1686796342
+Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;
+
+False
+
