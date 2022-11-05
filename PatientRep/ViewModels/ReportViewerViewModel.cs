@@ -2,6 +2,7 @@
 using Models.HistoryNoteModels.VisualModel;
 using Models.HistoryNotesComparators;
 using Models.ReportModels.ReportVisualModel;
+using PatientRep.ViewModelBase.Commands;
 using ReportBuilderLib.Enums;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using ViewModelBaseLib.VM;
 
 namespace PatientRep.ViewModels
@@ -30,6 +32,14 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Commands
+
+        public ICommand OnCloseButtonPressed { get; }
+
+        public ICommand OnExportButtonPressed { get; }
+
+        #endregion
+
         #region Ctor
         public ReportViewerViewModel(Window w, List<HistoryNote> col, ReportType type)
         {
@@ -41,11 +51,22 @@ namespace PatientRep.ViewModels
 
             #endregion
 
+            #region Init Commands
+
+            OnCloseButtonPressed = new LambdaCommand(
+                OnExitButtonPressedExecute,
+                CanOnExitButtonPressedExecute
+                );
+
+            #endregion
+
             GenerateReport(col, type);
         }
         #endregion
 
         #region Methods
+
+        #region Report Generation System
 
         public void GenerateReport(List<HistoryNote> col, ReportType type)
         {
@@ -69,13 +90,13 @@ namespace PatientRep.ViewModels
                     col.Add(new HistoryNote(Guid.Empty, -1, "", "", "", last, new DateTime(), "", "", "", "", "", null));//add terminator item
 
                     int count = col.Count;
-                    
+
                     List<NoteReport> noteRep = new List<NoteReport>();
 
                     for (int i = 0; i < count; i++) //O(n)
                     {
                         if (col[i].InvestDate.Date.CompareTo(temp.Date) > 0)// if date changed
-                        {                            
+                        {
                             Report rep = new Report(temp, true, noteRep);
 
                             Reports.Add(rep);
@@ -121,7 +142,7 @@ namespace PatientRep.ViewModels
                     reason = r;
 
                     break;
-                }                
+                }
             }
 
             //Decide wether note exists or not
@@ -202,7 +223,18 @@ namespace PatientRep.ViewModels
             return true;
         }
 
+        #endregion
 
+        #region On Exit Button Pressed
+
+        private bool CanOnExitButtonPressedExecute(object p) => true;
+
+        private void OnExitButtonPressedExecute(object p)
+        {
+            m_w.Close();
+        }
+
+        #endregion
 
         #endregion
     }

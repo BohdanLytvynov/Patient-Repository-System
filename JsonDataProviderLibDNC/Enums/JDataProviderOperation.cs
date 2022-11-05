@@ -8,6 +8,6 @@ namespace JsonDataProviderLibDNC.Enums
 {
     public enum JDataProviderOperation
     {
-        SavePatientsDB = 1, LoadPatientsDB, SaveHistoryNotesDb, LoadHistoryNotesDb
+        SavePatientsDB = 1, LoadPatientsDB, SaveHistoryNotesDb, LoadHistoryNotesDb, LoadSettings, SaveSettings
     }
 }

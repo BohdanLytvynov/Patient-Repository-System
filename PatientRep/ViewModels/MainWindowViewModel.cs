@@ -33,6 +33,7 @@ using Models.HistoryNoteModels.VisualModel;
 using Models.HistoryNoteModels.StorageModel;
 using Models.PatientModel.PatientVisualModel;
 using Models.PatientModel.PatientStorageModel;
+using PatientRep.Configuration;
 
 namespace PatientRep.ViewModels
 {
@@ -53,6 +54,12 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Fields
+
+        string m_selfpath;
+
+        string m_PathToConfig;
+
+        ConfigStorage m_Configuration;
 
         #region Informator System
 
@@ -689,6 +696,8 @@ namespace PatientRep.ViewModels
 
         public ICommand OnRemoveAddInfoButtonPressed { get; }
 
+        public ICommand OnSettingsButtonPressed { get; }
+
         #endregion
 
         #region History Registration System
@@ -733,6 +742,11 @@ namespace PatientRep.ViewModels
         {
             #region Init Fields
 
+            m_selfpath = Environment.CurrentDirectory;
+
+            m_PathToConfig = m_selfpath + Path.DirectorySeparatorChar + "Configuration" +
+               Path.DirectorySeparatorChar + "Config.json";
+             
             m_RepType = ReportType.По_Денний;
 
             m_InvestType = String.Empty;
@@ -785,10 +799,10 @@ namespace PatientRep.ViewModels
 
             m_StringCoincidence = StringCoincidence.Часткове;
 
-            m_tittle = "PatientRep";
+            m_tittle = "Patient Repository Storage";
 
             m_jdataprovider = new JsonDataProvider();
-
+           
             m_pController = new PatientController();
 
             m_HistoryNotesController = new HistoryNotesController();
@@ -798,7 +812,7 @@ namespace PatientRep.ViewModels
             m_pController.OnOperationFinished += M_pController_OnOperationFinished;
 
             m_jdataprovider.OnOperationFinished += M_jdataprovider_OnOperationFinished;
-
+            
             m_pathToPatientsDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "Rep.json";
 
             m_pathToHistoryDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "HRep.json";
@@ -889,6 +903,12 @@ namespace PatientRep.ViewModels
                 CanOnRemoveAddInfoButtonPressedExecute
                 );
 
+            OnSettingsButtonPressed = new LambdaCommand
+                (
+                    OnSettingsButtonPressedExecute, 
+                    CanOnSettingsButtonPressedExecute
+                );
+
             #region History Registration System
 
             OnAddNewAddInfoHistoryNote = new LambdaCommand(
@@ -969,10 +989,12 @@ namespace PatientRep.ViewModels
         }
         
         private async Task MainWindowViewModel_OnMainWindowInitialized()
-        {
+        {            
             await m_jdataprovider.LoadDBAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
 
             await m_jdataprovider.LoadDBAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
+
+            await m_jdataprovider.LoadDBAsync(m_PathToConfig, JDataProviderOperation.LoadSettings);
         }
 
         private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs e)
@@ -1212,6 +1234,25 @@ namespace PatientRep.ViewModels
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
 
                         break;
+
+                    case JDataProviderOperation.LoadSettings:
+
+                        if (e.Result == null)
+                        {
+                            m_Configuration = new ConfigStorage();
+                        }
+                        else
+                        {
+                            m_Configuration = e.Result;
+                        }
+
+                        break;
+
+                    case JDataProviderOperation.SaveSettings:
+
+
+
+                        break;
                 }
             }
             else if (exStatus == Status.Canceled)
@@ -1372,6 +1413,21 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Methods
+
+        #region On Settings Button Pressed
+
+        private bool CanOnSettingsButtonPressedExecute(object p) => true;
+
+        private void OnSettingsButtonPressedExecute(object p)
+        {
+            m_SettingsWindow = new SettingsWindow(m_Configuration);
+
+            m_SettingsWindow.Topmost = true;
+
+            m_SettingsWindow.Show();
+        }
+
+        #endregion
 
         #region Fill Visual Model
 

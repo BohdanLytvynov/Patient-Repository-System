@@ -22,15 +22,111 @@
         <Rectangle Style="{StaticResource Border}" Grid.RowSpan="3" Grid.Column="2"/>
 
         <Rectangle Style="{StaticResource Border}" Grid.Row="1" Grid.Column="1"/>
-        <TabControl FontSize="{StaticResource TabItemHeaderFontSize}" Grid.Column="1">
-            <TabItem Header="Лікарі">
-                <Grid>
-                </Grid>
-            </TabItem>
 
-            <TabItem Header="Центри">
-            </TabItem>
-        </TabControl>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="14*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="335*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" x:Name="Buttons">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="135"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="102.028"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="133.982"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Content="Лікарі" Style="{DynamicResource Buttons2}"
+                        FontSize="20" Command="{Binding OnEnableDoctorsPressed}"/>
+                <Button Grid.Column="3" Content="Причини" Style="{DynamicResource Buttons2}"
+                        FontSize="20" Command="{Binding OnEnableReasonsPressed}"/>
+                <Button Grid.Column="5" Content="Дослідження" Style="{DynamicResource Buttons2}"
+                        FontSize="20" Command="{Binding OnEnableInvesrPressed}"/>
+
+                <Button Grid.Column="7" Content="Експорт" Style="{DynamicResource Buttons2}"
+                        FontSize="20"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Visibility="Hidden">
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="22*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="Black" BorderThickness="3" CornerRadius="10" Grid.ColumnSpan="3"/>
+                <GridSplitter Style="{StaticResource GridSplitterVertical}" Grid.Column="1"/>
+
+                <Grid x:Name="LvGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListView x:Name="CaseDoctors" SelectedIndex="{Binding DoctorsSelectedIndex,
+                        UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10,10,10,10"
+                              ItemsSource="{Binding Doctors, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              Visibility="{Binding CaseDoctorsVisibility, UpdateSourceTrigger=PropertyChanged
+                        }"/>
+                    
+                    <ListView x:Name="CaseInvestigations" SelectedIndex="{Binding InvestSelectedIndex,
+                        UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10,10,10,10"
+                              ItemsSource="{Binding Investigations, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              Visibility="{Binding CaseInvestVisibility, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <ListView x:Name="CaseReasons" SelectedIndex="{Binding ReasonSelectedIndex,
+                        UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10,10,10,10"
+                              ItemsSource="{Binding Reasons, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              Visibility="{Binding CaseReasonsVisibility, UpdateSourceTrigger=PropertyChanged}"/>
+
+                </Grid>
+
+                <Grid x:Name="ButConttrolls" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="12*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="16*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="157*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="157.535"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Grid.Row="1" Content="Додати" 
+                            Style="{StaticResource Buttons2}" FontSize="20"
+                            Command="{Binding OnAddButtonPressed}"/>
+
+                    <Button Grid.Column="1" Grid.Row="3" Content="Видалити" 
+                            Style="{StaticResource Buttons}" FontSize="20"
+                            Command="{Binding OnRemoveButtonPressed}"
+                            />
+
+
+                    <Button Grid.Column="1" Grid.Row="5" Content="Очистити все" 
+                            Style="{StaticResource Buttons}" FontSize="20"
+                            Command="{Binding OnRemoveAllButtonPressed}"
+                            />
+
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>

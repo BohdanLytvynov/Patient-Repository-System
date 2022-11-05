@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PatientRep.Configuration;
+using PatientRep.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,16 @@ namespace PatientRep.Views
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        public SettingsWindow()
+
+        SettingsWindowViewModel m_vm;
+
+        public SettingsWindow(ConfigStorage config)
         {
+            m_vm = new SettingsWindowViewModel(this, config);
+
             InitializeComponent();
+
+            this.DataContext = m_vm;           
         }
     }
 }

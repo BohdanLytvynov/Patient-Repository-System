@@ -118,7 +118,8 @@
                 UpdateSourceTrigger=PropertyChanged,
                 StringFormat=Кількість_Записів: {0} шт.}"
                        FontSize="{StaticResource TxtBoxFontSize}"/>
-                <Button Grid.Column="3" Style="{StaticResource Buttons2}">
+                <Button Grid.Column="3" Style="{StaticResource Buttons2}" 
+                        Command="{Binding OnSettingsButtonPressed}">
                     <Button.Content>
                         <Polygon Points="{Binding GearPoints,
                         UpdateSourceTrigger=PropertyChanged}"
@@ -271,9 +272,6 @@
                                     Command="{Binding OnSearchButtonPressed}" Background="White"
                                     Style="{StaticResource Buttons2}"
                                     >
-                                    <Button.InputBindings>
-                                        <KeyBinding Command="{Binding OnSearchButtonPressed}" Key="Enter"/>
-                                    </Button.InputBindings>
                                 </Button>
 
                                 <Button Grid.Column="3" Content="Очистити Поля"
