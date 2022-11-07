@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Tester\\Tester.csproj": {}
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Tester\\Tester.csproj": {}
   },
   "projects": {
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Tester\\Tester.csproj": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Tester\\Tester.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Tester\\Tester.csproj",
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Tester\\Tester.csproj",
         "projectName": "Tester",
-        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Tester\\Tester.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Tester\\obj\\",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Tester\\Tester.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Tester\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\TimerLib\\TimerLib.csproj": {
-                "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\TimerLib\\TimerLib.csproj"
+              "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\TimerLib\\TimerLib.csproj": {
+                "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\TimerLib\\TimerLib.csproj"
               }
             }
           }
@@ -67,21 +63,17 @@
         }
       }
     },
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\TimerLib\\TimerLib.csproj": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\TimerLib\\TimerLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\TimerLib\\TimerLib.csproj",
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\TimerLib\\TimerLib.csproj",
         "projectName": "TimerLib",
-        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\TimerLib\\TimerLib.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\TimerLib\\obj\\",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\TimerLib\\TimerLib.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\TimerLib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

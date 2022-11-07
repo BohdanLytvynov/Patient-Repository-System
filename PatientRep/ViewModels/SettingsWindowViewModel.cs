@@ -26,7 +26,7 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<AdditionalInfoViewModel> m_Reasons;
 
-        byte m_LvType; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations
+        byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings
 
         #region LV Visibility
 
@@ -35,6 +35,14 @@ namespace PatientRep.ViewModels
         Visibility m_CaseReasonsVisibility;
 
         Visibility m_CaseInvestVisibility;
+
+        #endregion
+
+        #region Panel Item Visibility
+
+        Visibility m_CaseDRIVisibility;
+
+        Visibility m_CaseExportSettingsVisibility;
 
         #endregion
 
@@ -71,6 +79,19 @@ namespace PatientRep.ViewModels
             get=> m_CaseInvestVisibility;
             set=> Set(ref m_CaseInvestVisibility, value, nameof(CaseInvestVisibility));
         }
+
+        #endregion
+
+        #region Panel Item Visibility
+
+        public Visibility CaseDRIVisibility 
+        { get=> m_CaseDRIVisibility; set=> Set(ref m_CaseDRIVisibility, value, nameof(CaseDRIVisibility)); }
+
+        public Visibility CaseExportSettingsVisibility 
+        {
+            get=> m_CaseExportSettingsVisibility;
+            set=> Set(ref m_CaseExportSettingsVisibility, value, nameof(CaseExportSettingsVisibility)); }
+
 
         #endregion
 
@@ -120,6 +141,8 @@ namespace PatientRep.ViewModels
 
         public ICommand OnEnableInvesrPressed { get; }
 
+        public ICommand OnEnableExportSettingsPressed { get; }
+
         #region Controll buttons
 
         public ICommand OnAddButtonPressed { get; }
@@ -137,13 +160,17 @@ namespace PatientRep.ViewModels
         {
             #region Init fields
 
+            m_CaseExportSettingsVisibility = Visibility.Hidden;
+
+            m_CaseDRIVisibility = Visibility.Visible;
+
             m_CaseDoctorsVisibility = Visibility.Visible;
 
             m_CaseReasonsVisibility = Visibility.Hidden;
 
             m_CaseInvestVisibility = Visibility.Hidden;
                 
-            m_LvType = 1;
+            m_TabItemIndex = 1;
 
             m_w = w;
 
@@ -205,6 +232,12 @@ namespace PatientRep.ViewModels
                     CanOnRemoveAllButtonPressedExecute
                 );
 
+            OnEnableExportSettingsPressed = new LambdaCommand
+                (
+                    OnEnableExportSettingsButtonPressedExecute,
+                    CanOnEnableExportSettingsButtonPressedExecute
+                );
+
             #endregion
 
             SetInitValues();
@@ -237,18 +270,22 @@ namespace PatientRep.ViewModels
 
         private bool CanOnEnableDoctorsButtonPressedExecute(object p)
         {
-            return !(m_LvType == 1);
+            return !(m_TabItemIndex == 1);
         }
 
         private void OnEnableDoctorsButtonPressedExecute(object p)
         {
-            m_LvType = 1;
+            m_TabItemIndex = 1;
 
             CaseDoctorsVisibility = Visibility.Visible;
 
             CaseReasonsVisibility = Visibility.Hidden;
 
             CaseInvestVisibility = Visibility.Hidden;
+
+            CaseDRIVisibility = Visibility.Visible;
+
+            CaseExportSettingsVisibility = Visibility.Hidden;
         }
 
         #endregion
@@ -257,18 +294,22 @@ namespace PatientRep.ViewModels
 
         private bool CanOnEnableReasonsButtonPressedExeecute(object p)
         {
-            return !(m_LvType == 2);
+            return !(m_TabItemIndex == 2);
         }
 
         private void OnEnableReasonsButtonPressedExecute(object p)
         {
-            m_LvType = 2;
+            m_TabItemIndex = 2;
 
             CaseDoctorsVisibility = Visibility.Hidden;
 
             CaseReasonsVisibility = Visibility.Visible;
 
             CaseInvestVisibility = Visibility.Hidden;
+
+            CaseDRIVisibility = Visibility.Visible;
+
+            CaseExportSettingsVisibility = Visibility.Hidden;
         }
 
         #endregion
@@ -277,18 +318,38 @@ namespace PatientRep.ViewModels
 
         private bool CanOnEnableInvestigationsButtonPressed(object p)
         {
-            return !(m_LvType == 3);
+            return !(m_TabItemIndex == 3);
         }
 
         private void OnEnableInvestigationsButtonPresedExecute(object p)
         {
-            m_LvType = 3;
+            m_TabItemIndex = 3;
 
             CaseDoctorsVisibility = Visibility.Hidden;
 
             CaseReasonsVisibility = Visibility.Hidden;
 
             CaseInvestVisibility = Visibility.Visible;
+
+            CaseDRIVisibility = Visibility.Visible;
+        }
+
+        #endregion
+
+        #region On Enable Export Setting Button Pressed
+
+        private bool CanOnEnableExportSettingsButtonPressedExecute(object p)
+        {
+            return !(m_TabItemIndex == 4);
+        }
+
+        private void OnEnableExportSettingsButtonPressedExecute(object p)
+        {
+            m_TabItemIndex = 4;
+
+            CaseDRIVisibility = Visibility.Hidden;
+
+            CaseExportSettingsVisibility = Visibility.Visible;            
         }
 
         #endregion
@@ -301,7 +362,7 @@ namespace PatientRep.ViewModels
 
         private void OnAddButtonPressedExecute(object p)
         {
-            switch (m_LvType)
+            switch (m_TabItemIndex)
             {
                 case 1:
 
@@ -329,7 +390,7 @@ namespace PatientRep.ViewModels
 
         private bool CanOnRemoveButtonPressedExecute(object p)
         {
-            switch (m_LvType)
+            switch (m_TabItemIndex)
             {
                 case 1:
 
@@ -349,7 +410,7 @@ namespace PatientRep.ViewModels
 
         private void OnRemoveButtonPressedExecute(object p)
         {
-            switch (m_LvType)
+            switch (m_TabItemIndex)
             {
                 case 1:
 
@@ -376,7 +437,7 @@ namespace PatientRep.ViewModels
 
         private bool CanOnRemoveAllButtonPressedExecute(object p)
         {
-            switch (m_LvType)
+            switch (m_TabItemIndex)
             {
                 case 1:
 
@@ -396,7 +457,7 @@ namespace PatientRep.ViewModels
 
         private void OnRemoveAllButtonPressedExecute(object p)
         {
-            switch (m_LvType)
+            switch (m_TabItemIndex)
             {
                 case 1:
 

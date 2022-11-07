@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NuqTEA6jy2WDtsUV/Sts8ZD+1h6NpCM0LFjGTTNclII4Q46YMQs1LiF1dHE5YLNdgPBurlyRwxTCrFQicUpNCA==",
+  "dgSpecHash": "hQJbH0J04lrH5IuBsc4xwp9PjJTFXipuyfKaMjuoljmoJsYqRD4G0VEwut2TUr1BDS9RByaLX7zb/TIqdAQSQw==",
   "success": true,
-  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\Tester\\Tester.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Tester\\Tester.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

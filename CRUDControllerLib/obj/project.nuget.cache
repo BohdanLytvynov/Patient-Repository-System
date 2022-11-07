@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tmhAj1CQMhjHK9QYeh2wOVnqWjXf1UHGBOhjdT0g6B93RNYR9qnh6p9lIMSCGiEh0omUjToByywB49g/zz7FOA==",
+  "dgSpecHash": "vgtwgyDpcIR2ERN1+inT6q8fseJ5kQ9vHX/fXkaQ9Y+o9gPEinVNw++K5U4k7UC+bf21mNZzauqOOqLS2b452Q==",
   "success": true,
-  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\CRUDControllerLib\\CRUDControllerLib.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {}
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {}
   },
   "projects": {
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ControllerBaseLib\\ControllerBaseLib.csproj",
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj",
         "projectName": "ControllerBaseLib",
-        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ControllerBaseLib\\ControllerBaseLib.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ControllerBaseLib\\obj\\",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ControllerBaseLib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,21 +59,17 @@
         }
       }
     },
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj",
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj",
         "projectName": "JsonDataProviderLibDNC",
-        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\JsonDataProviderLibDNC\\obj\\",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ControllerBaseLib\\ControllerBaseLib.csproj": {
-                "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ControllerBaseLib\\ControllerBaseLib.csproj"
+              "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+                "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
               }
             }
           }

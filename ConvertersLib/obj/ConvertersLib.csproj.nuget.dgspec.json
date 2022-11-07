@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\ConvertersLib.csproj": {}
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {}
   },
   "projects": {
-    "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\ConvertersLib.csproj": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\ConvertersLib.csproj",
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
         "projectName": "ConvertersLib",
-        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\ConvertersLib.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ConvertersLib\\obj\\",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KoiFZR4jmkbmvgXee5Qr1QtSAfJBU2i72MF2xPPsnBgx7r2iWEUAfpww1DytCxjzPSBSD7Z0LFN7KJ6M17mOrA==",
+  "dgSpecHash": "6eQ2hvYXtF7nYcWmLNjOYC6ooVidGxz90gxbGf2hOW7Z37+d7DiEfBluXZaJx8OZROfuaddGUqn7EL8GYUt0hA==",
   "success": true,
-  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\PatientRep\\ReportBuilderLib\\ReportBuilderLib.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

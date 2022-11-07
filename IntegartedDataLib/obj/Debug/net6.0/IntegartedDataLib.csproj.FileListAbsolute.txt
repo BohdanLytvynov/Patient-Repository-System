@@ -34,3 +34,15 @@ D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\Integar
 D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\refint\IntegartedDataLib.dll
 D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.pdb
 D:\C# Projects\Work\DBKLMP\PatientRep\IntegartedDataLib\obj\Debug\net6.0\ref\IntegartedDataLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\bin\Debug\net6.0\IntegartedDataLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\refint\IntegartedDataLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\IntegartedDataLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\Patient-Repository-System\IntegartedDataLib\obj\Debug\net6.0\ref\IntegartedDataLib.dll
