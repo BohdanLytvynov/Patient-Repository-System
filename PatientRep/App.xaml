@@ -10,6 +10,8 @@
              xmlns:converters="clr-namespace:ConvertersLib;assembly=ConvertersLib"
              xmlns:id="clr-namespace:IntegartedDataLib;assembly=IntegartedDataLib"
              xmlns:report="clr-namespace:Models.ReportModels.ReportVisualModel;assembly=Models"
+             xmlns:reason="clr-namespace:Models.Configuration.ReasonModels.ReasonVisualModel;assembly=Models"
+                                       
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
 
@@ -24,7 +26,7 @@
         <!--#endregion-->
 
         <!--#region Inegrated data-->
-
+       
         <id:Physicians x:Key="Doctors">
         </id:Physicians>
 
@@ -1230,10 +1232,32 @@
 
         <!--#endregion-->
 
+        <!--#region Reason Visual DataTemplate-->
 
+        <DataTemplate DataType="{x:Type reason:Reason}">
+            
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Margin="5">
+                <StackPanel Orientation="Vertical" Style="{StaticResource Stacks}" Margin="3">
 
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ShowNumber, UpdateSourceTrigger=PropertyChanged, StringFormat=№ {0})}"/>
+
+                        <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="20,0,0,0"
+                             />
+                    </StackPanel>
+                    
+                                        
+                    <CheckBox IsChecked="{Binding DocDependent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Content="Потребує лікаря:"
+                              Margin="5"/>
+                </StackPanel>
+                
+            </Border>
+        </DataTemplate>
 
         <!--#endregion-->
+
+
+            <!--#endregion-->
 
         <!--#endregion-->
 

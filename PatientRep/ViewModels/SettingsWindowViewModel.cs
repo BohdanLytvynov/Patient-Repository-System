@@ -1,5 +1,8 @@
-﻿using Models;
-using PatientRep.Configuration;
+﻿using Microsoft.Win32;
+using Models;
+using Models.Configuration.ReasonModels.ReasonStorageModel;
+using Models.Configuration.ReasonModels.ReasonVisualModel;
+using Models.Configuration;
 using PatientRep.ViewModelBase.Commands;
 using System;
 using System.Collections.Generic;
@@ -8,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using ViewModelBaseLib.VM;
 
@@ -24,9 +28,11 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<AdditionalInfoViewModel> m_Investigations;
 
-        ObservableCollection<AdditionalInfoViewModel> m_Reasons;
+        ObservableCollection<Reason> m_Reasons;
 
         byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings
+
+        string m_ExportPath;
 
         #region LV Visibility
 
@@ -124,11 +130,17 @@ namespace PatientRep.ViewModels
         public ObservableCollection<AdditionalInfoViewModel> Investigations 
         { get => m_Investigations; set => m_Investigations = value; }
 
-        public ObservableCollection<AdditionalInfoViewModel> Reasons
+        public ObservableCollection<Reason> Reasons
         { 
             get => m_Reasons;
 
             set => m_Reasons = value;
+        }
+
+        public string ExportPath 
+        {
+            get=> m_ExportPath;
+            set=> Set(ref m_ExportPath, value, nameof(ExportPath));
         }
 
         #endregion
@@ -142,6 +154,12 @@ namespace PatientRep.ViewModels
         public ICommand OnEnableInvesrPressed { get; }
 
         public ICommand OnEnableExportSettingsPressed { get; }
+
+        public ICommand OnOpenButtonPressed { get; }
+
+        public ICommand OnCancelButtonPressed { get; }
+
+        public ICommand OnSaveButtonPressed { get; }
 
         #region Controll buttons
 
@@ -159,6 +177,8 @@ namespace PatientRep.ViewModels
         public SettingsWindowViewModel(Window w, ConfigStorage config)
         {
             #region Init fields
+
+            m_ExportPath = String.Empty;
 
             m_CaseExportSettingsVisibility = Visibility.Hidden;
 
@@ -180,7 +200,7 @@ namespace PatientRep.ViewModels
 
             m_Investigations = new ObservableCollection<AdditionalInfoViewModel>();
 
-            m_Reasons = new ObservableCollection<AdditionalInfoViewModel>();
+            m_Reasons = new ObservableCollection<Reason>();
 
             #region Selected Indexes
 
@@ -238,6 +258,24 @@ namespace PatientRep.ViewModels
                     CanOnEnableExportSettingsButtonPressedExecute
                 );
 
+            OnOpenButtonPressed = new LambdaCommand
+                (
+                    OnOpenButtonPressedExecute,
+                    CanOnOpenButtonPressedExecute
+                );
+
+            OnCancelButtonPressed = new LambdaCommand
+                (
+                    OnCancelButtonPressedExecute,
+                    CanOnCancelButtonPressedExecute
+                );
+
+            OnSaveButtonPressed = new LambdaCommand
+                (
+                    OnSaveButtonPressedExecute,
+                    CanOnSaveButtonPressedExecute
+                );
+
             #endregion
 
             SetInitValues();
@@ -260,10 +298,16 @@ namespace PatientRep.ViewModels
         private void SetInitValues()
         {
             FillVisualCollection(m_currentConfig.Physicians, Doctors);
-
-            FillVisualCollection(m_currentConfig.Reasons, Reasons);
-
+           
             FillVisualCollection(m_currentConfig.Investigations, Investigations);
+
+            foreach (var item in m_currentConfig.Reasons)
+            {
+                Reasons.Add(new Reason(item.Code, item.TextValue, false));
+            }
+
+            ExportPath = m_currentConfig.ReportOutput;
+           
         }
 
         #region On Enable Doctors Button Pressed
@@ -354,6 +398,73 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region On Open button pressed
+
+        private bool CanOnOpenButtonPressedExecute(object p)
+        {
+            return true;
+        }
+
+        private void OnOpenButtonPressedExecute(object p)
+        {
+
+            FolderBrowserDialog d = new FolderBrowserDialog();
+
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+                ExportPath = d.SelectedPath;
+            }
+
+            
+        }
+
+        #endregion
+
+        #region On Cancel Button Pressed
+
+        private bool CanOnCancelButtonPressedExecute(object p)
+        {
+            return true;
+        }
+
+        private void OnCancelButtonPressedExecute(object p)
+        { 
+            m_w.Close();
+        }
+
+        #endregion
+
+        #region On Save Button Pressed
+
+        private bool CanOnSaveButtonPressedExecute(object p)
+        {
+            return true;
+        }
+
+        private void OnSaveButtonPressedExecute(object p)
+        {
+            m_currentConfig.ReportOutput = ExportPath;
+
+            foreach (var item in Doctors)
+            {
+                m_currentConfig.Physicians.Add(item.Value);
+            }
+
+            foreach (var item in Reasons)
+            {
+                m_currentConfig.Reasons.Add(new ReasonStorageModel(item.ShowNumber, item.Value, item.DocDependent));
+            }
+
+            foreach (var item in Investigations)
+            {
+                m_currentConfig.Investigations.Add(item.Value);
+            }
+
+            m_currentConfig.ConfirmChanging();
+        }
+
+        #endregion
+
         #region Button Controlls
 
         #region On Add Button Presed
@@ -372,7 +483,7 @@ namespace PatientRep.ViewModels
 
                 case 2:
                     
-                    Reasons.Add(new AdditionalInfoViewModel(Reasons.Count +1, ""));
+                    Reasons.Add(new Reason(Reasons.Count +1, "", false));
 
                     break;
                     

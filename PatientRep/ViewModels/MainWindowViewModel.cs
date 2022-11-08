@@ -33,7 +33,9 @@ using Models.HistoryNoteModels.VisualModel;
 using Models.HistoryNoteModels.StorageModel;
 using Models.PatientModel.PatientVisualModel;
 using Models.PatientModel.PatientStorageModel;
-using PatientRep.Configuration;
+using Models.Configuration;
+using Models.Configuration.ReasonModels.ReasonStorageModel;
+
 
 namespace PatientRep.ViewModels
 {
@@ -812,7 +814,7 @@ namespace PatientRep.ViewModels
             m_pController.OnOperationFinished += M_pController_OnOperationFinished;
 
             m_jdataprovider.OnOperationFinished += M_jdataprovider_OnOperationFinished;
-            
+                        
             m_pathToPatientsDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "Rep.json";
 
             m_pathToHistoryDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "HRep.json";
@@ -987,7 +989,12 @@ namespace PatientRep.ViewModels
 
             OnMainWindowInitialized.Invoke();
         }
-        
+
+        private async Task M_Configuration_OnConfigChanged()
+        {
+            await m_jdataprovider.SaveDBAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+        }
+
         private async Task MainWindowViewModel_OnMainWindowInitialized()
         {            
             await m_jdataprovider.LoadDBAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
@@ -1243,8 +1250,40 @@ namespace PatientRep.ViewModels
                         }
                         else
                         {
-                            m_Configuration = e.Result;
+                            m_Configuration = new ConfigStorage();
+
+                            try
+                            {                                                                
+                                foreach (var item in e.Result["Investigations"])
+                                {
+                                    m_Configuration.Investigations.Add(item.ToString());
+                                }
+
+                                foreach (var item in e.Result["Physicians"])
+                                {
+                                    m_Configuration.Physicians.Add(item.ToString());
+                                }
+
+                                foreach (var item in e.Result["Reasons"])
+                                {
+                                    m_Configuration.Reasons.Add(new ReasonStorageModel(int.Parse(item["Code"].ToString()), item["TextValue"].ToString(), 
+                                        bool.Parse(item["DocDependent"].ToString()) ));
+                                }
+
+                                m_Configuration.ReportOutput = e.Result["ReportOutput"].ToString();
+                            }
+                            catch (Exception ef)
+                            {
+
+                                throw;
+                            }
+
+                           
+
+                            
                         }
+
+                        m_Configuration.OnConfigChanged += M_Configuration_OnConfigChanged;
 
                         break;
 

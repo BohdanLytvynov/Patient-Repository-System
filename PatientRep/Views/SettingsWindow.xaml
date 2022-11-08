@@ -59,10 +59,52 @@
             <Grid Grid.Row="2" x:Name="CaseExport" 
                   Visibility="{Binding CaseExportSettingsVisibility,
                 UpdateSourceTrigger=PropertyChanged}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="188*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="1" Text="Шлях Експорту:"
+                               FontSize="{StaticResource TabItemHeaderFontSize}"/>
+                    <TextBox IsReadOnly="True" Grid.Column="3"
+                             FontSize="{StaticResource TabItemHeaderFontSize}"
+                             Text="{Binding ExportPath, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Content="Відкрити"
+                            Style="{StaticResource Buttons2}" 
+                            FontSize="20"
+                            Command="{Binding OnOpenButtonPressed}"/>
+
+
+
+
+                </Grid>
+
             </Grid>
 
             <Grid Grid.Row="2" Margin="5" x:Name="CaseDRI" 
-                  Visibility="{Binding CaseDRIVisibility,
+                  Visibility="{Binding CaseDRIVisibility, 
                 UpdateSourceTrigger=PropertyChanged}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="75*"/>
@@ -82,7 +124,7 @@
                               ItemsSource="{Binding Doctors, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                               Visibility="{Binding CaseDoctorsVisibility, UpdateSourceTrigger=PropertyChanged
                         }"/>
-                    
+
                     <ListView x:Name="CaseInvestigations" SelectedIndex="{Binding InvestSelectedIndex,
                         UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="10,10,10,10"
                               ItemsSource="{Binding Investigations, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
@@ -143,10 +185,14 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1" Content="Відміна" 
                     Style="{StaticResource Buttons}" 
-                    FontSize="20" />
+                    FontSize="20" 
+                    Command="{Binding OnCancelButtonPressed}"
+                    />
             <Button Grid.Column="3" Content="Зберегти" 
                     Style="{StaticResource Buttons2}" 
-                    FontSize="20"/>
+                    FontSize="20"
+                    Command="{Binding OnSaveButtonPressed}"
+                    />
 
 
         </Grid>

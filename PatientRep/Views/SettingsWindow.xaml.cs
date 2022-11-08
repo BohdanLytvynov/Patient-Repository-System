@@ -1,4 +1,4 @@
-﻿using PatientRep.Configuration;
+﻿using Models.Configuration;
 using PatientRep.ViewModels;
 using System;
 using System.Collections.Generic;
