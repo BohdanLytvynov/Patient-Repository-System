@@ -1001,7 +1001,7 @@ namespace PatientRep.ViewModels
 
             await m_jdataprovider.LoadDBAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
 
-            await m_jdataprovider.LoadDBAsync(m_PathToConfig, JDataProviderOperation.LoadSettings);
+            await m_jdataprovider.LoadDBAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
         }
 
         private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs e)
@@ -1251,36 +1251,8 @@ namespace PatientRep.ViewModels
                         else
                         {
                             m_Configuration = new ConfigStorage();
-
-                            try
-                            {                                                                
-                                foreach (var item in e.Result["Investigations"])
-                                {
-                                    m_Configuration.Investigations.Add(item.ToString());
-                                }
-
-                                foreach (var item in e.Result["Physicians"])
-                                {
-                                    m_Configuration.Physicians.Add(item.ToString());
-                                }
-
-                                foreach (var item in e.Result["Reasons"])
-                                {
-                                    m_Configuration.Reasons.Add(new ReasonStorageModel(int.Parse(item["Code"].ToString()), item["TextValue"].ToString(), 
-                                        bool.Parse(item["DocDependent"].ToString()) ));
-                                }
-
-                                m_Configuration.ReportOutput = e.Result["ReportOutput"].ToString();
-                            }
-                            catch (Exception ef)
-                            {
-
-                                throw;
-                            }
-
-                           
-
                             
+                            m_Configuration = e.Result;                                                                                                                                          
                         }
 
                         m_Configuration.OnConfigChanged += M_Configuration_OnConfigChanged;

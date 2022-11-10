@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj": {}
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj",
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj",
         "projectName": "IntegartedDataLib",
-        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj",
         "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\obj\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",

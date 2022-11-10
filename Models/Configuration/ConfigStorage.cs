@@ -1,5 +1,7 @@
-﻿using Models.Configuration.ReasonModels.ReasonStorageModel;
+﻿using IntegartedDataLib;
+using Models.Configuration.ReasonModels.ReasonStorageModel;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +10,7 @@ using System.Threading.Tasks;
 namespace Models.Configuration
 {
     public class ConfigStorage
-    {
-
+    {        
         #region Event
 
         public event Func<Task> OnConfigChanged;
@@ -46,6 +47,19 @@ namespace Models.Configuration
         public void ConfirmChanging()
         {
             OnConfigChanged?.Invoke();
+        }
+
+        public void UpdateIntegratedData()
+        {
+            foreach (var item in Investigations)
+            {
+                IntegartedDataLib.Investigations.InvestProperty.Add(item);
+            }
+
+            foreach (var item in Physicians)
+            {
+                IntegartedDataLib.Physicians.DoctorsProp.Add(item);
+            }
         }
 
         #endregion

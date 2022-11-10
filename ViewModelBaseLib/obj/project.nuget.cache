@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KHQtRdwNen5neJ4RK9qF/02LLsJoF56MrTjAe84f8+QgTClaKwmxZj+D0xET2UE+YzYwUwj8J/kK7VigDf8h9g==",
+  "dgSpecHash": "2M/BwhTlVyu1sTKCnWNHFyG3SUct1M/X9KGXo96oafyyiGEmlgrMCiLFPWQHu7akMgHFh1jPjO4IWPh0cBJe4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
