@@ -22,22 +22,11 @@
           "bin/placeholder/DataValidation.dll": {}
         }
       },
-      "IntegartedDataLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/IntegartedDataLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/IntegartedDataLib.dll": {}
-        }
-      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DataValidation": "1.0.0",
-          "IntegartedDataLib": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
         "compile": {
@@ -72,11 +61,6 @@
       "type": "project",
       "path": "../DataValidation/DataValidation.csproj",
       "msbuildProject": "../DataValidation/DataValidation.csproj"
-    },
-    "IntegartedDataLib/1.0.0": {
-      "type": "project",
-      "path": "../IntegartedDataLib/IntegartedDataLib.csproj",
-      "msbuildProject": "../IntegartedDataLib/IntegartedDataLib.csproj"
     },
     "Models/1.0.0": {
       "type": "project",

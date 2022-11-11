@@ -9,7 +9,6 @@
       "Models/1.0.0": {
         "dependencies": {
           "DataValidation": "1.0.0",
-          "IntegartedDataLib": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
         "runtime": {
@@ -19,11 +18,6 @@
       "DataValidation/1.0.0": {
         "runtime": {
           "DataValidation.dll": {}
-        }
-      },
-      "IntegartedDataLib/1.0.0": {
-        "runtime": {
-          "IntegartedDataLib.dll": {}
         }
       },
       "ViewModelBaseLib/1.0.0": {
@@ -40,11 +34,6 @@
       "sha512": ""
     },
     "DataValidation/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "IntegartedDataLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

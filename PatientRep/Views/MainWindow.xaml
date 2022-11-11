@@ -10,11 +10,15 @@
         xmlns:sc="clr-namespace:SmartControlls;assembly=SmartControlls"
         xmlns:CustomIcons="clr-namespace:CustomIconsLib;assembly=CustomIconsLib"
         xmlns:reps="clr-namespace:ReportBuilderLib.Enums;assembly=ReportBuilderLib"
+        
+        
+        
         Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
+        
         <ObjectDataProvider x:Key="SearchCon" MethodName="GetValues" 
                             ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>

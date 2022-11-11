@@ -144,10 +144,8 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\Models.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\Models.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\DataValidation.dll
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\IntegartedDataLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\DataValidation.pdb
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\IntegartedDataLib.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\obj\Debug\net6.0-windows\Models.csproj.AssemblyReference.cache
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Models\obj\Debug\net6.0-windows\Models.GeneratedMSBuildEditorConfig.editorconfig

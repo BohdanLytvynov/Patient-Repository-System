@@ -12,16 +12,6 @@
           "bin/placeholder/DataValidation.dll": {}
         }
       },
-      "IntegartedDataLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/IntegartedDataLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/IntegartedDataLib.dll": {}
-        }
-      },
       "ViewModelBaseLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -43,11 +33,6 @@
       "path": "../DataValidation/DataValidation.csproj",
       "msbuildProject": "../DataValidation/DataValidation.csproj"
     },
-    "IntegartedDataLib/1.0.0": {
-      "type": "project",
-      "path": "../IntegartedDataLib/IntegartedDataLib.csproj",
-      "msbuildProject": "../IntegartedDataLib/IntegartedDataLib.csproj"
-    },
     "ViewModelBaseLib/1.0.0": {
       "type": "project",
       "path": "../ViewModelBaseLib/ViewModelBaseLib.csproj",
@@ -57,7 +42,6 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "DataValidation >= 1.0.0",
-      "IntegartedDataLib >= 1.0.0",
       "ViewModelBaseLib >= 1.0.0"
     ]
   },
@@ -90,9 +74,6 @@
           "projectReferences": {
             "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
               "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
-            },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj"
             },
             "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
               "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"

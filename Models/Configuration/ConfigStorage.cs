@@ -1,4 +1,4 @@
-﻿using IntegartedDataLib;
+﻿using Models.Configuration.IntegratedData;
 using Models.Configuration.ReasonModels.ReasonStorageModel;
 using System;
 using System.Collections;
@@ -53,12 +53,12 @@ namespace Models.Configuration
         {
             foreach (var item in Investigations)
             {
-                IntegartedDataLib.Investigations.InvestProperty.Add(item);
+                Models.Configuration.IntegratedData.Investigations.InvestProperty.Add(item);
             }
 
             foreach (var item in Physicians)
             {
-                IntegartedDataLib.Physicians.DoctorsProp.Add(item);
+                Models.Configuration.IntegratedData.Physicians.DoctorsProp.Add(item);
             }
         }
 

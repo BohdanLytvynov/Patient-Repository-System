@@ -8,16 +8,14 @@
              xmlns:ps="clr-namespace:Models.PatientModel.Enums;assembly=Models"
              xmlns:hn="clr-namespace:Models.HistoryNoteModels.VisualModel;assembly=Models"
              xmlns:converters="clr-namespace:ConvertersLib;assembly=ConvertersLib"
-             xmlns:id="clr-namespace:IntegartedDataLib;assembly=IntegartedDataLib"
+             xmlns:id="clr-namespace:Models.Configuration.IntegratedData;assembly=Models"
              xmlns:report="clr-namespace:Models.ReportModels.ReportVisualModel;assembly=Models"
              xmlns:reason="clr-namespace:Models.Configuration.ReasonModels.ReasonVisualModel;assembly=Models"
-             xmlns:config="clr-namespace:Models.Configuration;assembly=Models"
+                                      
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-
-      
-
-            <!--#region Resources Icons-->
+        
+        <!--#region Resources Icons-->
 
         <Image x:Key="OkIcon" Source="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"/>
 

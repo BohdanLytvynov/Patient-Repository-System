@@ -303,7 +303,7 @@ namespace PatientRep.ViewModels
 
             foreach (var item in m_currentConfig.Reasons)
             {
-                Reasons.Add(new Reason(item.Code, item.TextValue, false));
+                Reasons.Add(new Reason(item.Code, item.TextValue, item.DocDependent));
             }
 
             ExportPath = m_currentConfig.ReportOutput;

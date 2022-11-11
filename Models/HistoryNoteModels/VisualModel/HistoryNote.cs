@@ -1,5 +1,5 @@
 ﻿using DataValidation;
-using IntegartedDataLib;
+using Models.Configuration.IntegratedData;
 using Models.Interfaces;
 using PatientRep.ViewModelBase.Commands;
 using System;

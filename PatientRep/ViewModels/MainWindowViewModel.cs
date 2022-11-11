@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 using Models.PatientModel.Enums;
 using Models.Comparators;
 using CRUDControllerLib.PatientController.Exceptions;
-using IntegartedDataLib;
+using Models.Configuration.IntegratedData;
 using CRUDControllerLib.HistoryNotesController;
 using Models.Interfaces;
 using PatientRep.Views;

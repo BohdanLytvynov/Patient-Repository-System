@@ -13,7 +13,6 @@
           "CustomIconsLib": "1.0.0",
           "DataValidation": "1.0.0",
           "FontAwesome5": "2.1.11",
-          "IntegartedDataLib": "1.0.0",
           "JsonDataProviderLibDNC": "1.0.0",
           "Models": "1.0.0",
           "ReportBuilderLib": "1.0.0",
@@ -76,11 +75,6 @@
           "DataValidation.dll": {}
         }
       },
-      "IntegartedDataLib/1.0.0": {
-        "runtime": {
-          "IntegartedDataLib.dll": {}
-        }
-      },
       "JsonDataProviderLibDNC/1.0.0": {
         "dependencies": {
           "ControllerBaseLib": "1.0.0",
@@ -93,7 +87,6 @@
       "Models/1.0.0": {
         "dependencies": {
           "DataValidation": "1.0.0",
-          "IntegartedDataLib": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
         "runtime": {
@@ -161,11 +154,6 @@
       "sha512": ""
     },
     "DataValidation/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "IntegartedDataLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
