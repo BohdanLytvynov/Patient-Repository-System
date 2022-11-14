@@ -13,10 +13,8 @@ namespace Models.Configuration.IntegratedData
 
         static Investigations()
         {
-            InvestProperty = new List<string> 
-            {
-                "ФЛГ"
-            };
+            InvestProperty = new List<string>();
+            
         }
 
         public IEnumerator<string> GetEnumerator()

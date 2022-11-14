@@ -135,15 +135,15 @@ namespace PatientRep.ViewModels
 
             //Get reason
 
-            foreach (string r in Reasons.ReasonsProp) //O(k) k = 11
-            {
-                if (Reasons.CompareReasons(r, n.Reason))
-                {
-                    reason = r;
+            //foreach (string r in Reasons.ReasonsProp) //O(k) k = 11
+            //{
+            //    if (Reasons.CompareReasons(r, n.Reason))
+            //    {
+            //        reason = r;
 
-                    break;
-                }
-            }
+            //        break;
+            //    }
+            //}
 
             //Decide wether note exists or not
 

@@ -364,7 +364,7 @@ namespace PatientRep.ViewModels
                 
                 if (!IsDirExists)
                 {
-                    Reason = Reasons.ReasonsProp[2];
+                    Reason = Reasons.ReasonsProp[2].Value;
                 }
                 else
                 {
@@ -1254,6 +1254,8 @@ namespace PatientRep.ViewModels
                             
                             m_Configuration = e.Result;                                                                                                                                          
                         }
+
+                        m_Configuration.UpdateIntegratedData();
 
                         m_Configuration.OnConfigChanged += M_Configuration_OnConfigChanged;
 

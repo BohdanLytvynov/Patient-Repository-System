@@ -60,6 +60,11 @@ namespace Models.Configuration
             {
                 Models.Configuration.IntegratedData.Physicians.DoctorsProp.Add(item);
             }
+
+            foreach (var item in Reasons)
+            {
+                Models.Configuration.IntegratedData.Reasons.ReasonsProp.Add(new ReasonModels.ReasonVisualModel.Reason(item.Code, item.TextValue, item.DocDependent));
+            }
         }
 
         #endregion

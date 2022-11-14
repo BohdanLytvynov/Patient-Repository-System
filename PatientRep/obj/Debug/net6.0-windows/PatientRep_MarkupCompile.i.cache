@@ -1,0 +1,20 @@
+﻿PatientRep
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\
+PatientRep
+none
+false
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\App.xaml
+3-1583128474
+4-642022768
+13-300725411
+216-211616950
+Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;
+
+True
+

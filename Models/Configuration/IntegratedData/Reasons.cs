@@ -1,16 +1,17 @@
-﻿using System.Collections;
+﻿using Models.Configuration.ReasonModels.ReasonVisualModel;
+using System.Collections;
 
 namespace Models.Configuration.IntegratedData
 {
     public class Reasons : IEnumerable<string>
     {
-        public static List<string> ReasonsProp { get; set; }
+        public static List<Reason> ReasonsProp { get; set; }
 
         public static List<int> ShowDocIndexes;
 
         static Reasons()
         {
-            ReasonsProp = new List<string>();
+            ReasonsProp = new List<Reason>();
 
             ShowDocIndexes = new List<int>();
             //{
@@ -42,7 +43,7 @@ namespace Models.Configuration.IntegratedData
             return ReasonsProp.GetEnumerator();
         }
 
-        public static int GetCode(string r)
+        public static int GetCode(string r, int index=0)
         {
             if (String.IsNullOrEmpty(r))
             {
@@ -58,7 +59,7 @@ namespace Models.Configuration.IntegratedData
 
             int res = 0;
 
-            int.TryParse(ar[0], out res);
+            int.TryParse(ar[index], out res);
 
             return res;
         }
