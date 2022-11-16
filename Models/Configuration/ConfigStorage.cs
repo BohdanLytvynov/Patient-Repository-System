@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Models.Configuration.IntegratedData.Reasons;
+using static Models.Configuration.IntegratedData.Physicians;
+using static Models.Configuration.IntegratedData.Investigations;
 
 namespace Models.Configuration
 {
@@ -53,17 +56,45 @@ namespace Models.Configuration
         {
             foreach (var item in Investigations)
             {
-                Models.Configuration.IntegratedData.Investigations.InvestProperty.Add(item);
+                InvestProperty.Add(item);
             }
 
             foreach (var item in Physicians)
             {
-                Models.Configuration.IntegratedData.Physicians.DoctorsProp.Add(item);
+                DoctorsProp.Add(item);
             }
 
             foreach (var item in Reasons)
             {
-                Models.Configuration.IntegratedData.Reasons.ReasonsProp.Add(item.TextValue + " [" + item.Code + "]");
+                ReasonsProp.Add(item.TextValue + " [" + item.Code + "]");
+
+                if (item.DocDependent)
+                {
+                    CodeInsertionToPropriateList(item.Code, "DocDep");
+                }
+
+                if (item.DateDependent)
+                {
+                    CodeInsertionToPropriateList(item.Code, "DateDep");
+                }
+
+                ConfigCodeUsageDictionary.GetType();
+            }
+        }
+
+        #endregion
+
+        #region Methods 
+
+        private void CodeInsertionToPropriateList(int code, string keyname)
+        {
+            if (ConfigCodeUsageDictionary.ContainsKey(keyname)) //List with doc dependent indexes already exists
+            {
+                ConfigCodeUsageDictionary[keyname].Add(code);
+            }
+            else //Shoul be created
+            {
+                ConfigCodeUsageDictionary.Add(keyname, new List<int>() { code });
             }
         }
 

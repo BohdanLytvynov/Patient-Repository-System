@@ -7,13 +7,13 @@ namespace Models.Configuration.IntegratedData
     {
         public static List<string> ReasonsProp { get; set; }
 
-        public static List<int> ShowDocIndexes;
+        public static Dictionary<string, List<int>> ConfigCodeUsageDictionary;
 
         static Reasons()
         {
             ReasonsProp = new List<string>();
 
-            ShowDocIndexes = new List<int>();
+           ConfigCodeUsageDictionary = new Dictionary<string, List<int>>();
             //{
             //    "1) Відсутня декларація.",
             //    "2) Не було огляду терапевта.", //need add info about patient
@@ -43,23 +43,23 @@ namespace Models.Configuration.IntegratedData
             return ReasonsProp.GetEnumerator();
         }
 
-        public static int GetCode(string r, int index=0)
+        public static int GetCode(string r, int index=1)
         {
             if (String.IsNullOrEmpty(r))
             {
                 return -1;
             }
 
-            if (!r.Contains(')'))
+            if (!r.Contains('['))
             {
                 return -1;
             }
 
-            string[] ar = r.Split(')');
+            string[] ar = r.Split('[');
 
             int res = 0;
 
-            int.TryParse(ar[index], out res);
+            int.TryParse(ar[index].Trim(']'), out res);
 
             return res;
         }
