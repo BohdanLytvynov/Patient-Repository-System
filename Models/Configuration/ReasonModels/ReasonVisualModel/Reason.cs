@@ -12,6 +12,8 @@ namespace Models.Configuration.ReasonModels.ReasonVisualModel
 
         bool m_DocDependent;
 
+        bool m_DateDependent;
+
         #endregion
 
         #region Properties
@@ -21,6 +23,7 @@ namespace Models.Configuration.ReasonModels.ReasonVisualModel
             get => m_DocDependent; set => Set(ref m_DocDependent, value, nameof(DocDependent));
         }
 
+        public bool DateDapendent { get=> m_DateDependent; set => Set(ref m_DateDependent, value, nameof(DateDapendent)); }
 
         #endregion
 

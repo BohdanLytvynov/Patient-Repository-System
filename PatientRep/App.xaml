@@ -1242,12 +1242,15 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding ShowNumber, UpdateSourceTrigger=PropertyChanged, StringFormat=№ {0})}"/>
 
-                        <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="20,0,0,0"
+                        <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="20,0,0,0"                                                         
                              />
                     </StackPanel>
                     
                                         
                     <CheckBox IsChecked="{Binding DocDependent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Content="Потребує лікаря:"
+                              Margin="5"/>
+
+                    <CheckBox IsChecked="{Binding DateDapendent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Content="Відображати в не роб час лікаря:"
                               Margin="5"/>
                 </StackPanel>
                 

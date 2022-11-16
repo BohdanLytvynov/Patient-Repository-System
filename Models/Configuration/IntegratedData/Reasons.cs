@@ -5,13 +5,13 @@ namespace Models.Configuration.IntegratedData
 {
     public class Reasons : IEnumerable<string>
     {
-        public static List<Reason> ReasonsProp { get; set; }
+        public static List<string> ReasonsProp { get; set; }
 
         public static List<int> ShowDocIndexes;
 
         static Reasons()
         {
-            ReasonsProp = new List<Reason>();
+            ReasonsProp = new List<string>();
 
             ShowDocIndexes = new List<int>();
             //{

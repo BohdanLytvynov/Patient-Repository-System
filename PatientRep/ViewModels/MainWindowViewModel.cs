@@ -364,7 +364,7 @@ namespace PatientRep.ViewModels
                 
                 if (!IsDirExists)
                 {
-                    Reason = Reasons.ReasonsProp[2].Value;
+                    Reason = Reasons.ReasonsProp[2];
                 }
                 else
                 {

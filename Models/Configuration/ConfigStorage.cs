@@ -63,7 +63,7 @@ namespace Models.Configuration
 
             foreach (var item in Reasons)
             {
-                Models.Configuration.IntegratedData.Reasons.ReasonsProp.Add(new ReasonModels.ReasonVisualModel.Reason(item.Code, item.TextValue, item.DocDependent));
+                Models.Configuration.IntegratedData.Reasons.ReasonsProp.Add(item.TextValue + " [" + item.Code + "]");
             }
         }
 

@@ -1,1 +1,1 @@
-{"Physicians":["Доктор 1"],"Reasons":[{"Code":1,"TextValue":"ПРичина 1","DocDependent":true}],"Investigations":["ФЛГ"],"ReportOutput":"C:\\Users\\Doctor14\\Desktop\\Output"}
+{"Physicians":[" Гусак ","Муха  "],"Reasons":[{"Code":1,"TextValue":" Направлення від ","DocDependent":true},{"Code":2,"TextValue":" Поза роб. часом терапевта ","DocDependent":false}],"Investigations":["ФЛГ ","Рентгенографія ОГП  "],"ReportOutput":"C:\\Users\\Doctor14\\Desktop\\Output"}

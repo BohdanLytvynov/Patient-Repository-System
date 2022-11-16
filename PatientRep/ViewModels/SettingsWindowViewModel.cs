@@ -477,19 +477,19 @@ namespace PatientRep.ViewModels
             {
                 case 1:
 
-                    Doctors.Add(new AdditionalInfoViewModel(Doctors.Count +1, ""));
+                    Doctors.Add(new AdditionalInfoViewModel(Doctors.Count +1, "  "));
 
                     break;
 
                 case 2:
                     
-                    Reasons.Add(new Reason(Reasons.Count +1, "", false));
+                    Reasons.Add(new Reason(Reasons.Count +1, "  ", false));
 
                     break;
                     
                 case 3:
 
-                    Investigations.Add(new AdditionalInfoViewModel(Investigations.Count+ 1, ""));
+                    Investigations.Add(new AdditionalInfoViewModel(Investigations.Count+ 1, "  "));
 
                     break;
             }

@@ -10,7 +10,7 @@
         xmlns:sc="clr-namespace:SmartControlls;assembly=SmartControlls"
         xmlns:CustomIcons="clr-namespace:CustomIconsLib;assembly=CustomIconsLib"
         xmlns:reps="clr-namespace:ReportBuilderLib.Enums;assembly=ReportBuilderLib"
-        xmlns:reason="clr-namespace:Models.Configuration.ReasonModels.ReasonVisualModel"
+        
         
         
         Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
@@ -1034,10 +1034,7 @@
                                             Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Reasons}"
                                                   >
-                                                <ComboBox.ItemTemplate>
-                                                    <DataTemplate>
-                                                    </DataTemplate>
-                                                </ComboBox.ItemTemplate>
+                                               
                                             </ComboBox>
                                         </Grid>
 
