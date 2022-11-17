@@ -303,7 +303,7 @@ namespace PatientRep.ViewModels
 
             foreach (var item in m_currentConfig.Reasons)
             {
-                Reasons.Add(new Reason(item.Code, item.TextValue, item.DocDependent));
+                Reasons.Add(new Reason(item.Code, item.TextValue, item.DocDependent, item.DateDependent));
             }
 
             ExportPath = m_currentConfig.ReportOutput;
@@ -483,7 +483,7 @@ namespace PatientRep.ViewModels
 
                 case 2:
                     
-                    Reasons.Add(new Reason(Reasons.Count +1, " ", false));
+                    Reasons.Add(new Reason(Reasons.Count +1, " ", false, false));
 
                     break;
                     

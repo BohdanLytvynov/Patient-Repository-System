@@ -1248,13 +1248,43 @@
                     
                                         
                     <CheckBox IsChecked="{Binding DocDependent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Content="Потребує лікаря:"
-                              Margin="5"/>
+                              Margin="5" x:Name="doc"/>
 
                     <CheckBox IsChecked="{Binding DateDapendent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Content="Відображати в не роб час лікаря:"
-                              Margin="5"/>
+                              Margin="5" x:Name="date"/>
                 </StackPanel>
                 
             </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding DocDependent}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="date" Property="IsEnabled" Value="False"/>
+                        
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding DocDependent}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="date" Property="IsEnabled" Value="True"/>
+                       
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding DateDapendent}" Value="True">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="doc" Property="IsEnabled" Value="False"/>
+                        
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding DateDapendent}" Value="False">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="doc" Property="IsEnabled" Value="True"/>
+                        
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+
         </DataTemplate>
 
         <!--#endregion-->
