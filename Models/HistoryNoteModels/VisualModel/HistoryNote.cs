@@ -361,8 +361,6 @@ namespace Models.HistoryNoteModels.VisualModel
             #endregion
         }
 
-
-
         #endregion
 
         #region Methods

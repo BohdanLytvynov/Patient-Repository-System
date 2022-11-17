@@ -1013,8 +1013,10 @@ namespace PatientRep.ViewModels
         }
 
         private async Task M_Configuration_OnConfigChanged()
-        {
+        {            
             await m_jdataprovider.SaveDBAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+
+            m_Configuration.UpdateIntegratedData();
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
