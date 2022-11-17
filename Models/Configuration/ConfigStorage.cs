@@ -76,10 +76,8 @@ namespace Models.Configuration
                 if (item.DateDependent)
                 {
                     CodeInsertionToPropriateList(item.Code, "DateDep");
-                }
-
-                ConfigCodeUsageDictionary.GetType();
-            }
+                }               
+            }            
         }
 
         #endregion

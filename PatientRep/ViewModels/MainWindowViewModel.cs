@@ -35,6 +35,9 @@ using Models.PatientModel.PatientVisualModel;
 using Models.PatientModel.PatientStorageModel;
 using Models.Configuration;
 using Models.Configuration.ReasonModels.ReasonStorageModel;
+using static Models.Configuration.IntegratedData.Reasons;
+using static Models.Configuration.IntegratedData.Physicians;
+using static Models.Configuration.IntegratedData.Investigations;
 
 
 namespace PatientRep.ViewModels
@@ -364,7 +367,19 @@ namespace PatientRep.ViewModels
                 
                 if (!IsDirExists)
                 {
-                    Reason = Reasons.ReasonsProp[2];
+                    var r = ConfigCodeUsageDictionary["DateDep"];
+
+                    if (r!= null)
+                    {
+                        if (r.Count > 0)
+                        {
+                            string rTemp;
+
+                            GetReasonAccordingToCode(r[0], out rTemp);
+
+                            Reason = rTemp;
+                        }                        
+                    }
                 }
                 else
                 {

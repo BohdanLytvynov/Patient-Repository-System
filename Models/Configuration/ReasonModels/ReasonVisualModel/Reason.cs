@@ -29,9 +29,11 @@ namespace Models.Configuration.ReasonModels.ReasonVisualModel
 
         #region Ctor
 
-        public Reason(int number, string value, bool docDependent) : base(number, value)
+        public Reason(int number, string value, bool docDependent, bool dateDep) : base(number, value)
         {
             m_DocDependent = docDependent;
+
+            m_DateDependent = dateDep;
         }
 
         #endregion

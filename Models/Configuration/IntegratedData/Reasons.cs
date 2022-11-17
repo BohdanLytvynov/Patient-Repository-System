@@ -68,5 +68,22 @@ namespace Models.Configuration.IntegratedData
         { 
             return GetCode(r1) == GetCode(r2);
         }
+
+        public static bool GetReasonAccordingToCode(int Code, out string reason)
+        {
+            reason = String.Empty;
+
+            foreach (var item in ReasonsProp)
+            {
+                if (GetCode(item) == Code)
+                {
+                    reason = item;
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
