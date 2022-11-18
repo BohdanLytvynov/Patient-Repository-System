@@ -39,14 +39,7 @@ namespace PatientRep
 
         private void M_viewModel_OnIntegratedDataUpdated(List<List<string>> obj)//djctors, reasons, investigations
         {
-            var r = Application.Current.Resources["Doctors"] as Physicians;
-
            
-
-            foreach (var item in obj[0])
-            {
-                //r.Add(item);
-            }
         }
     }
 }
