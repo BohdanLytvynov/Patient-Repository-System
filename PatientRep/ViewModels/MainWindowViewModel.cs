@@ -48,6 +48,8 @@ namespace PatientRep.ViewModels
 
         public event Func<Task> OnMainWindowInitialized;
 
+        public event Action<List<List<string>>> OnIntegratedDataUpdated;
+
         #endregion
 
         #region Windows
@@ -1014,18 +1016,20 @@ namespace PatientRep.ViewModels
 
         private async Task M_Configuration_OnConfigChanged()
         {            
-            await m_jdataprovider.SaveDBAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
 
             m_Configuration.UpdateIntegratedData();
+
+            OnIntegratedDataUpdated?.Invoke(new List<List<string>>() { DoctorsProp, ReasonsProp, InvestProperty });
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
         {
-            await m_jdataprovider.LoadDBAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
+            await m_jdataprovider.LoadFileAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
 
-            await m_jdataprovider.LoadDBAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
+            await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
 
-            await m_jdataprovider.LoadDBAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
+            await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
         }
 
         private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs e)
@@ -1043,7 +1047,7 @@ namespace PatientRep.ViewModels
                 {
                     case HistoryNotesControllerOperations.AddNote:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToHistoryDB,
+                        await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
                             m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
 
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
@@ -1051,7 +1055,7 @@ namespace PatientRep.ViewModels
                         break;
                     case HistoryNotesControllerOperations.EditNote:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToHistoryDB,
+                        await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
                             m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
 
                         break;
@@ -1059,7 +1063,7 @@ namespace PatientRep.ViewModels
 
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToHistoryDB,
+                        await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
                             m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
 
                         break;
@@ -1318,7 +1322,7 @@ namespace PatientRep.ViewModels
                 {
                     case PatientControllerOperations.Add:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
                         break;
 
@@ -1342,12 +1346,12 @@ namespace PatientRep.ViewModels
                             });
                         }
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
                         break;
                     case PatientControllerOperations.Edit:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
                         break;
 

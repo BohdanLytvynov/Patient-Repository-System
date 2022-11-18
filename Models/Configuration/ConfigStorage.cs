@@ -54,6 +54,12 @@ namespace Models.Configuration
 
         public void UpdateIntegratedData()
         {
+            ClearCollections(InvestProperty);
+
+            ClearCollections(ReasonsProp);
+
+            ClearCollections(DoctorsProp);
+
             foreach (var item in Investigations)
             {
                 InvestProperty.Add(item);
@@ -93,6 +99,14 @@ namespace Models.Configuration
             else //Shoul be created
             {
                 ConfigCodeUsageDictionary.Add(keyname, new List<int>() { code });
+            }
+        }
+
+        private void ClearCollections<Type>(IList<Type> col)
+        {
+            if (col.Count > 0)
+            {
+                col.Clear();
             }
         }
 

@@ -445,6 +445,12 @@ namespace PatientRep.ViewModels
         {
             m_currentConfig.ReportOutput = ExportPath;
 
+            ClearCollections(m_currentConfig.Physicians);
+
+            ClearCollections(m_currentConfig.Reasons);
+
+            ClearCollections(m_currentConfig.Investigations);
+
             foreach (var item in Doctors)
             {
                 m_currentConfig.Physicians.Add(item.Value);
@@ -461,6 +467,14 @@ namespace PatientRep.ViewModels
             }
 
             m_currentConfig.ConfirmChanging();
+        }
+
+        private void ClearCollections<Type>(IList<Type> col)
+        {
+            if (col.Count > 0)
+            {
+                col.Clear();
+            }
         }
 
         #endregion

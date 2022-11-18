@@ -25,5 +25,10 @@ namespace Models.Configuration.IntegratedData
         {
             return DoctorsProp.GetEnumerator();
         }
+
+        public static void Clear()
+        {
+            DoctorsProp.Clear();
+        }
     }
 }

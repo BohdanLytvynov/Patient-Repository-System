@@ -17,7 +17,7 @@ namespace JsonDataProviderLibDNC
         #region Methods
 
 
-        public async Task SaveDBAsync(string path, object serObject,
+        public async Task SaveFileAsync(string path, object serObject,
             JDataProviderOperation jDataProviderOperation)           
         {
             await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
@@ -37,7 +37,7 @@ namespace JsonDataProviderLibDNC
         }
 
 
-        public async Task LoadDBAsync(string path, JDataProviderOperation jDataProviderOperation)
+        public async Task LoadFileAsync(string path, JDataProviderOperation jDataProviderOperation)
         {
             await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
                 jDataProviderOperation,
@@ -60,7 +60,7 @@ namespace JsonDataProviderLibDNC
         }
 
 
-        public async Task LoadDBAsync<ObjectType>(string path, ObjectType obj, JDataProviderOperation jDataProviderOperation)
+        public async Task LoadFileAsync<ObjectType>(string path, ObjectType obj, JDataProviderOperation jDataProviderOperation)
         {
             await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
                 jDataProviderOperation,

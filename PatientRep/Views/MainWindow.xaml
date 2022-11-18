@@ -14,9 +14,9 @@
         
         
         Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Window.Resources>
         
         <ObjectDataProvider x:Key="SearchCon" MethodName="GetValues" 
