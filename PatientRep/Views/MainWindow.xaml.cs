@@ -30,16 +30,16 @@ namespace PatientRep
 
             this.DataContext = m_viewModel;
 
-            m_viewModel.OnIntegratedDataUpdated += M_viewModel_OnIntegratedDataUpdated;
+            //m_viewModel.OnIntegratedDataUpdated += M_viewModel_OnIntegratedDataUpdated;
 
             InitializeComponent();
         }
 
 
 
-        private void M_viewModel_OnIntegratedDataUpdated(List<List<string>> obj)//djctors, reasons, investigations
-        {
+        //private void M_viewModel_OnIntegratedDataUpdated(List<List<string>> obj)//djctors, reasons, investigations
+        //{
            
-        }
+        //}
     }
 }

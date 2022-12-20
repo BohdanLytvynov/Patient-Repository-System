@@ -48,7 +48,7 @@ namespace PatientRep.ViewModels
 
         public event Func<Task> OnMainWindowInitialized;
 
-        public event Action<List<List<string>>> OnIntegratedDataUpdated;
+       // public event Action<List<List<string>>> OnIntegratedDataUpdated;
 
         #endregion
 
@@ -1018,9 +1018,15 @@ namespace PatientRep.ViewModels
         {            
             await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
 
-            m_Configuration.UpdateIntegratedData();
+            var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
+                "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
+               m_tittle, MessageBoxButton.OKCancel, MessageBoxImage.Information);
 
-            OnIntegratedDataUpdated?.Invoke(new List<List<string>>() { DoctorsProp, ReasonsProp, InvestProperty });
+            if (r == MessageBoxResult.OK)
+            {
+                Application.Current.Shutdown(0);
+            }
+                   
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
@@ -1278,7 +1284,7 @@ namespace PatientRep.ViewModels
                         }
                         else
                         {
-                            m_Configuration = new ConfigStorage();
+                            //m_Configuration = new ConfigStorage();
 
                             m_Configuration = e.Result;
                         }

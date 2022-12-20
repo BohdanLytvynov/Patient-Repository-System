@@ -418,7 +418,6 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.g.cs
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_Content.g.cs
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\App.baml
