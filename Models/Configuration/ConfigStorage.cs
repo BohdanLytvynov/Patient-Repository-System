@@ -28,7 +28,9 @@ namespace Models.Configuration
 
         public List<string> Investigations { get; set; }
 
-        public string ReportOutput { get; set; }
+        public string NotesReportOutput { get; set; }
+
+        public string HistoryNotesReportOutput { get; set; }
 
         #endregion
 
@@ -41,7 +43,9 @@ namespace Models.Configuration
 
             Investigations = new List<string>();
 
-            ReportOutput = String.Empty;
+            NotesReportOutput = String.Empty;
+
+            HistoryNotesReportOutput = String.Empty;
         }
         #endregion
 

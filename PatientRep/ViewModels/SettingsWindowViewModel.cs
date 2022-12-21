@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using ViewModelBaseLib.VM;
+using System.Linq.Expressions;
 
 namespace PatientRep.ViewModels
 {
@@ -32,7 +33,9 @@ namespace PatientRep.ViewModels
 
         byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings
 
-        string m_ExportPath;
+        string m_ExportNotesPath;
+
+        string m_ExportHistoryNotesPath;
 
         #region LV Visibility
 
@@ -137,10 +140,16 @@ namespace PatientRep.ViewModels
             set => m_Reasons = value;
         }
 
-        public string ExportPath 
+        public string ExportNotesPath //Path for notes reports
         {
-            get=> m_ExportPath;
-            set=> Set(ref m_ExportPath, value, nameof(ExportPath));
+            get=> m_ExportNotesPath;
+            set=> Set(ref m_ExportNotesPath, value, nameof(ExportNotesPath));
+        }
+
+        public string HistoryNotesReportExportPath 
+        {
+            get=> m_ExportHistoryNotesPath; 
+            set=> Set(ref m_ExportHistoryNotesPath, value, nameof(HistoryNotesReportExportPath)); 
         }
 
         #endregion
@@ -156,6 +165,8 @@ namespace PatientRep.ViewModels
         public ICommand OnEnableExportSettingsPressed { get; }
 
         public ICommand OnOpenButtonPressed { get; }
+
+        public ICommand OnOpenRepButtonPressed { get; }
 
         public ICommand OnCancelButtonPressed { get; }
 
@@ -178,7 +189,9 @@ namespace PatientRep.ViewModels
         {
             #region Init fields
 
-            m_ExportPath = String.Empty;
+            m_ExportNotesPath = String.Empty;
+
+            m_ExportHistoryNotesPath = String.Empty;
 
             m_CaseExportSettingsVisibility = Visibility.Hidden;
 
@@ -264,6 +277,12 @@ namespace PatientRep.ViewModels
                     CanOnOpenButtonPressedExecute
                 );
 
+            OnOpenRepButtonPressed = new LambdaCommand
+                (
+                    OnOpenRepButtonPressedExecute,
+                    CanOnOpenRepButtonPressedExecute
+                );
+
             OnCancelButtonPressed = new LambdaCommand
                 (
                     OnCancelButtonPressedExecute,
@@ -306,7 +325,9 @@ namespace PatientRep.ViewModels
                 Reasons.Add(new Reason(item.Code, item.TextValue, item.DocDependent, item.DateDependent));
             }
 
-            ExportPath = m_currentConfig.ReportOutput;
+            ExportNotesPath = m_currentConfig.NotesReportOutput;
+
+            HistoryNotesReportExportPath = m_currentConfig.HistoryNotesReportOutput;
            
         }
 
@@ -412,10 +433,29 @@ namespace PatientRep.ViewModels
 
             if (d.ShowDialog() == DialogResult.OK)
             {
-                ExportPath = d.SelectedPath;
+                ExportNotesPath = d.SelectedPath;
             }
 
             
+        }
+
+        #endregion
+
+        #region On Open Rep Button Pressed
+
+        private bool CanOnOpenRepButtonPressedExecute(object p)
+        {
+            return true;
+        }
+
+        private void OnOpenRepButtonPressedExecute(object p)
+        {
+            FolderBrowserDialog d = new FolderBrowserDialog();
+
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+                HistoryNotesReportExportPath = d.SelectedPath;
+            }
         }
 
         #endregion
@@ -443,7 +483,9 @@ namespace PatientRep.ViewModels
 
         private void OnSaveButtonPressedExecute(object p)
         {
-            m_currentConfig.ReportOutput = ExportPath;
+            m_currentConfig.NotesReportOutput = ExportNotesPath;
+
+            m_currentConfig.HistoryNotesReportOutput = HistoryNotesReportExportPath;
 
             ClearCollections(m_currentConfig.Physicians);
 
