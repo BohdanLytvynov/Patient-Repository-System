@@ -18,7 +18,7 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>-->
     <Window.Resources>
-        
+
         <ObjectDataProvider x:Key="SearchCon" MethodName="GetValues" 
                             ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
@@ -243,13 +243,20 @@
 
                             <Grid Grid.Row="5">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="32*"/>
+                                    <ColumnDefinition Width="40"/>
                                     <ColumnDefinition Width="210"/>
-                                    <ColumnDefinition Width="107*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="190"/>
+                                    <ColumnDefinition Width="14*"/>
                                 </Grid.ColumnDefinitions>
                                 <Button Style="{StaticResource Buttons2}" Grid.Column="1"
                                     Content="Отримати всі записи"
                                     Command="{Binding OnGetAllNotesPressed}"/>
+
+                                <Button Style="{StaticResource Buttons2}" 
+                                        Grid.Column="3" 
+                                        Content="Експорт виділеного"
+                                        Command="{Binding OnExportNotesButtonPressed}"/>
                             </Grid>
 
                         </Grid>
@@ -1034,7 +1041,7 @@
                                             Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Reasons}"
                                                   >
-                                               
+
                                             </ComboBox>
                                         </Grid>
 
@@ -1051,7 +1058,7 @@
                                                   Text="{Binding InvestType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Investigations}"
                                                   >
-                                                
+
                                             </ComboBox>
                                         </Grid>
 

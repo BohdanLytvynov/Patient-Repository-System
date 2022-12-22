@@ -758,6 +758,12 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Export System
+
+        public ICommand OnExportNotesButtonPressed { get; set; }
+
+        #endregion
+
         #endregion
 
         #endregion
@@ -767,6 +773,8 @@ namespace PatientRep.ViewModels
         public MainWindowViewModel()
         {
             #region Init Fields
+
+            m_NewAddInfoCol = new ObservableCollection<AdditionalInfoViewModel>();
 
             m_selfpath = Environment.CurrentDirectory;
 
@@ -933,6 +941,12 @@ namespace PatientRep.ViewModels
                 (
                     OnSettingsButtonPressedExecute,
                     CanOnSettingsButtonPressedExecute
+                );
+
+            OnExportNotesButtonPressed = new LambdaCommand
+                (
+                    OnExportNotesButtonPressedExecute,
+                    CanOnExportNotesButtonPressedExecute
                 );
 
             #region History Registration System
@@ -1209,7 +1223,7 @@ namespace PatientRep.ViewModels
                                         (PatientStatus)Enum.Parse(stat.GetType(), array[i]["Status"].ToString()),
                                         DateTime.Parse(array[i]["RegisterDate"].ToString()),
                                         DateTime.Parse(array[i]["InvestigationDate"].ToString()),
-                                        adInfoList);
+                                        adInfoList, array[i]["Center"]?.ToString());
 
                                 p.AdditionalInfo = adInfoList;
 
@@ -1639,7 +1653,7 @@ namespace PatientRep.ViewModels
 
             PatientStorage pTemp = new PatientStorage(
                 Guid.NewGuid(), Surename, Name, Lastname, Code, Diagnosis, Models.PatientModel.Enums.PatientStatus.Не_Погашено
-                , CurrentDateAndTime, default, adInfo);
+                , CurrentDateAndTime, default, adInfo, null);
 
             await m_pController.AddAsync(pTemp, m_patients);
         }
@@ -2030,6 +2044,27 @@ namespace PatientRep.ViewModels
             m_ReportViewerWindow.Topmost = true;
 
             m_ReportViewerWindow.Show();
+        }
+
+        #endregion
+
+        #region On Export Notes Button Pressed 
+
+        private bool CanOnExportNotesButtonPressedExecute(object p)
+        {
+            if (m_Configuration != null)
+            {
+                return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput);
+            }
+            return false;
+            
+        }
+
+        private void OnExportNotesButtonPressedExecute(object p)
+        {
+            string fileName = $"Звіт від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
+
+
         }
 
         #endregion
