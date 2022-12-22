@@ -696,6 +696,12 @@
                                 </StackPanel>
                             </Expander>
 
+                            <StackPanel Orientation="Horizontal" Margin="30,40,0,0">
+                                <TextBlock Text="Центр:"/>
+                                
+                                <TextBox Text="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="30,0"/>
+                            </StackPanel>
+
                         </StackPanel>
 
 

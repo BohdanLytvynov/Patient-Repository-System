@@ -1410,7 +1410,8 @@ namespace PatientRep.ViewModels
 
                             foreach (var item in result)
                             {
-                                Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate);
+                                Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, 
+                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center);
 
                                 p.Number = num;
 
@@ -1500,7 +1501,7 @@ namespace PatientRep.ViewModels
             {
                 Patient p = new Patient(
                     ps.Id, ps.Surename, ps.Name, ps.Lastname, ps.Code, ps.Diagnosis, ps.Status, ps.RegisterDate,
-                    ps.InvestigationDate);
+                    ps.InvestigationDate, ps.Center);
 
                 p.Number = count;
 
