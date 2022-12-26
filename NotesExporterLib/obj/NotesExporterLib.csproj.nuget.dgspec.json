@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj",
+        "projectName": "ControllerBaseLib",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj",
+        "projectName": "NotesExporterLib",
+        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj",
+        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+                "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

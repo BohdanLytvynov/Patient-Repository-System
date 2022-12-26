@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace JsonDataProviderLibDNC
     
 {
-    public class JsonDataProvider: ControllerBaseClass
+    public class JsonDataProvider: ControllerBaseClass<JDataProviderOperation>
     {
         #region Ctor
         public JsonDataProvider()
@@ -20,7 +20,7 @@ namespace JsonDataProviderLibDNC
         public async Task SaveFileAsync(string path, object serObject,
             JDataProviderOperation jDataProviderOperation)           
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 jDataProviderOperation, 
                 (state, cts)=>
                 {
@@ -39,7 +39,7 @@ namespace JsonDataProviderLibDNC
 
         public async Task LoadFileAsync(string path, JDataProviderOperation jDataProviderOperation)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 jDataProviderOperation,
                 (state, cts)=>
                 {
@@ -62,7 +62,7 @@ namespace JsonDataProviderLibDNC
 
         public async Task LoadFileAsync<ObjectType>(string path, ObjectType obj, JDataProviderOperation jDataProviderOperation)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 jDataProviderOperation,
                 (state, cts) =>
                 {

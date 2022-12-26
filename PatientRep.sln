@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimerLib", "TimerLib\TimerL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportBuilderLib", "ReportBuilderLib\ReportBuilderLib.csproj", "{01FAFFB0-C64C-44F4-8877-C7889B5741DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesExporterLib", "NotesExporterLib\NotesExporterLib.csproj", "{EEA0E806-1199-4E76-A1B9-07F7372F3652}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{01FAFFB0-C64C-44F4-8877-C7889B5741DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01FAFFB0-C64C-44F4-8877-C7889B5741DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01FAFFB0-C64C-44F4-8877-C7889B5741DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA0E806-1199-4E76-A1B9-07F7372F3652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA0E806-1199-4E76-A1B9-07F7372F3652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA0E806-1199-4E76-A1B9-07F7372F3652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA0E806-1199-4E76-A1B9-07F7372F3652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

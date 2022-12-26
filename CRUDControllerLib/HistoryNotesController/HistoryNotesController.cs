@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace CRUDControllerLib.HistoryNotesController
 {
-    public class HistoryNotesController : ControllerBaseClass, ICRUDController<HistoryNote, HistoryNoteStorage, HistoryNoteSearchArgs>
+    public class HistoryNotesController : ControllerBaseClass<HistoryNotesControllerOperations>, ICRUDController<HistoryNote, HistoryNoteStorage, HistoryNoteSearchArgs>
     {
         public HistoryNotesController()
         {
@@ -23,7 +23,7 @@ namespace CRUDControllerLib.HistoryNotesController
 
         public async Task AddAsync(HistoryNoteStorage entity, IList<HistoryNoteStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<HistoryNotesControllerOperations>(HistoryNotesControllerOperations.AddNote,
+            await ExecuteFunctionAndGetResultThroughEventAsync(HistoryNotesControllerOperations.AddNote,
                 (state, cts)=>
                 {
                     while (IsGuidExists<HistoryNoteStorage>(col, entity.Id))
@@ -39,7 +39,7 @@ namespace CRUDControllerLib.HistoryNotesController
 
         public async Task EditAsync(HistoryNote entity, IList<HistoryNoteStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<HistoryNotesControllerOperations>
+            await ExecuteFunctionAndGetResultThroughEventAsync
                 (
                     HistoryNotesControllerOperations.EditNote,
 
@@ -81,7 +81,7 @@ namespace CRUDControllerLib.HistoryNotesController
 
         public async Task GetAllNotesAsync(IList<HistoryNoteStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<HistoryNotesControllerOperations>
+            await ExecuteFunctionAndGetResultThroughEventAsync
                 (HistoryNotesControllerOperations.GetNotes, (state, cts) =>
                 {
                     return (from n in col select n).OrderBy(n => n.InvestigationDate).ToList();
@@ -91,7 +91,7 @@ namespace CRUDControllerLib.HistoryNotesController
 
         public async Task RemoveAsync(HistoryNote entity, IList<HistoryNoteStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<HistoryNotesControllerOperations>
+            await ExecuteFunctionAndGetResultThroughEventAsync
                  (HistoryNotesControllerOperations.RemoveNote,
                  (state, cts)=>
                  {                    
@@ -114,7 +114,7 @@ namespace CRUDControllerLib.HistoryNotesController
 
         public async Task SearchAsync(IList<HistoryNoteStorage> col, HistoryNoteSearchArgs args)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<HistoryNotesControllerOperations>
+            await ExecuteFunctionAndGetResultThroughEventAsync
                 (HistoryNotesControllerOperations.SearchNotes,
                 (state, cts)=>
                 {

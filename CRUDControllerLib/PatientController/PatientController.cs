@@ -14,11 +14,11 @@ using Models.PatientModel.PatientStorageModel;
 
 namespace CRUDControllerLib.PatientController
 {
-    public class PatientController : ControllerBaseClass, ICRUDController<Patient, PatientStorage, PatientSearchArguments>, ISortable<Patient>
+    public class PatientController : ControllerBaseClass<PatientControllerOperations>, ICRUDController<Patient, PatientStorage, PatientSearchArguments>, ISortable<Patient>
     {        
         public async Task AddAsync(PatientStorage entity, IList<PatientStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<PatientControllerOperations>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 PatientControllerOperations.Add, 
                 (state, cts)=>
                 {
@@ -41,7 +41,7 @@ namespace CRUDControllerLib.PatientController
 
         public async Task RemoveAsync(Patient entity, IList<PatientStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<PatientControllerOperations>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 PatientControllerOperations.Remove, (state, cts)=>
                 {
                     Guid id = new Guid();
@@ -69,7 +69,7 @@ namespace CRUDControllerLib.PatientController
 
         public async Task SearchAsync(IList<PatientStorage> col, PatientSearchArguments args)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<PatientControllerOperations>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 PatientControllerOperations.Search, (state, cts)=>
                 {
                     IEnumerable<PatientStorage> res = null;
@@ -199,7 +199,7 @@ namespace CRUDControllerLib.PatientController
 
         public async Task EditAsync(Patient entity, IList<PatientStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<PatientControllerOperations>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 PatientControllerOperations.Edit, 
                 (state, cts)=>
                 {
@@ -239,7 +239,7 @@ namespace CRUDControllerLib.PatientController
 
         public async Task GetAllNotesAsync(IList<PatientStorage> col)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<PatientControllerOperations>
+            await ExecuteFunctionAndGetResultThroughEventAsync
                 (PatientControllerOperations.GetRep, (state, cts)=>
                 {
                     return (from p in col select p).OrderBy(p => p.Surename).ToList();
@@ -249,7 +249,7 @@ namespace CRUDControllerLib.PatientController
 
         public async Task SortAsync(List<Patient> col, IComparer<Patient> comparer)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<PatientControllerOperations>
+            await ExecuteFunctionAndGetResultThroughEventAsync
                 (PatientControllerOperations.Sorting,
                 (stste, cts) =>
                 {

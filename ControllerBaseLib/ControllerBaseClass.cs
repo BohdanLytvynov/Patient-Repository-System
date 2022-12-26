@@ -4,7 +4,8 @@ using System.Buffers;
 
 namespace ControllerBaseLib
 {
-    public abstract class ControllerBaseClass
+    public abstract class ControllerBaseClass<ToperType>
+        where ToperType : Enum
     {
         #region Delegates
 
@@ -27,8 +28,8 @@ namespace ControllerBaseLib
 
         #region Methods
 
-        public void ExecuteFunctionAdnGetResultThroughEvent<ToperType>(ToperType operType, Func<object, dynamic> func, object state = null)
-            where ToperType : struct
+        public void ExecuteFunctionAdnGetResultThroughEvent(ToperType operType, Func<object, dynamic> func, object state = null)
+            
         {
             Exception ex = null;
 
@@ -60,9 +61,9 @@ namespace ControllerBaseLib
             }
         }
 
-        public async Task ExecuteFunctionAndGetResultThroughEventAsync<TOperType>(TOperType operType, Func<object, CancellationTokenSource, dynamic> func,
+        public async Task ExecuteFunctionAndGetResultThroughEventAsync(ToperType operType, Func<object, CancellationTokenSource, dynamic> func,
             object state = null, CancellationTokenSource cts = null)
-            where TOperType : struct
+            
         {
             Exception ex = null;
 
