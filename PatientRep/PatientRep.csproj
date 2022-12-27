@@ -42,6 +42,7 @@
     <ProjectReference Include="..\DataValidation\DataValidation.csproj" />
     <ProjectReference Include="..\JsonDataProviderLibDNC\JsonDataProviderLibDNC.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\NotesExporterLib\NotesExporterLib.csproj" />
     <ProjectReference Include="..\ReportBuilderLib\ReportBuilderLib.csproj" />
     <ProjectReference Include="..\SmartControlls\SmartControlls.csproj" />
     <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj" />

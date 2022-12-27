@@ -38,7 +38,9 @@ using Models.Configuration.ReasonModels.ReasonStorageModel;
 using static Models.Configuration.IntegratedData.Reasons;
 using static Models.Configuration.IntegratedData.Physicians;
 using static Models.Configuration.IntegratedData.Investigations;
-
+using Models.ReportModels.ReportVisualModel;
+using Models.ExportNoteModel;
+using NotesExporterLib;
 
 namespace PatientRep.ViewModels
 {
@@ -135,6 +137,8 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Report System
+
+        NotesExporter m_NoteExporter;
 
         bool m_SearchReport; // search - true Report - false
 
@@ -773,6 +777,8 @@ namespace PatientRep.ViewModels
         public MainWindowViewModel()
         {
             #region Init Fields
+
+            m_NoteExporter = new NotesExporter();
 
             m_NewAddInfoCol = new ObservableCollection<AdditionalInfoViewModel>();
 
@@ -2063,8 +2069,17 @@ namespace PatientRep.ViewModels
 
         private void OnExportNotesButtonPressedExecute(object p)
         {
-            string fileName = $"Звіт від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
+            string fileName = $"Боржники на ФЛГ від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
 
+            List<NoteExport> notes = new List<NoteExport>();
+
+            foreach (var item in SearchResult)
+            {
+                notes.Add(item.Export());
+            }
+
+            m_NoteExporter.Export(m_Configuration.NotesReportOutput + Path.DirectorySeparatorChar + fileName,
+                );
 
         }
 

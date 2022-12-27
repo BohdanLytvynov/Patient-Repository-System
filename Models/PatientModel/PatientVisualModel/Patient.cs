@@ -7,10 +7,12 @@ using PatientRep.ViewModelBase.Commands;
 using System.Text.Json.Serialization;
 using System.Collections.ObjectModel;
 using System.Reflection.Emit;
+using Models.Interfaces;
+using Models.ExportNoteModel;
 
 namespace Models.PatientModel.PatientVisualModel
 {
-    public class Patient : ViewModelBaseClass
+    public class Patient : ViewModelBaseClass, IExportable<NoteExport>
     {
         #region Events
 
@@ -309,6 +311,15 @@ namespace Models.PatientModel.PatientVisualModel
             InvestigationDate = DateTime.Now;
 
             IsInvestDateSet = true;
+        }
+
+        #endregion
+
+        #region Export
+
+        public NoteExport Export()
+        {
+            return new NoteExport(this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
         }
 
         #endregion
