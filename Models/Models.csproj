@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataValidation\DataValidation.csproj" />
-    <ProjectReference Include="..\IntegartedDataLib\IntegartedDataLib.csproj" />
     <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj" />
   </ItemGroup>
 

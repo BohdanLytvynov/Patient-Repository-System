@@ -1,5 +1,5 @@
 ﻿using DataValidation;
-using IntegartedDataLib;
+using Models.Configuration.IntegratedData;
 using Models.Interfaces;
 using PatientRep.ViewModelBase.Commands;
 using System;
@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using ViewModelBaseLib.VM;
+using static Models.Configuration.IntegratedData.Reasons;
 
 namespace Models.HistoryNoteModels.VisualModel
 {
@@ -97,7 +98,7 @@ namespace Models.HistoryNoteModels.VisualModel
             {
                 Set(ref m_Reason, value, nameof(Reason));
 
-                DoctorsVisibilityController(Reason);
+                DoctorsVisibilityController();
             }
         }
 
@@ -179,7 +180,7 @@ namespace Models.HistoryNoteModels.VisualModel
 
                     case nameof(Department):
 
-                        m_ValidationArray[5] = Validation.ValidateNumber(Department, out error);
+                        m_ValidationArray[5] = true;
 
                         return error;
 
@@ -321,7 +322,7 @@ namespace Models.HistoryNoteModels.VisualModel
                 m_Doctor = string.Empty;
             }
 
-            DoctorsVisibilityController(reason);
+            DoctorsVisibilityController();
 
             #endregion
 
@@ -360,21 +361,24 @@ namespace Models.HistoryNoteModels.VisualModel
             #endregion
         }
 
-
-
         #endregion
 
         #region Methods
 
-        private void DoctorsVisibilityController(string reason)
+        private void DoctorsVisibilityController()
         {
-            if (Reasons.GetCode(Reason) >= 7 && Reasons.GetCode(Reason) <= 9)
+            var Codes = ConfigCodeUsageDictionary["DocDep"];
+
+            if (Codes?.Count > 0)
             {
-                DoctorsField = Visibility.Visible;
-            }
-            else
-            {
-                DoctorsField = Visibility.Hidden;
+                if (Codes.Contains(GetCode(Reason)))
+                {
+                    DoctorsField = Visibility.Visible;
+                }
+                else
+                {
+                    DoctorsField = Visibility.Hidden;
+                }
             }
         }
 

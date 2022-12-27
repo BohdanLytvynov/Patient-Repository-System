@@ -40,7 +40,6 @@
     <ProjectReference Include="..\CRUDControllerLib\CRUDControllerLib.csproj" />
     <ProjectReference Include="..\CustomIconsLib\CustomIconsLib.csproj" />
     <ProjectReference Include="..\DataValidation\DataValidation.csproj" />
-    <ProjectReference Include="..\IntegartedDataLib\IntegartedDataLib.csproj" />
     <ProjectReference Include="..\JsonDataProviderLibDNC\JsonDataProviderLibDNC.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\ReportBuilderLib\ReportBuilderLib.csproj" />

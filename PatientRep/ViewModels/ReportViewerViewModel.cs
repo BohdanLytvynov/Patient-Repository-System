@@ -1,4 +1,4 @@
-﻿using IntegartedDataLib;
+﻿using Models.Configuration.IntegratedData;
 using Models.HistoryNoteModels.VisualModel;
 using Models.HistoryNotesComparators;
 using Models.ReportModels.ReportVisualModel;

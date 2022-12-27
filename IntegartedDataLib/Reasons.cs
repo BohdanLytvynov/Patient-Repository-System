@@ -4,28 +4,32 @@ namespace IntegartedDataLib
 {
     public class Reasons : IEnumerable<string>
     {
-        public static string [] ReasonsProp { get; set; }
+        public static List<string> ReasonsProp { get; set; }
+
+        public static List<int> ShowDocIndexes;
 
         static Reasons()
         {
-            ReasonsProp = new string[] 
-            {
-                "1) Відсутня декларація.",
-                "2) Не було огляду терапевта.", //need add info about patient
-                "3) Поза роб. часом терапевта.",                
-                "4) Не працювала система.",                
-                "5) Контроль лікування",
-                "6) Наявність скарг",                
-                ////////////////////////////////////(Codes that controls visibility of doctor's field)  need add info about patient
-                "7) Погоджено з завідуючим:",
-                "8) Направлення від:",
-                "9) Не виписано єл. направ.:",
-                /////////////////////////////////
-                "10) Переносний рентген (РВ)",
-                "11) Планове дослідження"
+            ReasonsProp = new List<string>();
+
+            ShowDocIndexes = new List<int>();
+            //{
+            //    "1) Відсутня декларація.",
+            //    "2) Не було огляду терапевта.", //need add info about patient
+            //    "3) Поза роб. часом терапевта.",                
+            //    "4) Не працювала система.",                
+            //    "5) Контроль лікування",
+            //    "6) Наявність скарг",                
+            //    ////////////////////////////////////(Codes that controls visibility of doctor's field)  need add info about patient
+            //    "7) Погоджено з завідуючим:",
+            //    "8) Направлення від:",
+            //    "9) Не виписано єл. направ.:",
+            //    /////////////////////////////////
+            //    "10) Переносний рентген (РВ)",
+            //    "11) Планове дослідження"
 
 
-            }; 
+            //}; 
         }
 
         public IEnumerator<string> GetEnumerator()

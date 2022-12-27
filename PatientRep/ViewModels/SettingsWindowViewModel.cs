@@ -14,6 +14,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using ViewModelBaseLib.VM;
+using System.Linq.Expressions;
 
 namespace PatientRep.ViewModels
 {
@@ -32,7 +33,9 @@ namespace PatientRep.ViewModels
 
         byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings
 
-        string m_ExportPath;
+        string m_ExportNotesPath;
+
+        string m_ExportHistoryNotesPath;
 
         #region LV Visibility
 
@@ -137,10 +140,16 @@ namespace PatientRep.ViewModels
             set => m_Reasons = value;
         }
 
-        public string ExportPath 
+        public string ExportNotesPath //Path for notes reports
         {
-            get=> m_ExportPath;
-            set=> Set(ref m_ExportPath, value, nameof(ExportPath));
+            get=> m_ExportNotesPath;
+            set=> Set(ref m_ExportNotesPath, value, nameof(ExportNotesPath));
+        }
+
+        public string HistoryNotesReportExportPath 
+        {
+            get=> m_ExportHistoryNotesPath; 
+            set=> Set(ref m_ExportHistoryNotesPath, value, nameof(HistoryNotesReportExportPath)); 
         }
 
         #endregion
@@ -156,6 +165,8 @@ namespace PatientRep.ViewModels
         public ICommand OnEnableExportSettingsPressed { get; }
 
         public ICommand OnOpenButtonPressed { get; }
+
+        public ICommand OnOpenRepButtonPressed { get; }
 
         public ICommand OnCancelButtonPressed { get; }
 
@@ -178,7 +189,9 @@ namespace PatientRep.ViewModels
         {
             #region Init fields
 
-            m_ExportPath = String.Empty;
+            m_ExportNotesPath = String.Empty;
+
+            m_ExportHistoryNotesPath = String.Empty;
 
             m_CaseExportSettingsVisibility = Visibility.Hidden;
 
@@ -264,6 +277,12 @@ namespace PatientRep.ViewModels
                     CanOnOpenButtonPressedExecute
                 );
 
+            OnOpenRepButtonPressed = new LambdaCommand
+                (
+                    OnOpenRepButtonPressedExecute,
+                    CanOnOpenRepButtonPressedExecute
+                );
+
             OnCancelButtonPressed = new LambdaCommand
                 (
                     OnCancelButtonPressedExecute,
@@ -303,10 +322,12 @@ namespace PatientRep.ViewModels
 
             foreach (var item in m_currentConfig.Reasons)
             {
-                Reasons.Add(new Reason(item.Code, item.TextValue, false));
+                Reasons.Add(new Reason(item.Code, item.TextValue, item.DocDependent, item.DateDependent));
             }
 
-            ExportPath = m_currentConfig.ReportOutput;
+            ExportNotesPath = m_currentConfig.NotesReportOutput;
+
+            HistoryNotesReportExportPath = m_currentConfig.HistoryNotesReportOutput;
            
         }
 
@@ -412,10 +433,29 @@ namespace PatientRep.ViewModels
 
             if (d.ShowDialog() == DialogResult.OK)
             {
-                ExportPath = d.SelectedPath;
+                ExportNotesPath = d.SelectedPath;
             }
 
             
+        }
+
+        #endregion
+
+        #region On Open Rep Button Pressed
+
+        private bool CanOnOpenRepButtonPressedExecute(object p)
+        {
+            return true;
+        }
+
+        private void OnOpenRepButtonPressedExecute(object p)
+        {
+            FolderBrowserDialog d = new FolderBrowserDialog();
+
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+                HistoryNotesReportExportPath = d.SelectedPath;
+            }
         }
 
         #endregion
@@ -443,7 +483,15 @@ namespace PatientRep.ViewModels
 
         private void OnSaveButtonPressedExecute(object p)
         {
-            m_currentConfig.ReportOutput = ExportPath;
+            m_currentConfig.NotesReportOutput = ExportNotesPath;
+
+            m_currentConfig.HistoryNotesReportOutput = HistoryNotesReportExportPath;
+
+            ClearCollections(m_currentConfig.Physicians);
+
+            ClearCollections(m_currentConfig.Reasons);
+
+            ClearCollections(m_currentConfig.Investigations);
 
             foreach (var item in Doctors)
             {
@@ -452,7 +500,7 @@ namespace PatientRep.ViewModels
 
             foreach (var item in Reasons)
             {
-                m_currentConfig.Reasons.Add(new ReasonStorageModel(item.ShowNumber, item.Value, item.DocDependent));
+                m_currentConfig.Reasons.Add(new ReasonStorageModel(item.ShowNumber, item.Value, item.DocDependent, item.DateDapendent));
             }
 
             foreach (var item in Investigations)
@@ -461,6 +509,14 @@ namespace PatientRep.ViewModels
             }
 
             m_currentConfig.ConfirmChanging();
+        }
+
+        private void ClearCollections<Type>(IList<Type> col)
+        {
+            if (col.Count > 0)
+            {
+                col.Clear();
+            }
         }
 
         #endregion
@@ -477,19 +533,19 @@ namespace PatientRep.ViewModels
             {
                 case 1:
 
-                    Doctors.Add(new AdditionalInfoViewModel(Doctors.Count +1, ""));
+                    Doctors.Add(new AdditionalInfoViewModel(Doctors.Count +1, " "));
 
                     break;
 
                 case 2:
                     
-                    Reasons.Add(new Reason(Reasons.Count +1, "", false));
+                    Reasons.Add(new Reason(Reasons.Count +1, " ", false, false));
 
                     break;
                     
                 case 3:
 
-                    Investigations.Add(new AdditionalInfoViewModel(Investigations.Count+ 1, ""));
+                    Investigations.Add(new AdditionalInfoViewModel(Investigations.Count+ 1, " "));
 
                     break;
             }

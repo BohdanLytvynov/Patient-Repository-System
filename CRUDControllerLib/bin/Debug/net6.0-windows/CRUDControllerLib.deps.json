@@ -25,15 +25,9 @@
           "DataValidation.dll": {}
         }
       },
-      "IntegartedDataLib/1.0.0": {
-        "runtime": {
-          "IntegartedDataLib.dll": {}
-        }
-      },
       "Models/1.0.0": {
         "dependencies": {
           "DataValidation": "1.0.0",
-          "IntegartedDataLib": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
         "runtime": {
@@ -59,11 +53,6 @@
       "sha512": ""
     },
     "DataValidation/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "IntegartedDataLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

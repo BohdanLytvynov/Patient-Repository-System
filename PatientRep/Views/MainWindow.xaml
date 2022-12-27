@@ -10,11 +10,15 @@
         xmlns:sc="clr-namespace:SmartControlls;assembly=SmartControlls"
         xmlns:CustomIcons="clr-namespace:CustomIconsLib;assembly=CustomIconsLib"
         xmlns:reps="clr-namespace:ReportBuilderLib.Enums;assembly=ReportBuilderLib"
+        
+        
+        
         Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Window.Resources>
+
         <ObjectDataProvider x:Key="SearchCon" MethodName="GetValues" 
                             ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
@@ -239,13 +243,20 @@
 
                             <Grid Grid.Row="5">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="32*"/>
+                                    <ColumnDefinition Width="40"/>
                                     <ColumnDefinition Width="210"/>
-                                    <ColumnDefinition Width="107*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="190"/>
+                                    <ColumnDefinition Width="14*"/>
                                 </Grid.ColumnDefinitions>
                                 <Button Style="{StaticResource Buttons2}" Grid.Column="1"
                                     Content="Отримати всі записи"
                                     Command="{Binding OnGetAllNotesPressed}"/>
+
+                                <Button Style="{StaticResource Buttons2}" 
+                                        Grid.Column="3" 
+                                        Content="Експорт виділеного"
+                                        Command="{Binding OnExportNotesButtonPressed}"/>
                             </Grid>
 
                         </Grid>
@@ -1029,7 +1040,9 @@
                                             UpdateSourceTrigger=PropertyChanged,
                                             Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Reasons}"
-                                                  />
+                                                  >
+
+                                            </ComboBox>
                                         </Grid>
 
                                         <Grid Grid.Row="5">
@@ -1044,7 +1057,9 @@
                                             <ComboBox Grid.Column="3" IsEditable="True"
                                                   Text="{Binding InvestType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Investigations}"
-                                                  />
+                                                  >
+
+                                            </ComboBox>
                                         </Grid>
 
 

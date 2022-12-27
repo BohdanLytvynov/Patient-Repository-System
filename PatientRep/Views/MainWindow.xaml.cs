@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.Configuration.IntegratedData;
+using PatientRep.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,24 @@ namespace PatientRep
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainWindowViewModel m_viewModel;
+        
         public MainWindow()
-        {
+        {                        
+            m_viewModel = new MainWindowViewModel();
+
+            this.DataContext = m_viewModel;
+
+            //m_viewModel.OnIntegratedDataUpdated += M_viewModel_OnIntegratedDataUpdated;
+
             InitializeComponent();
         }
+
+
+
+        //private void M_viewModel_OnIntegratedDataUpdated(List<List<string>> obj)//djctors, reasons, investigations
+        //{
+           
+        //}
     }
 }

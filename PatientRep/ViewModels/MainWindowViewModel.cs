@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 using Models.PatientModel.Enums;
 using Models.Comparators;
 using CRUDControllerLib.PatientController.Exceptions;
-using IntegartedDataLib;
+using Models.Configuration.IntegratedData;
 using CRUDControllerLib.HistoryNotesController;
 using Models.Interfaces;
 using PatientRep.Views;
@@ -35,6 +35,9 @@ using Models.PatientModel.PatientVisualModel;
 using Models.PatientModel.PatientStorageModel;
 using Models.Configuration;
 using Models.Configuration.ReasonModels.ReasonStorageModel;
+using static Models.Configuration.IntegratedData.Reasons;
+using static Models.Configuration.IntegratedData.Physicians;
+using static Models.Configuration.IntegratedData.Investigations;
 
 
 namespace PatientRep.ViewModels
@@ -44,6 +47,8 @@ namespace PatientRep.ViewModels
         #region Events
 
         public event Func<Task> OnMainWindowInitialized;
+
+       // public event Action<List<List<string>>> OnIntegratedDataUpdated;
 
         #endregion
 
@@ -96,7 +101,7 @@ namespace PatientRep.ViewModels
         private List<HistoryNoteStorage> m_HistoryNotesStorageCollection;
 
         ObservableCollection<HistoryNote> m_HistoryNoteVisualModelCollection;
-        
+
         int m_HistoryRegistrationSelectedIndex;
 
         bool m_ClearDate;
@@ -162,7 +167,7 @@ namespace PatientRep.ViewModels
         DateTime m_SearchDateEnd;
 
         bool m_SearchCodeCorrect;
-        
+
         #endregion
 
         #region Visibility fields
@@ -176,7 +181,7 @@ namespace PatientRep.ViewModels
         Visibility m_StatusSearchGridVisibility;
 
         Visibility m_DateStatusSearchGridVisibility;
-        
+
         #endregion
 
         string m_tittle;
@@ -209,7 +214,7 @@ namespace PatientRep.ViewModels
 
         string m_pathToHistoryDB;
 
-        bool m_IsInputCodeCorrect;        
+        bool m_IsInputCodeCorrect;
 
         ObservableCollection<AdditionalInfoViewModel> m_NewAddInfoCol;
 
@@ -241,24 +246,25 @@ namespace PatientRep.ViewModels
 
         #region Informator System
 
-        public GridLength GridLengthProp 
+        public GridLength GridLengthProp
         {
-            get=> m_GridLength;
-            
-            set=> Set(ref m_GridLength, value, nameof(GridLengthProp)); }
+            get => m_GridLength;
+
+            set => Set(ref m_GridLength, value, nameof(GridLengthProp));
+        }
 
         #endregion
 
         #region History Registration System
 
-        public int HistoryNotesCount 
+        public int HistoryNotesCount
         {
-            get=> m_HistoryNotesCount;
-            set=> Set(ref m_HistoryNotesCount, value, nameof(HistoryNotesCount));
+            get => m_HistoryNotesCount;
+            set => Set(ref m_HistoryNotesCount, value, nameof(HistoryNotesCount));
         }
 
-        public string PatientSurename 
-        { get=> m_PatientSurename; set=> Set(ref m_PatientSurename, value, nameof(PatientSurename)); }
+        public string PatientSurename
+        { get => m_PatientSurename; set => Set(ref m_PatientSurename, value, nameof(PatientSurename)); }
 
         public string PatientName
         { get => m_PatientName; set => Set(ref m_PatientName, value, nameof(PatientName)); }
@@ -266,52 +272,57 @@ namespace PatientRep.ViewModels
         public string PatientLastName
         { get => m_PatientLastname; set => Set(ref m_PatientLastname, value, nameof(PatientLastName)); }
 
-        public string Center 
-        { get=> m_center; set => Set(ref m_center, value, nameof(Center)); }
+        public string Center
+        { get => m_center; set => Set(ref m_center, value, nameof(Center)); }
 
         public string Department
         { get => m_Department; set => Set(ref m_Department, value, nameof(Department)); }
 
-        public DateTime HistoryRegistrationDate 
+        public DateTime HistoryRegistrationDate
         {
-            get=> m_HistoryRegistrationDate; 
+            get => m_HistoryRegistrationDate;
 
-            set=> Set(ref m_HistoryRegistrationDate, value, nameof(HistoryRegistrationDate));
+            set => Set(ref m_HistoryRegistrationDate, value, nameof(HistoryRegistrationDate));
         }
 
         public bool IsDateCorrect
         {
             get => m_IsDateCorrect;
-            set 
-            { 
-                Set(ref m_IsDateCorrect, value, nameof(IsDateCorrect)); 
-                
-                m_ValidationArray[11] = IsDateCorrect; 
+            set
+            {
+                Set(ref m_IsDateCorrect, value, nameof(IsDateCorrect));
+
+                m_ValidationArray[11] = IsDateCorrect;
             }
         }
 
-        public string Physician 
+        public string Physician
         {
-            get=> m_Physician; 
-            set=> Set(ref m_Physician, value, nameof(Physician)); 
+            get => m_Physician;
+            set => Set(ref m_Physician, value, nameof(Physician));
         }
 
-        public string Reason 
+        public string Reason
         {
-            get=> m_Reason;
-            set 
+            get => m_Reason;
+            set
             {
                 Set(ref m_Reason, value, nameof(Reason));
 
-                if (Reasons.GetCode(Reason) >= 7 && Reasons.GetCode(Reason) <= 9)
-                {
-                    PhysicianVisibility = Visibility.Visible;
-                }
-                else
-                {
-                    PhysicianVisibility = Visibility.Hidden;
-                }
+                var Codes = ConfigCodeUsageDictionary["DocDep"];
 
+                if (Codes?.Count > 0)
+                {
+                    if (Codes.Contains(GetCode(Reason)))
+                    {
+                        PhysicianVisibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        PhysicianVisibility = Visibility.Hidden;
+                    }
+                }
+                
                 if (!String.IsNullOrWhiteSpace(Reason))
                 {
                     m_ValidationArray[12] = true;
@@ -323,10 +334,10 @@ namespace PatientRep.ViewModels
             }
         }
 
-        public ObservableCollection<AdditionalInfoViewModel> HistoryRegistrationAddInfoCollection 
+        public ObservableCollection<AdditionalInfoViewModel> HistoryRegistrationAddInfoCollection
         {
-            get=> m_HistoryRegistrationAddInfoCollection; 
-            set=> m_HistoryRegistrationAddInfoCollection = value; 
+            get => m_HistoryRegistrationAddInfoCollection;
+            set => m_HistoryRegistrationAddInfoCollection = value;
         }
 
         public ObservableCollection<HistoryNote> HistoryNotesVisualModelCollection
@@ -336,64 +347,77 @@ namespace PatientRep.ViewModels
             set => m_HistoryNoteVisualModelCollection = value;
         }
 
-        public int HistoryRegistrationSelectedIndex 
+        public int HistoryRegistrationSelectedIndex
         {
-            get=> m_HistoryRegistrationSelectedIndex; 
-            set=> Set(ref m_HistoryRegistrationSelectedIndex, value, nameof(HistoryRegistrationSelectedIndex)); 
+            get => m_HistoryRegistrationSelectedIndex;
+            set => Set(ref m_HistoryRegistrationSelectedIndex, value, nameof(HistoryRegistrationSelectedIndex));
         }
 
-        public bool ClearDate 
+        public bool ClearDate
         {
-            get=> m_ClearDate;
-            
-            set=> Set(ref m_ClearDate, value, nameof(ClearDate)); }
+            get => m_ClearDate;
 
-        public DateTime HospitalDateTime 
-        {
-            get=> m_HospitalDateTime; 
-            set=> Set(ref m_HospitalDateTime, value, nameof(HospitalDateTime)); 
+            set => Set(ref m_ClearDate, value, nameof(ClearDate));
         }
 
-        public bool IsDirExists 
-        { 
-            get=> m_IsDirExists;
+        public DateTime HospitalDateTime
+        {
+            get => m_HospitalDateTime;
+            set => Set(ref m_HospitalDateTime, value, nameof(HospitalDateTime));
+        }
 
-            set 
+        public bool IsDirExists
+        {
+            get => m_IsDirExists;
+
+            set
             {
                 Set(ref m_IsDirExists, value, nameof(IsDirExists));
-                
+
                 if (!IsDirExists)
                 {
-                    Reason = Reasons.ReasonsProp[2];
+                    var r = ConfigCodeUsageDictionary["DateDep"];
+
+                    if (r != null)
+                    {
+                        if (r.Count > 0)
+                        {
+                            string rTemp;
+
+                            GetReasonAccordingToCode(r[0], out rTemp);
+
+                            Reason = rTemp;
+                        }
+                    }
                 }
                 else
                 {
                     Reason = String.Empty;
                 }
             }
-        
+
         }
 
         public string InvestType
         {
-            get=> m_InvestType;
-            set=> Set(ref m_InvestType, value, nameof(InvestType));
+            get => m_InvestType;
+            set => Set(ref m_InvestType, value, nameof(InvestType));
         }
 
 
         #region Visibility
 
-        public Visibility CaseRegisterHistory 
-        { get=> m_CaseRegisterHistory; set=> Set(ref m_CaseRegisterHistory, value, nameof(CaseRegisterHistory)); }
+        public Visibility CaseRegisterHistory
+        { get => m_CaseRegisterHistory; set => Set(ref m_CaseRegisterHistory, value, nameof(CaseRegisterHistory)); }
 
         public Visibility CaseSearchHistory
         { get => m_CaseSearchHistory; set => Set(ref m_CaseSearchHistory, value, nameof(CaseSearchHistory)); }
 
         public Visibility PhysicianVisibility
         {
-            get=> m_PhysicianVisibility;
-            
-            set=> Set(ref m_PhysicianVisibility, value, nameof(PhysicianVisibility)); 
+            get => m_PhysicianVisibility;
+
+            set => Set(ref m_PhysicianVisibility, value, nameof(PhysicianVisibility));
         }
 
         #endregion
@@ -411,14 +435,14 @@ namespace PatientRep.ViewModels
 
         #endregion
 
-        public DateTime NoteSearchStart 
-        { get=> m_NoteSearchStart; set=> Set(ref m_NoteSearchStart, value, nameof(NoteSearchStart)); }
+        public DateTime NoteSearchStart
+        { get => m_NoteSearchStart; set => Set(ref m_NoteSearchStart, value, nameof(NoteSearchStart)); }
 
-        public DateTime NoteSearchEnd 
-        { get=> m_NoteSearchEnd; set=> Set(ref m_NoteSearchEnd, value, nameof(NoteSearchEnd)); }
+        public DateTime NoteSearchEnd
+        { get => m_NoteSearchEnd; set => Set(ref m_NoteSearchEnd, value, nameof(NoteSearchEnd)); }
 
-        public ReportType RepType 
-        { get=> m_RepType; set=> Set(ref m_RepType, value, nameof(RepType)); }
+        public ReportType RepType
+        { get => m_RepType; set => Set(ref m_RepType, value, nameof(RepType)); }
 
         #endregion
 
@@ -455,9 +479,9 @@ namespace PatientRep.ViewModels
             set => Set<DateTime>(ref m_SearchDateEnd, value, nameof(DateSearchEnd));
         }
 
-        public bool IsSerchCodeCorrect 
+        public bool IsSerchCodeCorrect
         {
-            get=> m_SearchCodeCorrect;
+            get => m_SearchCodeCorrect;
 
             set
             {
@@ -484,22 +508,22 @@ namespace PatientRep.ViewModels
 
         public string Name { get => m_name; set => Set<string>(ref m_name, value, nameof(Name)); }
 
-        public string Lastname { get => m_lastname; set => Set<string>(ref m_lastname, value, nameof(Lastname)); }        
+        public string Lastname { get => m_lastname; set => Set<string>(ref m_lastname, value, nameof(Lastname)); }
 
         public string Code
         {
             get => m_code;
             set
-            {                
+            {
                 Set<string>(ref m_code, value, nameof(Code));
             }
         }
 
-        public bool IsInputCodeCorrect 
+        public bool IsInputCodeCorrect
         {
-            get=> m_IsInputCodeCorrect;
+            get => m_IsInputCodeCorrect;
 
-            set 
+            set
             {
                 Set<bool>(ref m_IsInputCodeCorrect, value, nameof(IsInputCodeCorrect));
 
@@ -507,9 +531,9 @@ namespace PatientRep.ViewModels
 
                 OnAddNewPatientButtonPressed.CanExecute(null);
             }
-        
+
         }
-        
+
         public ObservableCollection<AdditionalInfoViewModel> AddInfoCol
         {
             get => m_NewAddInfoCol; set => m_NewAddInfoCol = value;
@@ -521,11 +545,11 @@ namespace PatientRep.ViewModels
         public DateTime NewRegisterDate
         {
             get => m_NewRegisterDate;
-            set 
-            {               
-                Set<DateTime>(ref m_NewRegisterDate, value, nameof(NewRegisterDate)); 
+            set
+            {
+                Set<DateTime>(ref m_NewRegisterDate, value, nameof(NewRegisterDate));
             }
-        
+
         }
 
         #endregion
@@ -558,8 +582,8 @@ namespace PatientRep.ViewModels
 
         public Visibility DateStatusSearchGridVisibility
         {
-            get=> m_DateStatusSearchGridVisibility;
-            set=> Set<Visibility>(ref m_DateStatusSearchGridVisibility, value, nameof(DateStatusSearchGridVisibility));
+            get => m_DateStatusSearchGridVisibility;
+            set => Set<Visibility>(ref m_DateStatusSearchGridVisibility, value, nameof(DateStatusSearchGridVisibility));
         }
 
         #endregion
@@ -595,11 +619,11 @@ namespace PatientRep.ViewModels
 
         #region IDataErrorInfo
 
-        public override string this[string columnName] 
-            // 3 (Input Code) - controlls Input Code Input
-            // 5(Serach Code) - controlls Smart Code Input
-            //11 (Is Hosp Date is Coorect)
-            //12 (is Reason is Correct)
+        public override string this[string columnName]
+        // 3 (Input Code) - controlls Input Code Input
+        // 5(Serach Code) - controlls Smart Code Input
+        //11 (Is Hosp Date is Coorect)
+        //12 (is Reason is Correct)
         {
             get
             {
@@ -625,8 +649,8 @@ namespace PatientRep.ViewModels
 
                         return error;
 
-                        //3
-                    
+                    //3
+
                     case nameof(SearchSurename):
 
                         m_ValidationArray[4] = Validation.ValidateText(SearchSurename, Validation.Restricted, out error);
@@ -660,11 +684,11 @@ namespace PatientRep.ViewModels
                         return error;
 
                     case nameof(Department):
-                        
-                        m_ValidationArray[10] = Validation.ValidateNumber(Department, out error);
 
-                        return error;  
-                        
+                        m_ValidationArray[10] = true;
+
+                        return error;
+
                         //11
 
                         //12
@@ -704,7 +728,7 @@ namespace PatientRep.ViewModels
 
         #region History Registration System
 
-        public ICommand OnAddNewAddInfoHistoryNote { get;}
+        public ICommand OnAddNewAddInfoHistoryNote { get; }
 
         public ICommand OnRemoveNewAddInfoHistoryNote { get; }
 
@@ -734,6 +758,12 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Export System
+
+        public ICommand OnExportNotesButtonPressed { get; set; }
+
+        #endregion
+
         #endregion
 
         #endregion
@@ -744,11 +774,13 @@ namespace PatientRep.ViewModels
         {
             #region Init Fields
 
+            m_NewAddInfoCol = new ObservableCollection<AdditionalInfoViewModel>();
+
             m_selfpath = Environment.CurrentDirectory;
 
             m_PathToConfig = m_selfpath + Path.DirectorySeparatorChar + "Configuration" +
                Path.DirectorySeparatorChar + "Config.json";
-             
+
             m_RepType = ReportType.По_Денний;
 
             m_InvestType = String.Empty;
@@ -768,7 +800,7 @@ namespace PatientRep.ViewModels
             m_HistoryRegistrationSelectedIndex = -1;
 
             m_AddInfoSelectedIndex = -1;
-            
+
             m_HistoryRegistrationAddInfoCollection = new ObservableCollection<AdditionalInfoViewModel>();
 
             m_HistoryNoteVisualModelCollection = new ObservableCollection<HistoryNote>();
@@ -804,7 +836,7 @@ namespace PatientRep.ViewModels
             m_tittle = "Patient Repository Storage";
 
             m_jdataprovider = new JsonDataProvider();
-           
+
             m_pController = new PatientController();
 
             m_HistoryNotesController = new HistoryNotesController();
@@ -814,7 +846,7 @@ namespace PatientRep.ViewModels
             m_pController.OnOperationFinished += M_pController_OnOperationFinished;
 
             m_jdataprovider.OnOperationFinished += M_jdataprovider_OnOperationFinished;
-                        
+
             m_pathToPatientsDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "Rep.json";
 
             m_pathToHistoryDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "HRep.json";
@@ -842,7 +874,7 @@ namespace PatientRep.ViewModels
             m_center = String.Empty;
 
             m_Department = String.Empty;
-           
+
             m_Reason = String.Empty;
 
             m_Physician = String.Empty;
@@ -907,8 +939,14 @@ namespace PatientRep.ViewModels
 
             OnSettingsButtonPressed = new LambdaCommand
                 (
-                    OnSettingsButtonPressedExecute, 
+                    OnSettingsButtonPressedExecute,
                     CanOnSettingsButtonPressedExecute
+                );
+
+            OnExportNotesButtonPressed = new LambdaCommand
+                (
+                    OnExportNotesButtonPressedExecute,
+                    CanOnExportNotesButtonPressedExecute
                 );
 
             #region History Registration System
@@ -991,17 +1029,27 @@ namespace PatientRep.ViewModels
         }
 
         private async Task M_Configuration_OnConfigChanged()
-        {
-            await m_jdataprovider.SaveDBAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+        {            
+            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+
+            var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
+                "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
+               m_tittle, MessageBoxButton.OKCancel, MessageBoxImage.Information);
+
+            if (r == MessageBoxResult.OK)
+            {
+                Application.Current.Shutdown(0);
+            }
+                   
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
-        {            
-            await m_jdataprovider.LoadDBAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
+        {
+            await m_jdataprovider.LoadFileAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
 
-            await m_jdataprovider.LoadDBAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
+            await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
 
-            await m_jdataprovider.LoadDBAsync(m_PathToConfig, JDataProviderOperation.LoadSettings);
+            await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
         }
 
         private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs e)
@@ -1019,7 +1067,7 @@ namespace PatientRep.ViewModels
                 {
                     case HistoryNotesControllerOperations.AddNote:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToHistoryDB, 
+                        await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
                             m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
 
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
@@ -1027,7 +1075,7 @@ namespace PatientRep.ViewModels
                         break;
                     case HistoryNotesControllerOperations.EditNote:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToHistoryDB,
+                        await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
                             m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
 
                         break;
@@ -1035,7 +1083,7 @@ namespace PatientRep.ViewModels
 
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToHistoryDB,
+                        await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
                             m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
 
                         break;
@@ -1057,7 +1105,7 @@ namespace PatientRep.ViewModels
                                 hn.OnRemoveNote += Hn_OnRemoveNote;
                             });
                         }
-                        
+
                         break;
 
                     case HistoryNotesControllerOperations.SearchNotes:
@@ -1070,7 +1118,7 @@ namespace PatientRep.ViewModels
                         {
                             FillVisualModelCollection<HistoryNote, HistoryNoteStorage>
                             (HistoryNotesVisualModelCollection, temp,
-                            (hn, i)=>
+                            (hn, i) =>
                             {
                                 hn.ShowNumber = i + 1;
 
@@ -1080,20 +1128,20 @@ namespace PatientRep.ViewModels
                             }
                             );
                         }
-                                                                        
+
                         break;
 
                     case HistoryNotesControllerOperations.SortNotes:
 
 
 
-                        break;                    
+                        break;
                 }
 
             }
             else if (exStatus == Status.Canceled)
-            { 
-            
+            {
+
             }
             else
             {
@@ -1104,7 +1152,7 @@ namespace PatientRep.ViewModels
         #region HistoryNotesEvents
         private async void Hn_OnRemoveNote(HistoryNote obj)
         {
-            await m_HistoryNotesController.RemoveAsync(obj, m_HistoryNotesStorageCollection);   
+            await m_HistoryNotesController.RemoveAsync(obj, m_HistoryNotesStorageCollection);
         }
 
         private async void Hn_OnSaveNotes(HistoryNote obj)
@@ -1137,7 +1185,7 @@ namespace PatientRep.ViewModels
                         JArray Info = null;
 
                         List<string> adInfoList = null;
-                        
+
                         if (array != null)
                         {
                             Guid id;
@@ -1152,7 +1200,7 @@ namespace PatientRep.ViewModels
                                 }
                                 catch (Exception exep)
                                 {
-                                   
+
                                 }
 
                                 if (Info != null)
@@ -1164,7 +1212,7 @@ namespace PatientRep.ViewModels
                                         adInfoList.Add(item);
                                     }
                                 }
-                                                                
+
                                 PatientStorage p = new PatientStorage(
                                         Guid.Parse(array[i]["Id"].ToString()),
                                         array[i]["Surename"].ToString(),
@@ -1175,17 +1223,17 @@ namespace PatientRep.ViewModels
                                         (PatientStatus)Enum.Parse(stat.GetType(), array[i]["Status"].ToString()),
                                         DateTime.Parse(array[i]["RegisterDate"].ToString()),
                                         DateTime.Parse(array[i]["InvestigationDate"].ToString()),
-                                        adInfoList);
-                               
-                                p.AdditionalInfo = adInfoList;                                
-                                                                
+                                        adInfoList, array[i]["Center"]?.ToString());
+
+                                p.AdditionalInfo = adInfoList;
+
                                 m_patients.Add(
                                     p
                                     );
 
                             }
                         }
-                        
+
                         break;
 
                     case JDataProviderOperation.LoadHistoryNotesDb:
@@ -1250,38 +1298,12 @@ namespace PatientRep.ViewModels
                         }
                         else
                         {
-                            m_Configuration = new ConfigStorage();
+                            //m_Configuration = new ConfigStorage();
 
-                            try
-                            {                                                                
-                                foreach (var item in e.Result["Investigations"])
-                                {
-                                    m_Configuration.Investigations.Add(item.ToString());
-                                }
-
-                                foreach (var item in e.Result["Physicians"])
-                                {
-                                    m_Configuration.Physicians.Add(item.ToString());
-                                }
-
-                                foreach (var item in e.Result["Reasons"])
-                                {
-                                    m_Configuration.Reasons.Add(new ReasonStorageModel(int.Parse(item["Code"].ToString()), item["TextValue"].ToString(), 
-                                        bool.Parse(item["DocDependent"].ToString()) ));
-                                }
-
-                                m_Configuration.ReportOutput = e.Result["ReportOutput"].ToString();
-                            }
-                            catch (Exception ef)
-                            {
-
-                                throw;
-                            }
-
-                           
-
-                            
+                            m_Configuration = e.Result;
                         }
+
+                        m_Configuration.UpdateIntegratedData();
 
                         m_Configuration.OnConfigChanged += M_Configuration_OnConfigChanged;
 
@@ -1305,7 +1327,7 @@ namespace PatientRep.ViewModels
 
             NoteCount = m_patients.Count;
         }
-       
+
         private async void M_pController_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs e)
         {
             Status exeStatus = e.ExecutionStatus;
@@ -1315,12 +1337,12 @@ namespace PatientRep.ViewModels
             operType = (PatientControllerOperations)Enum.Parse(operType.GetType(), e.OperationType.ToString());
 
             if (exeStatus == Status.Succed) // Operaation Succesfull
-            {                
+            {
                 switch (operType)
                 {
                     case PatientControllerOperations.Add:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
                         break;
 
@@ -1344,19 +1366,19 @@ namespace PatientRep.ViewModels
                             });
                         }
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
                         break;
                     case PatientControllerOperations.Edit:
 
-                        await m_jdataprovider.SaveDBAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
                         break;
 
                     case PatientControllerOperations.Search:
 
                         SearchResult.Clear();
-                        
+
                         List<PatientStorage> res = e.Result;//Patient Storage
 
                         FillVisualModelCollection(SearchResult, res);
@@ -1370,7 +1392,7 @@ namespace PatientRep.ViewModels
                         if (e.Result != null)
                         {
                             List<PatientStorage> result = e.Result;
-                            
+
                             FillVisualModelCollection(SearchResult, result);
                         }
 
@@ -1388,14 +1410,15 @@ namespace PatientRep.ViewModels
 
                             foreach (var item in result)
                             {
-                                Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate);
-                                
+                                Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, 
+                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center);
+
                                 p.Number = num;
 
                                 p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
 
                                 p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
-                               
+
                                 if (item.AddInfoVMCollection != null)
                                 {
                                     int count = 1;
@@ -1405,7 +1428,7 @@ namespace PatientRep.ViewModels
                                         p.AddInfoVMCollection.Add(new AdditionalInfoViewModel(count, adInf.Value));
                                     }
                                 }
-                               
+
                                 SearchResult.Add(
                                     p
                                     );
@@ -1475,17 +1498,17 @@ namespace PatientRep.ViewModels
             int count = 1;
 
             foreach (PatientStorage ps in storageCol)
-            {                
+            {
                 Patient p = new Patient(
                     ps.Id, ps.Surename, ps.Name, ps.Lastname, ps.Code, ps.Diagnosis, ps.Status, ps.RegisterDate,
-                    ps.InvestigationDate);
-               
+                    ps.InvestigationDate, ps.Center);
+
                 p.Number = count;
 
                 p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
 
                 p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
-                
+
                 int AdInfoCount = 1;
 
                 if (ps.AdditionalInfo != null)
@@ -1497,19 +1520,19 @@ namespace PatientRep.ViewModels
                         AdInfoCount++;
                     }
                 }
-                
+
                 VMCol.Add(p);
 
                 count++;
             }
         }
 
-        public void FillVisualModelCollection<TVisualModel, TStorageModel>(ObservableCollection<TVisualModel> noteVisualCol, 
-            List<TStorageModel> 
+        public void FillVisualModelCollection<TVisualModel, TStorageModel>(ObservableCollection<TVisualModel> noteVisualCol,
+            List<TStorageModel>
             noteStorageCol, Action<TVisualModel, int> modifyVisModel)
-            where TStorageModel : IConvertStorageToVisualModel<TStorageModel, TVisualModel> 
+            where TStorageModel : IConvertStorageToVisualModel<TStorageModel, TVisualModel>
         {
-            noteVisualCol.Clear(); 
+            noteVisualCol.Clear();
 
             int count = noteStorageCol.Count;
 
@@ -1520,9 +1543,9 @@ namespace PatientRep.ViewModels
                 modifyVisModel?.Invoke(t, i);
 
                 noteVisualCol.Add(t);
-            }                        
+            }
         }
-       
+
         #endregion
 
         #region VisibilityController
@@ -1611,7 +1634,7 @@ namespace PatientRep.ViewModels
         }
 
         private async void OnAddNewPatientButtonPressedExecute(object p)
-        {            
+        {
             List<string> adInfo = new List<string>();
 
             foreach (var item in AddInfoCol)
@@ -1631,8 +1654,8 @@ namespace PatientRep.ViewModels
 
             PatientStorage pTemp = new PatientStorage(
                 Guid.NewGuid(), Surename, Name, Lastname, Code, Diagnosis, Models.PatientModel.Enums.PatientStatus.Не_Погашено
-                , CurrentDateAndTime, default, adInfo);
-           
+                , CurrentDateAndTime, default, adInfo, null);
+
             await m_pController.AddAsync(pTemp, m_patients);
         }
 
@@ -1810,7 +1833,7 @@ namespace PatientRep.ViewModels
 
         #region On Remove New Additinal info History Note
 
-        private bool CanOnRemoveNewNewAddInfoHistoryNoteExecute(object p)=> HistoryRegistrationSelectedIndex >=0;
+        private bool CanOnRemoveNewNewAddInfoHistoryNoteExecute(object p) => HistoryRegistrationSelectedIndex >= 0;
 
         private void OnRemoveNewNewAddInfoHistoryNoteExecute(object p)
         {
@@ -1842,7 +1865,7 @@ namespace PatientRep.ViewModels
                 adInfostr.Add(item.Value);
             }
 
-            var hist = 
+            var hist =
                 new HistoryNoteStorage(
                     Guid.NewGuid(),
                     HistoryRegistrationDate,
@@ -1855,10 +1878,10 @@ namespace PatientRep.ViewModels
                     Reason,
                     Physician,
                     InvestType,
-                    adInfostr                    
+                    adInfostr
                 );
 
-            await m_HistoryNotesController.AddAsync(hist, m_HistoryNotesStorageCollection);           
+            await m_HistoryNotesController.AddAsync(hist, m_HistoryNotesStorageCollection);
         }
 
         #endregion
@@ -2014,7 +2037,7 @@ namespace PatientRep.ViewModels
                 if (!item.IsRemoved)
                 {
                     notes.Add(item);
-                }                
+                }
             }
 
             m_ReportViewerWindow = new ReportViewer(notes, RepType);
@@ -2022,6 +2045,27 @@ namespace PatientRep.ViewModels
             m_ReportViewerWindow.Topmost = true;
 
             m_ReportViewerWindow.Show();
+        }
+
+        #endregion
+
+        #region On Export Notes Button Pressed 
+
+        private bool CanOnExportNotesButtonPressedExecute(object p)
+        {
+            if (m_Configuration != null)
+            {
+                return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput);
+            }
+            return false;
+            
+        }
+
+        private void OnExportNotesButtonPressedExecute(object p)
+        {
+            string fileName = $"Звіт від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
+
+
         }
 
         #endregion

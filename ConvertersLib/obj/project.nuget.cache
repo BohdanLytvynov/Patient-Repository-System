@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1VnDt3NSFkZLDgbvo1SgXMPk3AItb2ZiOLop+NCDBEd8OvfUs6G3MHWWwj3dePjSv4TsQR3VVWODvB7zW5bVYg==",
+  "dgSpecHash": "tuE9By0y69dLySvG/M5R5LSwrKYiIGqFSwpYw3Z3bF7PePGqELBqlUtCGHktBxbZ0zABWaytoFeiIXsI43/rjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

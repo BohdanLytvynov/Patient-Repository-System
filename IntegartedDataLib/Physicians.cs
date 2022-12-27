@@ -9,11 +9,11 @@ namespace IntegartedDataLib
 {
     public class Physicians : IEnumerable<string>
     {
-        public static string [] DoctorsProp { get; set; }
+        public static List<string> DoctorsProp { get; set; }
         static Physicians()
         {
-            DoctorsProp = new string []
-            { "Doctor 1" };
+            DoctorsProp = new List<string>();
+            //{ "Doctor 1" };
         }
 
         public IEnumerator<string> GetEnumerator()

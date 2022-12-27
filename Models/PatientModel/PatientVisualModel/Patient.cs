@@ -48,6 +48,8 @@ namespace Models.PatientModel.PatientVisualModel
 
         public bool IsInvestDateSet { get; set; }
 
+        string m_Center;
+
         #endregion
 
         #region Properties
@@ -99,6 +101,8 @@ namespace Models.PatientModel.PatientVisualModel
             get => m_RegisterDate;
             set => Set(ref m_RegisterDate, value, nameof(RegisterDate));
         }
+
+        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }
 
         #endregion
 
@@ -170,7 +174,7 @@ namespace Models.PatientModel.PatientVisualModel
         #region ctor
 
         public Patient(Guid id, string surename, string name, string lastname, string code, string diagnosis, PatientStatus status,
-            DateTime registerDate, DateTime InvestigationDate)
+            DateTime registerDate, DateTime InvestigationDate, string center)
         {
             #region Init Fields
 
@@ -197,6 +201,15 @@ namespace Models.PatientModel.PatientVisualModel
             if (this.InvestigationDate != default)
             {
                 IsInvestDateSet = true;
+            }
+
+            if (center == null)
+            {
+                m_Center = String.Empty;
+            }
+            else
+            {
+                m_Center = center;
             }
 
             #endregion

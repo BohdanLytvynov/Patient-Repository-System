@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace JsonDataProviderLibDNC
     
 {
-    public class JsonDataProvider: ControllerBaseClass
+    public class JsonDataProvider: ControllerBaseClass<JDataProviderOperation>
     {
         #region Ctor
         public JsonDataProvider()
@@ -17,10 +17,10 @@ namespace JsonDataProviderLibDNC
         #region Methods
 
 
-        public async Task SaveDBAsync(string path, object serObject,
+        public async Task SaveFileAsync(string path, object serObject,
             JDataProviderOperation jDataProviderOperation)           
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 jDataProviderOperation, 
                 (state, cts)=>
                 {
@@ -37,9 +37,9 @@ namespace JsonDataProviderLibDNC
         }
 
 
-        public async Task LoadDBAsync(string path, JDataProviderOperation jDataProviderOperation)
+        public async Task LoadFileAsync(string path, JDataProviderOperation jDataProviderOperation)
         {
-            await ExecuteFunctionAndGetResultThroughEventAsync<JDataProviderOperation>(
+            await ExecuteFunctionAndGetResultThroughEventAsync(
                 jDataProviderOperation,
                 (state, cts)=>
                 {
@@ -59,6 +59,28 @@ namespace JsonDataProviderLibDNC
                 );
         }
 
+
+        public async Task LoadFileAsync<ObjectType>(string path, ObjectType obj, JDataProviderOperation jDataProviderOperation)
+        {
+            await ExecuteFunctionAndGetResultThroughEventAsync(
+                jDataProviderOperation,
+                (state, cts) =>
+                {
+                    string str = String.Empty;
+
+                    object res = null;
+
+                    if (File.Exists(path))
+                    {
+                        str = File.ReadAllText(path);
+
+                        res = JsonConvert.DeserializeAnonymousType<ObjectType>(str, obj);
+                    }
+
+                    return res;
+                }
+                );
+        }
 
         public void IfFIleNotExistsCreateIt(string path)
         {

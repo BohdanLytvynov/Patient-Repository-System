@@ -16,17 +16,21 @@ namespace Models.Configuration.ReasonModels.ReasonStorageModel
 
         public bool DocDependent { get; set; }
 
+        public bool DateDependent { get; set; }
+
         #endregion
 
         #region Ctor
 
-        public ReasonStorageModel(int code, string txtValue, bool docDep)
+        public ReasonStorageModel(int code, string txtValue, bool docDep, bool dateDependent)
         {
             Code = code;
 
             TextValue = txtValue;
 
             DocDependent = docDep;
+
+            DateDependent = dateDependent;
         }
 
         #endregion

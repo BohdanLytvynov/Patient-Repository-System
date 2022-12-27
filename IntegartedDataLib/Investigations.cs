@@ -9,11 +9,11 @@ namespace IntegartedDataLib
 {
     public class Investigations : IEnumerable<string>
     {
-        public static string[] InvestProperty;
+        public static List<string> InvestProperty;
 
         static Investigations()
         {
-            InvestProperty = new string[] 
+            InvestProperty = new List<string> 
             {
                 "ФЛГ"
             };

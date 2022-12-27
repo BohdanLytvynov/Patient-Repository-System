@@ -97,16 +97,6 @@
           "bin/placeholder/DataValidation.dll": {}
         }
       },
-      "IntegartedDataLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/IntegartedDataLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/IntegartedDataLib.dll": {}
-        }
-      },
       "JsonDataProviderLibDNC/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -126,7 +116,6 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DataValidation": "1.0.0",
-          "IntegartedDataLib": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
         "compile": {
@@ -282,11 +271,6 @@
       "path": "../DataValidation/DataValidation.csproj",
       "msbuildProject": "../DataValidation/DataValidation.csproj"
     },
-    "IntegartedDataLib/1.0.0": {
-      "type": "project",
-      "path": "../IntegartedDataLib/IntegartedDataLib.csproj",
-      "msbuildProject": "../IntegartedDataLib/IntegartedDataLib.csproj"
-    },
     "JsonDataProviderLibDNC/1.0.0": {
       "type": "project",
       "path": "../JsonDataProviderLibDNC/JsonDataProviderLibDNC.csproj",
@@ -320,7 +304,6 @@
       "CustomIconsLib >= 1.0.0",
       "DataValidation >= 1.0.0",
       "FontAwesome5 >= 2.1.11",
-      "IntegartedDataLib >= 1.0.0",
       "JsonDataProviderLibDNC >= 1.0.0",
       "Models >= 1.0.0",
       "ReportBuilderLib >= 1.0.0",
@@ -334,11 +317,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
       "projectName": "PatientRep",
-      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
       "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\PatientRep\\obj\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -355,35 +338,32 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\IntegartedDataLib\\IntegartedDataLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\Models\\Models.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj"
-            },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
             }
           }
         }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
       "projectName": "ConvertersLib",
-      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
       "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\Patient-Repository-System\\ConvertersLib\\obj\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
