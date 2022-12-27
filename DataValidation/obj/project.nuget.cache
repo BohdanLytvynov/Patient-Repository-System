@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M72MMzX9oRuCnYAHnIm8b9bzAd9jcId6T47KEwpvky1B2RQpUyo+81wuw8fRCELcwBd4OM+XWjnnWfF6r6R86A==",
+  "dgSpecHash": "NirqEkmsdSNHvJG3QnwoOnohnQJj4vgWItt+1Wnc325DECdbk76StT2y+x53r+vojm8FkT4Lu8sDVrFF/NY8DA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj",
+  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
