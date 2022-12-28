@@ -19,12 +19,14 @@ namespace Models.ExportNoteModel
         public string Lastname { get; set; }
 
         public string Center { get; set; }
-
+        
         public DateTime RegistrationDate { get; set; }
+
+        public string HistoryNumber { get; set; }
         #endregion
 
         #region Ctor
-        public NoteExport(int number, string surename, string name, string lastname, string center, DateTime registrationDate)
+        public NoteExport(int number, string surename, string name, string lastname, string center, DateTime registrationDate, string historynumber)
         {
             Number = number;
             Surename = surename;
@@ -32,6 +34,8 @@ namespace Models.ExportNoteModel
             Lastname = lastname;
             Center = center;
             RegistrationDate = registrationDate;    
+            HistoryNumber = historynumber;
+
         }
         #endregion
 
@@ -39,7 +43,7 @@ namespace Models.ExportNoteModel
 
         public override string ToString()
         {
-            return $"{Number}) {Surename} {Name} {Lastname} {RegistrationDate.ToShortDateString()} | Центр: {Center}";
+            return $"{Number}) {Surename} {Name} {Lastname} | {RegistrationDate.ToShortDateString()} | Центр: {Center} | №ІсторіїХвороби: {HistoryNumber}";
         }
 
         #endregion

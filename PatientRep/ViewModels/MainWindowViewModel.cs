@@ -41,6 +41,7 @@ using static Models.Configuration.IntegratedData.Investigations;
 using Models.ReportModels.ReportVisualModel;
 using Models.ExportNoteModel;
 using NotesExporterLib;
+using System.Windows.Forms;
 
 namespace PatientRep.ViewModels
 {
@@ -138,7 +139,7 @@ namespace PatientRep.ViewModels
 
         #region Report System
 
-        NotesExporter m_NoteExporter;
+        NotesExporterToTxt m_NoteExporterToTxt;
 
         bool m_SearchReport; // search - true Report - false
 
@@ -778,7 +779,9 @@ namespace PatientRep.ViewModels
         {
             #region Init Fields
 
-            m_NoteExporter = new NotesExporter();
+            m_NoteExporterToTxt = new NotesExporterToTxt();
+
+            m_NoteExporterToTxt.OnOperationFinished += M_NoteExporterToTxt_OnOperationFinished;
 
             m_NewAddInfoCol = new ObservableCollection<AdditionalInfoViewModel>();
 
@@ -1034,6 +1037,41 @@ namespace PatientRep.ViewModels
             OnMainWindowInitialized.Invoke();
         }
 
+        private void M_NoteExporterToTxt_OnOperationFinished(object s, OperationFinishedEventArgs<NotesExporterToTxtOperations> e)
+        {
+            if (e.ExecutionStatus == Status.Succed)
+            {
+                switch (e.OperationType)
+                {
+                    case NotesExporterToTxtOperations.ExportNotes:
+
+                       var r = UIMessaging.CreateMessageBox($"Експорт записів завершено. Бажаєте перейти до директорії з результатами?"
+                            , m_tittle, System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Information);
+
+                        if (r == MessageBoxResult.Yes)
+                        {
+                            FolderBrowserDialog fb = new FolderBrowserDialog();
+                            fb.InitialDirectory = e.Result as string;
+
+                            fb.ShowDialog();
+                        }
+
+                        break;
+                    case NotesExporterToTxtOperations.ExportReports:
+                        break;
+                }
+            }
+            else if (e.ExecutionStatus == Status.Canceled) // Operation Canceled
+            {
+                UIMessaging.CreateMessageBox($"Operation: {e.OperationType} was {e.ExecutionStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+            }
+            else
+            {                
+                UIMessaging.CreateMessageBox($"Operation: {e.OperationType} {e.ExecutionStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);                
+            }
+
+        }
+
         private async Task M_Configuration_OnConfigChanged()
         {            
             await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
@@ -1044,7 +1082,7 @@ namespace PatientRep.ViewModels
 
             if (r == MessageBoxResult.OK)
             {
-                Application.Current.Shutdown(0);
+                System.Windows.Application.Current.Shutdown(0);
             }
                    
         }
@@ -1058,18 +1096,13 @@ namespace PatientRep.ViewModels
             await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
         }
 
-        private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs e)
+        private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs<HistoryNotesControllerOperations> e)
         {
             Status exStatus = e.ExecutionStatus;
-
-            HistoryNotesControllerOperations oper = HistoryNotesControllerOperations.GetNotes;
-
-            oper = (HistoryNotesControllerOperations)Enum.Parse(oper.GetType(), e.OperationType.ToString());
-
+            
             if (exStatus == Status.Succed)
             {
-
-                switch (oper)
+                switch (e.OperationType)
                 {
                     case HistoryNotesControllerOperations.AddNote:
 
@@ -1168,17 +1201,13 @@ namespace PatientRep.ViewModels
 
         #endregion
 
-        private void M_jdataprovider_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs e)
+        private void M_jdataprovider_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<JDataProviderOperation> e)
         {
             Status exStatus = e.ExecutionStatus;
-
-            JDataProviderOperation oper = JDataProviderOperation.SavePatientsDB;
-
-            oper = (JDataProviderOperation)Enum.Parse(oper.GetType(), e.OperationType.ToString());
-
+            
             if (exStatus == Status.Succed)
             {
-                switch (oper)
+                switch (e.OperationType)
                 {
                     case JDataProviderOperation.SavePatientsDB:
                         break;
@@ -1229,14 +1258,13 @@ namespace PatientRep.ViewModels
                                         (PatientStatus)Enum.Parse(stat.GetType(), array[i]["Status"].ToString()),
                                         DateTime.Parse(array[i]["RegisterDate"].ToString()),
                                         DateTime.Parse(array[i]["InvestigationDate"].ToString()),
-                                        adInfoList, array[i]["Center"]?.ToString());
+                                        adInfoList, array[i]["Center"]?.ToString(), array[i]["HistoryNumber"]?.ToString());
 
                                 p.AdditionalInfo = adInfoList;
 
                                 m_patients.Add(
                                     p
-                                    );
-
+                                    );                               
                             }
                         }
 
@@ -1334,17 +1362,13 @@ namespace PatientRep.ViewModels
             NoteCount = m_patients.Count;
         }
 
-        private async void M_pController_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs e)
+        private async void M_pController_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<PatientControllerOperations> e)
         {
             Status exeStatus = e.ExecutionStatus;
-
-            PatientControllerOperations operType = PatientControllerOperations.Add;
-
-            operType = (PatientControllerOperations)Enum.Parse(operType.GetType(), e.OperationType.ToString());
-
+            
             if (exeStatus == Status.Succed) // Operaation Succesfull
             {
-                switch (operType)
+                switch (e.OperationType)
                 {
                     case PatientControllerOperations.Add:
 
@@ -1417,7 +1441,7 @@ namespace PatientRep.ViewModels
                             foreach (var item in result)
                             {
                                 Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, 
-                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center);
+                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center, item.HistoryNumber);
 
                                 p.Number = num;
 
@@ -1449,7 +1473,7 @@ namespace PatientRep.ViewModels
             }
             else if (exeStatus == Status.Canceled) // Operation Canceled
             {
-                UIMessaging.CreateMessageBox($"Operation: {operType} was {exeStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
+                UIMessaging.CreateMessageBox($"Operation: {e.OperationType} was {exeStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
             }
             else // Operation Failed
             {
@@ -1459,7 +1483,7 @@ namespace PatientRep.ViewModels
                 }
                 else
                 {
-                    UIMessaging.CreateMessageBox($"Operation: {operType} {exeStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                    UIMessaging.CreateMessageBox($"Operation: {e.OperationType} {exeStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                 }
             }
 
@@ -1507,7 +1531,7 @@ namespace PatientRep.ViewModels
             {
                 Patient p = new Patient(
                     ps.Id, ps.Surename, ps.Name, ps.Lastname, ps.Code, ps.Diagnosis, ps.Status, ps.RegisterDate,
-                    ps.InvestigationDate, ps.Center);
+                    ps.InvestigationDate, ps.Center, ps.HistoryNumber);
 
                 p.Number = count;
 
@@ -1660,7 +1684,7 @@ namespace PatientRep.ViewModels
 
             PatientStorage pTemp = new PatientStorage(
                 Guid.NewGuid(), Surename, Name, Lastname, Code, Diagnosis, Models.PatientModel.Enums.PatientStatus.Не_Погашено
-                , CurrentDateAndTime, default, adInfo, null);
+                , CurrentDateAndTime, default, adInfo, null, null);
 
             await m_pController.AddAsync(pTemp, m_patients);
         }
@@ -2069,17 +2093,20 @@ namespace PatientRep.ViewModels
 
         private void OnExportNotesButtonPressedExecute(object p)
         {
-            string fileName = $"Боржники на ФЛГ від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
+            string header = $"Боржники на ФЛГ від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
 
             List<NoteExport> notes = new List<NoteExport>();
 
             foreach (var item in SearchResult)
             {
-                notes.Add(item.Export());
+                notes.Add(item.ConvertToExportable());
             }
 
-            m_NoteExporter.Export(m_Configuration.NotesReportOutput + Path.DirectorySeparatorChar + fileName,
-                );
+            m_NoteExporterToTxt.Export(NotesExporterToTxtOperations.ExportNotes,
+                path: m_Configuration.NotesReportOutput, 
+                fileName: header + ".txt",
+                Header: header,
+                notesForExport: notes);
 
         }
 

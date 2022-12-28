@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1HyAsR3TQYguO/Rq3hcDEianDXdc/pOE+HVAE3tNV964bYX3ju54cue/OshatFSwbQwPS6PeP+Sf1e3vP8yIBw==",
+  "dgSpecHash": "GDYbujj/CHEv86wrMiKcz/yN0scyMBlRsTf5CjN9BWIxp49rov6T9vBop1y6JCCIWMRD2g2UZFhE1qfKPn3IKw==",
   "success": true,
-  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

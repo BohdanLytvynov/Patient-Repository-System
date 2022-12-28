@@ -52,6 +52,8 @@ namespace Models.PatientModel.PatientVisualModel
 
         string m_Center;
 
+        string m_HistoryNumber;
+
         #endregion
 
         #region Properties
@@ -105,6 +107,8 @@ namespace Models.PatientModel.PatientVisualModel
         }
 
         public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }
+
+        public string HistoryNumber { get=> m_HistoryNumber; set=> Set(ref m_HistoryNumber, value, nameof(HistoryNumber)); }
 
         #endregion
 
@@ -176,7 +180,7 @@ namespace Models.PatientModel.PatientVisualModel
         #region ctor
 
         public Patient(Guid id, string surename, string name, string lastname, string code, string diagnosis, PatientStatus status,
-            DateTime registerDate, DateTime InvestigationDate, string center)
+            DateTime registerDate, DateTime InvestigationDate, string center, string historyNumber)
         {
             #region Init Fields
 
@@ -212,6 +216,14 @@ namespace Models.PatientModel.PatientVisualModel
             else
             {
                 m_Center = center;
+            }
+            if (historyNumber == null)
+            {
+                m_HistoryNumber = HistoryNumber = String.Empty;
+            }
+            else
+            {
+                m_HistoryNumber = historyNumber;
             }
 
             #endregion
@@ -317,9 +329,9 @@ namespace Models.PatientModel.PatientVisualModel
 
         #region Export
 
-        public NoteExport Export()
+        public NoteExport ConvertToExportable()
         {
-            return new NoteExport(this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
+            return new NoteExport(Number, this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate, this.HistoryNumber);
         }
 
         #endregion

@@ -225,6 +225,8 @@ namespace CRUDControllerLib.PatientController
 
                     PatForedit.Center = entity.Center;
 
+                    PatForedit.HistoryNumber = entity.HistoryNumber;
+
                     PatForedit.AdditionalInfo.Clear();
 
                     for (int i = 0; i < entity.AddInfoVMCollection.Count; i++)

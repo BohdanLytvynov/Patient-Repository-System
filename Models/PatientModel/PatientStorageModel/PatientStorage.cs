@@ -35,12 +35,14 @@ namespace Models.PatientModel.PatientStorageModel
 
         public string Center { get; set; }
 
+        public string HistoryNumber { get; set; }
+
         #endregion
 
         #region Ctor
 
         public PatientStorage(Guid id, string surename, string name, string lastname, string code, string diagnosis,
-            PatientStatus status, DateTime registerDate, DateTime investigationDate, List<string> additionalInfo, string center)
+            PatientStatus status, DateTime registerDate, DateTime investigationDate, List<string> additionalInfo, string center, string historyNumber)
         {
             Id = id;
 
@@ -77,6 +79,15 @@ namespace Models.PatientModel.PatientStorageModel
             {
                 Center = center;
             }
+
+            if (historyNumber == null)
+            {
+                HistoryNumber = String.Empty;
+            }
+            else
+            {
+                HistoryNumber = historyNumber;
+            }            
         }
 
         public PatientStorage()
