@@ -1045,15 +1045,16 @@ namespace PatientRep.ViewModels
                 {
                     case NotesExporterToTxtOperations.ExportNotes:
 
-                       var r = UIMessaging.CreateMessageBox($"Експорт записів завершено. Бажаєте перейти до директорії з результатами?"
+                       var r = UIMessaging.CreateMessageBox($"Експорт записів завершено. Бажаєте відкрити файл з результатами?"
                             , m_tittle, System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Information);
 
                         if (r == MessageBoxResult.Yes)
                         {
-                            FolderBrowserDialog fb = new FolderBrowserDialog();
-                            fb.InitialDirectory = e.Result as string;
+                            OpenFileDialog fd = new OpenFileDialog();
 
-                            fb.ShowDialog();
+                            fd.FileName = e.Result as string;
+
+                            fd.OpenFile();
                         }
 
                         break;
@@ -2087,7 +2088,7 @@ namespace PatientRep.ViewModels
         {
             if (m_Configuration != null)
             {
-                return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput);
+                return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput) && SearchResult.Count > 0;
             }
             return false;
             

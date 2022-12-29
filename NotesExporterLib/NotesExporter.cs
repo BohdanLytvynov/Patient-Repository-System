@@ -38,7 +38,7 @@ namespace NotesExporterLib
 
                         sw.Dispose();
 
-                        return path;
+                        return pathToFile;
                     }
                 );
         }
