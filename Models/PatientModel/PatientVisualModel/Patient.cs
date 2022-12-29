@@ -51,9 +51,7 @@ namespace Models.PatientModel.PatientVisualModel
         public bool IsInvestDateSet { get; set; }
 
         string m_Center;
-
-        string m_HistoryNumber;
-
+       
         #endregion
 
         #region Properties
@@ -106,9 +104,7 @@ namespace Models.PatientModel.PatientVisualModel
             set => Set(ref m_RegisterDate, value, nameof(RegisterDate));
         }
 
-        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }
-
-        public string HistoryNumber { get=> m_HistoryNumber; set=> Set(ref m_HistoryNumber, value, nameof(HistoryNumber)); }
+        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }       
 
         #endregion
 
@@ -180,7 +176,7 @@ namespace Models.PatientModel.PatientVisualModel
         #region ctor
 
         public Patient(Guid id, string surename, string name, string lastname, string code, string diagnosis, PatientStatus status,
-            DateTime registerDate, DateTime InvestigationDate, string center, string historyNumber)
+            DateTime registerDate, DateTime InvestigationDate, string center)
         {
             #region Init Fields
 
@@ -216,15 +212,7 @@ namespace Models.PatientModel.PatientVisualModel
             else
             {
                 m_Center = center;
-            }
-            if (historyNumber == null)
-            {
-                m_HistoryNumber = HistoryNumber = String.Empty;
-            }
-            else
-            {
-                m_HistoryNumber = historyNumber;
-            }
+            }            
 
             #endregion
 
@@ -331,7 +319,7 @@ namespace Models.PatientModel.PatientVisualModel
 
         public NoteExport ConvertToExportable()
         {
-            return new NoteExport(Number, this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate, this.HistoryNumber);
+            return new NoteExport(Number, this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
         }
 
         #endregion

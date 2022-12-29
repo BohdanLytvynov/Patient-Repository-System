@@ -1258,7 +1258,7 @@ namespace PatientRep.ViewModels
                                         (PatientStatus)Enum.Parse(stat.GetType(), array[i]["Status"].ToString()),
                                         DateTime.Parse(array[i]["RegisterDate"].ToString()),
                                         DateTime.Parse(array[i]["InvestigationDate"].ToString()),
-                                        adInfoList, array[i]["Center"]?.ToString(), array[i]["HistoryNumber"]?.ToString());
+                                        adInfoList, array[i]["Center"]?.ToString());
 
                                 p.AdditionalInfo = adInfoList;
 
@@ -1441,7 +1441,7 @@ namespace PatientRep.ViewModels
                             foreach (var item in result)
                             {
                                 Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, 
-                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center, item.HistoryNumber);
+                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center);
 
                                 p.Number = num;
 
@@ -1531,7 +1531,7 @@ namespace PatientRep.ViewModels
             {
                 Patient p = new Patient(
                     ps.Id, ps.Surename, ps.Name, ps.Lastname, ps.Code, ps.Diagnosis, ps.Status, ps.RegisterDate,
-                    ps.InvestigationDate, ps.Center, ps.HistoryNumber);
+                    ps.InvestigationDate, ps.Center);
 
                 p.Number = count;
 
@@ -1684,7 +1684,7 @@ namespace PatientRep.ViewModels
 
             PatientStorage pTemp = new PatientStorage(
                 Guid.NewGuid(), Surename, Name, Lastname, Code, Diagnosis, Models.PatientModel.Enums.PatientStatus.Не_Погашено
-                , CurrentDateAndTime, default, adInfo, null, null);
+                , CurrentDateAndTime, default, adInfo, null);
 
             await m_pController.AddAsync(pTemp, m_patients);
         }
@@ -1835,6 +1835,8 @@ namespace PatientRep.ViewModels
 
         #endregion On Remove AddInfo button pressed
 
+        #region On Remove Add Info Button Pressed
+
         private bool CanOnRemoveAddInfoButtonPressedExecute(object p) => SelectedAddInfoIndex >= 0;
 
         private void OnRemoveAddInfoButtonPressedExecute(object p)
@@ -1842,7 +1844,7 @@ namespace PatientRep.ViewModels
             AddInfoCol.RemoveAt(SelectedAddInfoIndex);
         }
 
-
+        #endregion
 
         #endregion
 
