@@ -227,6 +227,8 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="10"/>
                                     <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="120"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
@@ -238,6 +240,9 @@
 
                                 <Button Grid.Column="5" Content="За Статусом" Style="{StaticResource Buttons2}"
                                     Command="{Binding OnSortByStatusButtonPressed}"/>
+
+                                <Button Grid.Column="7" Content="За Центром" Style="{StaticResource Buttons2}"
+                                        Command="{Binding OnSortByCenterButtonPressed}"/>
 
                             </Grid>
 

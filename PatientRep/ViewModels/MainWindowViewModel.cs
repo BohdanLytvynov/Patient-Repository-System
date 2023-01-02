@@ -42,6 +42,7 @@ using Models.ReportModels.ReportVisualModel;
 using Models.ExportNoteModel;
 using NotesExporterLib;
 using System.Windows.Forms;
+using Models.PatientModel.Comparators;
 
 namespace PatientRep.ViewModels
 {
@@ -723,6 +724,8 @@ namespace PatientRep.ViewModels
 
         public ICommand OnSortByStatusButtonPressed { get; }
 
+        public ICommand OnSortByCenterButtonPressed { get; }
+
         public ICommand OnAddNewAddInfoNotePressed { get; }
 
         public ICommand OnRemoveAddInfoButtonPressed { get; }
@@ -934,6 +937,11 @@ namespace PatientRep.ViewModels
                 OnSortByStatusButtonPressedExecute,
                 CanOnSortByStatusButtonPressedExecute
 
+                );
+
+            OnSortByCenterButtonPressed = new LambdaCommand(
+                OnSortByCenterButtonPressedExecute,
+                CanOnSortByCenterButtonPressedExecute
                 );
 
             OnAddNewAddInfoNotePressed = new LambdaCommand(
@@ -1819,6 +1827,25 @@ namespace PatientRep.ViewModels
             await m_pController.SortAsync(SearchResult.ToList(), new CompareByStatus());
         }
 
+
+        #endregion
+
+        #region On Sort by Center Button Presed
+
+        private bool CanOnSortByCenterButtonPressedExecute(object p)
+        {
+            if (SearchResult.Count > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private async void OnSortByCenterButtonPressedExecute(object p)
+        {
+            await m_pController.SortAsync(SearchResult.ToList(), new CompareByCenter());
+        }
 
         #endregion
 
