@@ -626,7 +626,7 @@ namespace PatientRep.ViewModels
         #region IDataErrorInfo
 
         public override string this[string columnName]
-        // 3 (Input Code) - controlls Input Code Input
+        // 3 (Input Code) - controlls Input Smart Code Input
         // 5(Serach Code) - controlls Smart Code Input
         //11 (Is Hosp Date is Coorect)
         //12 (is Reason is Correct)
@@ -691,7 +691,7 @@ namespace PatientRep.ViewModels
 
                     case nameof(Department):
 
-                        m_ValidationArray[10] = true;
+                        m_ValidationArray[10] = Validation.ValidateNumber(Department, out error, true);
 
                         return error;
 

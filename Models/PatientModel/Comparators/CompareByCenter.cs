@@ -11,7 +11,16 @@ namespace Models.PatientModel.Comparators
     {
         public int Compare(Patient? x, Patient? y)
         {
-            return x.Center.CompareTo(y.Center);
+            uint n1 = 0;
+
+            uint n2 = 0;
+            
+            if (uint.TryParse(x.Center, out n1) && uint.TryParse(y.Center, out n2))
+            { 
+                return n1.CompareTo(n2);
+            }
+
+            return 0;
         }        
     }
 }

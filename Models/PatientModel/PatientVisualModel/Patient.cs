@@ -151,6 +151,12 @@ namespace Models.PatientModel.PatientVisualModel
                         m_ValidationArray[5] = Validation.ValidateDateTime(InvestigationDate, out error);
 
                         break;
+
+                    case nameof(Center):
+
+                        m_ValidationArray[6] = Validation.ValidateNumber(Center, out error, true);
+
+                        break;
                 }
 
                 return error;
@@ -190,7 +196,7 @@ namespace Models.PatientModel.PatientVisualModel
             m_status = status;
             Id = id;
 
-            m_ValidationArray = new bool[6];
+            m_ValidationArray = new bool[7];
 
             m_RegisterDate = registerDate;
 
