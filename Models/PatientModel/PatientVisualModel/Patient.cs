@@ -51,7 +51,7 @@ namespace Models.PatientModel.PatientVisualModel
         public bool IsInvestDateSet { get; set; }
 
         string m_Center;
-
+       
         #endregion
 
         #region Properties
@@ -104,7 +104,7 @@ namespace Models.PatientModel.PatientVisualModel
             set => Set(ref m_RegisterDate, value, nameof(RegisterDate));
         }
 
-        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }
+        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }       
 
         #endregion
 
@@ -212,7 +212,7 @@ namespace Models.PatientModel.PatientVisualModel
             else
             {
                 m_Center = center;
-            }
+            }            
 
             #endregion
 
@@ -317,9 +317,9 @@ namespace Models.PatientModel.PatientVisualModel
 
         #region Export
 
-        public NoteExport Export()
+        public NoteExport ConvertToExportable()
         {
-            return new NoteExport(this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
+            return new NoteExport(Number, this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
         }
 
         #endregion

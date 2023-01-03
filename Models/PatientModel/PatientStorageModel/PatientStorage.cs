@@ -33,7 +33,7 @@ namespace Models.PatientModel.PatientStorageModel
 
         public List<string> AdditionalInfo { get; set; }
 
-        public string Center { get; set; }
+        public string Center { get; set; }        
 
         #endregion
 
@@ -77,6 +77,7 @@ namespace Models.PatientModel.PatientStorageModel
             {
                 Center = center;
             }
+            
         }
 
         public PatientStorage()

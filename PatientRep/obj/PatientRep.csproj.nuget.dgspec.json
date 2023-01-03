@@ -481,6 +481,9 @@
             "projectReferences": {
               "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
                 "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+              },
+              "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
+                "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
               }
             }
           }

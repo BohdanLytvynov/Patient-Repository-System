@@ -19,8 +19,8 @@ namespace Models.ExportNoteModel
         public string Lastname { get; set; }
 
         public string Center { get; set; }
-
-        public DateTime RegistrationDate { get; set; }
+        
+        public DateTime RegistrationDate { get; set; }       
         #endregion
 
         #region Ctor
@@ -31,7 +31,8 @@ namespace Models.ExportNoteModel
             Name = name;
             Lastname = lastname;
             Center = center;
-            RegistrationDate = registrationDate;    
+            RegistrationDate = registrationDate;                
+
         }
         #endregion
 
@@ -39,7 +40,7 @@ namespace Models.ExportNoteModel
 
         public override string ToString()
         {
-            return $"{Number}) {Surename} {Name} {Lastname} {RegistrationDate.ToShortDateString()} | Центр: {Center}";
+            return $"{Number}) {Surename} {Name} {Lastname} | {RegistrationDate.ToShortDateString()} | Центр: {Center}";
         }
 
         #endregion

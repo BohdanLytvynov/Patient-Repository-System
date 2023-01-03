@@ -4,12 +4,12 @@ using System.Buffers;
 
 namespace ControllerBaseLib
 {
-    public abstract class ControllerBaseClass<ToperType>
-        where ToperType : Enum
+    public abstract class ControllerBaseClass<TOperType>
+        where TOperType : struct, Enum
     {
         #region Delegates
 
-        public delegate void OnOperationFinishedDelegate(object s, OperationFinishedEventArgs e);
+        public delegate void OnOperationFinishedDelegate(object s, OperationFinishedEventArgs<TOperType> e);
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace ControllerBaseLib
 
         #region Methods
 
-        public void ExecuteFunctionAdnGetResultThroughEvent(ToperType operType, Func<object, dynamic> func, object state = null)
+        public void ExecuteFunctionAdnGetResultThroughEvent(TOperType operType, Func<object, dynamic> func, object state = null)
             
         {
             Exception ex = null;
@@ -51,7 +51,7 @@ namespace ControllerBaseLib
             }
             finally
             {
-                OperationFinishedEventArgs e = new OperationFinishedEventArgs(operStatus);
+                OperationFinishedEventArgs<TOperType> e = new OperationFinishedEventArgs<TOperType>(operStatus, operType);
 
                 e.Result = res;
 
@@ -61,7 +61,7 @@ namespace ControllerBaseLib
             }
         }
 
-        public async Task ExecuteFunctionAndGetResultThroughEventAsync(ToperType operType, Func<object, CancellationTokenSource, dynamic> func,
+        public async Task ExecuteFunctionAndGetResultThroughEventAsync(TOperType operType, Func<object, CancellationTokenSource, dynamic> func,
             object state = null, CancellationTokenSource cts = null)
             
         {
@@ -97,7 +97,7 @@ namespace ControllerBaseLib
                 }
             });
 
-            OperationFinishedEventArgs e = new OperationFinishedEventArgs(operStatus);
+            OperationFinishedEventArgs<TOperType> e = new OperationFinishedEventArgs<TOperType>(operStatus, operType);
 
             e.Result = res;
 

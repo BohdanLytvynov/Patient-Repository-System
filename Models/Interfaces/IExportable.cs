@@ -8,6 +8,6 @@ namespace Models.Interfaces
 {
     public interface IExportable<TExportModel>
     {
-        TExportModel Export();
+        TExportModel ConvertToExportable();
     }
 }

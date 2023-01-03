@@ -1,35 +1,44 @@
 ﻿using ControllerBaseLib;
+using JsonDataProviderLibDNC;
 using System.Text;
 
 namespace NotesExporterLib
 {
-    public enum NotesExporterOperations : byte
+    public enum NotesExporterToTxtOperations : byte
     { 
         ExportNotes = 1,
         ExportReports
     }
 
-    public class NotesExporter : ControllerBaseClass<NotesExporterOperations>
+    public class NotesExporterToTxt : ControllerBaseClass<NotesExporterToTxtOperations>
     {        
         #region Methods
 
-        public void Export<TNoteType>(NotesExporterOperations oper, string filePath, List<TNoteType> notesForExport)
-        {
+        public void Export<TNoteType>(NotesExporterToTxtOperations oper, string path, string fileName, string Header, List<TNoteType> notesForExport)
+        {           
+            string pathToFile = path + Path.DirectorySeparatorChar + fileName;
+
             ExecuteFunctionAdnGetResultThroughEvent
                 (
                     oper, 
                     (obj) =>
                     {
-                        StreamWriter sw = new StreamWriter(filePath, false, encoding: new UTF8Encoding());
+                        JsonDataProvider.FIleNotExistsCreateIt(pathToFile);
 
-                        sw.Write(obj);
+                        StreamWriter sw = new StreamWriter(pathToFile, false, encoding: new UTF8Encoding());
+                        
+                        sw.WriteLine(Header);
 
                         foreach (var item in notesForExport)
                         {
+                            sw.WriteLine(item.ToString());
+                        }
 
-                        }               
+                        sw.Close();
 
-                        return null;
+                        sw.Dispose();
+
+                        return pathToFile;
                     }
                 );
         }

@@ -129,7 +129,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "ControllerBaseLib": "1.0.0"
+          "ControllerBaseLib": "1.0.0",
+          "JsonDataProviderLibDNC": "1.0.0"
         },
         "compile": {
           "bin/placeholder/NotesExporterLib.dll": {}
