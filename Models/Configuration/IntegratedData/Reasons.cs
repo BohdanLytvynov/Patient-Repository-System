@@ -42,7 +42,12 @@ namespace Models.Configuration.IntegratedData
         {
             return ReasonsProp.GetEnumerator();
         }
-
+        /// <summary>
+        /// Gets code from Reason. r - Reason, index - Part of splited array where code is.
+        /// </summary>
+        /// <param name="r" description="Reason"></param>
+        /// <param name="index" description="Part of splited array where code is."></param>
+        /// <returns></returns>
         public static int GetCode(string r, int index=1)
         {
             if (String.IsNullOrEmpty(r))

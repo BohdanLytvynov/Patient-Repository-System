@@ -324,20 +324,8 @@ namespace PatientRep.ViewModels
             {
                 Set(ref m_Reason, value, nameof(Reason));
 
-                var Codes = ConfigCodeUsageDictionary["DocDep"];
-
-                if (Codes?.Count > 0)
-                {
-                    if (Codes.Contains(GetCode(Reason)))
-                    {
-                        PhysicianVisibility = Visibility.Visible;
-                    }
-                    else
-                    {
-                        PhysicianVisibility = Visibility.Hidden;
-                    }
-                }
-                
+                m_UIElementManager.SetVisibilityOfUIElementAccordingToReason(Reason, ConfigCodeUsageDictionary, "DocDep", GetCode);
+                                
                 if (!String.IsNullOrWhiteSpace(Reason))
                 {
                     m_ValidationArray[12] = true;
@@ -389,7 +377,8 @@ namespace PatientRep.ViewModels
             {
                 Set(ref m_IsDirExists, value, nameof(IsDirExists));
 
-                
+                m_ReasonManager.GetReasonAccordingToExistanceOfDirection(IsDirExists, ConfigCodeUsageDictionary, 
+                    "DateDep", GetReasonAccordingToCode);
             }
 
         }
@@ -1046,8 +1035,15 @@ namespace PatientRep.ViewModels
         private void M_UIElementManager_OnOperationFinished(object s, OperationFinishedEventArgs<UIElementManagerOperations> e)
         {
             UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
-            { 
-                
+            {
+                switch (e.OperationType)
+                {
+                    case UIElementManagerOperations.SetVisibilityOfDoctorsPropertyAccordingToReason:
+
+                        PhysicianVisibility = e.Result;
+
+                        break;                    
+                }
             });
         }
 
@@ -1055,7 +1051,14 @@ namespace PatientRep.ViewModels
         {
             UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
             {
+                switch (e.OperationType)
+                {
+                    case ReasonsManagerOperations.GetReasonIfDirDoesntExists:
 
+                        Reason = e.Result;
+
+                    break;                    
+                }
             });
         }
 
@@ -1097,8 +1100,7 @@ namespace PatientRep.ViewModels
             if (r == MessageBoxResult.OK)
             {
                 System.Windows.Application.Current.Shutdown(0);
-            }
-                   
+            }                   
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
