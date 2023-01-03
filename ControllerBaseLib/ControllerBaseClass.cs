@@ -28,7 +28,7 @@ namespace ControllerBaseLib
 
         #region Methods
 
-        public void ExecuteFunctionAdnGetResultThroughEvent(TOperType operType, Func<object, dynamic> func, object state = null)
+        public void ExecuteFunctionAndGetResultThroughEvent(TOperType operType, Func<object, dynamic> func, object state = null)
             
         {
             Exception ex = null;

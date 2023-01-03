@@ -11,7 +11,7 @@ namespace Models.Configuration.IntegratedData
 
         static Reasons()
         {
-            ReasonsProp = new List<string>();
+           ReasonsProp = new List<string>();
 
            ConfigCodeUsageDictionary = new Dictionary<string, List<int>>();
             //{

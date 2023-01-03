@@ -18,7 +18,7 @@ namespace NotesExporterLib
         {           
             string pathToFile = path + Path.DirectorySeparatorChar + fileName;
 
-            ExecuteFunctionAdnGetResultThroughEvent
+            ExecuteFunctionAndGetResultThroughEvent
                 (
                     oper, 
                     (obj) =>

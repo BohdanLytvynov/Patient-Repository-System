@@ -34,6 +34,20 @@
           }
         }
       },
+      "AdditionalControllersLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AdditionalControllersLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AdditionalControllersLib.dll": {}
+        }
+      },
       "ControllerBaseLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -260,6 +274,11 @@
         "packageIcon.png"
       ]
     },
+    "AdditionalControllersLib/1.0.0": {
+      "type": "project",
+      "path": "../AdditionalControllersLib/AdditionalControllersLib.csproj",
+      "msbuildProject": "../AdditionalControllersLib/AdditionalControllersLib.csproj"
+    },
     "ControllerBaseLib/1.0.0": {
       "type": "project",
       "path": "../ControllerBaseLib/ControllerBaseLib.csproj",
@@ -318,6 +337,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "AdditionalControllersLib >= 1.0.0",
       "CRUDControllerLib >= 1.0.0",
       "ConvertersLib >= 1.0.0",
       "CustomIconsLib >= 1.0.0",
@@ -363,6 +383,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj"
+            },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"
             },

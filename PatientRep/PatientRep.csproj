@@ -36,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AdditionalControllersLib\AdditionalControllersLib.csproj" />
     <ProjectReference Include="..\ConvertersLib\ConvertersLib.csproj" />
     <ProjectReference Include="..\CRUDControllerLib\CRUDControllerLib.csproj" />
     <ProjectReference Include="..\CustomIconsLib\CustomIconsLib.csproj" />

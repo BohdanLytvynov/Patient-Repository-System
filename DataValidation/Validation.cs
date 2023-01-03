@@ -5,7 +5,7 @@ namespace DataValidation
     public static class Validation
     {
 
-        static public char [] Restricted { get => restricted; }
+        static public char[] Restricted { get => restricted; }
 
         static char[] restricted = { ' ', '.', ',', '/', '\\', '|', '#', '@', '!', '?', '!', '&', '^', ':', ';','%','&','*','(',')'
                 , '+', '=', '[', ']','{','}','"', '>', '<', '~'};
@@ -32,7 +32,7 @@ namespace DataValidation
             {
                 if (Char.IsDigit(txt[i]))
                 {
-                    error = $"Текстове поле містить цифру під індексом: {i+1}!";
+                    error = $"Текстове поле містить цифру під індексом: {i + 1}!";
 
                     return false;
                 }
@@ -67,7 +67,7 @@ namespace DataValidation
                 {
                     if (!Char.IsDigit(ar[i][j]))
                     {
-                        error = $"{i+1} группа цифр містить невірний символ під індексом {j+1}!!";
+                        error = $"{i + 1} группа цифр містить невірний символ під індексом {j + 1}!!";
 
                         return false;
                     }
@@ -78,10 +78,10 @@ namespace DataValidation
             {
                 if (ar[i].Length != 4)
                 {
-                    error = $"Невірна кількість цифр в {i+1} группі";
+                    error = $"Невірна кількість цифр в {i + 1} группі";
 
                     return false;
-                }                
+                }
             }
 
             error = "";
@@ -131,22 +131,23 @@ namespace DataValidation
             }
         }
 
-        public static bool ValidateNumber(string number, out string error)
+        public static bool ValidateNumber(string number, out string error, bool ShouldFieldBeEmpty = false)
         {
-            if (String.IsNullOrWhiteSpace(number))
+
+            if (String.IsNullOrWhiteSpace(number) && !ShouldFieldBeEmpty)
             {
                 error = "Поле не має бути порожнім!";
 
                 return false;
             }
 
-            for (int i = 0; i < number.Length ; i++)
+            for (int i = 0; i < number.Length; i++)
             {
                 if (!Char.IsDigit(number[i]))
                 {
-                    error = $"Невірний символ під індексом {i+1}";
+                    error = $"Невірний символ під індексом {i + 1}";
 
-                    return false;                    
+                    return false;
                 }
             }
 
