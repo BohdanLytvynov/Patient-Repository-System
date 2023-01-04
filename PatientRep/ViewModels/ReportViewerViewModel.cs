@@ -137,7 +137,7 @@ namespace PatientRep.ViewModels
 
             foreach (string r in Reasons.ReasonsProp) //O(k) k = 11
             {
-                if (Reasons.CompareReasons(r, n.Reason))
+                if (Reasons.IsReasonsEqual(r, n.Reason))
                 {
                     reason = r;
 
@@ -173,7 +173,7 @@ namespace PatientRep.ViewModels
             {
                 foreach (var item in noteRep) //O(k) // Use Bin Search
                 {
-                    if (Reasons.CompareReasons(item.Reason, reason))
+                    if (Reasons.IsReasonsEqual(item.Reason, reason))
                     {
                         var PAddInfo = new PatientAddInfo(
                         n.Surename,
@@ -198,7 +198,7 @@ namespace PatientRep.ViewModels
         {
             foreach (var item in col)
             {
-                if (Reasons.CompareReasons(item.Reason, reason))
+                if (Reasons.IsReasonsEqual(item.Reason, reason))
                 {
                     return true;
                 }

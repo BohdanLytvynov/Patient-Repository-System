@@ -1,0 +1,147 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {
+      "ControllerBaseLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ControllerBaseLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ControllerBaseLib.dll": {}
+        }
+      },
+      "DataValidation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DataValidation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataValidation.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataValidation": "1.0.0",
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ViewModelBaseLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ViewModelBaseLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "ControllerBaseLib/1.0.0": {
+      "type": "project",
+      "path": "../ControllerBaseLib/ControllerBaseLib.csproj",
+      "msbuildProject": "../ControllerBaseLib/ControllerBaseLib.csproj"
+    },
+    "DataValidation/1.0.0": {
+      "type": "project",
+      "path": "../DataValidation/DataValidation.csproj",
+      "msbuildProject": "../DataValidation/DataValidation.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "path": "../ViewModelBaseLib/ViewModelBaseLib.csproj",
+      "msbuildProject": "../ViewModelBaseLib/ViewModelBaseLib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": [
+      "ControllerBaseLib >= 1.0.0",
+      "Models >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Doctor14\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj",
+      "projectName": "AdditionalControllersLib",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj",
+      "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\AdditionalControllersLib\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+            },
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

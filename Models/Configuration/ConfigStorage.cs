@@ -90,10 +90,7 @@ namespace Models.Configuration
             }            
         }
 
-        #endregion
-
-        #region Methods 
-
+       
         private void CodeInsertionToPropriateList(int code, string keyname)
         {
             if (ConfigCodeUsageDictionary.ContainsKey(keyname)) //List with doc dependent indexes already exists

@@ -1020,7 +1020,7 @@
                                                 <ColumnDefinition Width="20"/>
                                                 <ColumnDefinition Width="60"/>
                                                 <ColumnDefinition Width="20"/>
-                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="350"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Лікар:" Grid.Column="1"/>
@@ -1036,7 +1036,7 @@
                                                 <ColumnDefinition Width="20"/>
                                                 <ColumnDefinition Width="170"/>
                                                 <ColumnDefinition Width="10"/>
-                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition Width="320"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Напр. відсутнє, бо:" Grid.Column="1"/>
@@ -1055,7 +1055,7 @@
                                                 <ColumnDefinition Width="20"/>
                                                 <ColumnDefinition Width="170"/>
                                                 <ColumnDefinition Width="10"/>
-                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition Width="380"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Дослідження:" Grid.Column="1"/>

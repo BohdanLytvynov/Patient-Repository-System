@@ -12,7 +12,7 @@ using Models.ExportNoteModel;
 
 namespace Models.PatientModel.PatientVisualModel
 {
-    public class Patient : ViewModelBaseClass, IExportable<NoteExport>
+    public class Patient : ViewModelBaseClass, IExportable<NoteExport> 
     {
         #region Events
 
@@ -182,7 +182,7 @@ namespace Models.PatientModel.PatientVisualModel
         #region ctor
 
         public Patient(Guid id, string surename, string name, string lastname, string code, string diagnosis, PatientStatus status,
-            DateTime registerDate, DateTime InvestigationDate, string center)
+            DateTime registerDate, DateTime InvestigationDate, string center, List<string> addInfoCol)
         {
             #region Init Fields
 
@@ -218,8 +218,19 @@ namespace Models.PatientModel.PatientVisualModel
             else
             {
                 m_Center = center;
-            }            
+            }
 
+            if (addInfoCol != null)
+            {
+                if (addInfoCol.Count > 0)
+                {
+                    foreach (var item in addInfoCol)
+                    {
+                        m_addInfoVM.Add(new AdditionalInfoViewModel(m_addInfoVM.Count + 1, item));
+                    }
+                }
+            }
+                                                               
             #endregion
 
             #region Init Commands

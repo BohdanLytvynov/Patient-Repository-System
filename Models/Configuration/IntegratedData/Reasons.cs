@@ -11,7 +11,7 @@ namespace Models.Configuration.IntegratedData
 
         static Reasons()
         {
-            ReasonsProp = new List<string>();
+           ReasonsProp = new List<string>();
 
            ConfigCodeUsageDictionary = new Dictionary<string, List<int>>();
             //{
@@ -42,7 +42,12 @@ namespace Models.Configuration.IntegratedData
         {
             return ReasonsProp.GetEnumerator();
         }
-
+        /// <summary>
+        /// Gets code from Reason. r - Reason, index - Part of splited array where code is.
+        /// </summary>
+        /// <param name="r" description="Reason"></param>
+        /// <param name="index" description="Part of splited array where code is."></param>
+        /// <returns></returns>
         public static int GetCode(string r, int index=1)
         {
             if (String.IsNullOrEmpty(r))
@@ -64,7 +69,7 @@ namespace Models.Configuration.IntegratedData
             return res;
         }
 
-        public static bool CompareReasons(string r1, string r2)
+        public static bool IsReasonsEqual(string r1, string r2)
         { 
             return GetCode(r1) == GetCode(r2);
         }
