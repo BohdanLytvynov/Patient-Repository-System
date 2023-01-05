@@ -1,7 +1,9 @@
-﻿using Models.Configuration.IntegratedData;
+﻿using Models.Configuration;
+using Models.Configuration.IntegratedData;
 using Models.HistoryNoteModels.VisualModel;
 using Models.HistoryNotesComparators;
 using Models.ReportModels.ReportVisualModel;
+using NotesExporterLib;
 using PatientRep.ViewModelBase.Commands;
 using ReportBuilderLib.Enums;
 using System;
@@ -24,6 +26,14 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<Report> m_Reports;
 
+        NotesExporterToTxt m_exportToTxt;
+
+        ConfigStorage m_configStorage;
+
+        DateTime start;
+
+        DateTime end;
+
         #endregion
 
         #region Properties
@@ -41,13 +51,23 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Ctor
-        public ReportViewerViewModel(Window w, List<HistoryNote> col, ReportType type)
+        public ReportViewerViewModel(Window w, List<HistoryNote> col, ReportType type, ConfigStorage config)
         {
             #region Init Fields
+
+            start = col[0].InvestDate.Date;
+
+            end = col[col.Count - 1].InvestDate.Date;
+
+            m_configStorage = config;
 
             m_w = w;
 
             m_Reports = new ObservableCollection<Report>();
+
+            m_exportToTxt = new NotesExporterToTxt();
+
+            m_exportToTxt.OnOperationFinished += M_exportToTxt_OnOperationFinished;
 
             #endregion
 
@@ -58,9 +78,22 @@ namespace PatientRep.ViewModels
                 CanOnExitButtonPressedExecute
                 );
 
+            OnExportButtonPressed = new LambdaCommand(
+                OnExportButtonPressedExecute,
+                CanOnExportButtonPressedExecute
+                );
+
             #endregion
 
             GenerateReport(col, type);
+        }
+
+        private void M_exportToTxt_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<NotesExporterToTxtOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, "Patient Rep", ()=>
+            {
+                UIMessaging.CreateMessageBox("Єкспорт успішно завершено!", "Patient Rep", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            });
         }
         #endregion
 
@@ -232,6 +265,32 @@ namespace PatientRep.ViewModels
         private void OnExitButtonPressedExecute(object p)
         {
             m_w.Close();
+        }
+
+        #endregion
+
+        #region On Export Button Pressed
+
+        private bool CanOnExportButtonPressedExecute(object p)
+        {
+            return Reports.Count > 0;
+        }
+
+        private void OnExportButtonPressedExecute(object p)
+        {
+            string header = String.Empty;
+
+            if (start.Equals(end))
+            {
+                header = $"Звіт за {start.ToShortDateString()}";
+            }
+            else
+            {
+                header = $"Звіт за період: {start.ToShortDateString()} - {end.ToShortDateString()}";
+            }
+
+            m_exportToTxt.Export<Report>(NotesExporterToTxtOperations.ExportReports, m_configStorage.HistoryNotesReportOutput, header+".txt",
+                header, Reports.ToList());
         }
 
         #endregion

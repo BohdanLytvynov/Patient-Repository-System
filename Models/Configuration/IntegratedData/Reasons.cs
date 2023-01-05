@@ -42,6 +42,24 @@ namespace Models.Configuration.IntegratedData
         {
             return ReasonsProp.GetEnumerator();
         }
+
+        public static string GetReason(string reason)
+        {
+            if (String.IsNullOrEmpty(reason))
+            {
+                return String.Empty;
+            }
+
+            if (!reason.Contains('['))
+            {
+                return String.Empty;
+            }
+
+            string[] ar = reason.Split('[');
+
+            return ar[0];
+        }
+
         /// <summary>
         /// Gets code from Reason. r - Reason, index - Part of splited array where code is.
         /// </summary>

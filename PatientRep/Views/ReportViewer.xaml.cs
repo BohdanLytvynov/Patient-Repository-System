@@ -1,4 +1,5 @@
-﻿using Models.HistoryNoteModels.VisualModel;
+﻿using Models.Configuration;
+using Models.HistoryNoteModels.VisualModel;
 using PatientRep.ViewModels;
 using ReportBuilderLib.Enums;
 using System;
@@ -25,9 +26,9 @@ namespace PatientRep.Views
     {
         ReportViewerViewModel m_vm;
 
-        public ReportViewer(List<HistoryNote> col, ReportType type)
+        public ReportViewer(List<HistoryNote> col, ReportType type, ConfigStorage config)
         {
-            m_vm = new ReportViewerViewModel(this, col, type);
+            m_vm = new ReportViewerViewModel(this, col, type, config);
 
             this.DataContext = m_vm;
 

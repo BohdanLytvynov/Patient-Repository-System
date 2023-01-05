@@ -2077,7 +2077,7 @@ namespace PatientRep.ViewModels
                 }
             }
 
-            m_ReportViewerWindow = new ReportViewer(notes, RepType);
+            m_ReportViewerWindow = new ReportViewer(notes, RepType, m_Configuration);
 
             m_ReportViewerWindow.Topmost = true;
 
