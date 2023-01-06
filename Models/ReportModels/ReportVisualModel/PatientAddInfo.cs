@@ -154,6 +154,35 @@ namespace Models.ReportModels.ReportVisualModel
 
         #region Methods
 
+        #region Overriden methods
+
+        public override string ToString()
+        {
+            if (!IsExport)
+            {
+                return String.Empty;
+            }
+
+            return $"{ShowNumber}) {Surename} {Name} {Lastname} \n" +
+                $"\t\t\tЦентр: {Center} \n" +
+                $"\t\t\tДата госпіталізації: <{HospdateTime.ToShortDateString()}>\n" +
+                $"\t\t\tЧас госпіталізації: <{HospdateTime.ToShortTimeString()}>\n" +
+                $"\t\t\tДослідження: {Investigation}\n" +
+                $"\t\t\t{WriteDoctor()}";
+        }
+
+        #endregion
+
+        public string WriteDoctor()
+        {
+            if (ShowDoctor)
+            {
+                return $"Лікар: {Doctor}";
+            }
+
+            return String.Empty;
+        }
+
         #endregion
     }
 }

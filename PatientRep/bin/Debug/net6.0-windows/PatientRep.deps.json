@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "PatientRep/1.0.0": {
         "dependencies": {
+          "AdditionalControllersLib": "1.0.0",
           "CRUDControllerLib": "1.0.0",
           "ConvertersLib": "1.0.0",
           "CustomIconsLib": "1.0.0",
@@ -15,6 +16,7 @@
           "FontAwesome5": "2.1.11",
           "JsonDataProviderLibDNC": "1.0.0",
           "Models": "1.0.0",
+          "NotesExporterLib": "1.0.0",
           "ReportBuilderLib": "1.0.0",
           "SmartControlls": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
@@ -41,6 +43,15 @@
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.25517"
           }
+        }
+      },
+      "AdditionalControllersLib/1.0.0": {
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "AdditionalControllersLib.dll": {}
         }
       },
       "ControllerBaseLib/1.0.0": {
@@ -93,6 +104,15 @@
           "Models.dll": {}
         }
       },
+      "NotesExporterLib/1.0.0": {
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "JsonDataProviderLibDNC": "1.0.0"
+        },
+        "runtime": {
+          "NotesExporterLib.dll": {}
+        }
+      },
       "ReportBuilderLib/1.0.0": {
         "dependencies": {
           "ControllerBaseLib": "1.0.0"
@@ -133,6 +153,11 @@
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
+    "AdditionalControllersLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "ControllerBaseLib/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -164,6 +189,11 @@
       "sha512": ""
     },
     "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NotesExporterLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

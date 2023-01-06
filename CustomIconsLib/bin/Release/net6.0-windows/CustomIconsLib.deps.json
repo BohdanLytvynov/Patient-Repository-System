@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CustomIconsLib/1.0.0": {
+        "dependencies": {
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "CustomIconsLib.dll": {}
+        }
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "runtime": {
+          "ViewModelBaseLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CustomIconsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

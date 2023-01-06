@@ -38,7 +38,12 @@ using Models.Configuration.ReasonModels.ReasonStorageModel;
 using static Models.Configuration.IntegratedData.Reasons;
 using static Models.Configuration.IntegratedData.Physicians;
 using static Models.Configuration.IntegratedData.Investigations;
-
+using Models.ReportModels.ReportVisualModel;
+using Models.ExportNoteModel;
+using NotesExporterLib;
+using System.Windows.Forms;
+using Models.PatientModel.Comparators;
+using AdditionalControllersLib;
 
 namespace PatientRep.ViewModels
 {
@@ -61,6 +66,14 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Fields
+
+        #region Additional Controllers 
+
+        ReasonsManager m_ReasonManager;
+
+        UIElementManager m_UIElementManager;
+
+        #endregion
 
         string m_selfpath;
 
@@ -135,6 +148,8 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Report System
+
+        NotesExporterToTxt m_NoteExporterToTxt;
 
         bool m_SearchReport; // search - true Report - false
 
@@ -309,20 +324,8 @@ namespace PatientRep.ViewModels
             {
                 Set(ref m_Reason, value, nameof(Reason));
 
-                var Codes = ConfigCodeUsageDictionary["DocDep"];
-
-                if (Codes?.Count > 0)
-                {
-                    if (Codes.Contains(GetCode(Reason)))
-                    {
-                        PhysicianVisibility = Visibility.Visible;
-                    }
-                    else
-                    {
-                        PhysicianVisibility = Visibility.Hidden;
-                    }
-                }
-                
+                m_UIElementManager.SetVisibilityOfUIElementAccordingToReason(Reason, ConfigCodeUsageDictionary, "DocDep", GetCode);
+                                
                 if (!String.IsNullOrWhiteSpace(Reason))
                 {
                     m_ValidationArray[12] = true;
@@ -374,26 +377,8 @@ namespace PatientRep.ViewModels
             {
                 Set(ref m_IsDirExists, value, nameof(IsDirExists));
 
-                if (!IsDirExists)
-                {
-                    var r = ConfigCodeUsageDictionary["DateDep"];
-
-                    if (r != null)
-                    {
-                        if (r.Count > 0)
-                        {
-                            string rTemp;
-
-                            GetReasonAccordingToCode(r[0], out rTemp);
-
-                            Reason = rTemp;
-                        }
-                    }
-                }
-                else
-                {
-                    Reason = String.Empty;
-                }
+                m_ReasonManager.GetReasonAccordingToExistanceOfDirection(IsDirExists, ConfigCodeUsageDictionary, 
+                    "DateDep", GetReasonAccordingToCode);
             }
 
         }
@@ -620,7 +605,7 @@ namespace PatientRep.ViewModels
         #region IDataErrorInfo
 
         public override string this[string columnName]
-        // 3 (Input Code) - controlls Input Code Input
+        // 3 (Input Code) - controlls Input Smart Code Input
         // 5(Serach Code) - controlls Smart Code Input
         //11 (Is Hosp Date is Coorect)
         //12 (is Reason is Correct)
@@ -667,13 +652,13 @@ namespace PatientRep.ViewModels
 
                     case nameof(PatientName):
 
-                        m_ValidationArray[7] = Validation.ValidateText(PatientName, Validation.Restricted, out error);
+                        m_ValidationArray[7] = Validation.ValidateText(PatientName, Validation.Restricted, out error, true);
 
                         return error;
 
                     case nameof(PatientLastName):
 
-                        m_ValidationArray[8] = Validation.ValidateText(PatientLastName, Validation.Restricted, out error);
+                        m_ValidationArray[8] = Validation.ValidateText(PatientLastName, Validation.Restricted, out error, true);
 
                         return error;
 
@@ -685,7 +670,7 @@ namespace PatientRep.ViewModels
 
                     case nameof(Department):
 
-                        m_ValidationArray[10] = true;
+                        m_ValidationArray[10] = Validation.ValidateNumber(Department, out error, true);
 
                         return error;
 
@@ -717,6 +702,8 @@ namespace PatientRep.ViewModels
         public ICommand OnSortByDateButtonPressed { get; }
 
         public ICommand OnSortByStatusButtonPressed { get; }
+
+        public ICommand OnSortByCenterButtonPressed { get; }
 
         public ICommand OnAddNewAddInfoNotePressed { get; }
 
@@ -773,6 +760,18 @@ namespace PatientRep.ViewModels
         public MainWindowViewModel()
         {
             #region Init Fields
+
+            m_ReasonManager = new ReasonsManager();
+
+            m_UIElementManager = new UIElementManager();
+
+            m_NoteExporterToTxt = new NotesExporterToTxt();
+
+            m_ReasonManager.OnOperationFinished += M_ReasonManager_OnOperationFinished;
+
+            m_UIElementManager.OnOperationFinished += M_UIElementManager_OnOperationFinished;
+                        
+            m_NoteExporterToTxt.OnOperationFinished += M_NoteExporterToTxt_OnOperationFinished;
 
             m_NewAddInfoCol = new ObservableCollection<AdditionalInfoViewModel>();
 
@@ -927,6 +926,11 @@ namespace PatientRep.ViewModels
 
                 );
 
+            OnSortByCenterButtonPressed = new LambdaCommand(
+                OnSortByCenterButtonPressedExecute,
+                CanOnSortByCenterButtonPressedExecute
+                );
+
             OnAddNewAddInfoNotePressed = new LambdaCommand(
                 OnAddNewAddInfoButtonPressedExecute,
                 CanOnAddNewAddInfoButtonPressedExecute
@@ -1028,6 +1032,63 @@ namespace PatientRep.ViewModels
             OnMainWindowInitialized.Invoke();
         }
 
+        private void M_UIElementManager_OnOperationFinished(object s, OperationFinishedEventArgs<UIElementManagerOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
+            {
+                switch (e.OperationType)
+                {
+                    case UIElementManagerOperations.SetVisibilityOfDoctorsPropertyAccordingToReason:
+
+                        PhysicianVisibility = e.Result;
+
+                        break;                    
+                }
+            });
+        }
+
+        private void M_ReasonManager_OnOperationFinished(object s, OperationFinishedEventArgs<ReasonsManagerOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
+            {
+                switch (e.OperationType)
+                {
+                    case ReasonsManagerOperations.GetReasonIfDirDoesntExists:
+
+                        Reason = e.Result;
+
+                    break;                    
+                }
+            });
+        }
+
+        private void M_NoteExporterToTxt_OnOperationFinished(object s, OperationFinishedEventArgs<NotesExporterToTxtOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
+            {
+                switch (e.OperationType)
+                {
+                    case NotesExporterToTxtOperations.ExportNotes:
+
+                        var r = UIMessaging.CreateMessageBox($"Експорт записів завершено. Бажаєте відкрити файл з результатами?"
+                             , m_tittle, MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+                        if (r == MessageBoxResult.Yes)
+                        {
+                            OpenFileDialog fd = new OpenFileDialog();
+
+                            fd.FileName = e.Result as string;
+
+                            fd.OpenFile();
+                        }
+
+                        break;
+                    case NotesExporterToTxtOperations.ExportReports:
+                        break;
+                }
+            });                                           
+        }
+
         private async Task M_Configuration_OnConfigChanged()
         {            
             await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
@@ -1038,9 +1099,8 @@ namespace PatientRep.ViewModels
 
             if (r == MessageBoxResult.OK)
             {
-                Application.Current.Shutdown(0);
-            }
-                   
+                System.Windows.Application.Current.Shutdown(0);
+            }                   
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
@@ -1052,18 +1112,11 @@ namespace PatientRep.ViewModels
             await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
         }
 
-        private async void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs e)
+        private void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs<HistoryNotesControllerOperations> e)
         {
-            Status exStatus = e.ExecutionStatus;
-
-            HistoryNotesControllerOperations oper = HistoryNotesControllerOperations.GetNotes;
-
-            oper = (HistoryNotesControllerOperations)Enum.Parse(oper.GetType(), e.OperationType.ToString());
-
-            if (exStatus == Status.Succed)
+            UIMessaging.CreateMessageBoxAccordingToResult<HistoryNotesControllerOperations>(e, m_tittle, async ()=>
             {
-
-                switch (oper)
+                switch (e.OperationType)
                 {
                     case HistoryNotesControllerOperations.AddNote:
 
@@ -1137,16 +1190,7 @@ namespace PatientRep.ViewModels
 
                         break;
                 }
-
-            }
-            else if (exStatus == Status.Canceled)
-            {
-
-            }
-            else
-            {
-
-            }
+            });                                            
         }
 
         #region HistoryNotesEvents
@@ -1162,17 +1206,11 @@ namespace PatientRep.ViewModels
 
         #endregion
 
-        private void M_jdataprovider_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs e)
+        private void M_jdataprovider_OnOperationFinished(object s, OperationFinishedEventArgs<JDataProviderOperation> e)
         {
-            Status exStatus = e.ExecutionStatus;
-
-            JDataProviderOperation oper = JDataProviderOperation.SavePatientsDB;
-
-            oper = (JDataProviderOperation)Enum.Parse(oper.GetType(), e.OperationType.ToString());
-
-            if (exStatus == Status.Succed)
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
             {
-                switch (oper)
+                switch (e.OperationType)
                 {
                     case JDataProviderOperation.SavePatientsDB:
                         break;
@@ -1224,13 +1262,10 @@ namespace PatientRep.ViewModels
                                         DateTime.Parse(array[i]["RegisterDate"].ToString()),
                                         DateTime.Parse(array[i]["InvestigationDate"].ToString()),
                                         adInfoList, array[i]["Center"]?.ToString());
-
-                                p.AdditionalInfo = adInfoList;
-
+                                
                                 m_patients.Add(
                                     p
                                     );
-
                             }
                         }
 
@@ -1297,9 +1332,7 @@ namespace PatientRep.ViewModels
                             m_Configuration = new ConfigStorage();
                         }
                         else
-                        {
-                            //m_Configuration = new ConfigStorage();
-
+                        {                            
                             m_Configuration = e.Result;
                         }
 
@@ -1315,30 +1348,16 @@ namespace PatientRep.ViewModels
 
                         break;
                 }
-            }
-            else if (exStatus == Status.Canceled)
-            {
 
-            }
-            else
-            {
-
-            }
-
-            NoteCount = m_patients.Count;
+                NoteCount = m_patients.Count;
+            });                                        
         }
 
-        private async void M_pController_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs e)
+        private void M_pController_OnOperationFinished(object s, OperationFinishedEventArgs<PatientControllerOperations> e)
         {
-            Status exeStatus = e.ExecutionStatus;
-
-            PatientControllerOperations operType = PatientControllerOperations.Add;
-
-            operType = (PatientControllerOperations)Enum.Parse(operType.GetType(), e.OperationType.ToString());
-
-            if (exeStatus == Status.Succed) // Operaation Succesfull
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, async () =>
             {
-                switch (operType)
+                switch (e.OperationType)
                 {
                     case PatientControllerOperations.Add:
 
@@ -1381,7 +1400,14 @@ namespace PatientRep.ViewModels
 
                         List<PatientStorage> res = e.Result;//Patient Storage
 
-                        FillVisualModelCollection(SearchResult, res);
+                        FillVisualModelCollection<Patient, PatientStorage>(SearchResult, res, (p, i)=>
+                        {
+                            p.Number = i + 1;
+                            
+                            p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
+
+                            p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
+                        });
 
                         break;
 
@@ -1393,7 +1419,14 @@ namespace PatientRep.ViewModels
                         {
                             List<PatientStorage> result = e.Result;
 
-                            FillVisualModelCollection(SearchResult, result);
+                            FillVisualModelCollection<Patient, PatientStorage>(SearchResult, result, (p, i) =>
+                            {
+                                p.Number = i + 1;
+
+                                p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
+
+                                p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
+                            });
                         }
 
                         break;
@@ -1410,8 +1443,8 @@ namespace PatientRep.ViewModels
 
                             foreach (var item in result)
                             {
-                                Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname, 
-                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center);
+                                Patient p = new Patient(item.Id, item.Surename, item.Name, item.Lastname,
+                                    item.Code, item.Diagnosis, item.Status, item.RegisterDate, item.InvestigationDate, item.Center, null);
 
                                 p.Number = num;
 
@@ -1440,26 +1473,9 @@ namespace PatientRep.ViewModels
                         break;
                 }
 
-            }
-            else if (exeStatus == Status.Canceled) // Operation Canceled
-            {
-                UIMessaging.CreateMessageBox($"Operation: {operType} was {exeStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
-            }
-            else // Operation Failed
-            {
-                if (e.Exception is EntityAlreadyExistsException)
-                {
-                    UIMessaging.CreateMessageBox($"{e.Exception.Message}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
-                }
-                else
-                {
-                    UIMessaging.CreateMessageBox($"Operation: {operType} {exeStatus}", m_tittle, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
-                }
-            }
+                NoteCount = m_patients.Count;
 
-            NoteCount = m_patients.Count;
-
-            //For Logger
+            });                                      
         }
 
         private async void Pat_OnRemoveButtonPressed(Patient selected)
@@ -1493,39 +1509,39 @@ namespace PatientRep.ViewModels
 
         #region Fill Visual Model
 
-        public void FillVisualModelCollection(ObservableCollection<Patient> VMCol, List<PatientStorage> storageCol)
-        {
-            int count = 1;
+        //public void FillVisualModelCollection(ObservableCollection<Patient> VMCol, List<PatientStorage> storageCol)
+        //{
+        //    int count = 1;
 
-            foreach (PatientStorage ps in storageCol)
-            {
-                Patient p = new Patient(
-                    ps.Id, ps.Surename, ps.Name, ps.Lastname, ps.Code, ps.Diagnosis, ps.Status, ps.RegisterDate,
-                    ps.InvestigationDate, ps.Center);
+        //    foreach (PatientStorage ps in storageCol)
+        //    {
+        //        Patient p = new Patient(
+        //            ps.Id, ps.Surename, ps.Name, ps.Lastname, ps.Code, ps.Diagnosis, ps.Status, ps.RegisterDate,
+        //            ps.InvestigationDate, ps.Center, ps.AdditionalInfo);
 
-                p.Number = count;
+        //        p.Number = count;
 
-                p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
+        //        p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
 
-                p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
+        //        p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
 
-                int AdInfoCount = 1;
+        //        int AdInfoCount = 1;
 
-                if (ps.AdditionalInfo != null)
-                {
-                    foreach (string item in ps.AdditionalInfo)
-                    {
-                        p.AddInfoVMCollection.Add(new AdditionalInfoViewModel(AdInfoCount, item));
+        //        if (ps.AdditionalInfo != null)
+        //        {
+        //            foreach (string item in ps.AdditionalInfo)
+        //            {
+        //                p.AddInfoVMCollection.Add(new AdditionalInfoViewModel(AdInfoCount, item));
 
-                        AdInfoCount++;
-                    }
-                }
+        //                AdInfoCount++;
+        //            }
+        //        }
 
-                VMCol.Add(p);
+        //        VMCol.Add(p);
 
-                count++;
-            }
-        }
+        //        count++;
+        //    }
+        //}
 
         public void FillVisualModelCollection<TVisualModel, TStorageModel>(ObservableCollection<TVisualModel> noteVisualCol,
             List<TStorageModel>
@@ -1791,6 +1807,25 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region On Sort by Center Button Presed
+
+        private bool CanOnSortByCenterButtonPressedExecute(object p)
+        {
+            if (SearchResult.Count > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private async void OnSortByCenterButtonPressedExecute(object p)
+        {
+            await m_pController.SortAsync(SearchResult.ToList(), new CompareByCenter());
+        }
+
+        #endregion
+
         #region On Add New Additional info button pressed
 
         private bool CanOnAddNewAddInfoButtonPressedExecute(object p)
@@ -1805,6 +1840,8 @@ namespace PatientRep.ViewModels
 
         #endregion On Remove AddInfo button pressed
 
+        #region On Remove Add Info Button Pressed
+
         private bool CanOnRemoveAddInfoButtonPressedExecute(object p) => SelectedAddInfoIndex >= 0;
 
         private void OnRemoveAddInfoButtonPressedExecute(object p)
@@ -1812,7 +1849,7 @@ namespace PatientRep.ViewModels
             AddInfoCol.RemoveAt(SelectedAddInfoIndex);
         }
 
-
+        #endregion
 
         #endregion
 
@@ -2040,7 +2077,7 @@ namespace PatientRep.ViewModels
                 }
             }
 
-            m_ReportViewerWindow = new ReportViewer(notes, RepType);
+            m_ReportViewerWindow = new ReportViewer(notes, RepType, m_Configuration);
 
             m_ReportViewerWindow.Topmost = true;
 
@@ -2055,7 +2092,7 @@ namespace PatientRep.ViewModels
         {
             if (m_Configuration != null)
             {
-                return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput);
+                return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput) && SearchResult.Count > 0;
             }
             return false;
             
@@ -2063,8 +2100,20 @@ namespace PatientRep.ViewModels
 
         private void OnExportNotesButtonPressedExecute(object p)
         {
-            string fileName = $"Звіт від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
+            string header = $"Боржники на ФЛГ від {DateSearchStart.ToShortDateString()} до {DateSearchEnd.ToShortDateString()}";
 
+            List<NoteExport> notes = new List<NoteExport>();
+
+            foreach (var item in SearchResult)
+            {
+                notes.Add(item.ConvertToExportable());
+            }
+
+            m_NoteExporterToTxt.Export(NotesExporterToTxtOperations.ExportNotes,
+                path: m_Configuration.NotesReportOutput, 
+                fileName: header + ".txt",
+                Header: header,
+                notesForExport: notes);
 
         }
 

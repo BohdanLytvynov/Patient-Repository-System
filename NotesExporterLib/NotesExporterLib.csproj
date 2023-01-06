@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ControllerBaseLib\ControllerBaseLib.csproj" />
+    <ProjectReference Include="..\JsonDataProviderLibDNC\JsonDataProviderLibDNC.csproj" />
   </ItemGroup>
 
 </Project>

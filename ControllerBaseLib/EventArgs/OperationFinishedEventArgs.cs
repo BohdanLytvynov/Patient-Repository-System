@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ControllerBaseLib.EventArgs
 {
-    public class OperationFinishedEventArgs
+    public class OperationFinishedEventArgs<TOperationtype>
+        where TOperationtype : struct, Enum
     {
         #region Properties
 
@@ -15,7 +16,7 @@ namespace ControllerBaseLib.EventArgs
 
         public Status ExecutionStatus { get; }//Execution status
 
-        public dynamic OperationType { get; set; }//OperationType
+        public TOperationtype OperationType { get; set; }//OperationType
 
         public Exception Exception { get; set; }//Exception that was thrown in case of error
 
@@ -23,11 +24,14 @@ namespace ControllerBaseLib.EventArgs
 
         #region Ctor
 
-        public OperationFinishedEventArgs(Status executionStatus, Exception ex = null)
+        public OperationFinishedEventArgs(Status executionStatus, TOperationtype OperType, Exception ex = null)
         {            
             ExecutionStatus = executionStatus;
 
             Exception = ex;
+
+            OperationType = OperType;
+
         }
 
         #endregion
