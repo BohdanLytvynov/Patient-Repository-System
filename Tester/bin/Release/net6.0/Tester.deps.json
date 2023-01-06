@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Tester/1.0.0": {
+        "dependencies": {
+          "TimerLib": "1.0.0"
+        },
         "runtime": {
           "Tester.dll": {}
+        }
+      },
+      "TimerLib/1.0.0": {
+        "runtime": {
+          "TimerLib.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Tester/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TimerLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

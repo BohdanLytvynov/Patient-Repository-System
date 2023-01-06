@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\obj\Release\net6.0-windows\
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Release\net6.0-windows\
 PatientRep
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\PatientRep\App.xaml
-1-1644662438
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\App.xaml
+3-1583128474
+4-642022768
+13-466174910
+218-585410279
+Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;
 
-9-384460802
-203-986162188
-Views\MainWindow.xaml;
-
-False
+True
 

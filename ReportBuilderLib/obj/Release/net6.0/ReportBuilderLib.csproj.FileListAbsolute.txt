@@ -1,0 +1,15 @@
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\bin\Release\net6.0\ReportBuilderLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\bin\Release\net6.0\ReportBuilderLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\bin\Release\net6.0\ReportBuilderLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\bin\Release\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\bin\Release\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\refint\ReportBuilderLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ReportBuilderLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ReportBuilderLib\obj\Release\net6.0\ref\ReportBuilderLib.dll

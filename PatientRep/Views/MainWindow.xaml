@@ -1025,7 +1025,7 @@
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Лікар:" Grid.Column="1"/>
                                             <ComboBox Grid.Column="3" IsEditable="True"
-                                                  SelectedItem="{Binding Physician, 
+                                                  Text="{Binding Physician, 
                                             UpdateSourceTrigger=PropertyChanged,
                                             Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Doctors}"/>
