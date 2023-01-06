@@ -652,13 +652,13 @@ namespace PatientRep.ViewModels
 
                     case nameof(PatientName):
 
-                        m_ValidationArray[7] = Validation.ValidateText(PatientName, Validation.Restricted, out error);
+                        m_ValidationArray[7] = Validation.ValidateText(PatientName, Validation.Restricted, out error, true);
 
                         return error;
 
                     case nameof(PatientLastName):
 
-                        m_ValidationArray[8] = Validation.ValidateText(PatientLastName, Validation.Restricted, out error);
+                        m_ValidationArray[8] = Validation.ValidateText(PatientLastName, Validation.Restricted, out error, true);
 
                         return error;
 

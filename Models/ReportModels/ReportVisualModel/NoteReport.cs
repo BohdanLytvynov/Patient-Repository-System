@@ -83,7 +83,7 @@ namespace Models.ReportModels.ReportVisualModel
             }
 
             return $"{Reasons.GetReason(Reason)}: {Count} \n" +
-                "Додаткові відомості: \n" +
+                "\t\tДодаткові відомості: \n" +
                 $"{GetaddPatientInfo()}";
         }
 

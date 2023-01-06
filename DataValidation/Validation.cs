@@ -9,9 +9,9 @@ namespace DataValidation
 
         static char[] restricted = { ' ', '.', ',', '/', '\\', '|', '#', '@', '!', '?', '!', '&', '^', ':', ';','%','&','*','(',')'
                 , '+', '=', '[', ']','{','}','"', '>', '<', '~'};
-        public static bool ValidateText(string txt, char[] symbols, out string error)
+        public static bool ValidateText(string txt, char[] symbols, out string error, bool ShouldFieldBeEmpty = false)
         {
-            if (String.IsNullOrEmpty(txt))
+            if (String.IsNullOrEmpty(txt) && !ShouldFieldBeEmpty)
             {
                 error = "Поле не має бути порожнім!";
 

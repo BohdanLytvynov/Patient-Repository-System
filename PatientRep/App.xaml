@@ -823,6 +823,7 @@
                                     <TextBox.Text>
                                         <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                             <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>
