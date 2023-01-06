@@ -13,8 +13,7 @@ namespace Models.Configuration.IntegratedData
 
         static Investigations()
         {
-            InvestProperty = new List<string>();
-            
+            InvestProperty = new List<string>();            
         }
 
         public IEnumerator<string> GetEnumerator()

@@ -54,7 +54,8 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="Експорт" FontSize="20" Style="{StaticResource Buttons2}" Margin="5"/>
+            <Button Grid.Column="1" Content="Експорт" FontSize="20" Style="{StaticResource Buttons2}" Margin="5" 
+                    Command="{Binding OnExportButtonPressed}"/>
         </Grid>
 
     </Grid>

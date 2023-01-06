@@ -94,6 +94,18 @@ namespace JsonDataProviderLibDNC
             }
         }
 
+        public static void FIleNotExistsCreateIt(string path)
+        {
+            if (!File.Exists(path))
+            {
+                var fs = File.Create(path);
+
+                fs.Close();
+
+                fs.Dispose();
+            }
+        }
+
         #endregion
     }
 }

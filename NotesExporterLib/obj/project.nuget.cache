@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y3iGPcMX9KuHIf+1pK6E5nG0B9vblKikaGKF7qElot+7enZOj4O1l34UOre+v01nlRPJAuItawInxmgTcIyL7w==",
+  "dgSpecHash": "MsBwf/1hGqr/+sVpIpAPcEotQOFNue0HwYPBqWFrx0xlCJqajpPccqe1ytNg2zy4YIuBwlZzoeICDjZ3rqpozw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Doctor14\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

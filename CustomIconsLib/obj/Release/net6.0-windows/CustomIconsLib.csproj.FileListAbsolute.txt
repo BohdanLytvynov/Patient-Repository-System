@@ -1,0 +1,15 @@
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\bin\Release\net6.0-windows\CustomIconsLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\bin\Release\net6.0-windows\CustomIconsLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\bin\Release\net6.0-windows\CustomIconsLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\bin\Release\net6.0-windows\ViewModelBaseLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\bin\Release\net6.0-windows\ViewModelBaseLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\refint\CustomIconsLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\CustomIconsLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\CustomIconsLib\obj\Release\net6.0-windows\ref\CustomIconsLib.dll

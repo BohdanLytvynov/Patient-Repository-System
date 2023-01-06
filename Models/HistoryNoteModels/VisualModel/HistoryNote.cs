@@ -156,13 +156,13 @@ namespace Models.HistoryNoteModels.VisualModel
 
                     case nameof(Name):
 
-                        m_ValidationArray[1] = Validation.ValidateText(Name, Validation.Restricted, out error);
+                        m_ValidationArray[1] = Validation.ValidateText(Name, Validation.Restricted, out error, true);
 
                         return error;
 
                     case nameof(Lastname):
 
-                        m_ValidationArray[2] = Validation.ValidateText(Lastname, Validation.Restricted, out error);
+                        m_ValidationArray[2] = Validation.ValidateText(Lastname, Validation.Restricted, out error, true);
 
                         return error;
 
