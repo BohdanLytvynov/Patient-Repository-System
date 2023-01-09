@@ -12,8 +12,7 @@ namespace Models.Configuration.IntegratedData
         public static List<string> DoctorsProp { get; set; }
         static Physicians()
         {
-            DoctorsProp = new List<string>();
-            //{ "Doctor 1" };
+            DoctorsProp = new List<string>();         
         }
 
         public IEnumerator<string> GetEnumerator()

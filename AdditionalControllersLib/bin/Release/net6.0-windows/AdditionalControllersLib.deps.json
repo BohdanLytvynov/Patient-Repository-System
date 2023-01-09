@@ -1,0 +1,71 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AdditionalControllersLib/1.0.0": {
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "AdditionalControllersLib.dll": {}
+        }
+      },
+      "ControllerBaseLib/1.0.0": {
+        "runtime": {
+          "ControllerBaseLib.dll": {}
+        }
+      },
+      "DataValidation/1.0.0": {
+        "runtime": {
+          "DataValidation.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "dependencies": {
+          "DataValidation": "1.0.0",
+          "ViewModelBaseLib": "1.0.0"
+        },
+        "runtime": {
+          "Models.dll": {}
+        }
+      },
+      "ViewModelBaseLib/1.0.0": {
+        "runtime": {
+          "ViewModelBaseLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AdditionalControllersLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ControllerBaseLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataValidation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ViewModelBaseLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

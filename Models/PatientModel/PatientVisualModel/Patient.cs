@@ -7,10 +7,12 @@ using PatientRep.ViewModelBase.Commands;
 using System.Text.Json.Serialization;
 using System.Collections.ObjectModel;
 using System.Reflection.Emit;
+using Models.Interfaces;
+using Models.ExportNoteModel;
 
 namespace Models.PatientModel.PatientVisualModel
 {
-    public class Patient : ViewModelBaseClass
+    public class Patient : ViewModelBaseClass, IExportable<NoteExport> 
     {
         #region Events
 
@@ -49,7 +51,7 @@ namespace Models.PatientModel.PatientVisualModel
         public bool IsInvestDateSet { get; set; }
 
         string m_Center;
-
+       
         #endregion
 
         #region Properties
@@ -102,7 +104,7 @@ namespace Models.PatientModel.PatientVisualModel
             set => Set(ref m_RegisterDate, value, nameof(RegisterDate));
         }
 
-        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }
+        public string Center { get=> m_Center; set=> Set(ref m_Center, value, nameof(Center)); }       
 
         #endregion
 
@@ -149,6 +151,12 @@ namespace Models.PatientModel.PatientVisualModel
                         m_ValidationArray[5] = Validation.ValidateDateTime(InvestigationDate, out error);
 
                         break;
+
+                    case nameof(Center):
+
+                        m_ValidationArray[6] = Validation.ValidateNumber(Center, out error, true);
+
+                        break;
                 }
 
                 return error;
@@ -174,7 +182,7 @@ namespace Models.PatientModel.PatientVisualModel
         #region ctor
 
         public Patient(Guid id, string surename, string name, string lastname, string code, string diagnosis, PatientStatus status,
-            DateTime registerDate, DateTime InvestigationDate, string center)
+            DateTime registerDate, DateTime InvestigationDate, string center, List<string> addInfoCol)
         {
             #region Init Fields
 
@@ -188,7 +196,7 @@ namespace Models.PatientModel.PatientVisualModel
             m_status = status;
             Id = id;
 
-            m_ValidationArray = new bool[6];
+            m_ValidationArray = new bool[7];
 
             m_RegisterDate = registerDate;
 
@@ -212,6 +220,17 @@ namespace Models.PatientModel.PatientVisualModel
                 m_Center = center;
             }
 
+            if (addInfoCol != null)
+            {
+                if (addInfoCol.Count > 0)
+                {
+                    foreach (var item in addInfoCol)
+                    {
+                        m_addInfoVM.Add(new AdditionalInfoViewModel(m_addInfoVM.Count + 1, item));
+                    }
+                }
+            }
+                                                               
             #endregion
 
             #region Init Commands
@@ -309,6 +328,15 @@ namespace Models.PatientModel.PatientVisualModel
             InvestigationDate = DateTime.Now;
 
             IsInvestDateSet = true;
+        }
+
+        #endregion
+
+        #region Export
+
+        public NoteExport ConvertToExportable()
+        {
+            return new NoteExport(Number, this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
         }
 
         #endregion

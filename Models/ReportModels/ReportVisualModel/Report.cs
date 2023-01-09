@@ -81,6 +81,35 @@ namespace Models.ReportModels.ReportVisualModel
 
         #region Methods
 
+        #region Overriden methods
+
+        public override string ToString()
+        {
+            if (!IsExport)
+            {
+                return String.Empty;
+            }
+
+            return $"Дата: {Date.ToShortDateString()} \n" +
+                $"Кількість стаціонарних хворих: {DayCount} \n\n" +
+                $"Додаткова інформація:\n\n" +
+                $"{GetNotes()}";
+        }
+
+        private string GetNotes()
+        {
+            string str = String.Empty;
+
+            foreach (var item in Notes)
+            {
+                str += "\t" + item.ToString() + "\n";
+            }
+
+            return str;
+        }
+
+        #endregion
+
         #endregion
     }
 }

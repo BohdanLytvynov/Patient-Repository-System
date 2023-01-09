@@ -698,10 +698,18 @@
 
                             <StackPanel Orientation="Horizontal" Margin="30,40,0,0">
                                 <TextBlock Text="Центр:"/>
-                                
-                                <TextBox Text="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="30,0"/>
-                            </StackPanel>
 
+                                <TextBox Margin="30,0" Width="50" Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox.Text>
+                                        <Binding Path="Center" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                            <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
+                           
                         </StackPanel>
 
 
@@ -815,6 +823,7 @@
                                     <TextBox.Text>
                                         <Binding Path="Name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                             <Binding.ValidationRules>
+                                                <DataErrorValidationRule/>
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>

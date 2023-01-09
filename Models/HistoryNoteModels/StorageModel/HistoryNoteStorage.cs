@@ -101,6 +101,10 @@ namespace Models.HistoryNoteModels.StorageModel
             }
         }
 
+        #endregion
+
+        #region Methods
+
         public HistoryNote StorageToVisualModel()
         {
             return new HistoryNote(Id, 0, Surename, Name, Lastname, InvestigationDate, HospitalizationDateTime,
@@ -116,12 +120,6 @@ namespace Models.HistoryNoteModels.StorageModel
         {
             return Id;
         }
-
-
-
-        #endregion
-
-        #region Methods
 
         public override string ToString()
         {

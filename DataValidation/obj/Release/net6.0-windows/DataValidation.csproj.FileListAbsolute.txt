@@ -22,3 +22,15 @@ C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\DataValidation\obj\Re
 C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\DataValidation\obj\Release\net6.0-windows\refint\DataValidation.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\DataValidation\obj\Release\net6.0-windows\DataValidation.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\PatientRep\DataValidation\obj\Release\net6.0-windows\ref\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\bin\Release\net6.0-windows\DataValidation.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\bin\Release\net6.0-windows\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\bin\Release\net6.0-windows\DataValidation.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\refint\DataValidation.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\DataValidation.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Release\net6.0-windows\ref\DataValidation.dll

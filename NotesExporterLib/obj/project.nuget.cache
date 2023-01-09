@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "vwKGzF7LJw+0zzocS6vnRNTIrChLjrpYX8pHFprzrwUFRZxBNaQnQf5C1cQYd+USnWJ4VcwIfp4OM7QUvukuaw==",
+  "dgSpecHash": "Eu4vnb8AerT7BHrYH8uCngHEAn5P8jG+HHDbFLKGaba2S8RkPqIwW12sGKlGnI8ABcUCcoOZabRqC9euLoDhxw==",
   "success": true,
   "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ошибка чтения файла кэша D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

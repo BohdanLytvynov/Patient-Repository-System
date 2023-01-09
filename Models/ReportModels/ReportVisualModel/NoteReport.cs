@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Configuration.IntegratedData;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -70,6 +71,34 @@ namespace Models.ReportModels.ReportVisualModel
             PatientAddInfo.Add(padInfo);
 
             Count = PatientAddInfo.Count;
+        }
+
+        #region Overriden Methods
+
+        public override string ToString()
+        {
+            if (!IsExport)
+            {
+                return String.Empty;
+            }
+
+            return $"{Reasons.GetReason(Reason)}: {Count} \n" +
+                "\t\tДодаткові відомості: \n" +
+                $"{GetaddPatientInfo()}";
+        }
+
+        #endregion
+
+        public string GetaddPatientInfo()
+        {
+            string str = String.Empty;
+
+            foreach (var item in PatientAddInfo)
+            {
+                str += "\t\t" + item.ToString() + "\n";
+            }
+
+            return str;
         }
 
         #endregion

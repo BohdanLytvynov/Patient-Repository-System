@@ -34,6 +34,20 @@
           }
         }
       },
+      "AdditionalControllersLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AdditionalControllersLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AdditionalControllersLib.dll": {}
+        }
+      },
       "ControllerBaseLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -123,6 +137,20 @@
         },
         "runtime": {
           "bin/placeholder/Models.dll": {}
+        }
+      },
+      "NotesExporterLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ControllerBaseLib": "1.0.0",
+          "JsonDataProviderLibDNC": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NotesExporterLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NotesExporterLib.dll": {}
         }
       },
       "ReportBuilderLib/1.0.0": {
@@ -246,6 +274,11 @@
         "packageIcon.png"
       ]
     },
+    "AdditionalControllersLib/1.0.0": {
+      "type": "project",
+      "path": "../AdditionalControllersLib/AdditionalControllersLib.csproj",
+      "msbuildProject": "../AdditionalControllersLib/AdditionalControllersLib.csproj"
+    },
     "ControllerBaseLib/1.0.0": {
       "type": "project",
       "path": "../ControllerBaseLib/ControllerBaseLib.csproj",
@@ -281,6 +314,11 @@
       "path": "../Models/Models.csproj",
       "msbuildProject": "../Models/Models.csproj"
     },
+    "NotesExporterLib/1.0.0": {
+      "type": "project",
+      "path": "../NotesExporterLib/NotesExporterLib.csproj",
+      "msbuildProject": "../NotesExporterLib/NotesExporterLib.csproj"
+    },
     "ReportBuilderLib/1.0.0": {
       "type": "project",
       "path": "../ReportBuilderLib/ReportBuilderLib.csproj",
@@ -299,6 +337,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "AdditionalControllersLib >= 1.0.0",
       "CRUDControllerLib >= 1.0.0",
       "ConvertersLib >= 1.0.0",
       "CustomIconsLib >= 1.0.0",
@@ -306,6 +345,7 @@
       "FontAwesome5 >= 2.1.11",
       "JsonDataProviderLibDNC >= 1.0.0",
       "Models >= 1.0.0",
+      "NotesExporterLib >= 1.0.0",
       "ReportBuilderLib >= 1.0.0",
       "SmartControlls >= 1.0.0",
       "ViewModelBaseLib >= 1.0.0"
@@ -343,6 +383,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj"
+            },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"
             },
@@ -360,6 +403,9 @@
             },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj"
             },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
@@ -410,5 +456,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ошибка чтения файла кэша D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

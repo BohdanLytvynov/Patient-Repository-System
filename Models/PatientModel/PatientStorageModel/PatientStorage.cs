@@ -1,4 +1,6 @@
-﻿using Models.PatientModel.Enums;
+﻿using Models.Interfaces;
+using Models.PatientModel.Enums;
+using Models.PatientModel.PatientVisualModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 namespace Models.PatientModel.PatientStorageModel
 {
     [Serializable]
-    public class PatientStorage : IEquatable<PatientStorage>
+    public class PatientStorage : IEquatable<PatientStorage>, IConvertStorageToVisualModel<PatientStorage, Patient>
     {
         #region Properties
 
@@ -33,7 +35,7 @@ namespace Models.PatientModel.PatientStorageModel
 
         public List<string> AdditionalInfo { get; set; }
 
-        public string Center { get; set; }
+        public string Center { get; set; }        
 
         #endregion
 
@@ -77,6 +79,7 @@ namespace Models.PatientModel.PatientStorageModel
             {
                 Center = center;
             }
+            
         }
 
         public PatientStorage()
@@ -84,9 +87,23 @@ namespace Models.PatientModel.PatientStorageModel
 
         }
 
+        #endregion
+
+        #region Methods
+
         public bool Equals(PatientStorage? other)
         {
             return Code.Equals(other.Code);
+        }
+
+        public Patient StorageToVisualModel()
+        {
+            return new Patient(Id, Surename, Name, Lastname, Code, Diagnosis, Status, RegisterDate, InvestigationDate, Center, AdditionalInfo);
+        }
+
+        public PatientStorage VisualToStorageModel()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

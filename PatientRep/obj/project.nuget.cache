@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "bUzSfciD/KS7GiPghFGFtosx8hXbQDRM+r9/yBq4j/KU8T5k9Nk/GB5T6qmrQWbFiX0x6adRZjEp/076Wi6dFg==",
+  "dgSpecHash": "xFGwwm0urY0XvJ+dG9MkM55cQDK3GeopiMfiffMtCJFH8M0JbWMZHsKcCOwZmWmrRMuGdHeBIW6aX0ASjHhkPg==",
   "success": true,
   "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\fontawesome5\\2.1.11\\fontawesome5.2.1.11.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ошибка чтения файла кэша D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

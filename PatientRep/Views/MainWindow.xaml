@@ -227,6 +227,8 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="10"/>
                                     <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="120"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
@@ -238,6 +240,9 @@
 
                                 <Button Grid.Column="5" Content="За Статусом" Style="{StaticResource Buttons2}"
                                     Command="{Binding OnSortByStatusButtonPressed}"/>
+
+                                <Button Grid.Column="7" Content="За Центром" Style="{StaticResource Buttons2}"
+                                        Command="{Binding OnSortByCenterButtonPressed}"/>
 
                             </Grid>
 
@@ -1015,12 +1020,12 @@
                                                 <ColumnDefinition Width="20"/>
                                                 <ColumnDefinition Width="60"/>
                                                 <ColumnDefinition Width="20"/>
-                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="350"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Лікар:" Grid.Column="1"/>
                                             <ComboBox Grid.Column="3" IsEditable="True"
-                                                  SelectedItem="{Binding Physician, 
+                                                  Text="{Binding Physician, 
                                             UpdateSourceTrigger=PropertyChanged,
                                             Mode=TwoWay}"
                                                   ItemsSource="{DynamicResource Doctors}"/>
@@ -1031,7 +1036,7 @@
                                                 <ColumnDefinition Width="20"/>
                                                 <ColumnDefinition Width="170"/>
                                                 <ColumnDefinition Width="10"/>
-                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition Width="320"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Напр. відсутнє, бо:" Grid.Column="1"/>
@@ -1050,7 +1055,7 @@
                                                 <ColumnDefinition Width="20"/>
                                                 <ColumnDefinition Width="170"/>
                                                 <ColumnDefinition Width="10"/>
-                                                <ColumnDefinition Width="300"/>
+                                                <ColumnDefinition Width="380"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="Дослідження:" Grid.Column="1"/>
