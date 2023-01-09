@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y3iGPcMX9KuHIf+1pK6E5nG0B9vblKikaGKF7qElot+7enZOj4O1l34UOre+v01nlRPJAuItawInxmgTcIyL7w==",
+  "dgSpecHash": "vwKGzF7LJw+0zzocS6vnRNTIrChLjrpYX8pHFprzrwUFRZxBNaQnQf5C1cQYd+USnWJ4VcwIfp4OM7QUvukuaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj",
+  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
