@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportBuilderLib", "ReportB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotesExporterLib", "NotesExporterLib\NotesExporterLib.csproj", "{EEA0E806-1199-4E76-A1B9-07F7372F3652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalControllersLib", "AdditionalControllersLib\AdditionalControllersLib.csproj", "{B3D06C61-B110-49B5-A2AB-6765A26ACD6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdditionalControllersLib", "AdditionalControllersLib\AdditionalControllersLib.csproj", "{B3D06C61-B110-49B5-A2AB-6765A26ACD6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalizationSystemLib", "SignalizationSystemLib\SignalizationSystemLib.csproj", "{D6B53E7C-55F2-4940-B615-C5425E621B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{B3D06C61-B110-49B5-A2AB-6765A26ACD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D06C61-B110-49B5-A2AB-6765A26ACD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D06C61-B110-49B5-A2AB-6765A26ACD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B53E7C-55F2-4940-B615-C5425E621B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B53E7C-55F2-4940-B615-C5425E621B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B53E7C-55F2-4940-B615-C5425E621B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B53E7C-55F2-4940-B615-C5425E621B3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

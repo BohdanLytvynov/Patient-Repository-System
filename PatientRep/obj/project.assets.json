@@ -166,6 +166,19 @@
           "bin/placeholder/ReportBuilderLib.dll": {}
         }
       },
+      "SignalizationSystemLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SignalizationSystemLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SignalizationSystemLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "SmartControlls/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -324,6 +337,11 @@
       "path": "../ReportBuilderLib/ReportBuilderLib.csproj",
       "msbuildProject": "../ReportBuilderLib/ReportBuilderLib.csproj"
     },
+    "SignalizationSystemLib/1.0.0": {
+      "type": "project",
+      "path": "../SignalizationSystemLib/SignalizationSystemLib.csproj",
+      "msbuildProject": "../SignalizationSystemLib/SignalizationSystemLib.csproj"
+    },
     "SmartControlls/1.0.0": {
       "type": "project",
       "path": "../SmartControlls/SmartControlls.csproj",
@@ -347,6 +365,7 @@
       "Models >= 1.0.0",
       "NotesExporterLib >= 1.0.0",
       "ReportBuilderLib >= 1.0.0",
+      "SignalizationSystemLib >= 1.0.0",
       "SmartControlls >= 1.0.0",
       "ViewModelBaseLib >= 1.0.0"
     ]
@@ -410,6 +429,9 @@
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
             },
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj"
+            },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj"
             },
@@ -456,13 +478,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Ошибка чтения файла кэша D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

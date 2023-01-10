@@ -18,6 +18,7 @@
           "Models": "1.0.0",
           "NotesExporterLib": "1.0.0",
           "ReportBuilderLib": "1.0.0",
+          "SignalizationSystemLib": "1.0.0",
           "SmartControlls": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
@@ -121,6 +122,11 @@
           "ReportBuilderLib.dll": {}
         }
       },
+      "SignalizationSystemLib/1.0.0": {
+        "runtime": {
+          "SignalizationSystemLib.dll": {}
+        }
+      },
       "SmartControlls/1.0.0": {
         "runtime": {
           "SmartControlls.dll": {}
@@ -199,6 +205,11 @@
       "sha512": ""
     },
     "ReportBuilderLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SignalizationSystemLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

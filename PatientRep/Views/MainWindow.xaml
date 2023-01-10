@@ -10,7 +10,7 @@
         xmlns:sc="clr-namespace:SmartControlls;assembly=SmartControlls"
         xmlns:CustomIcons="clr-namespace:CustomIconsLib;assembly=CustomIconsLib"
         xmlns:reps="clr-namespace:ReportBuilderLib.Enums;assembly=ReportBuilderLib"
-        
+        xmlns:sig="clr-namespace:SignalizationSystemLib;assembly=SignalizationSystemLib"
         
         
         Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
@@ -44,10 +44,10 @@
 
     <Grid x:Name="Main_Grid">
 
-        <!--<Grid x:Name="InfoGrid" Panel.ZIndex="3">
+        <Grid x:Name="InfoGrid" Panel.ZIndex="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -55,26 +55,9 @@
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1" Grid.Column="1" x:Name="MessageGrid">
-                <Border BorderBrush="Green" BorderThickness="2,2,0,2" 
-                        CornerRadius="10" 
-                        Background="#4C177827">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="60"/>
-                            <RowDefinition Height="10"/>
-                        </Grid.RowDefinitions>
-                        <Image Grid.Row="1" Source="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"/>
-
-                        <TextBlock Grid.Row="1" Grid.Column="1"/>
-                    </Grid>
-                </Border>
+                <sig:SignalSystemControl/>
             </Grid>
-        </Grid>-->
+        </Grid>
 
         <Grid>
             <Grid.ColumnDefinitions>

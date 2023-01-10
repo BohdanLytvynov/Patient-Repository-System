@@ -1,0 +1,17 @@
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\bin\Debug\net6.0-windows\SignalizationSystemLib.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\bin\Debug\net6.0-windows\SignalizationSystemLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\bin\Debug\net6.0-windows\SignalizationSystemLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalSystemControl.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib_MarkupCompile.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib_MarkupCompile.lref
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalSystemControl.baml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.g.resources
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\refint\SignalizationSystemLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\SignalizationSystemLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SignalizationSystemLib\obj\Debug\net6.0-windows\ref\SignalizationSystemLib.dll
