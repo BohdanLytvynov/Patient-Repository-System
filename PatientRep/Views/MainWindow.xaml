@@ -55,7 +55,8 @@
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1" Grid.Column="1" x:Name="MessageGrid">
-                <sig:SignalSystemControl/>
+                <sig:SignalSystemControl SuccessImageUri="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"
+                                         FailedImageUri="pack://siteoforigin:,,,/Resources/Icons/IconsError.png"/>
             </Grid>
         </Grid>
 

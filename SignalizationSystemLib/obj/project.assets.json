@@ -1,31 +1,45 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "ItemManagerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ItemManagerLib/1.0.0": {
+      "type": "project",
+      "path": "../ItemManagerLib/ItemManagerLib.csproj",
+      "msbuildProject": "../ItemManagerLib/ItemManagerLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "ItemManagerLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Doctor14\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj",
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj",
       "projectName": "SignalizationSystemLib",
-      "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\obj\\",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj",
+      "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -38,7 +52,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ItemManagerLib\\ItemManagerLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ItemManagerLib\\ItemManagerLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -111,6 +111,16 @@
           "bin/placeholder/DataValidation.dll": {}
         }
       },
+      "ItemManagerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        }
+      },
       "JsonDataProviderLibDNC/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -169,6 +179,9 @@
       "SignalizationSystemLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ItemManagerLib": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SignalizationSystemLib.dll": {}
         },
@@ -317,6 +330,11 @@
       "path": "../DataValidation/DataValidation.csproj",
       "msbuildProject": "../DataValidation/DataValidation.csproj"
     },
+    "ItemManagerLib/1.0.0": {
+      "type": "project",
+      "path": "../ItemManagerLib/ItemManagerLib.csproj",
+      "msbuildProject": "../ItemManagerLib/ItemManagerLib.csproj"
+    },
     "JsonDataProviderLibDNC/1.0.0": {
       "type": "project",
       "path": "../JsonDataProviderLibDNC/JsonDataProviderLibDNC.csproj",
@@ -371,24 +389,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Doctor14\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
       "projectName": "PatientRep",
-      "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\obj\\",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
+      "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -402,41 +415,41 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\NotesExporterLib\\NotesExporterLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj"
             },
-            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
-              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
             }
           }
         }

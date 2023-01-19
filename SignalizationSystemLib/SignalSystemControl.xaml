@@ -12,9 +12,9 @@
                         Background="#4C177827">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="8"/>
                     <ColumnDefinition Width="60"/>
-                    <ColumnDefinition Width="715*"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2"/>
@@ -24,7 +24,7 @@
 
                 <Image Grid.Row="1" Grid.Column="1" x:Name="Img"/>
 
-                <TextBlock Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Margin="20,3" x:Name="Txt"/>
+                <TextBlock Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Margin="20,3" x:Name="Txt" FontSize="16"/>
 
             </Grid>
         </Border>

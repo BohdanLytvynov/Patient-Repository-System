@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "SignalizationSystemLib/1.0.0": {
+        "dependencies": {
+          "ItemManagerLib": "1.0.0"
+        },
         "runtime": {
           "SignalizationSystemLib.dll": {}
+        }
+      },
+      "ItemManagerLib/1.0.0": {
+        "runtime": {
+          "ItemManagerLib.dll": {}
         }
       }
     }
   },
   "libraries": {
     "SignalizationSystemLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ItemManagerLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
