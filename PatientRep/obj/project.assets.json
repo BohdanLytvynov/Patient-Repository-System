@@ -111,6 +111,16 @@
           "bin/placeholder/DataValidation.dll": {}
         }
       },
+      "ItemManagerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        }
+      },
       "JsonDataProviderLibDNC/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -169,6 +179,9 @@
       "SignalizationSystemLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ItemManagerLib": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SignalizationSystemLib.dll": {}
         },
@@ -316,6 +329,11 @@
       "type": "project",
       "path": "../DataValidation/DataValidation.csproj",
       "msbuildProject": "../DataValidation/DataValidation.csproj"
+    },
+    "ItemManagerLib/1.0.0": {
+      "type": "project",
+      "path": "../ItemManagerLib/ItemManagerLib.csproj",
+      "msbuildProject": "../ItemManagerLib/ItemManagerLib.csproj"
     },
     "JsonDataProviderLibDNC/1.0.0": {
       "type": "project",

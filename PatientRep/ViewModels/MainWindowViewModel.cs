@@ -44,6 +44,7 @@ using NotesExporterLib;
 using System.Windows.Forms;
 using Models.PatientModel.Comparators;
 using AdditionalControllersLib;
+using SignalizationSystemLib;
 
 namespace PatientRep.ViewModels
 {
@@ -73,6 +74,11 @@ namespace PatientRep.ViewModels
 
         UIElementManager m_UIElementManager;
 
+        #region SignalSystemController
+
+      
+        #endregion
+
         #endregion
 
         string m_selfpath;
@@ -83,8 +89,10 @@ namespace PatientRep.ViewModels
 
         #region Informator System
 
-        GridLength m_GridLength;
+        string m_msg;//Information system Message
 
+        OperStatus m_OperStatus;//Operation Status
+        
         #endregion
 
         #region History Registration System
@@ -261,13 +269,15 @@ namespace PatientRep.ViewModels
 
         #region Informator System
 
-        public GridLength GridLengthProp
+        public string Text 
+        { get=> m_msg; set=> Set(ref m_msg, value, nameof(Text)); }
+
+        public OperStatus OperStatus 
         {
-            get => m_GridLength;
-
-            set => Set(ref m_GridLength, value, nameof(GridLengthProp));
+            get=> m_OperStatus;
+            set=> Set(ref m_OperStatus, value, nameof(OperStatus));
         }
-
+        
         #endregion
 
         #region History Registration System
@@ -761,6 +771,10 @@ namespace PatientRep.ViewModels
         {
             #region Init Fields
 
+            m_msg = String.Empty;
+
+            m_OperStatus = OperStatus.NoOperation;
+
             m_ReasonManager = new ReasonsManager();
 
             m_UIElementManager = new UIElementManager();
@@ -793,9 +807,7 @@ namespace PatientRep.ViewModels
             m_CaseReportSystemVisibility = Visibility.Hidden;
 
             m_SearchReport = true;
-
-            m_GridLength = new GridLength(0, GridUnitType.Star);
-
+           
             m_HistoryRegistrationSelectedIndex = -1;
 
             m_AddInfoSelectedIndex = -1;
@@ -1031,64 +1043,7 @@ namespace PatientRep.ViewModels
 
             OnMainWindowInitialized.Invoke();
         }
-
-        private void M_UIElementManager_OnOperationFinished(object s, OperationFinishedEventArgs<UIElementManagerOperations> e)
-        {
-            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
-            {
-                switch (e.OperationType)
-                {
-                    case UIElementManagerOperations.SetVisibilityOfDoctorsPropertyAccordingToReason:
-
-                        PhysicianVisibility = e.Result;
-
-                        break;                    
-                }
-            });
-        }
-
-        private void M_ReasonManager_OnOperationFinished(object s, OperationFinishedEventArgs<ReasonsManagerOperations> e)
-        {
-            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
-            {
-                switch (e.OperationType)
-                {
-                    case ReasonsManagerOperations.GetReasonIfDirDoesntExists:
-
-                        Reason = e.Result;
-
-                    break;                    
-                }
-            });
-        }
-
-        private void M_NoteExporterToTxt_OnOperationFinished(object s, OperationFinishedEventArgs<NotesExporterToTxtOperations> e)
-        {
-            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
-            {
-                switch (e.OperationType)
-                {
-                    case NotesExporterToTxtOperations.ExportNotes:
-
-                        var r = UIMessaging.CreateMessageBox($"Експорт записів завершено. Бажаєте відкрити файл з результатами?"
-                             , m_tittle, MessageBoxButton.YesNo, MessageBoxImage.Information);
-
-                        if (r == MessageBoxResult.Yes)
-                        {
-                            OpenFileDialog fd = new OpenFileDialog();
-
-                            fd.FileName = e.Result as string;
-
-                            fd.OpenFile();
-                        }
-
-                        break;
-                    case NotesExporterToTxtOperations.ExportReports:
-                        break;
-                }
-            });                                           
-        }
-
+                
         private async Task M_Configuration_OnConfigChanged()
         {            
             await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
@@ -1112,9 +1067,107 @@ namespace PatientRep.ViewModels
             await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
         }
 
+        #region Other Additional Methods
+
+        private void UseSignalSystem<TControllerOperation>(OperationFinishedEventArgs<TControllerOperation> e)
+            where TControllerOperation : struct, Enum
+        {
+            Text = $"Operation: {e.OperationType}. Status: {e.ExecutionStatus}";
+
+            switch (e.ExecutionStatus)
+            {
+                case Status.Succed:
+
+                    OperStatus = OperStatus.Ok;
+
+                    break;
+                case Status.Failed:
+
+                    OperStatus = OperStatus.Failed;
+
+                    break;
+            }
+
+            OperStatus = OperStatus.NoOperation;
+        }
+
+        #endregion
+
+        #region HistoryNotesEvents
+        private async void Hn_OnRemoveNote(HistoryNote obj)
+        {
+            await m_HistoryNotesController.RemoveAsync(obj, m_HistoryNotesStorageCollection);
+        }
+
+        private async void Hn_OnSaveNotes(HistoryNote obj)
+        {
+            await m_HistoryNotesController.EditAsync(obj, m_HistoryNotesStorageCollection);
+        }
+
+        #endregion
+
+        #region ControllerEventsHandlers
+
+        private void M_UIElementManager_OnOperationFinished(object s, OperationFinishedEventArgs<UIElementManagerOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
+            {
+                switch (e.OperationType)
+                {
+                    case UIElementManagerOperations.SetVisibilityOfDoctorsPropertyAccordingToReason:
+
+                        PhysicianVisibility = e.Result;
+
+                        break;
+                }
+            });
+        }
+
+        private void M_ReasonManager_OnOperationFinished(object s, OperationFinishedEventArgs<ReasonsManagerOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
+            {
+                switch (e.OperationType)
+                {
+                    case ReasonsManagerOperations.GetReasonIfDirDoesntExists:
+
+                        Reason = e.Result;
+
+                        break;
+                }
+            });
+        }
+
+        private void M_NoteExporterToTxt_OnOperationFinished(object s, OperationFinishedEventArgs<NotesExporterToTxtOperations> e)
+        {
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
+            {
+                switch (e.OperationType)
+                {
+                    case NotesExporterToTxtOperations.ExportNotes:
+
+                        var r = UIMessaging.CreateMessageBox($"Експорт записів завершено. Бажаєте відкрити файл з результатами?"
+                             , m_tittle, MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+                        if (r == MessageBoxResult.Yes)
+                        {
+                            OpenFileDialog fd = new OpenFileDialog();
+
+                            fd.FileName = e.Result as string;
+
+                            fd.OpenFile();
+                        }
+
+                        break;
+                    case NotesExporterToTxtOperations.ExportReports:
+                        break;
+                }
+            });
+        }
+
         private void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs<HistoryNotesControllerOperations> e)
         {
-            UIMessaging.CreateMessageBoxAccordingToResult<HistoryNotesControllerOperations>(e, m_tittle, async ()=>
+            UIMessaging.CreateMessageBoxAccordingToResult<HistoryNotesControllerOperations>(e, m_tittle, async () =>
             {
                 switch (e.OperationType)
                 {
@@ -1190,25 +1243,12 @@ namespace PatientRep.ViewModels
 
                         break;
                 }
-            });                                            
+            });
         }
-
-        #region HistoryNotesEvents
-        private async void Hn_OnRemoveNote(HistoryNote obj)
-        {
-            await m_HistoryNotesController.RemoveAsync(obj, m_HistoryNotesStorageCollection);
-        }
-
-        private async void Hn_OnSaveNotes(HistoryNote obj)
-        {
-            await m_HistoryNotesController.EditAsync(obj, m_HistoryNotesStorageCollection);
-        }
-
-        #endregion
 
         private void M_jdataprovider_OnOperationFinished(object s, OperationFinishedEventArgs<JDataProviderOperation> e)
         {
-            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, ()=>
+            UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
             {
                 switch (e.OperationType)
                 {
@@ -1262,7 +1302,7 @@ namespace PatientRep.ViewModels
                                         DateTime.Parse(array[i]["RegisterDate"].ToString()),
                                         DateTime.Parse(array[i]["InvestigationDate"].ToString()),
                                         adInfoList, array[i]["Center"]?.ToString());
-                                
+
                                 m_patients.Add(
                                     p
                                     );
@@ -1332,7 +1372,7 @@ namespace PatientRep.ViewModels
                             m_Configuration = new ConfigStorage();
                         }
                         else
-                        {                            
+                        {
                             m_Configuration = e.Result;
                         }
 
@@ -1350,11 +1390,13 @@ namespace PatientRep.ViewModels
                 }
 
                 NoteCount = m_patients.Count;
-            });                                        
+            });
         }
 
         private void M_pController_OnOperationFinished(object s, OperationFinishedEventArgs<PatientControllerOperations> e)
         {
+            UseSignalSystem(e);
+
             UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, async () =>
             {
                 switch (e.OperationType)
@@ -1400,10 +1442,10 @@ namespace PatientRep.ViewModels
 
                         List<PatientStorage> res = e.Result;//Patient Storage
 
-                        FillVisualModelCollection<Patient, PatientStorage>(SearchResult, res, (p, i)=>
+                        FillVisualModelCollection<Patient, PatientStorage>(SearchResult, res, (p, i) =>
                         {
                             p.Number = i + 1;
-                            
+
                             p.OnSaveChangesButtonPressed += Pat_OnSaveChangesButtonPressed;
 
                             p.OnRemoveButtonPressed += Pat_OnRemoveButtonPressed;
@@ -1475,8 +1517,10 @@ namespace PatientRep.ViewModels
 
                 NoteCount = m_patients.Count;
 
-            });                                      
+            });
         }
+
+        #endregion
 
         private async void Pat_OnRemoveButtonPressed(Patient selected)
         {
@@ -1491,7 +1535,7 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Methods
-
+        
         #region On Settings Button Pressed
 
         private bool CanOnSettingsButtonPressedExecute(object p) => true;

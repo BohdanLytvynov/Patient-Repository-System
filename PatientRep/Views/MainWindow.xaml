@@ -52,10 +52,20 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1" Grid.Column="1" x:Name="MessageGrid">
-                <sig:SignalSystemControl/>
+                <sig:SignalSystemControl SuccessImageUri="pack://siteoforigin:,,,/Resources/Icons/IconsOk.png"
+                                         FailedImageUri="pack://siteoforigin:,,,/Resources/Icons/IconsError.png"
+                                         ProgressImageUri="pack://siteoforigin:,,,/Resources/Icons/IconsProcessing.png"
+                                         OkColorBorder="Green"
+                                         FailColorBorder="DarkRed"
+                                         ProcesingColorBorder="DarkOrange"
+                                         OkColor="#4C177827"
+                                         ProcessingColor="#4CD9B711"
+                                         FailedColor="#4C781717"
+                                         OperationStatus="{Binding OperStatus, UpdateSourceTrigger=PropertyChanged}"
+                                         Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Grid>
 
