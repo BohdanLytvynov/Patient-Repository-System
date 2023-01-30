@@ -11,7 +11,7 @@
         xmlns:CustomIcons="clr-namespace:CustomIconsLib;assembly=CustomIconsLib"
         xmlns:reps="clr-namespace:ReportBuilderLib.Enums;assembly=ReportBuilderLib"
         xmlns:sig="clr-namespace:SignalizationSystemLib;assembly=SignalizationSystemLib"
-        
+        xmlns:ext="clr-namespace:PatientRep.Extensions"
         
         Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
     <!--<Window.DataContext>
@@ -592,7 +592,9 @@
 
 
 
-                            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TxtBoxInputStyle}">
+                            <TextBox Grid.Row="1" Grid.Column="3"
+                                     ext:FocusExtension.IsFocused="{Binding FocusName, UpdateSourceTrigger=PropertyChanged}"
+                                     Style="{StaticResource TxtBoxInputStyle}">
                                 <TextBox.Text>
                                     <Binding Path="Surename" 
                                      UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
@@ -696,7 +698,9 @@
                                         <Button Grid.Column="3"
                                      Content="Додати"
                                     Command="{Binding OnAddNewPatientButtonPressed}"
-                                        Style="{StaticResource Buttons2}" />
+                                        Style="{StaticResource Buttons2}" >
+                                            
+                                        </Button>
 
                                         <Button Grid.Column="5" Content="Очистити поля"
                                     Command="{Binding OnClearFialdsButtonPressed}"

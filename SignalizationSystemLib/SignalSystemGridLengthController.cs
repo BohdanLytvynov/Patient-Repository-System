@@ -10,6 +10,12 @@ namespace SignalizationSystemLib
 {
     public class SignalSystemGridLengthController
     {
+        #region CancellationToken
+
+        CancellationTokenSource m_cts;
+
+        #endregion
+
         #region Events
 
         public event Action<double> OnGridLengthChanged;
@@ -17,7 +23,7 @@ namespace SignalizationSystemLib
         #endregion
 
         #region Fields
-        
+
         double max_Length;
 
         double min_Lenght;
@@ -25,9 +31,9 @@ namespace SignalizationSystemLib
         double m_speed;
 
         int m_sleep;
-       
+
         double m_GridLength;
-                
+
         #endregion
 
         #region Ctor
@@ -37,14 +43,14 @@ namespace SignalizationSystemLib
             )
         {
             m_GridLength = min_Lenght;
-           
+
             this.max_Length = max_Length;
 
             this.min_Lenght = min_Lenght;
 
             this.m_speed = speed;
 
-            m_sleep = sleep;                        
+            m_sleep = sleep;
         }
 
         #endregion
@@ -66,7 +72,7 @@ namespace SignalizationSystemLib
         }
 
         public void SetMaxLenght(double l)
-        { 
+        {
             max_Length = l;
         }
 
@@ -86,14 +92,14 @@ namespace SignalizationSystemLib
         }
 
         private void Move(bool forwardBackward)
-        {            
+        {
             if (forwardBackward)
             {
                 while (m_GridLength < max_Length)
                 {
                     m_GridLength += m_speed;
 
-                    OnGridLengthChanged?.Invoke(m_GridLength);                    
+                    OnGridLengthChanged?.Invoke(m_GridLength);
                 }
             }
             else
@@ -102,10 +108,10 @@ namespace SignalizationSystemLib
                 {
                     m_GridLength -= m_speed;
 
-                    OnGridLengthChanged?.Invoke(m_GridLength);                    
+                    OnGridLengthChanged?.Invoke(m_GridLength);
                 }
             }
-            
+
         }
 
         #endregion

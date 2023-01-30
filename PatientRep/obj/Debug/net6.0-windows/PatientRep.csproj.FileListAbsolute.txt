@@ -506,3 +506,4 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ItemManagerLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ItemManagerLib.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ItemManagerLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

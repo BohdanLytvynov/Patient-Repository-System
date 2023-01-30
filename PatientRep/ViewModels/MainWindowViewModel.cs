@@ -67,7 +67,7 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Fields
-
+        
         #region Additional Controllers 
 
         ReasonsManager m_ReasonManager;
@@ -238,6 +238,8 @@ namespace PatientRep.ViewModels
         string m_pathToHistoryDB;
 
         bool m_IsInputCodeCorrect;
+
+        bool m_FocusName;
 
         ObservableCollection<AdditionalInfoViewModel> m_NewAddInfoCol;
 
@@ -492,12 +494,14 @@ namespace PatientRep.ViewModels
 
         #region New Patient
 
+        public bool FocusName 
+        { get=> m_FocusName; set=> Set(ref m_FocusName, value, nameof(FocusName)); }
+
         public int SelectedAddInfoIndex
         {
             get => m_AddInfoSelectedIndex;
             set => Set<int>(ref m_AddInfoSelectedIndex, value, nameof(SelectedAddInfoIndex));
         }
-
 
         public string Surename { get => m_Surename; set => Set<string>(ref m_Surename, value, nameof(Surename)); }
 
@@ -1405,6 +1409,8 @@ namespace PatientRep.ViewModels
 
                         await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
 
+                        OnClearFieldsButtonPressedExecute(null);
+
                         break;
 
                     case PatientControllerOperations.Remove:
@@ -1736,6 +1742,10 @@ namespace PatientRep.ViewModels
             Code = String.Empty;
 
             Diagnosis = String.Empty;
+
+            FocusName = true;
+
+            FocusName = false;
         }
 
 
