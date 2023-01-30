@@ -1076,7 +1076,7 @@ namespace PatientRep.ViewModels
         private void UseSignalSystem<TControllerOperation>(OperationFinishedEventArgs<TControllerOperation> e)
             where TControllerOperation : struct, Enum
         {
-            Text = $"Operation: {e.OperationType}. Status: {e.ExecutionStatus}";
+            Text = $"Operation: {e.OperationType}";
 
             switch (e.ExecutionStatus)
             {
@@ -1171,6 +1171,8 @@ namespace PatientRep.ViewModels
 
         private void M_HistoryNotesController_OnOperationFinished(object s, OperationFinishedEventArgs<HistoryNotesControllerOperations> e)
         {
+            UseSignalSystem(e);
+
             UIMessaging.CreateMessageBoxAccordingToResult<HistoryNotesControllerOperations>(e, m_tittle, async () =>
             {
                 switch (e.OperationType)
