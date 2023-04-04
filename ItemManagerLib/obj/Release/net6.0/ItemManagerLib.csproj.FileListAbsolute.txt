@@ -1,0 +1,12 @@
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\bin\Release\net6.0\ItemManagerLib.deps.json
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\bin\Release\net6.0\ItemManagerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\bin\Release\net6.0\ItemManagerLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\refint\ItemManagerLib.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ItemManagerLib.pdb
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Release\net6.0\ref\ItemManagerLib.dll

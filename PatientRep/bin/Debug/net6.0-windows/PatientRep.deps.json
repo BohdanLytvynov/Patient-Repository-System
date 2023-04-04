@@ -18,6 +18,7 @@
           "Models": "1.0.0",
           "NotesExporterLib": "1.0.0",
           "ReportBuilderLib": "1.0.0",
+          "SignalizationSystemLib": "1.0.0",
           "SmartControlls": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
@@ -86,6 +87,11 @@
           "DataValidation.dll": {}
         }
       },
+      "ItemManagerLib/1.0.0": {
+        "runtime": {
+          "ItemManagerLib.dll": {}
+        }
+      },
       "JsonDataProviderLibDNC/1.0.0": {
         "dependencies": {
           "ControllerBaseLib": "1.0.0",
@@ -119,6 +125,14 @@
         },
         "runtime": {
           "ReportBuilderLib.dll": {}
+        }
+      },
+      "SignalizationSystemLib/1.0.0": {
+        "dependencies": {
+          "ItemManagerLib": "1.0.0"
+        },
+        "runtime": {
+          "SignalizationSystemLib.dll": {}
         }
       },
       "SmartControlls/1.0.0": {
@@ -183,6 +197,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "ItemManagerLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "JsonDataProviderLibDNC/1.0.0": {
       "type": "project",
       "serviceable": false,
@@ -199,6 +218,11 @@
       "sha512": ""
     },
     "ReportBuilderLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SignalizationSystemLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -111,6 +111,16 @@
           "bin/placeholder/DataValidation.dll": {}
         }
       },
+      "ItemManagerLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ItemManagerLib.dll": {}
+        }
+      },
       "JsonDataProviderLibDNC/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -165,6 +175,22 @@
         "runtime": {
           "bin/placeholder/ReportBuilderLib.dll": {}
         }
+      },
+      "SignalizationSystemLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ItemManagerLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SignalizationSystemLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SignalizationSystemLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       },
       "SmartControlls/1.0.0": {
         "type": "project",
@@ -304,6 +330,11 @@
       "path": "../DataValidation/DataValidation.csproj",
       "msbuildProject": "../DataValidation/DataValidation.csproj"
     },
+    "ItemManagerLib/1.0.0": {
+      "type": "project",
+      "path": "../ItemManagerLib/ItemManagerLib.csproj",
+      "msbuildProject": "../ItemManagerLib/ItemManagerLib.csproj"
+    },
     "JsonDataProviderLibDNC/1.0.0": {
       "type": "project",
       "path": "../JsonDataProviderLibDNC/JsonDataProviderLibDNC.csproj",
@@ -323,6 +354,11 @@
       "type": "project",
       "path": "../ReportBuilderLib/ReportBuilderLib.csproj",
       "msbuildProject": "../ReportBuilderLib/ReportBuilderLib.csproj"
+    },
+    "SignalizationSystemLib/1.0.0": {
+      "type": "project",
+      "path": "../SignalizationSystemLib/SignalizationSystemLib.csproj",
+      "msbuildProject": "../SignalizationSystemLib/SignalizationSystemLib.csproj"
     },
     "SmartControlls/1.0.0": {
       "type": "project",
@@ -347,6 +383,7 @@
       "Models >= 1.0.0",
       "NotesExporterLib >= 1.0.0",
       "ReportBuilderLib >= 1.0.0",
+      "SignalizationSystemLib >= 1.0.0",
       "SmartControlls >= 1.0.0",
       "ViewModelBaseLib >= 1.0.0"
     ]
@@ -404,6 +441,9 @@
             },
             "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj": {
               "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ReportBuilderLib\\ReportBuilderLib.csproj"
+            },
+            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SignalizationSystemLib\\SignalizationSystemLib.csproj"
             },
             "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj": {
               "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\SmartControlls\\SmartControlls.csproj"
