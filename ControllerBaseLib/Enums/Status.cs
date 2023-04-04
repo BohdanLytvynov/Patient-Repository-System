@@ -8,6 +8,6 @@ namespace ControllerBaseLib.Enums
 {
     public enum Status:byte
     {
-        Succed = 1, Failed, Canceled
-    }
+        Succed = 1, Failed, Canceled, NoOperation
+    }    
 }

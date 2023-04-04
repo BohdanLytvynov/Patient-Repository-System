@@ -10,3 +10,15 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\refint\ItemManagerLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ref\ItemManagerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\bin\Debug\net6.0\ItemManagerLib.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\bin\Debug\net6.0\ItemManagerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\bin\Debug\net6.0\ItemManagerLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\refint\ItemManagerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ItemManagerLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ItemManagerLib\obj\Debug\net6.0\ref\ItemManagerLib.dll

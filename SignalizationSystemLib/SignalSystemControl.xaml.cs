@@ -28,18 +28,85 @@ namespace SignalizationSystemLib
        NoOperation = 0, Ok, Progress, Failed
     }
 
-    public class ImageManager : ItemManagerBase<BitmapImage, OperStatus>
+    internal class ColorManager : ItemManagerBase<SolidColorBrush, OperStatus>
+    { }
+
+    internal class BorderColorManager : ItemManagerBase<SolidColorBrush, OperStatus>
+    { }
+
+    internal class ImageManager : ItemManagerBase<BitmapImage, OperStatus>
     { }
             
     public partial class SignalSystemControl : UserControl
-    {        
+    {
         #region Fields
 
+        SignalSystemGridLengthController m_SignalSystemController;
+
         ImageManager m_imgManager;
+
+        ColorManager m_ColorManager;
+
+        BorderColorManager m_BrdColorManager;
 
         #endregion
 
         #region DP
+
+        public Color ProcesingColorBorder
+        {
+            get { return (Color)GetValue(ProcesingColorBorderProperty); }
+            set { SetValue(ProcesingColorBorderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ProcesingColorBorder.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ProcesingColorBorderProperty;
+
+        public Color FailColorBorder
+        {
+            get { return (Color)GetValue(FailColorBorderProperty); }
+            set { SetValue(FailColorBorderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for FailColorBorder.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty FailColorBorderProperty;
+
+        public Color OkColorBorder
+        {
+            get { return (Color)GetValue(OkColorBorderProperty); }
+            set { SetValue(OkColorBorderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OkColorBorder.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OkColorBorderProperty;
+
+        public Color ProcessingColor
+        {
+            get { return (Color)GetValue(ProcessingColorProperty); }
+            set { SetValue(ProcessingColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ProcessingColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ProcessingColorProperty;
+
+        public Color FailedColor
+        {
+            get { return (Color)GetValue(FailedColorProperty); }
+            set { SetValue(FailedColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for FailedColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty FailedColorProperty;
+
+        public Color OkColor
+        {
+            get { return (Color)GetValue(OkColorProperty); }
+            set { SetValue(OkColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for OkColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty OkColorProperty;
+
 
         public OperStatus OperationStatus
         {
@@ -49,8 +116,6 @@ namespace SignalizationSystemLib
 
         // Using a DependencyProperty as the backing store for OperationStatus.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty OperationStatusProperty;
-
-
 
         public string Text
         {
@@ -96,6 +161,33 @@ namespace SignalizationSystemLib
 
         static SignalSystemControl()
         {
+            ProcesingColorBorderProperty =
+            DependencyProperty.Register("ProcesingColorBorder", typeof(Color), 
+            typeof(SignalSystemControl), new PropertyMetadata(new Color(),
+            OnProcessColorBorderPropertyChanged));
+
+            FailColorBorderProperty =
+            DependencyProperty.Register("FailColorBorder", typeof(Color),
+                typeof(SignalSystemControl), new PropertyMetadata(new Color(),
+                OnFailColorBorderPropertyChanged));
+
+            OkColorBorderProperty =
+            DependencyProperty.Register("OkColorBorder", typeof(Color),
+                typeof(SignalSystemControl), new PropertyMetadata(new Color(),
+                OnOkColorBorderPropertyChanged));
+
+            ProcessingColorProperty =
+            DependencyProperty.Register("ProcessingColor", typeof(Color), typeof(SignalSystemControl),
+                new PropertyMetadata(new Color(), OnProcessColorPropertyChanged));
+
+            FailedColorProperty =
+            DependencyProperty.Register("FailedColor", typeof(Color), typeof(SignalSystemControl),
+                new PropertyMetadata(new Color(), OnFailColorPropertyChanged));
+
+            OkColorProperty =
+            DependencyProperty.Register("OkColor", typeof(Color), typeof(SignalSystemControl),
+                new PropertyMetadata(new Color(), OnOkColorPropertyChanged));
+
             SuccessImageUriProperty =
             DependencyProperty.Register("SuccessImageUri", typeof(string), typeof(SignalSystemControl), new PropertyMetadata(String.Empty,
             OnOkImageUriPropertyChanged));
@@ -126,7 +218,28 @@ namespace SignalizationSystemLib
 
             m_imgManager = new ImageManager();
 
+            m_ColorManager = new ColorManager();
+
+            m_BrdColorManager = new BorderColorManager();
+
+            m_BrdColorManager.AddItem(new SolidColorBrush(), OperStatus.NoOperation);
+
+            m_ColorManager.AddItem(new SolidColorBrush(), OperStatus.NoOperation);
+
             m_imgManager.AddItem(new BitmapImage(), OperStatus.NoOperation);
+
+            m_SignalSystemController = new SignalSystemGridLengthController(800, 5);
+
+            m_SignalSystemController.OnGridLengthChanged += M_SignalSystemController_OnGridLengthChanged;                       
+        }
+
+        private void M_SignalSystemController_OnGridLengthChanged(double obj)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                this.ColumnWidth.Width = new GridLength(obj, ColumnWidth.Width.GridUnitType);
+            });
+            
         }
 
         #endregion
@@ -169,12 +282,63 @@ namespace SignalizationSystemLib
 
             var status = Enum.Parse<OperStatus>(e.NewValue.ToString());
 
-            This.SetImage(status);
+            if (status != OperStatus.NoOperation)
+            {
+                This.SetValues(status);
+
+                This.m_SignalSystemController.Signal();
+            }                       
         }
 
-        private void SetImage(OperStatus status)
+        private void SetValues(OperStatus status)
         {
             this.Img.Source = m_imgManager.GetItem(status);
+
+            this.brd.Background = m_ColorManager.GetItem(status);
+
+            this.brd.BorderBrush = m_BrdColorManager.GetItem(status);
+        }
+
+        private static void OnOkColorPropertyChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            var This = o as SignalSystemControl;
+
+            This.m_ColorManager.AddItem(new SolidColorBrush((Color)e.NewValue), OperStatus.Ok);
+        }
+
+        private static void OnFailColorPropertyChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            var This = o as SignalSystemControl;
+
+            This.m_ColorManager.AddItem(new SolidColorBrush((Color)e.NewValue), OperStatus.Failed);
+        }
+
+        private static void OnProcessColorPropertyChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            var This = o as SignalSystemControl;
+
+            This.m_ColorManager.AddItem(new SolidColorBrush((Color)e.NewValue), OperStatus.Progress);
+        }
+
+        private static void OnOkColorBorderPropertyChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            var This = o as SignalSystemControl;
+
+            This.m_BrdColorManager.AddItem(new SolidColorBrush((Color)e.NewValue), OperStatus.Ok);
+        }
+
+        private static void OnFailColorBorderPropertyChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            var This = o as SignalSystemControl;
+
+            This.m_BrdColorManager.AddItem(new SolidColorBrush((Color)e.NewValue), OperStatus.Failed);
+        }
+
+        private static void OnProcessColorBorderPropertyChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+        {
+            var This = o as SignalSystemControl;
+
+            This.m_BrdColorManager.AddItem(new SolidColorBrush((Color)e.NewValue), OperStatus.Progress);
         }
 
         #endregion
