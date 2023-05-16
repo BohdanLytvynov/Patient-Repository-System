@@ -102,6 +102,15 @@
         <Color x:Key="btn2TypeDisabled">#FF909090
         </Color>
 
+        <Color x:Key="btn3TypeInit">#00af64
+        </Color>
+
+        <Color x:Key="btn3TypeOver">#218359
+        </Color>
+
+        <Color x:Key="btn3TypePressed">#007241
+        </Color>
+        
         <!--#endregion-->
 
         <SolidColorBrush x:Key="ExtractableItemColor" Color="Orange"/>
@@ -453,6 +462,121 @@
             </Style.Setters>
         </Style>
 
+        <Style x:Key="Buttons3" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Foreground" Value="White"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="brd" BorderThickness="2" CornerRadius="4">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="BrdColor" Color="{StaticResource btn3TypeInit}"/>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="BrdBackColor" Color="{StaticResource btn3TypeInit}"/>
+                                </Border.Background>
+
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn3TypeInit}"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ColorAnimation>
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn3TypeInit}"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ColorAnimation>
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="2"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ThicknessAnimation>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn3TypeOver}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn3TypeOver}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="2"
+                                                    Duration="{StaticResource animDur}">
+
+                                                </ThicknessAnimation>
+
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn3TypePressed}"
+                                                    Duration="{StaticResource animDur}"
+                                                    />
+
+                                                <ThicknessAnimation
+                                                    Storyboard.TargetName="brd"
+                                                    Storyboard.TargetProperty="BorderThickness"
+                                                    To="5"
+                                                    Duration="{StaticResource animDur}"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdBackColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeDisabled}"/>
+
+
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BrdColor"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{StaticResource btn2TypeDisabled}"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        
         <Style x:Key="Stacks" TargetType="StackPanel">
             <Style.Setters>
                 <Setter Property="ItemsControl.FontSize" Value="20"/>
