@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
@@ -30,79 +31,16 @@ namespace SmartControlls
 
         #region Properties
 
+        #region Dependency properties
 
-
-        public Color BackGroundColor
+        public Brush InputBoxForegroundBrush
         {
-            get { return (Color)GetValue(BackGroundColorProperty); }
-            set { SetValue(BackGroundColorProperty, value); }
+            get { return (Brush)GetValue(InputBoxForegroundBrushProperty); }
+            set { SetValue(InputBoxForegroundBrushProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for BackGroundColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BackGroundColorProperty;
-
-
-
-        public Color ForegroundColor
-        {
-            get { return (Color)GetValue(ForegroundColorProperty); }
-            set { SetValue(ForegroundColorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ForegroundColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ForegroundColorProperty;
-
-
-        public Color BorderColorCorrect
-        {
-            get { return (Color)GetValue(BorderColorCorrectProperty); }
-            set { SetValue(BorderColorCorrectProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for BorderColorCorrect.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BorderColorCorrectProperty;
-
-
-
-        public Color BorderColorError
-        {
-            get { return (Color)GetValue(BorderColorErrorProperty); }
-            set { SetValue(BorderColorErrorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for BorderColorError.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BorderColorErrorProperty;
-
-        public Color CorrectColor
-        {
-            get { return (Color)GetValue(CorrectColorProperty); }
-            set { SetValue(CorrectColorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for CorrectColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CorrectColorProperty;
-
-
-
-        public Color ErrorColor
-        {
-            get { return (Color)GetValue(ErrorColorProperty); }
-            set { SetValue(ErrorColorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for ErrorColor.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ErrorColorProperty;
-
-
-
-        public string FieldEmtyError
-        {
-            get { return (string)GetValue(FieldEmtyErrorProperty); }
-            set { SetValue(FieldEmtyErrorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for FieldEmtyError.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty FieldEmtyErrorProperty;
+        // Using a DependencyProperty as the backing store for InputBoxForegroundBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty InputBoxForegroundBrushProperty;
 
 
 
@@ -115,9 +53,8 @@ namespace SmartControlls
 
         public static readonly DependencyProperty SecurePasswordProperty;
 
-
         #endregion
-
+        
         #region Static ctor
 
         static SmartPasswordBox()
@@ -129,35 +66,11 @@ namespace SmartControlls
             DependencyProperty.Register("SecurePassword", typeof(SecureString), typeof(SmartPasswordBox),
                 new PropertyMetadata(default));
 
-            //Error message when field is empty
-            FieldEmtyErrorProperty =
-            DependencyProperty.Register("FieldEmtyErrorMessage", typeof(string), typeof(SmartPasswordBox),
+            // Foreground brush for InputBox
+            InputBoxForegroundBrushProperty =
+            DependencyProperty.Register("InputBoxForegroundBrush", typeof(Brush), typeof(SmartPasswordBox),
                 new PropertyMetadata(default));
 
-            ErrorColorProperty =
-            DependencyProperty.Register("ErrorMessgeColor", typeof(Color),
-                typeof(SmartPasswordBox), new PropertyMetadata(default));
-
-            CorrectColorProperty =
-            DependencyProperty.Register("CorrectMessageColor", typeof(Color), typeof(SmartPasswordBox),
-                new PropertyMetadata(default));
-
-            BorderColorErrorProperty =
-            DependencyProperty.Register("BorderColorError", typeof(Color), typeof(SmartPasswordBox),
-                new PropertyMetadata(default));
-
-            BorderColorCorrectProperty =
-            DependencyProperty.Register("BorderColorCorrect", typeof(Color), typeof(SmartPasswordBox),
-                new PropertyMetadata(default));
-
-            ForegroundColorProperty =
-            DependencyProperty.Register("ForegroundColor", typeof(Color),
-                typeof(SmartPasswordBox), new PropertyMetadata(default,
-                OnForeGroundColorChanged));
-
-            BackGroundColorProperty =
-            DependencyProperty.Register("BackGroundColor", typeof(Color), typeof(SmartPasswordBox),
-                new PropertyMetadata(default, OnBackGroundColorChanged));
 
             #endregion
         }
@@ -181,12 +94,22 @@ namespace SmartControlls
 
         private void Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            CheckPassword();
+            if (CheckPassword())
+            {
+
+            }
+            
         }
 
         #endregion
 
         #region On Dependency Property Callback methods
+
+        public static void OnFieldEmtyErrorPropertyChanged(DependencyObject obj,
+            DependencyPropertyChangedEventArgs e)
+        {
+            (obj as SmartPasswordBox).Error.Text = (string)e.NewValue;
+        }
 
         public static void OnBackGroundColorChanged(DependencyObject obj,
             DependencyPropertyChangedEventArgs e)
@@ -204,36 +127,27 @@ namespace SmartControlls
             This.Password.Foreground = new SolidColorBrush((Color)e.NewValue);
         }
 
-        //public static void OnBorderColorCorrectChanged(DependencyObject obj,
-        //    DependencyPropertyChangedEventArgs e)
-        //{
-        //    var This = obj as SmartPasswordBox;
-
-        //    This.Password.BorderBrush = new SolidColorBrush((Color)e.NewValue);
-        //}
-
-        //public static void OnBorderColorCorrectChanged(DependencyObject obj,
-        //    DependencyPropertyChangedEventArgs e)
-        //{
-        //    var This = obj as SmartPasswordBox;
-
-        //    This.Password.BorderBrush = new SolidColorBrush((Color)e.NewValue);
-        //}
-
         #endregion
 
-        private void CheckPassword()
+        private bool CheckPassword()
         {
             if (Password.SecurePassword.Length == 0)
             {
-                Error.Text = FieldEmtyError;
+                Error.Visibility = Visibility.Visible;
 
+                Error.Foreground = m_ErrorMessageBrush;
 
+                Password.BorderBrush = m_ErrorBorderBrush;
+
+                return false;
             }
-            else
-            {
 
-            }
+            Error.Visibility = Visibility.Collapsed;
+
+            Password.BorderBrush = m_CorrectBorderBrush;
+
+            return true;
+
         }
 
         #endregion
