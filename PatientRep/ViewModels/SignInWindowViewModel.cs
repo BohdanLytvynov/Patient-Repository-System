@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using ViewModelBaseLib.VM;
 using static DataValidation.Validation;
 
@@ -11,7 +13,15 @@ namespace PatientRep.ViewModels
 {
     public class SignInWindowViewModel : ViewModelBaseClass
     {
+        #region Delegates
+
+        Func<SecureString, TextBlock, bool> m_CheckInput;
+
+        #endregion
+
         #region Fields
+
+        bool m_isPasswordCorrect;
 
         string m_Login;
 
@@ -20,6 +30,16 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Properties
+
+        public Func<SecureString, TextBlock, bool> CheckInputDel
+        { 
+            get=> m_CheckInput;
+            set { m_CheckInput = value; OnPropertyChanged(nameof(CheckInputDel)); }
+            
+        }
+
+        public bool IsPasswordCorrect { get=> m_isPasswordCorrect; 
+            set=> Set(ref m_isPasswordCorrect, value, nameof(IsPasswordCorrect)); }
 
         public string Login { get=> m_Login; set=> Set(ref m_Login, value, nameof(Login)); }
 
@@ -69,6 +89,8 @@ namespace PatientRep.ViewModels
         #region Ctor
         public SignInWindowViewModel()
         {
+            m_CheckInput = CheckInput;
+
             m_Login = String.Empty;
 
             m_email = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
@@ -78,6 +100,29 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Methods
+
+        #region Events
+
+        public void SmartPass_OnPasswordIsCorrect(SecureString s)
+        { 
+        
+        }
+
+        public bool CheckInput(SecureString s, TextBlock er)
+        {
+            if (s.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                er.Text = "Поле не має бути порожнім!!!";
+
+                return false;
+            }            
+        }
+
+        #endregion
 
         #endregion
     }
