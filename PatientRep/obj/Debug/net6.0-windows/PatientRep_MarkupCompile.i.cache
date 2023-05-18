@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\App.xaml
-3-1583128474
+4-1994236765
 4-642022768
-141842181153
+16-115623643
 220-964001823
-Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;
+Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;Views\SignInWindow.xaml;
 
 True
 

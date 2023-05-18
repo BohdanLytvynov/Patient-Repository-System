@@ -64,10 +64,34 @@ namespace PatientRep.ViewModels
 
         SettingsWindow m_SettingsWindow;
 
+        SignInWindow m_SignInWindow;
+
         #endregion
 
         #region Fields
-        
+
+        #region Style references
+
+        ResourceDictionary m_resources;//List of style references
+
+        #endregion
+
+        #region Login Module
+
+        string m_notLoged = "Для використання цього додатку увійдіть в свій аккаунт для підключення до сервера";
+
+        string m_Loged = "Ви верифіковані як: ";
+
+        string m_LogButtonContext;
+
+        string m_Message;// Message for user while logining
+
+        bool m_LogedIn;
+
+        Style m_logBtnStyle;
+
+        #endregion
+
         #region Additional Controllers 
 
         ReasonsManager m_ReasonManager;
@@ -269,6 +293,20 @@ namespace PatientRep.ViewModels
 
         #region Properties
 
+        #region Login Module
+
+        public Style LogBtnStyle { get=>m_logBtnStyle; 
+            set=> Set(ref m_logBtnStyle, value, nameof(LogBtnStyle)); }
+
+        public string LogInButtonContext { get=> m_LogButtonContext; 
+            set=> Set(ref m_LogButtonContext, value, LogInButtonContext); }
+
+        public string Message 
+        {
+            get=> m_Message; set=> Set(ref m_Message, value, nameof(Message)); }
+
+        #endregion
+
         #region Informator System
 
         public string Text 
@@ -442,6 +480,8 @@ namespace PatientRep.ViewModels
         { get => m_RepType; set => Set(ref m_RepType, value, nameof(RepType)); }
 
         #endregion
+
+        public string Tittle { get=> m_tittle; set=> Set(ref m_tittle, value, nameof(Tittle)); }
 
         public int NoteCount
         {
@@ -765,6 +805,12 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Login Module
+
+        public ICommand OnSignInButtonPressed { get; }
+
+        #endregion
+
         #endregion
 
         #endregion
@@ -774,6 +820,16 @@ namespace PatientRep.ViewModels
         public MainWindowViewModel()
         {
             #region Init Fields
+
+            m_logBtnStyle = new Style();
+
+            m_LogButtonContext = String.Empty;
+
+            m_resources = App.Current.Resources;
+
+            m_LogedIn = false;
+
+            m_Message = String.Empty;
 
             m_msg = String.Empty;
 
@@ -848,7 +904,7 @@ namespace PatientRep.ViewModels
 
             m_StringCoincidence = StringCoincidence.Часткове;
 
-            m_tittle = "Patient Repository Storage";
+            m_tittle = "Atomatic Registration System Client v 1.0";
 
             m_jdataprovider = new JsonDataProvider();
 
@@ -1041,35 +1097,25 @@ namespace PatientRep.ViewModels
 
             #endregion
 
+            #region Login Module
+
+            OnSignInButtonPressed = new LambdaCommand(
+                OnLoginButtonPressedExecute,
+                CanOnLoginButtonPressedExecute
+                );
+
+            #endregion
+
             #endregion
 
             OnMainWindowInitialized += MainWindowViewModel_OnMainWindowInitialized;
 
             OnMainWindowInitialized.Invoke();
-        }
-                
-        private async Task M_Configuration_OnConfigChanged()
-        {            
-            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
 
-            var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
-                "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
-               m_tittle, MessageBoxButton.OKCancel, MessageBoxImage.Information);
-
-            if (r == MessageBoxResult.OK)
-            {
-                System.Windows.Application.Current.Shutdown(0);
-            }                   
+            ChangeUIAccordingToLoginStatus();
         }
 
-        private async Task MainWindowViewModel_OnMainWindowInitialized()
-        {
-            await m_jdataprovider.LoadFileAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
-
-            await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
-
-            await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
-        }
+        #endregion
 
         #region Other Additional Methods
 
@@ -1095,6 +1141,22 @@ namespace PatientRep.ViewModels
             OperStatus = OperStatus.NoOperation;
         }
 
+        private void ChangeUIAccordingToLoginStatus()
+        {
+            if (m_LogedIn)
+            {
+                LogBtnStyle = (Style)m_resources["Buttons3"];
+                LogInButtonContext = "Вийти";
+                Message = m_Loged + $"";
+            }
+            else
+            {
+                LogBtnStyle = (Style)m_resources["Buttons"];
+                LogInButtonContext = "Увійти";
+                Message = m_notLoged;
+            }
+        }
+
         #endregion
 
         #region HistoryNotesEvents
@@ -1111,6 +1173,29 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region ControllerEventsHandlers
+
+        private async Task M_Configuration_OnConfigChanged()
+        {
+            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+
+            var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
+                "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
+               m_tittle, MessageBoxButton.OKCancel, MessageBoxImage.Information);
+
+            if (r == MessageBoxResult.OK)
+            {
+                System.Windows.Application.Current.Shutdown(0);
+            }
+        }
+
+        private async Task MainWindowViewModel_OnMainWindowInitialized()
+        {
+            await m_jdataprovider.LoadFileAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
+
+            await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
+
+            await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
+        }
 
         private void M_UIElementManager_OnOperationFinished(object s, OperationFinishedEventArgs<UIElementManagerOperations> e)
         {
@@ -1528,8 +1613,6 @@ namespace PatientRep.ViewModels
             });
         }
 
-        #endregion
-
         private async void Pat_OnRemoveButtonPressed(Patient selected)
         {
             await m_pController.RemoveAsync(selected, m_patients);
@@ -1541,9 +1624,9 @@ namespace PatientRep.ViewModels
         }
 
         #endregion
-
-        #region Methods
         
+        #region Methods
+
         #region On Settings Button Pressed
 
         private bool CanOnSettingsButtonPressedExecute(object p) => true;
@@ -2173,6 +2256,24 @@ namespace PatientRep.ViewModels
 
         }
 
+        #endregion
+
+        #endregion
+
+        #region Login Module
+
+        #region OnLoginButtonPressedExecute
+
+        private bool CanOnLoginButtonPressedExecute(object p) => true;
+
+        private void OnLoginButtonPressedExecute(object p)
+        {
+            m_SignInWindow = new SignInWindow();
+
+            m_SignInWindow.Topmost = true;
+
+            m_SignInWindow.Show();
+        }
         #endregion
 
         #endregion

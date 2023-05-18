@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-3138480895
+51617359398
 
-5885077185
+71602370883
 194-200944676
-SmartCheckBox.xaml;SmartCodeField.xaml;SmartDateChecker.xaml;
+SmartCheckBox.xaml;SmartCodeField.xaml;SmartDateChecker.xaml;SmartInputField.xaml;SmartPasswordBox.xaml;
 
 False
 

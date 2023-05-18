@@ -508,3 +508,7 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ItemManagerLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SignInWindow.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SignInWindow.baml
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SignInWindow.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SignInWindow.baml

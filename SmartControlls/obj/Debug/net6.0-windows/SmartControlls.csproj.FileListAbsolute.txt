@@ -175,3 +175,7 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartControlls\obj\Debug\ne
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\refint\SmartControlls.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\SmartControlls.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\ref\SmartControlls.dll
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\SmartInputField.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\SmartPasswordBox.g.cs
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\SmartInputField.baml
+C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\SmartControlls\obj\Debug\net6.0-windows\SmartPasswordBox.baml
