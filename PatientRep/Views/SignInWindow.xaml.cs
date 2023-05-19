@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatientRep.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,18 @@ namespace PatientRep.Views
     /// </summary>
     public partial class SignInWindow : Window
     {
+        SignInWindowViewModel m_vm;
+
         public SignInWindow()
         {
             InitializeComponent();
-        }
+
+            m_vm = new SignInWindowViewModel();
+            
+            this.DataContext = m_vm;
+                        
+            this.smartPass.OnPasswordIsCorrect += m_vm.SmartPass_OnPasswordIsCorrect;
+            
+        }       
     }
 }
