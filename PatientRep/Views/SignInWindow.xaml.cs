@@ -19,19 +19,12 @@ namespace PatientRep.Views
     /// Логика взаимодействия для SignInWindow.xaml
     /// </summary>
     public partial class SignInWindow : Window
-    {
-        SignInWindowViewModel m_vm;
-
+    {        
         public SignInWindow()
         {
-            InitializeComponent();
+            InitializeComponent();                                                          
+        }
 
-            m_vm = new SignInWindowViewModel();
-            
-            this.DataContext = m_vm;
-                        
-            this.smartPass.OnPasswordIsCorrect += m_vm.SmartPass_OnPasswordIsCorrect;
-            
-        }       
+       
     }
 }

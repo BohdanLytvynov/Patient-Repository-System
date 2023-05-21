@@ -15,7 +15,7 @@ namespace PatientRep.ViewModels
     {
         #region Delegates
 
-        Func<SecureString, TextBlock, bool> m_CheckInput;
+        Func<Control, TextBlock, bool> m_CheckInput;
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace PatientRep.ViewModels
 
         #region Properties
 
-        public Func<SecureString, TextBlock, bool> CheckInputDel
+        public Func<Control, TextBlock, bool> CheckInputDel
         { 
             get=> m_CheckInput;
             set { m_CheckInput = value; OnPropertyChanged(nameof(CheckInputDel)); }
@@ -102,24 +102,17 @@ namespace PatientRep.ViewModels
         #region Methods
 
         #region Events
+       
+        public bool CheckInput(Control c, TextBlock er)
+        {
+            (c as PasswordBox).PasswordChanged += SignInWindowViewModel_PasswordChanged;
 
-        public void SmartPass_OnPasswordIsCorrect(SecureString s)
-        { 
-        
+            return true;
         }
 
-        public bool CheckInput(SecureString s, TextBlock er)
+        private void SignInWindowViewModel_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (s.Length > 0)
-            {
-                return true;
-            }
-            else
-            {
-                er.Text = "Поле не має бути порожнім!!!";
-
-                return false;
-            }            
+            
         }
 
         #endregion

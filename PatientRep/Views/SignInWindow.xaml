@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="Sign_In_Window" Height="450" Width="800" MaxWidth="800" MaxHeight="450">
     
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <vm:SignInWindowViewModel/>
-    </Window.DataContext>-->
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -44,14 +44,21 @@
 
         <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль:" FontSize="32"/>
 
-        <sc:SmartPasswordBox Grid.Row="3" Grid.Column="3" ErrorMessageForeground="OrangeRed" ErrorBorderBrush="OrangeRed"
+        <!--<sc:SmartPasswordBox Grid.Row="3" Grid.Column="3" ErrorMessageForeground="OrangeRed" ErrorBorderBrush="OrangeRed"
                              CorrectBorderBrush="Green" InputBoxFontSize="25"
                              InitialBorderThickness="1,1,1,1" FinalBorderThickness="3"
                              x:Name="smartPass" 
                              IsCorrect="{Binding IsPasswordCorrect, 
             UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"
                              CheckInputDelegate="{Binding CheckInputDel, 
-            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
+
+        <sc:SmartInputField Grid.Row="3" Grid.Column="3"
+                            >
+           <sc:SmartInputField.InputControl>
+                <PasswordBox  FontSize="30" />
+            </sc:SmartInputField.InputControl>
+        </sc:SmartInputField>
 
         <Grid Grid.Column="3" Grid.Row="5">
             <Grid.ColumnDefinitions>

@@ -26,6 +26,7 @@ namespace SmartControlls
 
         private Func<Control, TextBlock, bool> m_CheckInputDelegate;
 
+        private Action<Control, Action<object, RoutedEventArgs>> m_SetCheckEventDelegate;
         #endregion
 
         #region Fields
@@ -38,6 +39,23 @@ namespace SmartControlls
 
         #region Dependency properties
 
+
+
+        public Action<Control, Action<object, RoutedEventArgs>> SetCheckEventDelegate
+        {
+            get { return (Action<Control, Action<object, RoutedEventArgs>>)GetValue(SetCheckEventDelegateProperty); }
+            set { SetValue(SetCheckEventDelegateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SetCheckEventDelegate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SetCheckEventDelegateProperty =
+            DependencyProperty.Register("SetCheckEventDelegate", 
+                typeof(Action<Control, Action<object, RoutedEventArgs>>), 
+                typeof(SmartInputField), 
+                new PropertyMetadata(null, OnSetCheckEventDelegatePropertyChanged));
+
+
+
         public Control InputControl
         {
             get { return (Control)GetValue(InputControlProperty); }
@@ -47,14 +65,7 @@ namespace SmartControlls
         // Using a DependencyProperty as the backing store for InputControl.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty InputControlProperty;
 
-        public Func<Control, TextBlock, bool> CheckInputDelegate
-        {
-            get { return (Func<Control, TextBlock, bool>)GetValue(CheckInputDelegateProperty); }
-            set { SetValue(CheckInputDelegateProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for CheckInputDelegate.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CheckInputDelegateProperty;
+        
 
         public double HeightOfErrorTextBlock
         {
@@ -80,13 +91,9 @@ namespace SmartControlls
             InputControlProperty =
             DependencyProperty.Register("InputControl", typeof(Control),
                 typeof(SmartInputField),
-                new PropertyMetadata(null));
+                new PropertyMetadata(null, OnInputControlPropertyChanged));
 
-            CheckInputDelegateProperty =
-            DependencyProperty.Register("CheckInputDelegate",
-                typeof(Func<Control, TextBlock, bool>),
-                typeof(SmartInputField),
-                new PropertyMetadata(null, OnCheckInputDelegatePropertyChanged));
+           
 
             HeightOfErrorTextBlockProperty =
             DependencyProperty.Register("HeightOfErrorTextBlock",
@@ -109,9 +116,25 @@ namespace SmartControlls
         #endregion
 
         #region Methods
-       
+
+        private void Event(object d, RoutedEventArgs e)
+        {
+            m_CheckInputDelegate?.Invoke(m_Input, Error);
+        }
+
         #region On Dependency Property Callback methods
-        
+
+        private static void OnSetCheckEventDelegatePropertyChanged(
+            DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            var This = (obj as SmartInputField);
+
+            This.m_SetCheckEventDelegate =
+                (Action<Control, Action<object, RoutedEventArgs>>)e.NewValue;
+
+            This.m_SetCheckEventDelegate?.Invoke(This.m_Input, This.Event);
+        }
+
         private static void OnCheckInputDelegatePropertyChanged(
             DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
@@ -130,8 +153,10 @@ namespace SmartControlls
 
             var control = (Control)e.NewValue;
 
-            Grid.SetRow(control, 0);
+            This.m_Input = control;
 
+            Grid.SetRow(control, 0);
+            
             This.Main.Children.Add(control);            
         }
 
