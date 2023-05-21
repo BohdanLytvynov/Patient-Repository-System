@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {}
+    "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
+    "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
+        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
         "projectName": "ConvertersLib",
-        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
-        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ConvertersLib\\obj\\",
+        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

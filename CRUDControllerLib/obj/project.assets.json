@@ -80,19 +80,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Doctor14\\.nuget\\packages\\": {}
+    "C:\\Users\\MSI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
+      "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
       "projectName": "CRUDControllerLib",
-      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
-      "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\obj\\",
+      "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
+      "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+      "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CRUDControllerLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -106,11 +106,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj"
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj"
             }
           }
         }
@@ -140,7 +140,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

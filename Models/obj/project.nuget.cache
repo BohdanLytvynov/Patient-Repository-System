@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B8zF+x583IRUxWyagaHbfUBWlEY98jWWVFlBUzePvjrhL5lIPEdbpzJ+KVWtxqtv9KSG7SzhrLqWDTZsGyq/RA==",
+  "dgSpecHash": "lJq+eZELx3zS+SY6qKSW1XEuH/K2SViDQhq4Ap2QugwlIPcGvKCPVMPVYfioXF8vQ0GUnWiELFhfblDHVXpAfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
+  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

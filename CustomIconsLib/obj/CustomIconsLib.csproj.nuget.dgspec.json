@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {}
+    "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {
+    "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj",
+        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj",
         "projectName": "CustomIconsLib",
-        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj",
-        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CustomIconsLib\\obj\\",
+        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\CustomIconsLib.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\CustomIconsLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
-                "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+              "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+                "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
               }
             }
           }
@@ -62,21 +62,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+    "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj",
+        "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj",
         "projectName": "ViewModelBaseLib",
-        "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj",
-        "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\obj\\",
+        "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,7 +120,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
