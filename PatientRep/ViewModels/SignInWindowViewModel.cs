@@ -5,7 +5,9 @@ using System.Security;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using ViewModelBaseLib.VM;
 using static DataValidation.Validation;
 
@@ -17,9 +19,25 @@ namespace PatientRep.ViewModels
 
         Func<Control, TextBlock, bool> m_CheckInput;
 
+        Func<RoutedEventHandler, Control> m_ConfigureInput;
+
         #endregion
 
         #region Fields
+
+        #region Input Configuration;
+
+        string m_ErrorMsg;
+
+        SolidColorBrush m_errorColor;
+
+        SolidColorBrush m_successColor;
+
+        Thickness m_BorderThicknessInit;
+
+        Thickness m_BorderThickness;
+
+        #endregion
 
         bool m_isPasswordCorrect;
 
@@ -31,12 +49,24 @@ namespace PatientRep.ViewModels
 
         #region Properties
 
-        public Func<Control, TextBlock, bool> CheckInputDel
-        { 
-            get=> m_CheckInput;
-            set { m_CheckInput = value; OnPropertyChanged(nameof(CheckInputDel)); }
-            
+        #region Delegates
+
+        public Func<RoutedEventHandler, Control> ConfigureInput 
+        {
+            get => m_ConfigureInput;
+            set { m_ConfigureInput = value; OnPropertyChanged(nameof(ConfigureInput)); }
         }
+
+        public Func<Control, TextBlock, bool> CheckInputDel
+        {
+            get => m_CheckInput;
+            set { m_CheckInput = value; OnPropertyChanged(nameof(CheckInputDel)); }
+
+        }
+
+        #endregion
+
+
 
         public bool IsPasswordCorrect { get=> m_isPasswordCorrect; 
             set=> Set(ref m_isPasswordCorrect, value, nameof(IsPasswordCorrect)); }
@@ -58,7 +88,7 @@ namespace PatientRep.ViewModels
 
                         if (String.IsNullOrEmpty(Login))
                         {
-                            error = "Поле не має бути порожнім!";
+                            error = m_ErrorMsg;
 
                             m_ValidationArray[0] = false;
 
@@ -88,7 +118,19 @@ namespace PatientRep.ViewModels
 
         #region Ctor
         public SignInWindowViewModel()
-        {
+        {            
+            m_ErrorMsg = "Поле не має бути порожнім!";
+
+            m_BorderThicknessInit = new Thickness(0,0,0,0);
+
+            m_BorderThickness = new Thickness(3,3,3,3);
+
+            m_errorColor = new SolidColorBrush(Colors.Red);
+
+            m_successColor = new SolidColorBrush(Colors.Green);
+
+            m_ConfigureInput = ConfigureInputMethod;
+
             m_CheckInput = CheckInput;
 
             m_Login = String.Empty;
@@ -97,23 +139,44 @@ namespace PatientRep.ViewModels
 
             m_ValidationArray = new bool[2];
         }
+
+        private Control ConfigureInputMethod(RoutedEventHandler arg)
+        {
+            PasswordBox pb = new PasswordBox() {FontSize = 20 };
+
+            pb.PasswordChanged += arg;
+
+            return pb;
+        }
+
+        
         #endregion
 
         #region Methods
 
         #region Events
-       
+
         public bool CheckInput(Control c, TextBlock er)
         {
-            (c as PasswordBox).PasswordChanged += SignInWindowViewModel_PasswordChanged;
+            PasswordBox pb = c as PasswordBox;
 
-            return true;
+            if (pb.SecurePassword.Length == 0)
+            {
+                er.Text = m_ErrorMsg;
+                er.Foreground = m_errorColor;
+                er.Visibility = Visibility.Visible;
+                pb.BorderBrush = m_errorColor;
+                pb.BorderThickness = m_BorderThickness;
+
+                return false;
+            }
+            else
+            {
+
+            }
         }
 
-        private void SignInWindowViewModel_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
-        {
-            
-        }
+        
 
         #endregion
 

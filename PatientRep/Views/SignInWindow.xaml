@@ -53,13 +53,8 @@
                              CheckInputDelegate="{Binding CheckInputDel, 
             UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
 
-        <sc:SmartInputField Grid.Row="3" Grid.Column="3"
-                            >
-           <sc:SmartInputField.InputControl>
-                <PasswordBox  FontSize="30" />
-            </sc:SmartInputField.InputControl>
-        </sc:SmartInputField>
-
+        <sc:SmartInputField Grid.Row="3" Grid.Column="3"/>
+                            
         <Grid Grid.Column="3" Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>

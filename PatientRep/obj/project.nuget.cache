@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "84gtIMSBEXeb70dvI1y6R5UnE3wV2nBt9GGEDUFlyHtin7HtzjuUvvCdVmfzLU8PfOfsYSwc86Shx/xt5U5Auw==",
+  "dgSpecHash": "Cd1ejdW/uK1Ye6+MTJewnbfhNfFPHiRBi/bNGECnpWIvfHwdDQT864q4hL9EgZFX9IEvqmtWTAGyN+ssOE5zcA==",
   "success": true,
-  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\PatientRep\\PatientRep.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\fontawesome5\\2.1.11\\fontawesome5.2.1.11.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Doctor14\\.nuget\\packages\\fontawesome5\\2.1.11\\fontawesome5.2.1.11.nupkg.sha512",
+    "C:\\Users\\Doctor14\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

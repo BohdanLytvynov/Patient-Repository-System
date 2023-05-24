@@ -21,17 +21,20 @@ namespace SmartControlls
     /// Логика взаимодействия для SmartInputField.xaml
     /// </summary>
     public partial class SmartInputField : UserControl
-    {        
+    {
         #region Delegates
 
-        private Func<Control, TextBlock, bool> m_CheckInputDelegate;
+        Func<Control, TextBlock, bool> m_CheckInputDelegate;
 
-        private Action<Control, Action<object, RoutedEventArgs>> m_SetCheckEventDelegate;
+        Func<RoutedEventHandler, Control> m_ConfigureInputDelegate;
+
         #endregion
 
         #region Fields
 
         Control m_Input;
+
+
 
         #endregion
 
@@ -39,33 +42,32 @@ namespace SmartControlls
 
         #region Dependency properties
 
-
-
-        public Action<Control, Action<object, RoutedEventArgs>> SetCheckEventDelegate
+        public bool IsCorrect
         {
-            get { return (Action<Control, Action<object, RoutedEventArgs>>)GetValue(SetCheckEventDelegateProperty); }
-            set { SetValue(SetCheckEventDelegateProperty, value); }
+            get { return (bool)GetValue(IsCorrectProperty); }
+            set { SetValue(IsCorrectProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for SetCheckEventDelegate.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SetCheckEventDelegateProperty =
-            DependencyProperty.Register("SetCheckEventDelegate", 
-                typeof(Action<Control, Action<object, RoutedEventArgs>>), 
-                typeof(SmartInputField), 
-                new PropertyMetadata(null, OnSetCheckEventDelegatePropertyChanged));
+        // Using a DependencyProperty as the backing store for IsCorrect.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsCorrectProperty;
 
-
-
-        public Control InputControl
+        public Func<RoutedEventHandler, Control> ConfigureInputDelegate
         {
-            get { return (Control)GetValue(InputControlProperty); }
-            set { SetValue(InputControlProperty, value); }
+            get { return (Func<RoutedEventHandler, Control>)GetValue(ConfigureInputDelegateProperty); }
+            set { SetValue(ConfigureInputDelegateProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for InputControl.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty InputControlProperty;
+        // Using a DependencyProperty as the backing store for ConfigureInputDelegate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ConfigureInputDelegateProperty;
 
-        
+        public Func<Control, TextBlock, bool> CheckInputDelegate
+        {
+            get { return (Func<Control, TextBlock, bool>)GetValue(CheckInputDelegateProperty); }
+            set { SetValue(CheckInputDelegateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CheckInputDelegate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CheckInputDelegateProperty;
 
         public double HeightOfErrorTextBlock
         {
@@ -76,7 +78,78 @@ namespace SmartControlls
         // Using a DependencyProperty as the backing store for HeightOfErrorTextBlock.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty HeightOfErrorTextBlockProperty;
 
+        /// <summary>
+        /// //////////////////////////////////////////////////////////////////////////////
+        /// </summary>
 
+
+
+        public Brush ErrorBrush
+        {
+            get { return (Brush)GetValue(ErrorBrushProperty); }
+            set { SetValue(ErrorBrushProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ErrorBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ErrorBrushProperty;
+
+        public Brush ErrorBorderBrush
+        {
+            get { return (Brush)GetValue(ErrorBorderBrushProperty); }
+            set { SetValue(ErrorBorderBrushProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ErrorBorderBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ErrorBorderBrushProperty;
+
+        public Brush CorrectBorderBrush
+        {
+            get { return (Brush)GetValue(CorrectBorderBrushProperty); }
+            set { SetValue(CorrectBorderBrushProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CorrectBorderBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CorrectBorderBrushProperty;
+
+        public Brush CorrectBrush
+        {
+            get { return (Brush)GetValue(CorrectBrushProperty); }
+            set { SetValue(CorrectBrushProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CorrectBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CorrectBrushProperty;
+
+
+
+        public double ErrorFontSize
+        {
+            get { return (double)GetValue(ErrorFontSizeProperty); }
+            set { SetValue(ErrorFontSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ErrorFontSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ErrorFontSizeProperty;
+
+
+        public Thickness InitBorderThickness
+        {
+            get { return (Thickness)GetValue(InitBorderThicknessProperty); }
+            set { SetValue(InitBorderThicknessProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for InitBorderThickness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty InitBorderThicknessProperty;
+
+
+        public Thickness BorderThickness
+        {
+            get { return (Thickness)GetValue(BorderThicknessProperty); }
+            set { SetValue(BorderThicknessProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BorderThickness.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BorderThicknessProperty;
 
         #endregion
 
@@ -88,12 +161,57 @@ namespace SmartControlls
         {
             #region Dependency properties registration
 
-            InputControlProperty =
-            DependencyProperty.Register("InputControl", typeof(Control),
+            ErrorBorderBrushProperty =
+            DependencyProperty.Register("ErrorBorderBrush", typeof(Brush),
                 typeof(SmartInputField),
-                new PropertyMetadata(null, OnInputControlPropertyChanged));
+                new PropertyMetadata(new SolidColorBrush(Colors.Red)));
 
-           
+            CorrectBorderBrushProperty =
+            DependencyProperty.Register("CorrectBorderBrush", typeof(Brush),
+                typeof(SmartInputField),
+                new PropertyMetadata(new SolidColorBrush(Colors.Green)));
+
+            BorderThicknessProperty =
+            DependencyProperty.Register("BorderThickness", typeof(Thickness),
+                typeof(SmartInputField),
+                new PropertyMetadata(new Thickness(0, 0, 0, 0)));
+
+            InitBorderThicknessProperty =
+            DependencyProperty.Register("InitBorderThickness", typeof(Thickness),
+                typeof(SmartInputField),
+                new PropertyMetadata(new Thickness(0, 0, 0, 0)));
+
+            ErrorFontSizeProperty =
+            DependencyProperty.Register("ErrorFontSize", typeof(double),
+                typeof(SmartInputField),
+                new PropertyMetadata((double)15));
+
+            CorrectBrushProperty =
+            DependencyProperty.Register("CorrectBrush", typeof(Brush),
+                typeof(SmartInputField),
+                new PropertyMetadata(new SolidColorBrush(Colors.Green)));
+
+            ErrorBrushProperty =
+            DependencyProperty.Register("ErrorBrush", typeof(Brush),
+                typeof(SmartInputField),
+                new PropertyMetadata(new SolidColorBrush(Colors.Red)));
+
+            IsCorrectProperty =
+            DependencyProperty.Register("IsCorrect",
+                typeof(bool), typeof(SmartInputField),
+                new PropertyMetadata(default));
+
+            ConfigureInputDelegateProperty =
+            DependencyProperty.Register("ConfigureInputDelegate",
+                typeof(Func<RoutedEventHandler, Control>),
+                typeof(SmartInputField),
+                new PropertyMetadata(null, OnConfigureInputDelegatePropertyChanged));
+
+            CheckInputDelegateProperty =
+            DependencyProperty.Register("CheckInputDelegate",
+                typeof(Func<Control, TextBlock, bool>),
+                typeof(SmartInputField),
+                new PropertyMetadata(null, OnCheckInputDelegatePropertyChanged));
 
             HeightOfErrorTextBlockProperty =
             DependencyProperty.Register("HeightOfErrorTextBlock",
@@ -117,47 +235,65 @@ namespace SmartControlls
 
         #region Methods
 
-        private void Event(object d, RoutedEventArgs e)
-        {
-            m_CheckInputDelegate?.Invoke(m_Input, Error);
+        private void Set<T>(T Field, Type fieldType, DependencyPropertyChangedEventArgs e)
+        { 
+            
         }
 
-        #region On Dependency Property Callback methods
+        #region On Dependency Property Callback methods              
 
-        private static void OnSetCheckEventDelegatePropertyChanged(
-            DependencyObject obj, DependencyPropertyChangedEventArgs e)
-        {
-            var This = (obj as SmartInputField);
-
-            This.m_SetCheckEventDelegate =
-                (Action<Control, Action<object, RoutedEventArgs>>)e.NewValue;
-
-            This.m_SetCheckEventDelegate?.Invoke(This.m_Input, This.Event);
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        { 
+        
         }
 
-        private static void OnCheckInputDelegatePropertyChanged(
-            DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
-            var This = (obj as SmartInputField);
 
-            This.m_CheckInputDelegate =
-                (Func<Control, TextBlock, bool>)e.NewValue;
-
-            This.CheckInput();
         }
 
-        private static void OnInputControlPropertyChanged(DependencyObject obj,
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private static void OnChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private static void OnConfigureInputDelegatePropertyChanged(DependencyObject obj,
             DependencyPropertyChangedEventArgs e)
         { 
             var This = obj as SmartInputField;
 
-            var control = (Control)e.NewValue;
+            This.m_ConfigureInputDelegate = (Func<RoutedEventHandler, Control>)e.NewValue;
 
-            This.m_Input = control;
+            This.m_Input = This.m_ConfigureInputDelegate?.Invoke(This.CheckInputMethod) ?? 
+                throw new ArgumentNullException("Configuration delegate was null. Unable to configure SmartInputBox");
+        }
 
-            Grid.SetRow(control, 0);
-            
-            This.Main.Children.Add(control);            
+        private static void OnCheckInputDelegatePropertyChanged(DependencyObject obj,
+            DependencyPropertyChangedEventArgs e)
+        {
+            var This = obj as SmartInputField;
+
+            This.m_CheckInputDelegate = (Func<Control, TextBlock, bool>)e.NewValue;
         }
 
         private static void OnHeightOfErrorTextBlockPropertyChanged(
@@ -172,11 +308,11 @@ namespace SmartControlls
 
         #endregion
 
-        private bool CheckInput()
+        private void CheckInputMethod(object obj, RoutedEventArgs e)
         {
-            return m_CheckInputDelegate?.Invoke(m_Input, Error) ?? true;                       
+            IsCorrect = m_CheckInputDelegate?.Invoke(m_Input, Error) ?? true;
         }
-
+       
         #endregion
 
     }
