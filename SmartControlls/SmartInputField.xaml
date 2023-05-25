@@ -15,13 +15,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <Grid x:Name="ErrorGrid">
+        <Grid x:Name="ErrorGrid" Panel.ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="15"/>
             </Grid.RowDefinitions>
             <TextBlock  Grid.Row="1" x:Name="Error" FontSize="10" 
-         Margin="20,0,20,0"/>
+         Margin="20,0,20,0" />
         </Grid>
 
     </Grid>

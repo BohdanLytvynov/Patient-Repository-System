@@ -19,7 +19,7 @@ namespace PatientRep.ViewModels
 
         Func<Control, TextBlock, bool> m_CheckInput;
 
-        Func<RoutedEventHandler, Control> m_ConfigureInput;
+        Action<RoutedEventHandler, Control> m_ConfigureInput;
 
         #endregion
 
@@ -28,15 +28,7 @@ namespace PatientRep.ViewModels
         #region Input Configuration;
 
         string m_ErrorMsg;
-
-        SolidColorBrush m_errorColor;
-
-        SolidColorBrush m_successColor;
-
-        Thickness m_BorderThicknessInit;
-
-        Thickness m_BorderThickness;
-
+        
         #endregion
 
         bool m_isPasswordCorrect;
@@ -51,7 +43,7 @@ namespace PatientRep.ViewModels
 
         #region Delegates
 
-        public Func<RoutedEventHandler, Control> ConfigureInput 
+        public Action<RoutedEventHandler, Control> ConfigureInput 
         {
             get => m_ConfigureInput;
             set { m_ConfigureInput = value; OnPropertyChanged(nameof(ConfigureInput)); }
@@ -120,15 +112,7 @@ namespace PatientRep.ViewModels
         public SignInWindowViewModel()
         {            
             m_ErrorMsg = "Поле не має бути порожнім!";
-
-            m_BorderThicknessInit = new Thickness(0,0,0,0);
-
-            m_BorderThickness = new Thickness(3,3,3,3);
-
-            m_errorColor = new SolidColorBrush(Colors.Red);
-
-            m_successColor = new SolidColorBrush(Colors.Green);
-
+            
             m_ConfigureInput = ConfigureInputMethod;
 
             m_CheckInput = CheckInput;
@@ -140,13 +124,11 @@ namespace PatientRep.ViewModels
             m_ValidationArray = new bool[2];
         }
 
-        private Control ConfigureInputMethod(RoutedEventHandler arg)
+        private void ConfigureInputMethod(RoutedEventHandler arg, Control c)
         {
-            PasswordBox pb = new PasswordBox() {FontSize = 20 };
+            PasswordBox pb = c as PasswordBox;
 
-            pb.PasswordChanged += arg;
-
-            return pb;
+            pb.PasswordChanged += arg;            
         }
 
         
@@ -163,16 +145,12 @@ namespace PatientRep.ViewModels
             if (pb.SecurePassword.Length == 0)
             {
                 er.Text = m_ErrorMsg;
-                er.Foreground = m_errorColor;
-                er.Visibility = Visibility.Visible;
-                pb.BorderBrush = m_errorColor;
-                pb.BorderThickness = m_BorderThickness;
-
+                
                 return false;
             }
             else
             {
-
+                return true;
             }
         }
 

@@ -53,8 +53,43 @@
                              CheckInputDelegate="{Binding CheckInputDel, 
             UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
 
-        <sc:SmartInputField Grid.Row="3" Grid.Column="3"/>
-                            
+        <sc:SmartInputField Grid.Row="3" Grid.Column="3" ErrorFontSize="14" 
+                            ErrorMessageForeground="Red" HeightOfErrorTextBlock="21" ErrorMessageTextAlignment="Right">
+            <sc:SmartInputField.ControlElement>
+                <PasswordBox FontSize="25">
+                    <PasswordBox.Resources>
+                        <Style TargetType="PasswordBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
+                                    <DataTrigger.Setters>
+                                        <Setter Property="BorderBrush" Value="Red"/>
+                                        <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                    </DataTrigger.Setters>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }" Value="True">
+                                    <DataTrigger.Setters>
+                                        <Setter Property="BorderBrush" Value="Green"/>
+                                        <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                    </DataTrigger.Setters>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </PasswordBox.Resources>
+                </PasswordBox>
+            </sc:SmartInputField.ControlElement>
+
+            <sc:SmartInputField.ConfigureInputDelegate>
+                <Binding Path="ConfigureInput" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                </Binding>
+            </sc:SmartInputField.ConfigureInputDelegate>
+
+            <sc:SmartInputField.CheckInputDelegate>
+                <Binding Path="CheckInputDel" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+            </sc:SmartInputField.CheckInputDelegate>
+        </sc:SmartInputField>
+
         <Grid Grid.Column="3" Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
