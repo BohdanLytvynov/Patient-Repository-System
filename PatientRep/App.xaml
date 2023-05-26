@@ -613,7 +613,7 @@
                                 <Grid>
                                     <AdornedElementPlaceholder/>
                                     <TextBlock Text="{Binding [0].ErrorContent}" Foreground="OrangeRed"
-                                               VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="12"/>
+                                               VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="15"/>
                                 </Grid>
                             </Border>
                         </ControlTemplate>
@@ -668,6 +668,27 @@
                     <Trigger.Setters>
                         <Setter Property="Background" Value="{StaticResource GridSplitColorOver}"/>
                     </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="TextBlock-Button" TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Foreground" Value="Blue"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Foreground" Value="DarkOrange"/>
+                        <Setter Property="FontSize" Value="22"/>
+                    </Trigger.Setters>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="Blue"/>
+                    <Setter Property="FontSize" Value="20"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

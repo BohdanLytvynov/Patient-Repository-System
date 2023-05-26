@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatientRep.ViewModelBase.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -7,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using ViewModelBaseLib.VM;
 using static DataValidation.Validation;
@@ -25,6 +27,18 @@ namespace PatientRep.ViewModels
 
         #region Fields
 
+        #region Grid Visibility
+
+        Visibility m_LoginGridVisibility;
+
+        Visibility m_EmailCheckGridVisibility;
+
+        Visibility m_SendCodeVisibility;
+
+        Visibility m_RestorePassVisibility;
+
+        #endregion
+
         #region Input Configuration;
 
         string m_ErrorMsg;
@@ -42,6 +56,34 @@ namespace PatientRep.ViewModels
         #region Properties
 
         #region Delegates
+
+        #region Visibility Properties
+
+        public Visibility LoginGridVisibility 
+        {
+            get=> m_LoginGridVisibility; 
+            set=> Set(ref m_LoginGridVisibility, value, nameof(LoginGridVisibility)); 
+        }
+
+        public Visibility EmailCheckGridVisibility
+        {
+            get => m_EmailCheckGridVisibility;
+            set => Set(ref m_EmailCheckGridVisibility, value, nameof(EmailCheckGridVisibility));
+        }
+
+        public Visibility SendCodeVisibility
+        {
+            get => m_SendCodeVisibility;
+            set => Set(ref m_SendCodeVisibility, value, nameof(SendCodeVisibility));
+        }
+
+        public Visibility RestorePassVisibility
+        {
+            get => m_RestorePassVisibility;
+            set => Set(ref m_RestorePassVisibility, value, nameof(RestorePassVisibility));
+        }
+
+        #endregion
 
         public Action<RoutedEventHandler, Control> ConfigureInput 
         {
@@ -106,13 +148,17 @@ namespace PatientRep.ViewModels
 
         #region Commands
 
+        public ICommand OnForgetPasswordButtonPressed { get; }
+
         #endregion
 
         #region Ctor
         public SignInWindowViewModel()
-        {            
+        {
+            #region Init fields
+
             m_ErrorMsg = "Поле не має бути порожнім!";
-            
+
             m_ConfigureInput = ConfigureInputMethod;
 
             m_CheckInput = CheckInput;
@@ -122,6 +168,19 @@ namespace PatientRep.ViewModels
             m_email = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
             m_ValidationArray = new bool[2];
+
+            #endregion
+
+            #region Init commands
+
+            OnForgetPasswordButtonPressed = new LambdaCommand(
+                OnForgetPaswwordButtonPressedExecute,
+                CanOnForgetPaswwordButtonPressedExecute
+                );
+
+            #endregion
+
+
         }
 
         private void ConfigureInputMethod(RoutedEventHandler arg, Control c)
@@ -137,7 +196,6 @@ namespace PatientRep.ViewModels
         #region Methods
 
         #region Events
-
         public bool CheckInput(Control c, TextBlock er)
         {
             PasswordBox pb = c as PasswordBox;
@@ -154,7 +212,16 @@ namespace PatientRep.ViewModels
             }
         }
 
-        
+        #endregion
+
+        #region On Forget Password Button Pressed
+
+        private bool CanOnForgetPaswwordButtonPressedExecute(object p) => true;
+
+        private void OnForgetPaswwordButtonPressedExecute(object p)
+        { 
+            
+        }
 
         #endregion
 

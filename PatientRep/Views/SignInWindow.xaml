@@ -11,40 +11,53 @@
     <Window.DataContext>
         <vm:SignInWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="255"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="84*"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="53*"/>
-            <RowDefinition Height="45"/>
-            <RowDefinition Height="80*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Логін чи Ємеіл:" FontSize="32"/>
-        <TextBox Grid.Row="1" Grid.Column="3"
+    <Grid x:Name="Main">
+
+        <Grid x:Name="Login_grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="255"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="84*"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="80*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Логін чи Ємеіл:" FontSize="32"/>
+            <TextBox Grid.Row="1" Grid.Column="3"
                  Style="{StaticResource TxtBoxInputStyle}"
                  FontSize="30"
                  >
-            <TextBox.Text>
-                <Binding Path="Login" UpdateSourceTrigger="LostFocus" Mode="TwoWay">
-                    <Binding.ValidationRules>
-                        <DataErrorValidationRule/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
+                <TextBox.Text>
+                    <Binding Path="Login" UpdateSourceTrigger="LostFocus" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль:" FontSize="32"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="Забули пароль?" 
+                       VerticalAlignment="Center"                                               
+                       Style="{StaticResource TextBlock-Button}"
+                       >
+                <TextBlock.InputBindings>
+                    <MouseBinding MouseAction="LeftClick"
+                                  Command="{Binding OnForgetPasswordButtonPressed}"/>
+                </TextBlock.InputBindings>
+            </TextBlock>
 
-        <!--<sc:SmartPasswordBox Grid.Row="3" Grid.Column="3" ErrorMessageForeground="OrangeRed" ErrorBorderBrush="OrangeRed"
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль:" 
+                       FontSize="32"/>
+
+            <!--<sc:SmartPasswordBox Grid.Row="3" Grid.Column="3" ErrorMessageForeground="OrangeRed" ErrorBorderBrush="OrangeRed"
                              CorrectBorderBrush="Green" InputBoxFontSize="25"
                              InitialBorderThickness="1,1,1,1" FinalBorderThickness="3"
                              x:Name="smartPass" 
@@ -53,51 +66,63 @@
                              CheckInputDelegate="{Binding CheckInputDel, 
             UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
 
-        <sc:SmartInputField Grid.Row="3" Grid.Column="3" ErrorFontSize="14" 
+            <sc:SmartInputField Grid.Row="3" Grid.Column="3" ErrorFontSize="14" 
                             ErrorMessageForeground="Red" HeightOfErrorTextBlock="21" ErrorMessageTextAlignment="Right">
-            <sc:SmartInputField.ControlElement>
-                <PasswordBox FontSize="25">
-                    <PasswordBox.Resources>
-                        <Style TargetType="PasswordBox">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                <sc:SmartInputField.ControlElement>
+                    <PasswordBox FontSize="25">
+                        <PasswordBox.Resources>
+                            <Style TargetType="PasswordBox">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
                                     UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
-                                    <DataTrigger.Setters>
-                                        <Setter Property="BorderBrush" Value="Red"/>
-                                        <Setter Property="BorderThickness" Value="3,3,3,3"/>
-                                    </DataTrigger.Setters>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                        <DataTrigger.Setters>
+                                            <Setter Property="BorderBrush" Value="Red"/>
+                                            <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
                                     UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }" Value="True">
-                                    <DataTrigger.Setters>
-                                        <Setter Property="BorderBrush" Value="Green"/>
-                                        <Setter Property="BorderThickness" Value="3,3,3,3"/>
-                                    </DataTrigger.Setters>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </PasswordBox.Resources>
-                </PasswordBox>
-            </sc:SmartInputField.ControlElement>
+                                        <DataTrigger.Setters>
+                                            <Setter Property="BorderBrush" Value="Green"/>
+                                            <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </PasswordBox.Resources>
+                    </PasswordBox>
+                </sc:SmartInputField.ControlElement>
 
-            <sc:SmartInputField.ConfigureInputDelegate>
-                <Binding Path="ConfigureInput" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                </Binding>
-            </sc:SmartInputField.ConfigureInputDelegate>
+                <sc:SmartInputField.ConfigureInputDelegate>
+                    <Binding Path="ConfigureInput" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    </Binding>
+                </sc:SmartInputField.ConfigureInputDelegate>
 
-            <sc:SmartInputField.CheckInputDelegate>
-                <Binding Path="CheckInputDel" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
-            </sc:SmartInputField.CheckInputDelegate>
-        </sc:SmartInputField>
+                <sc:SmartInputField.CheckInputDelegate>
+                    <Binding Path="CheckInputDel" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                </sc:SmartInputField.CheckInputDelegate>
+            </sc:SmartInputField>
 
-        <Grid Grid.Column="3" Grid.Row="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70"/>
-                <ColumnDefinition Width="225"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content="Увійти" FontSize="18" Style="{StaticResource Buttons3}"/>
+            <Grid Grid.Column="3" Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="225"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Content="Увійти" FontSize="18" Style="{StaticResource Buttons3}"/>
+            </Grid>
+
         </Grid>
 
+        <Grid x:Name="EmailCheck">
+        </Grid>
+
+        <Grid x:Name="SendCode">
+        </Grid>
+
+        <Grid x:Name="RestorePassword">
+        </Grid>
     </Grid>
+
+    
 </Window>
