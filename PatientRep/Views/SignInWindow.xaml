@@ -7,13 +7,12 @@
         xmlns:sc="clr-namespace:SmartControlls;assembly=SmartControlls"
         mc:Ignorable="d"
         Title="Sign_In_Window" Height="450" Width="800" MaxWidth="800" MaxHeight="450">
-    
+
     <Window.DataContext>
         <vm:SignInWindowViewModel/>
     </Window.DataContext>
     <Grid x:Name="Main">
-
-        <Grid x:Name="Login_grid">
+        <Grid x:Name="Login_grid" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="255"/>
@@ -115,6 +114,26 @@
         </Grid>
 
         <Grid x:Name="EmailCheck">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="58.684"/>
+                <RowDefinition Height="117"/>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="48*"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="1" FontSize="30"
+                       TextWrapping="Wrap" 
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                Text="Для зміни пароля введіть вашого аккаунту. 
+                       Вам буде надіслано листа з кодом для верифікації."
+                       />
+            <Grid Grid.Row="3">
+            </Grid>
+
         </Grid>
 
         <Grid x:Name="SendCode">
@@ -124,5 +143,5 @@
         </Grid>
     </Grid>
 
-    
+
 </Window>

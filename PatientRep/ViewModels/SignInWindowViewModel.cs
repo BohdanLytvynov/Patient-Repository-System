@@ -157,6 +157,18 @@ namespace PatientRep.ViewModels
         {
             #region Init fields
 
+            #region Grid Visibility
+
+            m_LoginGridVisibility = Visibility.Visible;
+
+            m_EmailCheckGridVisibility = Visibility.Hidden;
+
+            m_SendCodeVisibility = Visibility.Hidden;
+
+            m_RestorePassVisibility = Visibility.Hidden;
+
+            #endregion
+
             m_ErrorMsg = "Поле не має бути порожнім!";
 
             m_ConfigureInput = ConfigureInputMethod;
