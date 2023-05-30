@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -27,6 +28,12 @@ namespace PatientRep.ViewModels
 
         #region Fields
 
+        #region Check Email Window
+
+        string m_email;
+
+        #endregion
+
         #region Grid Visibility
 
         Visibility m_LoginGridVisibility;
@@ -49,20 +56,25 @@ namespace PatientRep.ViewModels
 
         string m_Login;
 
-        Regex m_email;
+        Regex m_emailreg
+            ;
 
         #endregion
 
         #region Properties
 
-        #region Delegates
+        #region CheckEmail Window
+
+        public string Email { get=> m_email; set=> Set(ref m_email, value, nameof(Email)); }
+
+        #endregion
 
         #region Visibility Properties
 
-        public Visibility LoginGridVisibility 
+        public Visibility LoginGridVisibility
         {
-            get=> m_LoginGridVisibility; 
-            set=> Set(ref m_LoginGridVisibility, value, nameof(LoginGridVisibility)); 
+            get => m_LoginGridVisibility;
+            set => Set(ref m_LoginGridVisibility, value, nameof(LoginGridVisibility));
         }
 
         public Visibility EmailCheckGridVisibility
@@ -85,6 +97,10 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Delegates
+
+
+
         public Action<RoutedEventHandler, Control> ConfigureInput 
         {
             get => m_ConfigureInput;
@@ -99,8 +115,6 @@ namespace PatientRep.ViewModels
         }
 
         #endregion
-
-
 
         public bool IsPasswordCorrect { get=> m_isPasswordCorrect; 
             set=> Set(ref m_isPasswordCorrect, value, nameof(IsPasswordCorrect)); }
@@ -129,7 +143,7 @@ namespace PatientRep.ViewModels
                             return error;
                         }
 
-                        if (m_email.IsMatch(Login))// Use email for sign in
+                        if (m_emailreg.IsMatch(Login))// Use email for sign in
                         {
                             m_ValidationArray[0] = true;
                         }
@@ -139,6 +153,21 @@ namespace PatientRep.ViewModels
                         }
 
                         break;
+
+                    case nameof(Email):
+
+                        if (m_emailreg.IsMatch(Email))//Email is correct
+                        {
+                            m_ValidationArray[1] = true;
+                        }
+                        else //Email is InCorrect
+                        {
+                            m_ValidationArray[1] = false;
+                        }
+
+                        break;
+
+                        
                 }
 
                 return error;
@@ -150,12 +179,26 @@ namespace PatientRep.ViewModels
 
         public ICommand OnForgetPasswordButtonPressed { get; }
 
+        #region Check Email Wimdow
+
+        public ICommand OnCheckEmailButtonPressed { get; }
+
+        public ICommand OnBackToLoginButtonPressed { get; }
+
+        #endregion
+
         #endregion
 
         #region Ctor
         public SignInWindowViewModel()
         {
             #region Init fields
+
+            #region Check Email Window
+
+            m_email = String.Empty;
+
+            #endregion
 
             #region Grid Visibility
 
@@ -177,7 +220,7 @@ namespace PatientRep.ViewModels
 
             m_Login = String.Empty;
 
-            m_email = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+            m_emailreg = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
             m_ValidationArray = new bool[2];
 
