@@ -172,7 +172,7 @@
 
         </Grid>
 
-        <Grid x:Name="SendCode">
+        <Grid x:Name="SendCode" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="58.684"/>
                 <RowDefinition Height="117"/>
@@ -187,9 +187,11 @@
                        TextWrapping="Wrap" 
                        TextAlignment="Center"
                        VerticalAlignment="Center"
-                Text=""
+                Text="{Binding Email, UpdateSourceTrigger=PropertyChanged,
+                Mode=OneWay, StringFormat=На ваш ємайл: {0} було відправлено код. Для підтвердження акаунту введдіть ваш код і натисніть перевірити.}"                       
+                      
                        />
-            <!--<Grid Grid.Row="3">
+            <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="90"/>
@@ -201,10 +203,10 @@
                 <TextBlock Grid.Column="1" Text="Код:" 
                            FontSize="30" 
                            Style="{StaticResource InpTextblock}"/>
-                
-            </Grid>-->
+                <TextBox Grid.Column="3"/>
+            </Grid>
 
-            <!--<Grid Grid.Row="5">
+            <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="200"/>
@@ -218,7 +220,7 @@
                 <Button Grid.Column="3" Style="{StaticResource Buttons2}"
                         FontSize="20" Content="Перевірити"/>
 
-            </Grid>-->
+            </Grid>
         </Grid>
         <Grid x:Name="RestorePassword">
         </Grid>
