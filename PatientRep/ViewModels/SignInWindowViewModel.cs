@@ -56,8 +56,11 @@ namespace PatientRep.ViewModels
 
         string m_Login;
 
-        Regex m_emailreg
-            ;
+        Regex m_emailreg;
+            
+        SecureString m_password_Login;
+
+        bool[] m_VisitPageArray;
 
         #endregion
 
@@ -177,13 +180,35 @@ namespace PatientRep.ViewModels
 
         #region Commands
 
+        #region Login Grid
+
         public ICommand OnForgetPasswordButtonPressed { get; }
 
-        #region Check Email Wimdow
+        public ICommand OnLoginButtonPressed { get; }
+
+        #endregion
+
+        #region Check Email Grid
 
         public ICommand OnCheckEmailButtonPressed { get; }
 
         public ICommand OnBackToLoginButtonPressed { get; }
+
+        #endregion
+
+        #region Check Code Grid
+
+        public ICommand OnCheckCodeButtonPressed { get; }
+
+        public ICommand OnBackToCheckEmailButtonPresssed { get;}
+
+        #endregion
+
+        #region Restore Password Grid
+
+        public ICommand OnResetPasswordButtonPressed { get; }
+
+        public ICommand OnBackToCheckCodeButtonPressed { get; }
 
         #endregion
 
@@ -224,18 +249,89 @@ namespace PatientRep.ViewModels
 
             m_ValidationArray = new bool[2];
 
+            m_VisitPageArray = new bool[4];
+
+            SetVisitArray(0, true);
+
             #endregion
 
             #region Init commands
 
+            #region Login Grid
+
             OnForgetPasswordButtonPressed = new LambdaCommand(
-                OnForgetPaswwordButtonPressedExecute,
+                OnForgetPasswordButtonPressedExecute,
                 CanOnForgetPaswwordButtonPressedExecute
+                );
+
+            OnLoginButtonPressed = new LambdaCommand(
+                OnLoginButonPressedExequte,
+                CanOnLoginButtonPressedExecute
                 );
 
             #endregion
 
+            #region Check Email Grid
 
+            OnCheckEmailButtonPressed = new LambdaCommand(
+                OnCheckEmailButtonPressedExecute,
+                CanOnCheckEmailButtonPressedExecute
+                );
+
+            OnBackToLoginButtonPressed = new LambdaCommand(
+                OnBackToLoginButtonPressedExecute,
+                CanOnBackToLoginButtonPressedExecute
+                );
+
+            #endregion
+
+            #region Check Code Grid
+
+            OnCheckCodeButtonPressed = new LambdaCommand(
+                OnCheckCodeButtonPressedExecute,
+                CanOnCheckCodeButtonPressedExecute
+                );
+
+            OnBackToCheckEmailButtonPresssed = new LambdaCommand(
+                OnBackToCheckEmailButtonPressedExecute,
+                CanOnBackToCheckEmailButtonPressedExecuete
+                );
+
+            #endregion
+
+            #region Restore Password Grid
+
+            OnResetPasswordButtonPressed = new LambdaCommand(
+                OnRestorePasswordButtonPressedExecute,
+                CanOnRestorePasswordButtonPressedExecute
+                );
+
+            OnBackToCheckCodeButtonPressed = new LambdaCommand
+                (
+                    OnBackToCheckPassButtonPressedExecute,
+                    CanOnBackToCheckPassButtonPressedExecute
+                );
+
+            #endregion
+
+            #endregion
+
+
+        }
+
+        private void SerVisitArraToFalse()
+        {
+            int count = m_VisitPageArray.Length;
+
+            for (int i = 0; i < count; i++)
+            {
+                m_VisitPageArray[i] = false;
+            }
+        }
+
+        private void SetVisitArray(int index, bool value)
+        {
+            m_VisitPageArray[index] = value;
         }
 
         private void ConfigureInputMethod(RoutedEventHandler arg, Control c)
@@ -263,21 +359,121 @@ namespace PatientRep.ViewModels
             }
             else
             {
+                if (m_VisitPageArray[0])
+                {
+                    m_password_Login = pb.SecurePassword;
+
+                    m_ValidationArray[1] = true;
+                }
+
                 return true;
             }
         }
 
         #endregion
 
+        #region Login Grid
+
         #region On Forget Password Button Pressed
 
         private bool CanOnForgetPaswwordButtonPressedExecute(object p) => true;
 
-        private void OnForgetPaswwordButtonPressedExecute(object p)
+        private void OnForgetPasswordButtonPressedExecute(object p)
+        {
+            LoginGridVisibility = Visibility.Hidden;
+
+            EmailCheckGridVisibility = Visibility.Visible;
+
+            SendCodeVisibility = Visibility.Hidden;
+
+            RestorePassVisibility = Visibility.Hidden;
+        }
+
+        #endregion
+
+        #region On Login Button Pressed
+
+        private bool CanOnLoginButtonPressedExecute(object p)
+        {
+            return CheckValidArray(0, 1);
+        }
+
+        private void OnLoginButonPressedExequte(object p)
+        {
+            //Login processing   
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Check Email Grid
+
+        #region On Check Email Button Pressed
+
+        private bool CanOnCheckEmailButtonPressedExecute(object p)
         { 
             
         }
 
+        private void OnCheckEmailButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        #endregion
+
+        #region On Back To Login Button Pressed 
+
+        private bool CanOnBackToLoginButtonPressedExecute(object p) => true;
+
+        private void OnBackToLoginButtonPressedExecute(object p)
+        { 
+            
+        }
+        #endregion
+
+        #endregion
+
+        #region Check Code Grid
+
+        private bool CanOnCheckCodeButtonPressedExecute(object p)
+        { 
+        
+        }
+
+        private void OnCheckCodeButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private bool CanOnBackToCheckEmailButtonPressedExecuete(object p) => true;
+
+        private void OnBackToCheckEmailButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        #endregion
+
+        #region Restore Password Grid
+
+        private bool CanOnRestorePasswordButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private void OnRestorePasswordButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private bool CanOnBackToCheckPassButtonPressedExecute(object p) => true;
+
+        private void OnBackToCheckPassButtonPressedExecute(object p)
+        { 
+            
+        }
         #endregion
 
         #endregion

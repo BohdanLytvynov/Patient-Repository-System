@@ -12,7 +12,10 @@
         <vm:SignInWindowViewModel/>
     </Window.DataContext>
     <Grid x:Name="Main">
-        <Grid x:Name="Login_grid" Visibility="Hidden">
+        <Grid x:Name="Login_grid" 
+              Visibility="{Binding LoginGridVisibility, 
+            UpdateSourceTrigger=PropertyChanged,
+            Mode=OneWay}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="255"/>
@@ -55,15 +58,6 @@
 
             <TextBlock Grid.Row="3" Grid.Column="1" Text="Пароль:" 
                        FontSize="32"/>
-
-            <!--<sc:SmartPasswordBox Grid.Row="3" Grid.Column="3" ErrorMessageForeground="OrangeRed" ErrorBorderBrush="OrangeRed"
-                             CorrectBorderBrush="Green" InputBoxFontSize="25"
-                             InitialBorderThickness="1,1,1,1" FinalBorderThickness="3"
-                             x:Name="smartPass" 
-                             IsCorrect="{Binding IsPasswordCorrect, 
-            UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"
-                             CheckInputDelegate="{Binding CheckInputDel, 
-            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
 
             <sc:SmartInputField Grid.Row="3" Grid.Column="3" ErrorFontSize="14" 
                             ErrorMessageForeground="Red" HeightOfErrorTextBlock="21" ErrorMessageTextAlignment="Right">
@@ -108,12 +102,17 @@
                     <ColumnDefinition Width="225"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Content="Увійти" FontSize="18" Style="{StaticResource Buttons3}"/>
+                <Button Grid.Column="1" Content="Увійти" FontSize="18" 
+                        Style="{StaticResource Buttons3}"
+                        Command="{Binding OnLoginButtonPressed}"/>
             </Grid>
 
         </Grid>
 
-        <Grid x:Name="EmailCheck" Visibility="Hidden">
+        <Grid x:Name="EmailCheck" 
+              Visibility="{Binding EmailCheckGridVisibility,
+            UpdateSourceTrigger=PropertyChanged,
+            Mode=OneWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="58.684"/>
                 <RowDefinition Height="117"/>
@@ -165,14 +164,18 @@
                     <ColumnDefinition Width="70"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1" Style="{StaticResource Buttons}"
-                        FontSize="20" Content="Назад"/>
+                        FontSize="20" Content="Назад"
+                        Command="{Binding OnBackToLoginButtonPressed}"/>
                 <Button Grid.Column="3" Style="{StaticResource Buttons2}"
-                        FontSize="20" Content="Перевірити"/>
+                        FontSize="20" Content="Перевірити"
+                        Command="{Binding OnCheckEmailButtonPressed}"/>
             </Grid>
 
         </Grid>
 
-        <Grid x:Name="SendCode" Visibility="Visible">
+        <Grid x:Name="SendCode" 
+              Visibility="{Binding SendCodeVisibility,
+            UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="58.684"/>
                 <RowDefinition Height="117"/>
@@ -203,7 +206,9 @@
                 <TextBlock Grid.Column="1" Text="Код:" 
                            FontSize="30" 
                            Style="{StaticResource InpTextblock}"/>
-                <TextBox Grid.Column="3"/>
+                <TextBox Grid.Column="3" 
+                         Style="{StaticResource TxtBoxInputStyle}">
+                </TextBox>
             </Grid>
 
             <Grid Grid.Row="5">
@@ -222,7 +227,144 @@
 
             </Grid>
         </Grid>
-        <Grid x:Name="RestorePassword">
+        <Grid x:Name="RestorePassword" 
+              Visibility="{Binding RestorePassVisibility,
+            UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="44*"/>
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1"
+                           Text="Пароль:"
+                           FontSize="30"
+                           Style="{StaticResource InpTextblock}"/>
+
+                <sc:SmartInputField Grid.Column="3" ErrorFontSize="14" 
+                            ErrorMessageForeground="Red" HeightOfErrorTextBlock="21" ErrorMessageTextAlignment="Right">
+                    <sc:SmartInputField.ControlElement>
+                        <PasswordBox FontSize="25">
+                            <PasswordBox.Resources>
+                                <Style TargetType="PasswordBox">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="BorderBrush" Value="Red"/>
+                                                <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }" Value="True">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="BorderBrush" Value="Green"/>
+                                                <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
+                    </sc:SmartInputField.ControlElement>
+
+                    <sc:SmartInputField.ConfigureInputDelegate>
+                        <Binding Path="ConfigureInput" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        </Binding>
+                    </sc:SmartInputField.ConfigureInputDelegate>
+
+                    <sc:SmartInputField.CheckInputDelegate>
+                        <Binding Path="CheckInputDel" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                    </sc:SmartInputField.CheckInputDelegate>
+                </sc:SmartInputField>
+
+            </Grid>
+
+            <Grid Grid.Row="3" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="1"
+                           Text="Повторіть пароль:"
+                           FontSize="30"
+                           Style="{StaticResource InpTextblock}"/>
+
+                <sc:SmartInputField Grid.Column="3" ErrorFontSize="14" 
+                            ErrorMessageForeground="Red" HeightOfErrorTextBlock="21" ErrorMessageTextAlignment="Right">
+                    <sc:SmartInputField.ControlElement>
+                        <PasswordBox FontSize="25">
+                            <PasswordBox.Resources>
+                                <Style TargetType="PasswordBox">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="BorderBrush" Value="Red"/>
+                                                <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=sc:SmartInputField}, Path=IsCorrect,
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay }" Value="True">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="BorderBrush" Value="Green"/>
+                                                <Setter Property="BorderThickness" Value="3,3,3,3"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </PasswordBox.Resources>
+                        </PasswordBox>
+                    </sc:SmartInputField.ControlElement>
+
+                    <sc:SmartInputField.ConfigureInputDelegate>
+                        <Binding Path="ConfigureInput" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        </Binding>
+                    </sc:SmartInputField.ConfigureInputDelegate>
+
+                    <sc:SmartInputField.CheckInputDelegate>
+                        <Binding Path="CheckInputDel" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                    </sc:SmartInputField.CheckInputDelegate>
+                </sc:SmartInputField>
+                
+            </Grid>
+
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1" Style="{StaticResource Buttons}"
+                        FontSize="20" Content="Назад"/>
+                <Button Grid.Column="3" Style="{StaticResource Buttons3}"
+                        FontSize="20" Content="Змінити"/>
+
+            </Grid>
+
         </Grid>
     </Grid>
 

@@ -93,7 +93,7 @@ namespace SmartControlls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SmartControlls;component/smartcodefield.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SmartControlls;V1.0.0.0;component/smartcodefield.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SmartCodeField.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

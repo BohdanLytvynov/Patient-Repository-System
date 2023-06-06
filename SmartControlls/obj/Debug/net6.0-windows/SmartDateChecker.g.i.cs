@@ -109,7 +109,7 @@ namespace SmartControlls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SmartControlls;component/smartdatechecker.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SmartControlls;V1.0.0.0;component/smartdatechecker.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SmartDateChecker.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
