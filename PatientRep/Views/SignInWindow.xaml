@@ -164,9 +164,11 @@
                     <ColumnDefinition Width="70"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1" Style="{StaticResource Buttons}"
-                        FontSize="20" Content="Назад"/>
+                        FontSize="20" Content="Назад"
+                        Command="{Binding OnBackToLoginButtonPressed}"/>
                 <Button Grid.Column="3" Style="{StaticResource Buttons2}"
-                        FontSize="20" Content="Перевірити"/>
+                        FontSize="20" Content="Перевірити"
+                        Command="{Binding OnCheckEmailButtonPressed}"/>
             </Grid>
 
         </Grid>

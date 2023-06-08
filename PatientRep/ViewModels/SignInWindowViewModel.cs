@@ -180,15 +180,35 @@ namespace PatientRep.ViewModels
 
         #region Commands
 
+        #region Login Grid
+
         public ICommand OnForgetPasswordButtonPressed { get; }
 
         public ICommand OnLoginButtonPressed { get; }
 
-        #region Check Email Wimdow
+        #endregion
+
+        #region Check Email Grid
 
         public ICommand OnCheckEmailButtonPressed { get; }
 
         public ICommand OnBackToLoginButtonPressed { get; }
+
+        #endregion
+
+        #region Check Code Grid
+
+        public ICommand OnCheckCodeButtonPressed { get; }
+
+        public ICommand OnBackToCheckEmailButtonPresssed { get;}
+
+        #endregion
+
+        #region Restore Password Grid
+
+        public ICommand OnResetPasswordButtonPressed { get; }
+
+        public ICommand OnBackToCheckCodeButtonPressed { get; }
 
         #endregion
 
@@ -237,6 +257,8 @@ namespace PatientRep.ViewModels
 
             #region Init commands
 
+            #region Login Grid
+
             OnForgetPasswordButtonPressed = new LambdaCommand(
                 OnForgetPasswordButtonPressedExecute,
                 CanOnForgetPaswwordButtonPressedExecute
@@ -246,6 +268,51 @@ namespace PatientRep.ViewModels
                 OnLoginButonPressedExequte,
                 CanOnLoginButtonPressedExecute
                 );
+
+            #endregion
+
+            #region Check Email Grid
+
+            OnCheckEmailButtonPressed = new LambdaCommand(
+                OnCheckEmailButtonPressedExecute,
+                CanOnCheckEmailButtonPressedExecute
+                );
+
+            OnBackToLoginButtonPressed = new LambdaCommand(
+                OnBackToLoginButtonPressedExecute,
+                CanOnBackToLoginButtonPressedExecute
+                );
+
+            #endregion
+
+            #region Check Code Grid
+
+            OnCheckCodeButtonPressed = new LambdaCommand(
+                OnCheckCodeButtonPressedExecute,
+                CanOnCheckCodeButtonPressedExecute
+                );
+
+            OnBackToCheckEmailButtonPresssed = new LambdaCommand(
+                OnBackToCheckEmailButtonPressedExecute,
+                CanOnBackToCheckEmailButtonPressedExecuete
+                );
+
+            #endregion
+
+            #region Restore Password Grid
+
+            OnResetPasswordButtonPressed = new LambdaCommand(
+                OnRestorePasswordButtonPressedExecute,
+                CanOnRestorePasswordButtonPressedExecute
+                );
+
+            OnBackToCheckCodeButtonPressed = new LambdaCommand
+                (
+                    OnBackToCheckPassButtonPressedExecute,
+                    CanOnBackToCheckPassButtonPressedExecute
+                );
+
+            #endregion
 
             #endregion
 
@@ -340,7 +407,74 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Check Email Grid
 
+        #region On Check Email Button Pressed
+
+        private bool CanOnCheckEmailButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private void OnCheckEmailButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        #endregion
+
+        #region On Back To Login Button Pressed 
+
+        private bool CanOnBackToLoginButtonPressedExecute(object p) => true;
+
+        private void OnBackToLoginButtonPressedExecute(object p)
+        { 
+            
+        }
+        #endregion
+
+        #endregion
+
+        #region Check Code Grid
+
+        private bool CanOnCheckCodeButtonPressedExecute(object p)
+        { 
+        
+        }
+
+        private void OnCheckCodeButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private bool CanOnBackToCheckEmailButtonPressedExecuete(object p) => true;
+
+        private void OnBackToCheckEmailButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        #endregion
+
+        #region Restore Password Grid
+
+        private bool CanOnRestorePasswordButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private void OnRestorePasswordButtonPressedExecute(object p)
+        { 
+            
+        }
+
+        private bool CanOnBackToCheckPassButtonPressedExecute(object p) => true;
+
+        private void OnBackToCheckPassButtonPressedExecute(object p)
+        { 
+            
+        }
+        #endregion
 
         #endregion
     }
