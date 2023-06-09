@@ -58,7 +58,7 @@ namespace PatientRep.ViewModels
 
         Regex m_emailreg;
             
-        SecureString m_password_Login;
+        SecureString m_password;
 
         bool[] m_VisitPageArray;
 
@@ -157,15 +157,19 @@ namespace PatientRep.ViewModels
 
                         break;
 
+                        /// m_ValidationArray[1] - PasswordBox On Login Grid
+
                     case nameof(Email):
 
                         if (m_emailreg.IsMatch(Email))//Email is correct
                         {
-                            m_ValidationArray[1] = true;
+                            m_ValidationArray[2] = true;
                         }
                         else //Email is InCorrect
                         {
-                            m_ValidationArray[1] = false;
+                            m_ValidationArray[2] = false;
+
+                            error = "Не вірний формат електронної пошти!";
                         }
 
                         break;
@@ -247,7 +251,7 @@ namespace PatientRep.ViewModels
 
             m_emailreg = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
-            m_ValidationArray = new bool[2];
+            m_ValidationArray = new bool[3];
 
             m_VisitPageArray = new bool[4];
 
@@ -319,7 +323,7 @@ namespace PatientRep.ViewModels
 
         }
 
-        private void SerVisitArraToFalse()
+        private void SerVisitArrayToFalse()
         {
             int count = m_VisitPageArray.Length;
 
@@ -354,17 +358,23 @@ namespace PatientRep.ViewModels
             if (pb.SecurePassword.Length == 0)
             {
                 er.Text = m_ErrorMsg;
-                
+
+                if (m_VisitPageArray[0])
+                {                    
+                    m_ValidationArray[1] = false;
+                }
+
                 return false;
             }
             else
             {
                 if (m_VisitPageArray[0])
                 {
-                    m_password_Login = pb.SecurePassword;
+                    m_password = pb.SecurePassword;
 
                     m_ValidationArray[1] = true;
                 }
+                
 
                 return true;
             }
@@ -395,7 +405,7 @@ namespace PatientRep.ViewModels
 
         private bool CanOnLoginButtonPressedExecute(object p)
         {
-            return CheckValidArray(0, 1);
+            return CheckValidArray(0, 2);
         }
 
         private void OnLoginButonPressedExequte(object p)
@@ -412,13 +422,13 @@ namespace PatientRep.ViewModels
         #region On Check Email Button Pressed
 
         private bool CanOnCheckEmailButtonPressedExecute(object p)
-        { 
-            
+        {
+            return CheckValidArray(2, 3);
         }
 
         private void OnCheckEmailButtonPressedExecute(object p)
         { 
-            
+            /// Send Server Email
         }
 
         #endregion
@@ -428,8 +438,16 @@ namespace PatientRep.ViewModels
         private bool CanOnBackToLoginButtonPressedExecute(object p) => true;
 
         private void OnBackToLoginButtonPressedExecute(object p)
-        { 
-            
+        {
+            LoginGridVisibility = Visibility.Visible;
+
+            EmailCheckGridVisibility = Visibility.Hidden;
+
+            SendCodeVisibility = Visibility.Hidden;
+
+            RestorePassVisibility = Visibility.Hidden;
+
+            SetVisitArray(0, true);
         }
         #endregion
 
@@ -438,8 +456,8 @@ namespace PatientRep.ViewModels
         #region Check Code Grid
 
         private bool CanOnCheckCodeButtonPressedExecute(object p)
-        { 
-        
+        {
+            return true;
         }
 
         private void OnCheckCodeButtonPressedExecute(object p)
@@ -459,8 +477,8 @@ namespace PatientRep.ViewModels
         #region Restore Password Grid
 
         private bool CanOnRestorePasswordButtonPressedExecute(object p)
-        { 
-            
+        {
+            return true;
         }
 
         private void OnRestorePasswordButtonPressedExecute(object p)

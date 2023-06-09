@@ -127,8 +127,7 @@
                        TextWrapping="Wrap" 
                        TextAlignment="Center"
                        VerticalAlignment="Center"
-                Text="Для зміни пароля введіть вашого аккаунту. 
-                       Вам буде надіслано листа з кодом для верифікації."
+                Text="Для зміни пароля введіть Електронну адрессу вашого аккаунту. Вам буде надіслано листа з кодом для верифікації."                        
                        />
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
@@ -143,7 +142,7 @@
                            FontSize="30" 
                            Style="{StaticResource InpTextblock}"/>
                 <TextBox Grid.Column="3"
-                    Style="{StaticResource TxtBoxInputStyle}">
+                    Style="{StaticResource TxtBoxInputStyle}" FontSize="25">
                     <TextBox.Text>
                         <Binding Path="Email" UpdateSourceTrigger="PropertyChanged"
                               Mode="TwoWay">

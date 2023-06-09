@@ -77,7 +77,7 @@ namespace SmartControlls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SmartControlls;V1.0.0.0;component/smartinputfield.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SmartControlls;component/smartinputfield.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SmartInputField.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -35,11 +35,12 @@ namespace PatientRep
             InitializeComponent();
         }
 
+       
 
 
         //private void M_viewModel_OnIntegratedDataUpdated(List<List<string>> obj)//djctors, reasons, investigations
         //{
-           
+
         //}
     }
 }
