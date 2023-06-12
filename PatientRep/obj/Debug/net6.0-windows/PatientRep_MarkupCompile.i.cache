@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\
 PatientRep
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\App.xaml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\App.xaml
 4-1994236765
 4-642022768
 16-115623643
-215-155468267
+2201486868244
 Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;Views\SignInWindow.xaml;
 
 True
