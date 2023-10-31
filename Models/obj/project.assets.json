@@ -46,19 +46,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Doctor14\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
+      "projectUniqueName": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
-      "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\Models\\obj\\",
+      "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\Models\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -72,11 +77,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
             }
           }
         }

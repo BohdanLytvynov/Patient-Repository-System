@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DLHgZvCsRs6Ux65ZwODdC24ptVy6yhaKEMIPp4/NG3AUI1R+ygDtaao/5bFSTNP94g8SXiV4zmV3mxOY9XrDZQ==",
+  "dgSpecHash": "iK/JOLGFZB8ZNytolTufAmjdHoqtNtucLsT7E+VwCt4RDTQNBgtDGu284o/iLGKb6FVAIvsLwdacf36hpiEfWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj",
+  "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Doctor14\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
