@@ -1,0 +1,67 @@
+﻿<Window x:Class="PatientRep.Views.ViberParserConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatientRep.Views"
+        mc:Ignorable="d"
+        Title="Viber Parser Config" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="172*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Шлях до збережених фото вайбер клієнтом:" Grid.Row="1"
+                   Style="{DynamicResource InpTextblock}" Margin="20,0,0,0"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="3" Style="{DynamicResource Buttons2}"
+                    Content="Відкрити" FontSize="20"/>
+            <TextBlock Grid.Column="1" Margin="4"/>
+        </Grid>
+
+        <TextBlock Text="Шлях до непрочитаних фото нейромережею:" Grid.Row="4"
+                   Style="{DynamicResource InpTextblock}" Margin="20,0,0,0"/>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="3" Style="{DynamicResource Buttons2}"
+                    Content="Відкрити" FontSize="20"/>
+            <TextBlock Grid.Column="1" Margin="4"/>
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Style="{DynamicResource Buttons2}"
+                    Content="Ок" FontSize="20"/>
+
+            <Button Grid.Column="3" Style="{DynamicResource Buttons}"
+                    Content="Відміна" FontSize="20"/>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj",
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj",
       "projectName": "DataValidation",
-      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj",
       "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\obj\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",

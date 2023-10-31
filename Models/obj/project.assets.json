@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
+      "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\Doctor14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\Models\\obj\\",
+      "outputPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Doctor14\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -72,11 +72,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
             },
-            "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
-              "projectPath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
+            "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj": {
+              "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\ViewModelBaseLib\\ViewModelBaseLib.csproj"
             }
           }
         }

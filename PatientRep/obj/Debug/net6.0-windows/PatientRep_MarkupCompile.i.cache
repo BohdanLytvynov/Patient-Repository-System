@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\
 PatientRep
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\PatientRep\App.xaml
-3-1583128474
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\App.xaml
+42069644763
 4-642022768
-141842181153
-220-964001823
-Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;
+16943130387
+220-365100381
+Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;Views\ViberParserConfig.xaml;
 
-True
+False
 

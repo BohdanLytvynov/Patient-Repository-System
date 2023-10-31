@@ -32,3 +32,20 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\NotesExporterLib\obj\Debug\
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\refint\NotesExporterLib.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\ref\NotesExporterLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\NotesExporterLib.deps.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\NotesExporterLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\NotesExporterLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\refint\NotesExporterLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\NotesExporterLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\NotesExporterLib\obj\Debug\net6.0\ref\NotesExporterLib.dll

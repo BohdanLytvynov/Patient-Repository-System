@@ -32,6 +32,10 @@ namespace Models.Configuration
 
         public string HistoryNotesReportOutput { get; set; }
 
+        public string PathToViberPhoto { get; set; }
+
+        public string PathToFailToReadPhotos { get; set; }
+
         #endregion
 
         #region Ctor
@@ -46,6 +50,10 @@ namespace Models.Configuration
             NotesReportOutput = String.Empty;
 
             HistoryNotesReportOutput = String.Empty;
+
+            PathToFailToReadPhotos = String.Empty;
+
+            PathToViberPhoto = String.Empty;
         }
         #endregion
 

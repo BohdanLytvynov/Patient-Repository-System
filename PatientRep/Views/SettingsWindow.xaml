@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="102.028"/>
                     <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="133.982"/>
+                    <ColumnDefinition Width="145"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1" Content="Лікарі" Style="{DynamicResource Buttons2}"
@@ -54,6 +54,11 @@
                 <Button Grid.Column="7" Content="Експорт" Style="{DynamicResource Buttons2}"
                         FontSize="20"
                         Command="{Binding OnEnableExportSettingsPressed}"/>
+
+                <Button Grid.Column="9" Content="Viber - Парсер"
+                        FontSize="20"
+                        Style="{DynamicResource Buttons2}"
+                    />
             </Grid>
 
             <Grid Grid.Row="2" x:Name="CaseExport" 

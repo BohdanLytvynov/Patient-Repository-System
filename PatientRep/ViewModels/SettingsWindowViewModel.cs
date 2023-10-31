@@ -31,7 +31,7 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<Reason> m_Reasons;
 
-        byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings
+        byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings 5 - Case Viber Parser
 
         string m_ExportNotesPath;
 

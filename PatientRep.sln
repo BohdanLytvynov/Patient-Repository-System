@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdditionalControllersLib", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalizationSystemLib", "SignalizationSystemLib\SignalizationSystemLib.csproj", "{D6B53E7C-55F2-4940-B615-C5425E621B3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemManagerLib", "ItemManagerLib\ItemManagerLib.csproj", "{9971908C-7933-4897-8C8B-E58464BB7951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemManagerLib", "ItemManagerLib\ItemManagerLib.csproj", "{9971908C-7933-4897-8C8B-E58464BB7951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OCR_Core", "OCR_Core\OCR_Core.csproj", "{77A0BF7B-76AC-4ED4-85AD-2C54819E33F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{9971908C-7933-4897-8C8B-E58464BB7951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9971908C-7933-4897-8C8B-E58464BB7951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9971908C-7933-4897-8C8B-E58464BB7951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A0BF7B-76AC-4ED4-85AD-2C54819E33F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A0BF7B-76AC-4ED4-85AD-2C54819E33F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A0BF7B-76AC-4ED4-85AD-2C54819E33F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A0BF7B-76AC-4ED4-85AD-2C54819E33F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

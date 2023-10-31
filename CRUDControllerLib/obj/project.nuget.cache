@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fTS5be5HEDpOYPbJmiSwThX30fvBEJmJik9skhkPC2/82XxMeyyxfbhDPREpQDFRFXkd5wabS26/kMjqqO4Kow==",
+  "dgSpecHash": "V7rxK5ebLuzJOcP0fqH6/U7LH9IU9heluaoDPJVUZcqt9gtaEjtEYb3BmxO+nmlZWemI+IfdHSEoH5MS/Bj90g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\Розробка ПО\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
+  "projectFilePath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\CRUDControllerLib\\CRUDControllerLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

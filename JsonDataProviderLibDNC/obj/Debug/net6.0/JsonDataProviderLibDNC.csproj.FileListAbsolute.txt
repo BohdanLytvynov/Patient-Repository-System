@@ -133,3 +133,18 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\JsonDataProviderLibDNC\obj\
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.deps.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\bin\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\refint\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\JsonDataProviderLibDNC\obj\Debug\net6.0\ref\JsonDataProviderLibDNC.dll
