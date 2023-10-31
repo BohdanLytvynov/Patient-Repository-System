@@ -572,3 +572,5 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Pati
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.g.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.baml

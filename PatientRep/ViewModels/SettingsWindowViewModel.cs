@@ -15,11 +15,18 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using ViewModelBaseLib.VM;
 using System.Linq.Expressions;
+using PatientRep.Views;
 
 namespace PatientRep.ViewModels
 {
     public class SettingsWindowViewModel : ViewModelBaseClass
     {
+        #region Additional Windows
+
+        ViberParserConfig m_ViberParserConfigWindow;
+
+        #endregion
+
         #region Fields
         Window m_w;
 
@@ -31,7 +38,7 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<Reason> m_Reasons;
 
-        byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings 5 - Case Viber Parser
+        byte m_TabItemIndex; // 1 - CaseDoctors 2 - Case Reasons 3 - Case Investigations 4 - Case Export Settings 5 - Case Viber Parser(Window Opens)
 
         string m_ExportNotesPath;
 
@@ -172,6 +179,8 @@ namespace PatientRep.ViewModels
 
         public ICommand OnSaveButtonPressed { get; }
 
+        public ICommand OnViberParserButtonPressed { get; }
+
         #region Controll buttons
 
         public ICommand OnAddButtonPressed { get; }
@@ -293,6 +302,13 @@ namespace PatientRep.ViewModels
                 (
                     OnSaveButtonPressedExecute,
                     CanOnSaveButtonPressedExecute
+                );
+
+            OnViberParserButtonPressed = new LambdaCommand
+                (
+                    OnViberParserButtonPressedExecute,
+                    CanOnViberParserButtonPressedExecute
+
                 );
 
             #endregion
@@ -435,8 +451,8 @@ namespace PatientRep.ViewModels
             {
                 ExportNotesPath = d.SelectedPath;
             }
-
             
+            d.Dispose();            
         }
 
         #endregion
@@ -456,6 +472,8 @@ namespace PatientRep.ViewModels
             {
                 HistoryNotesReportExportPath = d.SelectedPath;
             }
+
+            d.Dispose();
         }
 
         #endregion
@@ -646,6 +664,21 @@ namespace PatientRep.ViewModels
         }
 
         #endregion
+
+        #endregion
+
+        #region On Viber Parser Config Button Pressed
+
+        private bool CanOnViberParserButtonPressedExecute(object p) => true;
+
+        private void OnViberParserButtonPressedExecute(object p)
+        {
+            m_ViberParserConfigWindow = new ViberParserConfig(m_currentConfig);
+
+            m_ViberParserConfigWindow.Topmost = true;
+            
+            m_ViberParserConfigWindow.ShowDialog();
+        }
 
         #endregion
 

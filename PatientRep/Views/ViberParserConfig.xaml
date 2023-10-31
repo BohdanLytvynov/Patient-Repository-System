@@ -29,8 +29,11 @@
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="3" Style="{DynamicResource Buttons2}"
-                    Content="Відкрити" FontSize="20"/>
-            <TextBlock Grid.Column="1" Margin="4"/>
+                    Content="Відкрити" FontSize="20"
+                    Command="{Binding OnOpen1ButtonPressed}"/>
+            <TextBlock Grid.Column="1" Margin="4" 
+                       Text="{Binding PathToViberPhotos, UpdateSourceTrigger=PropertyChanged}" 
+                       Style="{DynamicResource InpTextblock}"/>
         </Grid>
 
         <TextBlock Text="Шлях до непрочитаних фото нейромережею:" Grid.Row="4"
@@ -44,8 +47,10 @@
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="3" Style="{DynamicResource Buttons2}"
-                    Content="Відкрити" FontSize="20"/>
-            <TextBlock Grid.Column="1" Margin="4"/>
+                    Content="Відкрити" FontSize="20"
+                    Command="{Binding OnOpen2ButtonPressed}"/>
+            <TextBlock Grid.Column="1" Margin="4" Style="{DynamicResource InpTextblock}"
+                       Text="{Binding PathToFailToRead,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
         <Grid Grid.Row="7">
@@ -57,10 +62,12 @@
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1" Style="{DynamicResource Buttons2}"
-                    Content="Ок" FontSize="20"/>
+                    Content="Ок" FontSize="20" 
+                    Command="{Binding OnOkButtonPressed}"/>
 
             <Button Grid.Column="3" Style="{DynamicResource Buttons}"
-                    Content="Відміна" FontSize="20"/>
+                    Content="Відміна" FontSize="20" 
+                    Command="{Binding OnCancelButtonPresed}"/>
         </Grid>
 
     </Grid>

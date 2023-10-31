@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.Configuration;
+using PatientRep.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +20,14 @@ namespace PatientRep.Views
     /// Interaction logic for ViberParserConfig.xaml
     /// </summary>
     public partial class ViberParserConfig : Window
-    {
-        public ViberParserConfig()
+    {       
+        public ViberParserConfig(ConfigStorage config)
         {
             InitializeComponent();
-        }
+
+            var m_vm = new ViberParserConfigViewModel(config, this);
+
+            this.DataContext = m_vm;
+        }        
     }
 }
