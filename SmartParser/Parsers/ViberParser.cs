@@ -1,4 +1,5 @@
 ﻿using ControllerBaseLib;
+using IronOcr;
 using SmartParser.Dependencies.Interfaces;
 
 namespace SmartParser.Parsers
@@ -16,19 +17,39 @@ namespace SmartParser.Parsers
 
         public string FailedToReadPaths { get; }
 
+        public bool Fail { get; }
+
         #endregion
 
         #region Ctor
 
         public ViberParserResult(IEnumerable<string> successfullyRead,
-            string failedToRead)
+            string failedToRead,
+            bool fail)
         {
             SuccessfullyRead = successfullyRead;
 
             FailedToReadPaths = failedToRead;
+            Fail = fail;
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            var str = String.Empty;
+
+            str += $"Fail: {Fail}\n";
+
+            foreach (var item in SuccessfullyRead)
+            {
+                str += $"{item}\n";
+            }
+
+            str += $"FailPath: {FailedToReadPaths}\n";
+
+            return str;
+        }
     }
 
     public class ViberParser : ControllerBaseClass<ViberParserOperations>,
@@ -36,156 +57,105 @@ namespace SmartParser.Parsers
     {
         #region Fields
 
-        private int m_trys;
+        private OCR m_OCR;
 
-        private Dictionary<string, OCR> m_OCRs;
-
-        private Dictionary<string, IOCRResultParser<string[]>> m_OCRResultParsers;
+        private IOCRResultParser<string[]> m_OCRResultParser;
 
         private CancellationTokenSource m_cts;
 
         #endregion
 
         #region Indexer
-
-        public OCR this[string key]
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(key))
-                    throw new ArgumentNullException("key");
-
-                if (!m_OCRs.ContainsKey(key))
-                    throw new Exception("There is no such key in OCRs Dictionary!!!");
-
-                return m_OCRs[key];
-            }
-        }
-
+       
         #endregion
 
         #region Ctor
 
-        public ViberParser(IEnumerable<KeyValuePair<string,
-            IOCRResultParser<string[]>>> OCRresParsers,
-            IEnumerable<KeyValuePair<string, OCR>> OCRs,
-            
-            int trys)
-        {            
-            if (OCRresParsers == null)
+        public ViberParser(
+            IOCRResultParser<string[]> OCRresParser,
+            OCR OCR )
+        {
+            if (OCRresParser == null)
                 throw new ArgumentNullException("OCRresParser");
 
-            if (OCRs == null)
-                throw new ArgumentNullException("OCRs collection");
+            if (OCR == null)
+                throw new ArgumentNullException("OCR");
 
-            if (OCRs.Count() == 0)
-                throw new Exception("There are no OCRs in OCRS collection!!!");
+            m_OCRResultParser = OCRresParser;
 
-            if (OCRresParsers.Count() == 0)
-                throw new Exception("There are no OCRresParsers in OCRresParsers collection!!!");
+            m_OCR = OCR;
 
-            m_OCRs = new Dictionary<string, OCR>();
-
-            m_OCRResultParsers = new Dictionary<string, IOCRResultParser<string[]>>();
-
-            foreach (var item in OCRs)
-            {
-                m_OCRs.Add(item.Key, item.Value);
-            }
-
-            foreach (var item in OCRresParsers)
-            {
-                m_OCRResultParsers.Add(item.Key, item.Value);
-            }
-
-            //m_cts = cts;
-
-            m_trys = trys;
+            //m_cts = cts;            
         }
 
         #endregion
 
         #region Methods
 
-        public void AddOCR(string key, OCR ocr)
+        public void Parse(string img)
         {
-            if (ocr == null)
-                throw new ArgumentNullException("ocr");
+            if (String.IsNullOrEmpty(img))
+                throw new ArgumentNullException("img");
 
-            if (m_OCRs.ContainsKey(key))
-                throw new Exception("OCRs Dicionary has already had this key!");
-
-            m_OCRs.Add(key, ocr);
-        }
-
-        public IEnumerable<string> GetAllOCRsKeys()
-        {
-            return m_OCRs.Keys;
-        }
-
-        public void Parse(string img, string[] ParsersToUse, string[] OCRsTouse)
-        {
-            if (String.IsNullOrEmpty(img) || OCRsTouse == null || ParsersToUse == null)
-                throw new ArgumentNullException("images or OCRsTouse or ParsersToUse");
-
-
-             ExecuteFunctionAndGetResultThroughEvent(
-                ViberParserOperations.Parse,
-                (state) =>
-                {
-                    List<string> SuccessfullyRead =
-                    new List<string>();
+            ExecuteFunctionAndGetResultThroughEvent(
+               ViberParserOperations.Parse,
+               (state) =>
+               {
+                   List<string> SuccessfullyRead =
+                   new List<string>();
 
                    string FailToReadPaths = String.Empty;
 
-                    int OCRTouseIndex = 0;
+                   m_OCRResultParser.CodeFound = false;
 
-                    int ParsersToUseIndex = 0;
+                   m_OCRResultParser.SNLFound = false;
 
-                    OCRTouseIndex = 0;
+                   var r = m_OCR.SimpleConvertToText(img,
+                       (input) => { input.DeNoise().Sharpen(); });
 
-                    string[] r = null;
+                   var MainResult = m_OCRResultParser.Parse(r);
 
-                    int curtry = 0;
+                   if (!AllParsedSuccesfully(MainResult))//Failed parse some elements
+                   {
+                       Image image = null;
 
-                    do
-                    {
-                        var ocrResults = m_OCRs[OCRsTouse[OCRTouseIndex]].ConvertPhotoToText(img);
-                        //Failed to read any text from image 
-                        if (ocrResults.Count == 0)
-                        {
-                            OCRTouseIndex++;
-                            continue;
-                        }
+                       var Crops = m_OCR.GetCropRectanglesWithText(img, out image);
 
-                        r = m_OCRResultParsers[ParsersToUse[ParsersToUseIndex]]
-                        .Parse(ocrResults);
-                        //Failed To parse OCR Result
-                        if (r.Length == 0)
-                        {
-                            ParsersToUseIndex++;
-                            continue;
-                        }
+                       foreach (var item in Crops)
+                       {
+                           var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, item,
+                               (inp) => inp.DeNoise().Sharpen());
+                           
+                           var tempRes = m_OCRResultParser.Parse(OcrRes);
+                           //Modify result 1
+                           if(!String.IsNullOrEmpty(OcrRes.Text))
+                           for (int i = 0; i < MainResult.Length; i++)
+                           {
+                               if (String.IsNullOrEmpty(MainResult[i]))
+                                   MainResult[i] = tempRes[i];
+                           }
 
-                        m_trys++;
+                           if (m_OCRResultParser.CodeFound && m_OCRResultParser.SNLFound)
+                               break;
+                       }
 
-                    } while (!AllParsedSuccesfully(r) && curtry != m_trys);
+                       if (image != null)
+                           image.Dispose();
+                   }
 
-                    if (!AllParsedSuccesfully(r))
-                    {
-                        FailToReadPaths = img;
-                    }
-                    else
-                    {
-                        foreach (var item in r)
-                        {
-                            SuccessfullyRead.Add(item);
-                        }
-                    }
+                   if (!AllParsedSuccesfully(MainResult))
+                   {
+                       FailToReadPaths = img;
+                   }
 
-                    return new ViberParserResult(SuccessfullyRead, FailToReadPaths);
-                }
-                );
+                   SuccessfullyRead.AddRange(MainResult);
+
+                   
+
+                   return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
+                       String.IsNullOrEmpty(FailToReadPaths) ? false : true);
+               }
+               );
         }
 
         private bool AllParsedSuccesfully(string[] parseResult)
@@ -196,18 +166,7 @@ namespace SmartParser.Parsers
 
             return true;
         }
-
-        public void RemoveOCR(string key)
-        {
-            if (String.IsNullOrEmpty(key))
-                throw new ArgumentNullException("key");
-
-            if (!m_OCRs.ContainsKey(key))
-                throw new Exception("There is no such key in the OCRs Dictionary!");
-
-            m_OCRs.Remove(key);
-        }
-
+       
         #endregion
 
     }

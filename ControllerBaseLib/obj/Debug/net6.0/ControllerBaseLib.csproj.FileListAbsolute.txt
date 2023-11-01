@@ -106,3 +106,15 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ControllerBaseLib\obj\Debug
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.deps.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\bin\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\refint\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ControllerBaseLib\obj\Debug\net6.0\ref\ControllerBaseLib.dll

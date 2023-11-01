@@ -51,6 +51,7 @@ using SmartParser;
 using SmartParser.Dependencies;
 using System.Text.RegularExpressions;
 using IronOcr;
+using System.Diagnostics;
 
 namespace PatientRep.ViewModels
 {
@@ -807,7 +808,7 @@ namespace PatientRep.ViewModels
 
             var configuration1 = new TesseractConfiguration()
             {
-                ReadBarCodes = false,
+                ReadBarCodes = true,
                 BlackListCharacters = "`ë|^",
                 RenderSearchablePdfsAndHocr = true,
                 PageSegmentationMode = TesseractPageSegmentationMode.AutoOsd,
@@ -817,7 +818,7 @@ namespace PatientRep.ViewModels
 
             #region Init Fields
 
-            m_codeReg = new Regex(@"\d{4}-\d{4}-\d{4}-\d{4}");
+            m_codeReg = new Regex(@"^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}");
 
             m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}");
 
@@ -826,17 +827,8 @@ namespace PatientRep.ViewModels
             m_Surename_Name_Lastname =
                 new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
 
-            m_ViberParser = new ViberParser(
-                new List<KeyValuePair<string, IOCRResultParser<string[]>>>()
-                { 
-                    new KeyValuePair<string, IOCRResultParser<string[]>>("Main",
-                new OCRResultParser(m_codeReg, m_Name_or_Surename_or_Lastname,
-                m_Surename_Name, m_Surename_Name_Lastname)) },
-                new List<KeyValuePair<string, OCR>>()
-                {
-                    new KeyValuePair<string, OCR>("Main",
-                new OCR(configuration1))
-                }, 3
+            m_ViberParser = new ViberParser(                                    
+                new OCRResultParser(m_codeReg, m_Surename_Name_Lastname) ,new OCR(configuration1)                
                 );
 
             m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
@@ -1116,7 +1108,32 @@ namespace PatientRep.ViewModels
 
         private void M_ViberParser_OnOperationFinished(object s, OperationFinishedEventArgs<ViberParserOperations> e)
         {
-            var t = e.GetType();
+            var r = (e.Result as ViberParserResult);
+
+            Debug.WriteLine(r.ToString());
+
+            if (r.Fail)
+            {
+                var fs = File.Open(r.FailedToReadPaths, FileMode.Open);
+
+                var last = r.FailedToReadPaths.Split('\\');
+
+                var ss = File.Create(m_Configuration.PathToFailToReadPhotos +
+                    Path.DirectorySeparatorChar + last[last.Length - 1]);
+
+                fs.CopyTo(ss);
+
+                fs.Close();
+
+                fs.Dispose();
+
+                ss.Close();
+
+                ss.Dispose();
+
+                File.Delete(r.FailedToReadPaths);
+            }
+            
         }
 
         private async Task M_Configuration_OnConfigChanged()
@@ -1153,7 +1170,7 @@ namespace PatientRep.ViewModels
 
                 foreach (var item in images)
                 {
-                    m_ViberParser.Parse(item, new string[] { "Main" }, new string[] { "Main" });
+                    m_ViberParser.Parse(item);
                 }
 
             

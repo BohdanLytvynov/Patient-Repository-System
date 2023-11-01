@@ -19,3 +19,24 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\OcrData\Ukrainian.ocrdata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCv.deployment.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCvInterop.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x86\native\OpenCv.deployment.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x86\native\OpenCvInterop.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\Models\DB_TD500_resnet50.onnx
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.deps.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\ControllerBaseLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\ControllerBaseLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll

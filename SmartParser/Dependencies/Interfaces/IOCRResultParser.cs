@@ -9,8 +9,14 @@ namespace SmartParser.Dependencies.Interfaces
 {
     public interface IOCRResultParser<Tout>
     {
-        Task<Tout> ParseAsync(IEnumerable<OcrResult> res);
+        #region Properties
 
-        Tout Parse(IEnumerable<OcrResult> res);
+        bool SNLFound { get; set; }
+
+        bool CodeFound { get; set; }
+
+        #endregion
+
+        Tout Parse(OcrResult res);        
     }
 }
