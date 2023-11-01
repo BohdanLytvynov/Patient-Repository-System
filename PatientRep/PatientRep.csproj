@@ -47,6 +47,7 @@
     <ProjectReference Include="..\ReportBuilderLib\ReportBuilderLib.csproj" />
     <ProjectReference Include="..\SignalizationSystemLib\SignalizationSystemLib.csproj" />
     <ProjectReference Include="..\SmartControlls\SmartControlls.csproj" />
+    <ProjectReference Include="..\SmartParser\SmartParser.csproj" />
     <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj" />
   </ItemGroup>
 

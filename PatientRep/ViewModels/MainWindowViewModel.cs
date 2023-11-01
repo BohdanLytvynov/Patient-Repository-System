@@ -45,11 +45,35 @@ using System.Windows.Forms;
 using Models.PatientModel.Comparators;
 using AdditionalControllersLib;
 using SignalizationSystemLib;
+using SmartParser.Parsers;
+using SmartParser.Dependencies.Interfaces;
+using SmartParser;
+using SmartParser.Dependencies;
+using System.Text.RegularExpressions;
+using IronOcr;
 
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
     {
+        #region Tasks
+
+        Task m_CheckViber;
+
+        #endregion
+
+        #region Regular Expretions
+
+        readonly Regex m_codeReg;
+
+        readonly Regex m_Name_or_Surename_or_Lastname;
+
+        readonly Regex m_Surename_Name;
+
+        readonly Regex m_Surename_Name_Lastname;
+
+        #endregion
+
         #region Events
 
         public event Func<Task> OnMainWindowInitialized;
@@ -67,7 +91,13 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Fields
-        
+
+        #region Viber Parser
+
+        ViberParser m_ViberParser;
+
+        #endregion
+
         #region Additional Controllers 
 
         ReasonsManager m_ReasonManager;
@@ -773,7 +803,43 @@ namespace PatientRep.ViewModels
 
         public MainWindowViewModel()
         {
+            #region OCR Configs
+
+            var configuration1 = new TesseractConfiguration()
+            {
+                ReadBarCodes = true,
+                BlackListCharacters = "`ë|^",
+                RenderSearchablePdfsAndHocr = true,
+                PageSegmentationMode = TesseractPageSegmentationMode.AutoOsd,
+            };
+
+            #endregion
+
             #region Init Fields
+
+            m_codeReg = new Regex(@"\d{4}-\d{4}-\d{4}-\d{4}");
+
+            m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}");
+
+            m_Surename_Name = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+
+            m_Surename_Name_Lastname =
+                new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+
+            m_ViberParser = new ViberParser(
+                new List<KeyValuePair<string, IOCRResultParser<string[]>>>()
+                { 
+                    new KeyValuePair<string, IOCRResultParser<string[]>>("Main",
+                new OCRResultParser(m_codeReg, m_Name_or_Surename_or_Lastname,
+                m_Surename_Name, m_Surename_Name_Lastname)) },
+                new List<KeyValuePair<string, OCR>>()
+                {
+                    new KeyValuePair<string, OCR>("Main",
+                new OCR(configuration1))
+                }, 3
+                );
+
+            m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
 
             m_msg = String.Empty;
 
@@ -1047,7 +1113,12 @@ namespace PatientRep.ViewModels
 
             OnMainWindowInitialized.Invoke();
         }
-                
+
+        private void M_ViberParser_OnOperationFinished(object s, OperationFinishedEventArgs<ViberParserOperations> e)
+        {
+            var t = e.GetType();
+        }
+
         private async Task M_Configuration_OnConfigChanged()
         {            
             await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
@@ -1069,6 +1140,23 @@ namespace PatientRep.ViewModels
             await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
 
             await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
+
+            
+                if (!Directory.Exists(m_Configuration.PathToViberPhoto))
+                {
+                    //Actions when directory not found
+
+                    return;
+                }
+
+                string[] images = Directory.GetFiles(m_Configuration.PathToViberPhoto);
+
+                foreach (var item in images)
+                {
+                    m_ViberParser.Parse(item, new string[] { "Main" }, new string[] { "Main" });
+                }
+
+            
         }
 
         #region Other Additional Methods

@@ -574,3 +574,115 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Pati
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.g.cs
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.baml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.baml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\OpenCv.deployment.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\OpenCvInterop.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\OpenCv.deployment.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\OpenCvInterop.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\OcrData\Ukrainian.ocrdata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Models\DB_TD500_resnet50.onnx
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\BitMiracle.LibTiff.NET.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronOcr.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Abstractions.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Logger.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Shared.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Drawing.Common.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SixLabors.ImageSharp.Drawing.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\IronOcrInterop.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\Tesseract.Native.deployment.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.base.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.best.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.fast.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.user-patterns
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.user-words
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\liblept-5.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\libtesseract-5.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\osd.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\pdf.ttf
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\pdf.ttx
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\IronOcrInterop.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\Tesseract.Native.deployment.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.base.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.best.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.fast.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.user-patterns
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.user-words
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\liblept-5.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\libtesseract-5.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\osd.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\pdf.ttf
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\pdf.ttx
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SmartParser.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SmartParser.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\OcrData\Ukrainian.ocrdata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\OpenCv.deployment.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\OpenCvInterop.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\OpenCv.deployment.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\OpenCvInterop.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Models\DB_TD500_resnet50.onnx
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\BitMiracle.LibTiff.NET.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronOcr.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Abstractions.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Logger.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Shared.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\IronSoftware.Drawing.Common.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SixLabors.ImageSharp.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SixLabors.ImageSharp.Drawing.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\IronOcrInterop.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\Tesseract.Native.deployment.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.base.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.best.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.fast.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.user-patterns
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\eng.user-words
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\liblept-5.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\libtesseract-5.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\osd.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\pdf.ttf
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\pdf.ttx
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\IronOcrInterop.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\Tesseract.Native.deployment.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.base.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.best.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.fast.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.user-patterns
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.user-words
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\liblept-5.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\libtesseract-5.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\osd.traineddata
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\pdf.ttf
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\pdf.ttx
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SmartParser.pdb
