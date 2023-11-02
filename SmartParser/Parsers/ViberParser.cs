@@ -1,6 +1,7 @@
 ﻿using ControllerBaseLib;
 using IronOcr;
 using SmartParser.Dependencies.Interfaces;
+using System.Drawing.Imaging;
 
 namespace SmartParser.Parsers
 {
@@ -65,15 +66,17 @@ namespace SmartParser.Parsers
 
         #endregion
 
-        #region Indexer
-       
+        #region Properties
+
+        public string PathToDebuggingFolder { get; set; }
+
         #endregion
 
         #region Ctor
 
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
-            OCR OCR )
+            OCR OCR)
         {
             if (OCRresParser == null)
                 throw new ArgumentNullException("OCRresParser");
@@ -106,14 +109,19 @@ namespace SmartParser.Parsers
 
                    string FailToReadPaths = String.Empty;
 
-                   m_OCRResultParser.CodeFound = false;
-
-                   m_OCRResultParser.SNLFound = false;
+                   m_OCRResultParser.ClearSearchFlags();                   
 
                    var r = m_OCR.SimpleConvertToText(img,
-                       (input) => { input.DeNoise().Sharpen(); });
+                       (input) =>
+                       {
+                           //input.DeNoise().Sharpen();
 
-                   var MainResult = m_OCRResultParser.Parse(r);
+                       });
+
+                   string[] MainResult = new string[4];
+
+                   if (r!= null)
+                     MainResult = m_OCRResultParser.Parse(r);
 
                    if (!AllParsedSuccesfully(MainResult))//Failed parse some elements
                    {
@@ -121,26 +129,58 @@ namespace SmartParser.Parsers
 
                        var Crops = m_OCR.GetCropRectanglesWithText(img, out image);
 
-                       foreach (var item in Crops)
+                       int j = 0;
+
+                       foreach (var crop in Crops)
                        {
-                           var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, item,
-                               (inp) => inp.DeNoise().Sharpen());
-                           
+                           var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
+                               (inp) =>
+                               {
+                                   //inp.DeNoise().Sharpen();
+
+                                   if (!String.IsNullOrWhiteSpace(PathToDebuggingFolder))
+                                   {
+                                       var paths = img.Split('\\');
+
+                                       string debugFolder = PathToDebuggingFolder + Path.DirectorySeparatorChar +
+                                           paths[paths.Length - 1]; 
+
+                                       if (!Directory.Exists(debugFolder))
+                                       {                                                                                     
+                                           Directory.CreateDirectory(debugFolder);
+                                       }
+
+                                       inp.StampCropRectangleAndSaveAs(
+                                           crop, IronSoftware.Drawing.Color.Red,
+                                           debugFolder + Path.DirectorySeparatorChar+ $"{j + 1}",
+                                           IronSoftware.Drawing.AnyBitmap.ImageFormat.Png
+                                          );
+
+                                       j++;
+                                   }
+
+                               });
+
                            var tempRes = m_OCRResultParser.Parse(OcrRes);
                            //Modify result 1
-                           if(!String.IsNullOrEmpty(OcrRes.Text))
-                           for (int i = 0; i < MainResult.Length; i++)
-                           {
-                               if (String.IsNullOrEmpty(MainResult[i]))
-                                   MainResult[i] = tempRes[i];
-                           }
+                           if (!String.IsNullOrEmpty(OcrRes.Text))
+                               for (int i = 0; i < MainResult.Length; i++)
+                               {
+                                   if (String.IsNullOrEmpty(MainResult[i]))
+                                       MainResult[i] = tempRes[i];
+                               }
 
-                           if (m_OCRResultParser.CodeFound && m_OCRResultParser.SNLFound)
+                           if (m_OCRResultParser.AllFound())
                                break;
                        }
 
                        if (image != null)
                            image.Dispose();
+                   }
+                   //Try to use segmentation reading
+                   if (!AllParsedSuccesfully(MainResult))
+                   {
+
                    }
 
                    if (!AllParsedSuccesfully(MainResult))
@@ -150,7 +190,7 @@ namespace SmartParser.Parsers
 
                    SuccessfullyRead.AddRange(MainResult);
 
-                   
+
 
                    return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
                        String.IsNullOrEmpty(FailToReadPaths) ? false : true);
@@ -160,13 +200,16 @@ namespace SmartParser.Parsers
 
         private bool AllParsedSuccesfully(string[] parseResult)
         {
+            if (parseResult == null)
+                return false;
+
             foreach (var item in parseResult)
                 if (String.IsNullOrEmpty(item))
                     return false;
 
             return true;
         }
-       
+
         #endregion
 
     }

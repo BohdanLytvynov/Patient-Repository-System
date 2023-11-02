@@ -16,8 +16,12 @@ namespace SmartParser.Dependencies
         #region Fields
 
         readonly Regex m_code;
-    
+
         readonly Regex m_Surename_Name_Lastname;
+
+        readonly Regex m_Surename_Name;
+
+        readonly Regex m_1Word;
 
         #endregion
 
@@ -25,25 +29,38 @@ namespace SmartParser.Dependencies
 
         bool m_CodeFound = false;
 
-        bool m_SNLFound = false;
+        bool m_surenameFound = false;
+
+        bool m_nameFound = false;
+
+        bool m_lastnameFound = false;
 
         #endregion
 
         #region Properties
 
-        public bool SNLFound { get => m_SNLFound; set => m_SNLFound = value; }
+        public bool CodeFound { get => m_CodeFound; }
 
-        public bool CodeFound { get => m_CodeFound; set => m_CodeFound = value; }
+        public bool SurenameFound { get=> m_surenameFound;  }
+
+        public bool NameFound { get=> m_nameFound;  }
+
+        public bool LastnameFound { get=> m_surenameFound; }
 
         #endregion
 
         #region Ctor
 
-        public OCRResultParser(Regex Code, Regex Surename_Name_Laastname)
+        public OCRResultParser(Regex Code, Regex Surename_Name_Lastname,
+            Regex SurenameName, Regex Word1)
         {
             m_code = Code;
            
-            m_Surename_Name_Lastname = Surename_Name_Laastname;
+            m_Surename_Name_Lastname = Surename_Name_Lastname;
+
+            m_Surename_Name = SurenameName;
+
+            m_1Word = Word1;
         }
 
         #endregion
@@ -61,19 +78,54 @@ namespace SmartParser.Dependencies
                         continue;
 
                     //SNL Found
-                    if ((m_Surename_Name_Lastname.IsMatch(paragraph.Text))                    
-                    && !m_SNLFound)
+                    if ((m_Surename_Name_Lastname.IsMatch(paragraph.Text))
+                    && !(m_surenameFound && m_lastnameFound && m_nameFound))
                     {
-                        int start = (paragraph.Words.Length < 3) ? paragraph.Words.Length - 1 : 0;
-
-                        int mod = (start == 0) ? 0 : 1;
-
-                        for (; start < 3; start++)
+                        if(paragraph.Words.Length == 3)
+                        for (int i = 0; i < paragraph.Words.Length; i++)
                         {
-                            r[start] = paragraph.Words[start - mod].Text;
+                            r[i] = paragraph.Words[i].Text;
                         }
 
-                        m_SNLFound = true;
+                        m_surenameFound = true;
+
+                        m_nameFound = true;
+
+                        m_lastnameFound = true;
+                    }
+                    else if (m_Surename_Name.IsMatch(paragraph.Text)
+                        && !(m_surenameFound && m_nameFound))
+                    {
+                        if(paragraph.Words.Length == 2)
+                        for (int i = 0; i < paragraph.Words.Length; i++)
+                        {
+                            r[i] = paragraph.Words[i].Text;
+                        }
+
+                        m_surenameFound = true;
+
+                        m_nameFound = true;
+                    }
+                    else if (m_1Word.IsMatch(paragraph.Text))
+                    {
+                        if (paragraph.Words.Length == 1)
+                        {
+                            r[2] = paragraph.Words[0].Text;
+
+                            m_lastnameFound = true;
+                        }
+                        else
+                        {
+                            foreach (var word in paragraph.Words)
+                            {
+                                if (m_code.IsMatch(RewriteFromChars(word.Characters)))
+                                {
+                                    r[r.Length - 1] = RewriteFromChars(word.Characters);
+
+                                    m_CodeFound = true;
+                                }
+                            }
+                        }
                     }
                     else if (m_code.IsMatch(RewriteFromChars(paragraph.Characters)) && !m_CodeFound)
                     {
@@ -81,8 +133,8 @@ namespace SmartParser.Dependencies
 
                         m_CodeFound = true;
                     }
-
-                    if (m_SNLFound && m_CodeFound)
+                    
+                    if (m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound)
                         break;
                 }
 
@@ -99,6 +151,22 @@ namespace SmartParser.Dependencies
             }
 
             return sb.ToString();
+        }
+
+        public void ClearSearchFlags()
+        {
+            m_CodeFound = false;
+
+            m_surenameFound = false;
+
+            m_nameFound = false;
+
+            m_lastnameFound = false;
+        }
+
+        public bool AllFound()
+        {
+            return m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound;
         }
 
         #endregion

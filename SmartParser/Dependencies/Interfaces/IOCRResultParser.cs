@@ -11,12 +11,20 @@ namespace SmartParser.Dependencies.Interfaces
     {
         #region Properties
 
-        bool SNLFound { get; set; }
+        bool SurenameFound { get;  }
 
-        bool CodeFound { get; set; }
+        bool NameFound { get; }
+
+        bool LastnameFound { get; }
+        
+        bool CodeFound { get; }
 
         #endregion
 
-        Tout Parse(OcrResult res);        
+        Tout Parse(OcrResult res);
+
+        void ClearSearchFlags();
+
+        bool AllFound();
     }
 }

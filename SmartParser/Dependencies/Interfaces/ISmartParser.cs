@@ -8,7 +8,13 @@ using System.Threading.Tasks;
 namespace SmartParser.Dependencies.Interfaces
 {
     public interface ISmartParser<Tinput, Toutput>
-    {        
+    {
+        #region Properties
+
+        string PathToDebuggingFolder { get; set; }
+
+        #endregion
+
         #region Methods
 
         void Parse(Tinput input);

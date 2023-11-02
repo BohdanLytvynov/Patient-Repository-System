@@ -45,7 +45,11 @@ namespace SmartParser
 
             modImage?.Invoke(inp);
 
-            return m_tess.Read(inp);
+            var temp =  m_tess.Read(inp);
+
+            inp.Dispose();
+
+            return temp;
         }
 
         public async Task<List<OcrResult>> ConvertPhotoToTextAsync(string ImgPath)
