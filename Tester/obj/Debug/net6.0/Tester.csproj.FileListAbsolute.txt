@@ -118,3 +118,21 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\ref
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\ref\Tester.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.exe
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.deps.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\TimerLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\TimerLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.CopyComplete
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\refint\Tester.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\ref\Tester.dll

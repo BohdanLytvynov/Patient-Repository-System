@@ -58,3 +58,15 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\T
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\refint\TimerLib.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\ref\TimerLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.deps.json
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.csproj.AssemblyReference.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.AssemblyInfoInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.AssemblyInfo.cs
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.csproj.CoreCompileInputs.cache
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\refint\TimerLib.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\ref\TimerLib.dll

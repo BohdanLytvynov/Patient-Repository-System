@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -17,187 +18,191 @@ namespace SmartParser.Dependencies
 
         readonly Regex m_code;
 
-        readonly Regex m_Name_or_Surename_or_Lastname;
+        readonly Regex m_Surename_Name_Lastname;
 
         readonly Regex m_Surename_Name;
 
-        readonly Regex m_Surename_Name_Lastname;
+        readonly Regex m_1Word;
+
+        #endregion
+
+        #region Maintainance Fields
+
+        bool m_CodeFound = false;
+
+        bool m_surenameFound = false;
+
+        bool m_nameFound = false;
+
+        bool m_lastnameFound = false;
+
+        #endregion
+
+        #region Properties
+
+        public bool CodeFound { get => m_CodeFound; }
+
+        public bool SurenameFound { get=> m_surenameFound;  }
+
+        public bool NameFound { get=> m_nameFound;  }
+
+        public bool LastnameFound { get=> m_surenameFound; }
 
         #endregion
 
         #region Ctor
 
-        public OCRResultParser(Regex Code, Regex Name_or_Surename_or_Lastname,
-            Regex Surename_Name, Regex Surename_Name_Laastname)
+        public OCRResultParser(Regex Code, Regex Surename_Name_Lastname,
+            Regex SurenameName, Regex Word1)
         {
             m_code = Code;
+           
+            m_Surename_Name_Lastname = Surename_Name_Lastname;
 
-            m_Name_or_Surename_or_Lastname = Name_or_Surename_or_Lastname;
+            m_Surename_Name = SurenameName;
 
-            m_Surename_Name = Surename_Name;
-
-            m_Surename_Name_Lastname = Surename_Name_Laastname;
+            m_1Word = Word1;
         }
 
         #endregion
 
         #region Methods
-
-        public async Task<string[]> ParseAsync(IEnumerable<OcrResult> res)
+        
+        public string[] Parse(OcrResult res, bool barcode = false)
         {
             string[] r = new string[4];
-
-            await Task.Run(() =>
-            {
-                //Debug.WriteLine("In Method!!");
-
-                bool CodeCorrect = false;
-
-                bool SNLFound = false;
-
-                if (res != null)
-                    foreach (var ocrResult in res)
-                    {
-                        if (ocrResult.Text.Length == 0)
-                            continue;
-
-                        #region Old version
-
-                        //var Lines = ocrResult.Lines;
-
-                        //foreach (var item in Lines)
-                        //{
-                        //    if (!CodeCorrect)
-                        //    {
-                        //        foreach (var word in item.Words)
-                        //        {
-                        //            CodeCorrect = m_code.IsMatch(word.Text);
-
-                        //            if (CodeCorrect)// El refferal was found
-                        //            {
-                        //                code = word.Text;
-
-                        //                break;
-                        //            }
-                        //        }
-                        //    }
-
-                        //    if (!SNFound)
-                        //    {
-                        //        SNFound = AreWordsValid(item.Words, out snl, 2);
-                        //    }
-
-                        //    if (!LastNameFound)
-                        //    {
-                        //        LastNameFound = AreWordsValid(item.Words, out l, 1);
-                        //    }
-
-                        //    if (CodeCorrect && SNFound && LastNameFound)
-                        //    {
-                        //        break;
-                        //    }
-                        //}
-
-                        //if (CodeCorrect && SNFound && LastNameFound)
-                        //{
-                        //    r[0] = snl[0];
-
-                        //    r[1] = snl[1];
-
-                        //    r[2] = l[0];
-
-                        //    r[3] = code;
-                        //}
-
-                        #endregion
-                        //SNL Found
-                        if ((m_Surename_Name_Lastname.IsMatch(ocrResult.Text)
-                        || m_Surename_Name.IsMatch(ocrResult.Text))
-                        && !SNLFound)
-                        {
-                            int start = (ocrResult.Words.Length <= 3) ? ocrResult.Words.Length - 1 : 0;
-
-                            //int mod = (start==0)? 0 : 
-
-                            for (; start < 3; start++)
-                            {
-                                r[start] = ocrResult.Words[start].Text;
-                            }
-
-                            SNLFound = true;
-                        }
-                        else if (m_code.IsMatch(ocrResult.Text) && !CodeCorrect)
-                        {
-                            r[r.Length - 1] = ocrResult.Text;
-
-                            CodeCorrect = true;
-                        }
-
-                        if (SNLFound && CodeCorrect)
-                            break;
-                    }
-
-            });
-
-            return r;
-        }
-
-        public string[] Parse(IEnumerable<OcrResult> res)
-        {
-            string[] r = new string[4];
-
-            //Debug.WriteLine("In Method!!");
-
-            bool CodeCorrect = false;
-
-            bool SNLFound = false;
-
+                        
             if (res != null)
-                foreach (var ocrResult in res)
+                foreach (var paragraph in res.Paragraphs)
                 {
-                    if (ocrResult.Text.Length == 0)
+                    if (paragraph.Text.Length == 0)
                         continue;
 
-                    //SNL Found
-                    if ((m_Surename_Name_Lastname.IsMatch(ocrResult.Text)
-                    || m_Surename_Name.IsMatch(ocrResult.Text))
-                    && !SNLFound)
+                    if (barcode)
                     {
-                        int start = (ocrResult.Words.Length < 3) ? ocrResult.Words.Length - 1 : 0;
+                        StringBuilder sb = new StringBuilder();
 
-                        int mod = (start == 0) ? 0 : 1;
-
-                        for (; start < 3; start++)
+                        foreach (var Char in paragraph.Text)
                         {
-                            r[start] = ocrResult.Words[start - mod].Text;
+                            if (!Char.IsDigit(Char))
+                            {
+                                sb.Append(Char);
+                            }
+                            else
+                            {
+                                break;
+                            }
                         }
 
-                        SNLFound = true;
+                        string str = sb.ToString();
+
+                        if (m_Surename_Name_Lastname.IsMatch(str))
+                        {
+                            var array = str.Split(' ');
+
+                            for (int i = 0; i < array.Length; i++)
+                            {
+                                r[i] = array[i];
+                            }
+
+                            m_surenameFound = true;
+
+                            m_nameFound = true;
+
+                            m_lastnameFound = true;
+                        }
                     }
-                    else if (m_code.IsMatch(RewriteFromChars(ocrResult)) && !CodeCorrect)
+
+                    //SNL Found
+                    if ((m_Surename_Name_Lastname.IsMatch(paragraph.Text))
+                    && !(m_surenameFound && m_lastnameFound && m_nameFound) && !barcode)
                     {
-                        r[r.Length - 1] = RewriteFromChars(ocrResult);
+                        if(paragraph.Words.Length == 3)
+                        for (int i = 0; i < paragraph.Words.Length; i++)
+                        {
+                            r[i] = paragraph.Words[i].Text;
+                        }
 
-                        CodeCorrect = true;
+                        m_surenameFound = true;
+
+                        m_nameFound = true;
+
+                        m_lastnameFound = true;
                     }
+                    else if (m_Surename_Name.IsMatch(paragraph.Text)
+                        && !(m_surenameFound && m_nameFound))
+                    {
+                        if(paragraph.Words.Length == 2)
+                        for (int i = 0; i < paragraph.Words.Length; i++)
+                        {
+                            r[i] = paragraph.Words[i].Text;
+                        }
 
-                    if (SNLFound && CodeCorrect)
+                        m_surenameFound = true;
+
+                        m_nameFound = true;
+                    }
+                    else if (m_1Word.Match(paragraph.Text).Length == paragraph.Text.Length)
+                    {                                                
+                        if (paragraph.Words.Length == 1)
+                        {
+                            r[2] = paragraph.Words[0].Text;
+
+                            m_lastnameFound = true;
+                        }
+                        else
+                        {
+                            foreach (var word in paragraph.Words)
+                            {
+                                if (m_code.IsMatch(RewriteFromChars(word.Characters)))
+                                {
+                                    r[r.Length - 1] = RewriteFromChars(word.Characters);
+
+                                    m_CodeFound = true;
+                                }
+                            }
+                        }
+                    }
+                    else if (m_code.IsMatch(RewriteFromChars(paragraph.Characters)) && !m_CodeFound)
+                    {
+                        r[r.Length - 1] = RewriteFromChars(paragraph.Characters);
+
+                        m_CodeFound = true;
+                    }
+                    
+                    if (m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound)
                         break;
                 }
 
             return r;
         }
 
-        private string RewriteFromChars(OcrResult res)
+        private string RewriteFromChars(IEnumerable<Character> chars)
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var item in res.Characters)
+            foreach (var item in chars)
             {
                 sb.Append(item.Text);
             }
 
             return sb.ToString();
+        }
+
+        public void ClearSearchFlags()
+        {
+            m_CodeFound = false;
+
+            m_surenameFound = false;
+
+            m_nameFound = false;
+
+            m_lastnameFound = false;
+        }
+
+        public bool AllFound()
+        {
+            return m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound;
         }
 
         #endregion
