@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace SmartParser.Dependencies
 
         #region Methods
         
-        public string[] Parse(OcrResult res)
+        public string[] Parse(OcrResult res, bool barcode = false)
         {
             string[] r = new string[4];
                         
@@ -77,9 +78,44 @@ namespace SmartParser.Dependencies
                     if (paragraph.Text.Length == 0)
                         continue;
 
+                    if (barcode)
+                    {
+                        StringBuilder sb = new StringBuilder();
+
+                        foreach (var Char in paragraph.Text)
+                        {
+                            if (!Char.IsDigit(Char))
+                            {
+                                sb.Append(Char);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        string str = sb.ToString();
+
+                        if (m_Surename_Name_Lastname.IsMatch(str))
+                        {
+                            var array = str.Split(' ');
+
+                            for (int i = 0; i < array.Length; i++)
+                            {
+                                r[i] = array[i];
+                            }
+
+                            m_surenameFound = true;
+
+                            m_nameFound = true;
+
+                            m_lastnameFound = true;
+                        }                        
+                    }
+
                     //SNL Found
-                    if ((m_Surename_Name_Lastname.IsMatch(paragraph.Text))
-                    && !(m_surenameFound && m_lastnameFound && m_nameFound))
+                    if ((m_Surename_Name_Lastname.IsMatch(RewriteFromChars(paragraph.Text.ToCharArray())))
+                    && !(m_surenameFound && m_lastnameFound && m_nameFound) && !barcode)
                     {
                         if(paragraph.Words.Length == 3)
                         for (int i = 0; i < paragraph.Words.Length; i++)
@@ -93,7 +129,7 @@ namespace SmartParser.Dependencies
 
                         m_lastnameFound = true;
                     }
-                    else if (m_Surename_Name.IsMatch(paragraph.Text)
+                    else if (m_Surename_Name.IsMatch(RewriteFromChars(paragraph.Text.ToCharArray()))
                         && !(m_surenameFound && m_nameFound))
                     {
                         if(paragraph.Words.Length == 2)
@@ -106,8 +142,8 @@ namespace SmartParser.Dependencies
 
                         m_nameFound = true;
                     }
-                    else if (m_1Word.IsMatch(paragraph.Text))
-                    {
+                    else if (m_1Word.Match(RewriteFromChars(paragraph.Text.ToCharArray())).Length == paragraph.Text.Length)
+                    {                                                
                         if (paragraph.Words.Length == 1)
                         {
                             r[2] = paragraph.Words[0].Text;
@@ -153,6 +189,18 @@ namespace SmartParser.Dependencies
             return sb.ToString();
         }
 
+        private string RewriteFromChars(IEnumerable<char> chars)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var item in chars)
+            {
+                sb.Append(item);
+            }
+
+            return sb.ToString();
+        }
+
         public void ClearSearchFlags()
         {
             m_CodeFound = false;
@@ -168,6 +216,27 @@ namespace SmartParser.Dependencies
         {
             return m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound;
         }
+
+        public void FindElnRefRecursively(Paragraph p, ref string eln)
+        {
+            int length = p.Words.Length;
+           
+            for (int i = 0; i < length; i++)
+            {
+                if (m_code.IsMatch(RewriteFromChars(p.Words[i].Text)))
+                {
+                    eln = RewriteFromChars(p.Words[i].Text);
+
+                    break;
+                }
+                else
+                {
+                    FindElnRefRecursively(p.Words[i].Paragraph, ref eln);
+                }
+            }                        
+        }
+
+        
 
         #endregion
     }

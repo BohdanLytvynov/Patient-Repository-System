@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static IronOcr.OcrResult;
 
 namespace SmartParser.Dependencies.Interfaces
 {
@@ -21,10 +22,12 @@ namespace SmartParser.Dependencies.Interfaces
 
         #endregion
 
-        Tout Parse(OcrResult res);
+        Tout Parse(OcrResult res, bool barcode = false);
 
         void ClearSearchFlags();
 
         bool AllFound();
+
+        void FindElnRefRecursively(Paragraph p, ref string prevWord);
     }
 }

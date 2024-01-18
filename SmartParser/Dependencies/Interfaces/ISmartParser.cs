@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartParser.Dependencies.Interfaces
 {
-    public interface ISmartParser<Tinput, Toutput>
+    public interface ISmartParser<Tinput>
     {
         #region Properties
 

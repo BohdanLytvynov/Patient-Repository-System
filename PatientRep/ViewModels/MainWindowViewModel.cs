@@ -821,12 +821,12 @@ namespace PatientRep.ViewModels
 
             m_codeReg = new Regex(@"^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}");
 
-            m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+            m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
 
-            m_Surename_Name = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+            m_Surename_Name = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
 
             m_Surename_Name_Lastname =
-                new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+                new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
 
             m_ViberParser = new ViberParser(                                    
                 new OCRResultParser(m_codeReg, m_Surename_Name_Lastname,
