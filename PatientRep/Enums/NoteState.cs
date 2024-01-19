@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PatientRep.Enums
 {
-    public enum NoteState
-    {
-    }
+    //public enum NoteState
+    //{
+    //}
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5ne6bgKjzeg/EIfjskDxTh/N/XX9Nq8eMSz0Z5Gs9yL5YhM81RbBvdi3oeRJDO/kR3gUiwbdSRfOCcw0ohLcQg==",
+  "dgSpecHash": "AHvkSLhHX4JPP1jQpzaLvE7tjkR+BsE7ArIuEzTjNWanC41eby2Cy3qMsmOuTRFkbQjatRwONJw8rfvdHgm3Ag==",
   "success": true,
   "projectFilePath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\SmartParser\\SmartParser.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\sixlabors.fonts\\2.0.0\\sixlabors.fonts.2.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\sixlabors.imagesharp\\3.0.2\\sixlabors.imagesharp.3.0.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\sixlabors.imagesharp.drawing\\2.0.0\\sixlabors.imagesharp.drawing.2.0.0.nupkg.sha512",

@@ -4,12 +4,20 @@ using SmartParser.Dependencies.Interfaces;
 using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Text;
+using JsonDataProviderLibDNC;
+using JsonDataProviderLibDNC.Interfaces;
+using SmartParser.Comparators;
 
 namespace SmartParser.Parsers
 {
-    public enum ViberParserOperations
+    public enum ViberParserOperations : byte
     {
         Parse = 0
+    }
+
+    public enum ViberParserDataProviderOperations : byte
+    { 
+        WriteToTemp = 0, ReadFromTemp    
     }
 
     public class ViberParserResult
@@ -55,17 +63,37 @@ namespace SmartParser.Parsers
         }
     }
 
+    internal class ViberParserTemp
+    {
+        public string ReadFileName { get; set; }
+
+        public DateTime ReadFileCreationDate { get; set; }
+
+        public bool MoreThenFirstTime { get; set; }
+
+        public ViberParserTemp()
+        {
+                
+        }
+    }
+    
     public class ViberParser : ControllerBaseClass<ViberParserOperations>,
         ISmartParser<string>
     {
         #region Fields
 
+        IDataProvider<ViberParserDataProviderOperations> m_dataProvider;
+
         private OCR m_OCR;
 
         private IOCRResultParser<string[]> m_OCRResultParser;
 
-        private CancellationTokenSource m_cts;
+        //private CancellationTokenSource m_cts;
 
+        private ViberParserTemp m_temp;
+
+        private string m_pathToTemp;
+ 
         #endregion
 
         #region Properties
@@ -78,7 +106,7 @@ namespace SmartParser.Parsers
 
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
-            OCR OCR)
+            OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider)
         {
             if (OCRresParser == null)
                 throw new ArgumentNullException("OCRresParser");
@@ -86,16 +114,111 @@ namespace SmartParser.Parsers
             if (OCR == null)
                 throw new ArgumentNullException("OCR");
 
+            if (dataProvider == null)
+                throw new ArgumentNullException("dataProvider");
+           
             m_OCRResultParser = OCRresParser;
 
             m_OCR = OCR;
 
-            //m_cts = cts;            
+            m_dataProvider = dataProvider;
+
+            (m_dataProvider as ControllerBaseClass<ViberParserDataProviderOperations>).OnOperationFinished += ViberParser_OnOperationFinished;
+          
+            CreateTempFile();
+
+            m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, m_temp, ViberParserDataProviderOperations.ReadFromTemp);                     
+        }
+
+        private void ViberParser_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<ViberParserDataProviderOperations> e)
+        {
+            if (e.ExecutionStatus == ControllerBaseLib.Enums.Status.Succed)
+            {
+                switch (e.OperationType)
+                {                 
+                    case ViberParserDataProviderOperations.ReadFromTemp:
+
+                        if (e.Result != null)
+                        {
+                            m_temp = e.Result;
+                        }
+
+                        break;               
+                }
+
+                if (e.Result != null)
+                {
+                    m_temp = e.Result;
+                }
+            }
+            else
+            {
+                //Error occurred
+            }
         }
 
         #endregion
 
         #region Methods
+
+        private void CreateTempFile()
+        {
+            var envPath = Environment.CurrentDirectory;
+
+            var path_to_temp_dir = Path.Combine(envPath,  @"\Temp");
+
+            m_dataProvider.IfDirectoryNotExistsCreateIt(path_to_temp_dir);
+
+            var path_to_temp_file = Path.Combine(path_to_temp_dir, @"\temp." + m_dataProvider.FileExtension);
+
+            m_dataProvider.IfFileNotExistsCreateIt(path_to_temp_file);
+
+            m_pathToTemp = path_to_temp_file;
+        }
+
+        public void ParseImages(FileInfo [] img_pathes)
+        {
+            if (img_pathes == null)
+                throw new NullReferenceException("img_pathes");
+
+            if (img_pathes.Count() == 0)
+                return;
+
+            //Decide what to parse
+
+            Array.Sort<FileInfo>(img_pathes, new FileInfo_Compartors.CompareByCreationTime());
+
+            int i = -1;
+
+            if (m_temp.MoreThenFirstTime)//Some files were already written
+            {
+                i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Compartors.CompareByName()) + 1;
+            }
+            else
+            {
+                i = 0;
+            }
+
+            if (i == -1)
+            {
+                throw new Exception("No propriate index was found in a sorted array");
+            }
+
+            int length = img_pathes.Length;
+
+            for (; i < length; i++)
+            {
+                this.Parse(img_pathes[i].FullName);
+            }
+
+            m_temp.ReadFileCreationDate = img_pathes[length-1].CreationTime;
+
+            m_temp.ReadFileName = img_pathes[length - 1].Name;
+
+            m_temp.MoreThenFirstTime = true;
+
+            m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
+        }
 
         public void Parse(string img)
         {

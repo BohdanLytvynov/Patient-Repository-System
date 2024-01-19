@@ -565,6 +565,7 @@
           "IronOcr": "2023.11.35",
           "IronOcr.ComputerVision.Windows": "2022.11.10820",
           "IronOcr.Languages.Ukrainian": "2020.11.2",
+          "JsonDataProviderLibDNC": "1.0.0",
           "System.Drawing.Common": "7.0.0"
         },
         "runtime": {
