@@ -43,14 +43,23 @@ using System.Diagnostics;
 using SmartParser.Comparators;
 using PatientRep.Enums;
 using JsonDataProviderLibDNC;
+using System.Threading;
 
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
     {
+        #region Constants
+
+        private const int ONE_MINUTE_TOMILLISECOND_MULTIPL = 60000;
+
+        #endregion
+
         #region Tasks
 
         Task m_CheckViber;
+
+        CancellationTokenSource m_cts_for_all_Tasks;
 
         #endregion
 
@@ -69,9 +78,7 @@ namespace PatientRep.ViewModels
         #region Events
 
         public event Func<Task> OnMainWindowInitialized;
-
-        // public event Action<List<List<string>>> OnIntegratedDataUpdated;
-
+        
         #endregion
 
         #region Windows
@@ -170,8 +177,6 @@ namespace PatientRep.ViewModels
         Visibility m_CaseSearchHistory;
 
         Visibility m_PhysicianVisibility;
-
-
 
         #endregion
 
@@ -795,6 +800,36 @@ namespace PatientRep.ViewModels
 
         public MainWindowViewModel()
         {
+            #region Init Tasks
+
+            m_cts_for_all_Tasks = new CancellationTokenSource();
+
+            m_CheckViber = new Task(() => 
+            {
+                for ( ; ; )
+                {
+                    DirectoryInfo d_info = new DirectoryInfo(m_Configuration.PathToViberPhoto);
+
+                    var images = d_info.GetFiles();
+
+                    if (m_ViberParser.TempData.CurrentImagesCount < images.Length)
+                    {
+                        m_ViberParser.ParseImages(images);
+                    }
+
+                    if (m_cts_for_all_Tasks.IsCancellationRequested)
+                    {
+                        break;
+                    }
+
+                    //Thread.Sleep(ONE_MINUTE_TOMILLISECOND_MULTIPL * 1);
+                }
+
+                
+            });
+
+            #endregion
+
             #region OCR Configs
 
             var configuration1 = new TesseractConfiguration()
@@ -1105,6 +1140,15 @@ namespace PatientRep.ViewModels
 
             Debug.WriteLine(r.ToString());
 
+            var temp = r.SuccessfullyRead.ToArray();
+
+            var patient = new PatientStorage(Guid.NewGuid(), temp[0], temp[1], temp[2], temp[3], String.Empty,
+                PatientStatus.Не_Погашено, DateTime.Now, new DateTime(), null, String.Empty);
+
+            m_pController.AddAsync(patient, m_patients);
+
+            SearchResult.Add(patient.StorageToVisualModel());
+
             if (r.Fail)
             {
                 var fs = File.Open(r.FailedToReadPaths, FileMode.Open);
@@ -1150,20 +1194,17 @@ namespace PatientRep.ViewModels
             await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, PatientRepDataProviderOperations.LoadHistoryNotesDb);
 
             await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.LoadSettings);
-
+            
             if (!Directory.Exists(m_Configuration.PathToViberPhoto))
             {
-                //Actions when directory not found
-
-                return;
+                UIMessaging.CreateMessageBox("Сталася помилка при знаходженні папки з вайбер мультимедія! Перевірте налаштування шляхів системи зчитування з вайбера.",
+                    m_tittle,
+                    MessageBoxButton.OK, MessageBoxImage.Error);                              
             }
-
-            DirectoryInfo d_info = new DirectoryInfo(m_Configuration.PathToViberPhoto);
-
-            var images = d_info.GetFiles();
-
-            m_ViberParser.ParseImages(images);
-                        
+            else
+            {
+                m_CheckViber.Start();
+            }
         }
 
         #region Other Additional Methods
@@ -1641,6 +1682,17 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Methods
+
+        #region On Window Closing
+
+        public void StopAllTasks()
+        {
+            m_cts_for_all_Tasks.Cancel();
+
+            m_cts_for_all_Tasks.Dispose();
+        }
+
+        #endregion
 
         #region On Settings Button Pressed
 

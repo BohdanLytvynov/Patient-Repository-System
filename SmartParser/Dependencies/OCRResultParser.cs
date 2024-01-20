@@ -217,21 +217,30 @@ namespace SmartParser.Dependencies
             return m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound;
         }
 
-        public void FindElnRefRecursively(Paragraph p, ref string eln)
+        public string FindElnRefRecursively(Paragraph p)
         {
-            int length = p.Words.Length;
-           
+            string res = null;
+
+            FindElnRefRecursively(p.Words, ref res);
+
+            return res;
+        }
+
+        private void FindElnRefRecursively(Word[] words, ref string eln)
+        {
+            int length = words.Length;
+                       
             for (int i = 0; i < length; i++)
             {
-                if (m_code.IsMatch(RewriteFromChars(p.Words[i].Text)))
+                if (m_code.IsMatch(RewriteFromChars(words[i].Text)))
                 {
-                    eln = RewriteFromChars(p.Words[i].Text);
+                    eln = RewriteFromChars(words[i].Text);
 
                     break;
                 }
                 else
                 {
-                    FindElnRefRecursively(p.Words[i].Paragraph, ref eln);
+                    FindElnRefRecursively(words[i].Line.Words, ref eln);
                 }
             }                        
         }

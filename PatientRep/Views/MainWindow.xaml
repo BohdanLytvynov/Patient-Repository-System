@@ -13,7 +13,7 @@
         xmlns:sig="clr-namespace:SignalizationSystemLib;assembly=SignalizationSystemLib"
         xmlns:ext="clr-namespace:PatientRep.Extensions"
         
-        Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow">
+        Title="Patient NoteBook V 2.0" Height="500" Width="1000" WindowStyle="ThreeDBorderWindow" Closing="Window_Closing">
     <!--<Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>-->
@@ -44,7 +44,7 @@
 
     <Grid x:Name="Main_Grid">
 
-        <!--<Grid x:Name="InfoGrid" Panel.ZIndex="3">
+        <Grid x:Name="InfoGrid" Panel.ZIndex="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="70"/>
@@ -67,7 +67,7 @@
                                          OperationStatus="{Binding OperStatus, UpdateSourceTrigger=PropertyChanged}"
                                          Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
-        </Grid>-->
+        </Grid>
 
         <Grid>
             <Grid.ColumnDefinitions>

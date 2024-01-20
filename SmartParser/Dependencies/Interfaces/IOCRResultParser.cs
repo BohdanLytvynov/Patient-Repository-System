@@ -28,6 +28,6 @@ namespace SmartParser.Dependencies.Interfaces
 
         bool AllFound();
 
-        void FindElnRefRecursively(Paragraph p, ref string prevWord);
+        string FindElnRefRecursively(Paragraph p);
     }
 }

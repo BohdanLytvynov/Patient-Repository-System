@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SmartParser.Comparators
 {
-    public class FileInfo_Compartors 
-    {
+    public class FileInfo_Comparators 
+    {        
         public class CompareByCreationTime : IComparer<FileInfo>
         {
             public int Compare(FileInfo? x, FileInfo? y)

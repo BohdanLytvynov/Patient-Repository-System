@@ -2,9 +2,7 @@
 using IronOcr;
 using SmartParser.Dependencies.Interfaces;
 using System.Diagnostics;
-using System.Drawing.Imaging;
 using System.Text;
-using JsonDataProviderLibDNC;
 using JsonDataProviderLibDNC.Interfaces;
 using SmartParser.Comparators;
 
@@ -63,13 +61,23 @@ namespace SmartParser.Parsers
         }
     }
 
-    internal class ViberParserTemp
+    public class ViberParserTemp
     {
         public string ReadFileName { get; set; }
 
         public DateTime ReadFileCreationDate { get; set; }
 
         public bool MoreThenFirstTime { get; set; }
+
+        public int CurrentImagesCount { get; set; }
+
+        public ViberParserTemp(string readFileName, DateTime readFileCreationDate, bool moreThenFirstTime, int currentImagesCount)
+        {
+            ReadFileName = readFileName;
+            ReadFileCreationDate = readFileCreationDate;
+            MoreThenFirstTime = moreThenFirstTime;
+            CurrentImagesCount = currentImagesCount;
+        }
 
         public ViberParserTemp()
         {
@@ -93,10 +101,12 @@ namespace SmartParser.Parsers
         private ViberParserTemp m_temp;
 
         private string m_pathToTemp;
- 
+
         #endregion
 
         #region Properties
+
+        public ViberParserTemp TempData { get=> m_temp;}
 
         public string PathToDebuggingFolder { get; set; }
 
@@ -123,11 +133,14 @@ namespace SmartParser.Parsers
 
             m_dataProvider = dataProvider;
 
-            (m_dataProvider as ControllerBaseClass<ViberParserDataProviderOperations>).OnOperationFinished += ViberParser_OnOperationFinished;
-          
+            var temp = m_dataProvider as ControllerBaseClass<ViberParserDataProviderOperations>;
+
+            if (temp != null)
+                temp.OnOperationFinished += ViberParser_OnOperationFinished;
+
             CreateTempFile();
 
-            m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, m_temp, ViberParserDataProviderOperations.ReadFromTemp);                     
+            m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, new ViberParserTemp(), ViberParserDataProviderOperations.ReadFromTemp);                     
         }
 
         private void ViberParser_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<ViberParserDataProviderOperations> e)
@@ -142,14 +155,13 @@ namespace SmartParser.Parsers
                         {
                             m_temp = e.Result;
                         }
+                        else
+                        {
+                            m_temp = new ViberParserTemp("", new DateTime(), false, 0);
+                        }
 
                         break;               
-                }
-
-                if (e.Result != null)
-                {
-                    m_temp = e.Result;
-                }
+                }           
             }
             else
             {
@@ -165,11 +177,12 @@ namespace SmartParser.Parsers
         {
             var envPath = Environment.CurrentDirectory;
 
-            var path_to_temp_dir = Path.Combine(envPath,  @"\Temp");
+            var path_to_temp_dir = envPath + Path.DirectorySeparatorChar + @"Temp";
 
             m_dataProvider.IfDirectoryNotExistsCreateIt(path_to_temp_dir);
 
-            var path_to_temp_file = Path.Combine(path_to_temp_dir, @"\temp." + m_dataProvider.FileExtension);
+            var path_to_temp_file = path_to_temp_dir + Path.DirectorySeparatorChar + @"temp." +
+            m_dataProvider.FileExtension;
 
             m_dataProvider.IfFileNotExistsCreateIt(path_to_temp_file);
 
@@ -186,13 +199,13 @@ namespace SmartParser.Parsers
 
             //Decide what to parse
 
-            Array.Sort<FileInfo>(img_pathes, new FileInfo_Compartors.CompareByCreationTime());
+            Array.Sort<FileInfo>(img_pathes, new FileInfo_Comparators.CompareByCreationTime());
 
             int i = -1;
 
             if (m_temp.MoreThenFirstTime)//Some files were already written
             {
-                i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Compartors.CompareByName()) + 1;
+                i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Comparators.CompareByName()) + 1;
             }
             else
             {
@@ -216,6 +229,8 @@ namespace SmartParser.Parsers
             m_temp.ReadFileName = img_pathes[length - 1].Name;
 
             m_temp.MoreThenFirstTime = true;
+
+            m_temp.CurrentImagesCount = length;
 
             m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
         }
@@ -293,7 +308,6 @@ namespace SmartParser.Parsers
 
                                j++;
 
-
                            });
 
                        bool elnWithBarcode = !(m_OCRResultParser.SurenameFound &&
@@ -326,7 +340,7 @@ namespace SmartParser.Parsers
 
                        Debug.WriteLine("Attempt to find BarCode!!!");
                       
-                       sw.WriteLine("Crop scaning failure somthing hasn't been found!!! Try to use simple parse");
+                       sw.WriteLine("Crop scaning failure anything hasn't been found!!! Try to use simple parse");
                        
                        foreach (var item in try2.Paragraphs)
                        {
@@ -350,7 +364,9 @@ namespace SmartParser.Parsers
                        {
                            foreach (var paragraph in try2.Paragraphs)
                            {
-                               m_OCRResultParser.FindElnRefRecursively(paragraph, ref eln);
+                               
+
+                               eln = m_OCRResultParser.FindElnRefRecursively(paragraph);
                            }
                        }
                    }
