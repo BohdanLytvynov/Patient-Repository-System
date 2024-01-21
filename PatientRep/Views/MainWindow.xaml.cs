@@ -26,7 +26,7 @@ namespace PatientRep
         
         public MainWindow()
         {                        
-            m_viewModel = new MainWindowViewModel();
+            m_viewModel = new MainWindowViewModel(this);
 
             this.DataContext = m_viewModel;
             

@@ -44,7 +44,7 @@
 
     <Grid x:Name="Main_Grid">
 
-        <Grid x:Name="InfoGrid" Panel.ZIndex="3">
+        <!--<Grid x:Name="InfoGrid" Panel.ZIndex="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="44"/>
                 <RowDefinition Height="70"/>
@@ -67,7 +67,7 @@
                                          OperationStatus="{Binding OperStatus, UpdateSourceTrigger=PropertyChanged}"
                                          Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
-        </Grid>
+        </Grid>-->
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -111,7 +111,7 @@
                     <ColumnDefinition Width="445"/>
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
-               
+
                 <Button Grid.Column="3" Style="{StaticResource Buttons2}" 
                         Command="{Binding OnSettingsButtonPressed}">
                     <Button.Content>
@@ -214,11 +214,11 @@
                                     <ColumnDefinition Width="18.98"/>
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="5"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="160"/>
                                     <ColumnDefinition Width="10"/>
                                     <ColumnDefinition Width="150"/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition Width="120"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
@@ -239,9 +239,9 @@
                             <Grid Grid.Row="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="40"/>
-                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="250"/>
                                     <ColumnDefinition Width="25*"/>
-                                    <ColumnDefinition Width="190"/>
+                                    <ColumnDefinition Width="230"/>
                                     <ColumnDefinition Width="14*"/>
                                 </Grid.ColumnDefinitions>
                                 <Button Style="{StaticResource Buttons2}" Grid.Column="1"
@@ -276,7 +276,7 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="120"/>
                                     <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="190"/>
                                     <ColumnDefinition Width="72"/>
                                 </Grid.ColumnDefinitions>
 
@@ -574,7 +574,7 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10"/>
-                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="169"/>
                                 <ColumnDefinition Width="5"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="10"/>
@@ -694,15 +694,15 @@
                                             <ColumnDefinition Width="20"/>
                                             <ColumnDefinition Width="40"/>
                                             <ColumnDefinition Width="30"/>
-                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="120"/>
                                             <ColumnDefinition Width="30"/>
-                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="180"/>
                                         </Grid.ColumnDefinitions>
                                         <Button Grid.Column="3"
                                      Content="Додати"
                                     Command="{Binding OnAddNewPatientButtonPressed}"
                                         Style="{StaticResource Buttons2}" >
-                                            
+
                                         </Button>
 
                                         <Button Grid.Column="5" Content="Очистити поля"
@@ -729,14 +729,18 @@
                                 <RowDefinition Height="10"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Додаткова інформація:" Grid.Row="1" HorizontalAlignment="Left" FontSize="25"/>
+                            <TextBlock Text="Додаткова інформація:" 
+                                       Grid.Row="1" 
+                                       HorizontalAlignment="Left" 
+                                       FontSize="25"
+                                       Margin="80,0,0,0"/>
 
                             <Grid Grid.Row="3" x:Name="RGrid">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="10"/>
-                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="40"/>
                                     <RowDefinition Height="20"/>
-                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="40"/>
                                     <RowDefinition/>
                                     <RowDefinition Height="50"/>
                                     <RowDefinition Height="10"/>
@@ -748,7 +752,7 @@
                                     <ColumnDefinition Width="10"/>
                                 </Grid.ColumnDefinitions>
                                 <Button Content="+" Style="{StaticResource Buttons2}"
-                                 Grid.Row="1" Grid.Column="1"
+                                 Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center"
                                 Command="{Binding OnAddNewAddInfoNotePressed}"/>
 
                                 <Button Content="-" Style="{StaticResource Buttons}"
@@ -757,7 +761,7 @@
 
                                 <ListView x:Name="AddInfo"
                                   Grid.Row="1" Grid.Column="2" Grid.RowSpan="4"
-                                  Margin="5" BorderBrush="Green" BorderThickness="2"
+                                  Margin="5,0" BorderBrush="Green" BorderThickness="2"
                                   ItemsSource="{Binding AddInfoCol, 
                             UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                   SelectedIndex="{Binding SelectedAddInfoIndex, UpdateSourceTrigger=PropertyChanged,
@@ -781,9 +785,9 @@
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="150"/>
                                 <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="140"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Button Grid.Column="1" Content="Реєстрація"
@@ -1128,9 +1132,9 @@
                                         <Grid Grid.Row="2" Margin="3">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="20"/>
-                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="130"/>
                                                 <ColumnDefinition Width="20"/>
-                                                <ColumnDefinition Width="150"/>
+                                                <ColumnDefinition Width="180"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
                                             <Button Content="Додати"
@@ -1191,7 +1195,7 @@
                                       Grid.Row="2">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="20"/>
-                                            <ColumnDefinition Width="210"/>
+                                            <ColumnDefinition Width="240"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
                                         <Button 
@@ -1211,9 +1215,9 @@
                                         <Grid Grid.Row="1">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="10"/>
-                                                <ColumnDefinition Width="70"/>
+                                                <ColumnDefinition Width="100"/>
                                                 <ColumnDefinition Width="20"/>
-                                                <ColumnDefinition Width="122"/>
+                                                <ColumnDefinition Width="152"/>
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
@@ -1271,8 +1275,8 @@
                                             <Grid Grid.Row="5">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="20"/>
-                                                    <ColumnDefinition Width="45*"/>
-                                                    <ColumnDefinition Width="61*"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
 
                                                 <Button Grid.Column="1" Content="Пошук" 
@@ -1312,7 +1316,7 @@
                                             <Grid Grid.Row="3">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="10"/>
-                                                    <ColumnDefinition Width="170"/>
+                                                    <ColumnDefinition Width="190"/>
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
                                                 <Button Grid.Column="1" 

@@ -14,8 +14,8 @@ namespace SmartParser.Parsers
     }
 
     public enum ViberParserDataProviderOperations : byte
-    { 
-        WriteToTemp = 0, ReadFromTemp    
+    {
+        WriteToTemp = 0, ReadFromTemp
     }
 
     public class ViberParserResult
@@ -81,10 +81,10 @@ namespace SmartParser.Parsers
 
         public ViberParserTemp()
         {
-                
+
         }
     }
-    
+
     public class ViberParser : ControllerBaseClass<ViberParserOperations>,
         ISmartParser<string>
     {
@@ -106,7 +106,7 @@ namespace SmartParser.Parsers
 
         #region Properties
 
-        public ViberParserTemp TempData { get=> m_temp;}
+        public ViberParserTemp TempData { get => m_temp; }
 
         public string PathToDebuggingFolder { get; set; }
 
@@ -126,7 +126,7 @@ namespace SmartParser.Parsers
 
             if (dataProvider == null)
                 throw new ArgumentNullException("dataProvider");
-           
+
             m_OCRResultParser = OCRresParser;
 
             m_OCR = OCR;
@@ -140,7 +140,7 @@ namespace SmartParser.Parsers
 
             CreateTempFile();
 
-            m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, new ViberParserTemp(), ViberParserDataProviderOperations.ReadFromTemp);                     
+            m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, new ViberParserTemp(), ViberParserDataProviderOperations.ReadFromTemp);
         }
 
         private void ViberParser_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<ViberParserDataProviderOperations> e)
@@ -148,7 +148,7 @@ namespace SmartParser.Parsers
             if (e.ExecutionStatus == ControllerBaseLib.Enums.Status.Succed)
             {
                 switch (e.OperationType)
-                {                 
+                {
                     case ViberParserDataProviderOperations.ReadFromTemp:
 
                         if (e.Result != null)
@@ -160,8 +160,8 @@ namespace SmartParser.Parsers
                             m_temp = new ViberParserTemp("", new DateTime(), false, 0);
                         }
 
-                        break;               
-                }           
+                        break;
+                }
             }
             else
             {
@@ -189,7 +189,7 @@ namespace SmartParser.Parsers
             m_pathToTemp = path_to_temp_file;
         }
 
-        public void ParseImages(FileInfo [] img_pathes)
+        public void ParseImages(FileInfo[] img_pathes)
         {
             if (img_pathes == null)
                 throw new NullReferenceException("img_pathes");
@@ -224,7 +224,7 @@ namespace SmartParser.Parsers
                 this.Parse(img_pathes[i].FullName);
             }
 
-            m_temp.ReadFileCreationDate = img_pathes[length-1].CreationTime;
+            m_temp.ReadFileCreationDate = img_pathes[length - 1].CreationTime;
 
             m_temp.ReadFileName = img_pathes[length - 1].Name;
 
@@ -292,14 +292,14 @@ namespace SmartParser.Parsers
                    }
 
                    foreach (var crop in Crops)
-                   {                       
+                   {
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
                            (inp) =>
                            {
                                //inp.ToGrayScale().Dilate();
 
                                //Debuging system
-                               
+
                                inp.StampCropRectangleAndSaveAs(
                                    crop, IronSoftware.Drawing.Color.Red,
                                    debugFolder + Path.DirectorySeparatorChar + $"{j + 1}",
@@ -339,9 +339,9 @@ namespace SmartParser.Parsers
                        OcrResult try2 = m_OCR.SimpleConvertToText(img, null);
 
                        Debug.WriteLine("Attempt to find BarCode!!!");
-                      
+
                        sw.WriteLine("Crop scaning failure anything hasn't been found!!! Try to use simple parse");
-                       
+
                        foreach (var item in try2.Paragraphs)
                        {
                            foreach (var item2 in item.Words)
@@ -355,19 +355,16 @@ namespace SmartParser.Parsers
 
                            Debug.WriteLine("\n");
                        }
-                       
+
                        if (try2.Barcodes.Length > 0)
                        {
                            MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;
                        }
                        else
                        {
-                           foreach (var paragraph in try2.Paragraphs)
-                           {
-                               
+                           eln = m_OCRResultParser.FindElnRefinParagraph(try2.Paragraphs);
 
-                               eln = m_OCRResultParser.FindElnRefRecursively(paragraph);
-                           }
+                           MainResult[MainResult.Length - 1] = eln;
                        }
                    }
 
@@ -377,7 +374,7 @@ namespace SmartParser.Parsers
 
                    if (image != null)
                        image.Dispose();
-                   
+
                    if (!AllParsedSuccesfully(MainResult))
                    {
                        FailToReadPaths = img;

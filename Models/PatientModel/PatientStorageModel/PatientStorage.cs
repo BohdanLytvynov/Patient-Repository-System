@@ -93,6 +93,9 @@ namespace Models.PatientModel.PatientStorageModel
 
         public bool Equals(PatientStorage? other)
         {
+            if (String.IsNullOrEmpty(Code) || String.IsNullOrEmpty(other.Code))
+                return false;
+
             return Code.Equals(other.Code);
         }
 

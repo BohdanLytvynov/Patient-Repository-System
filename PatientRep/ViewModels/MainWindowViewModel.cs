@@ -73,6 +73,8 @@ namespace PatientRep.ViewModels
 
         readonly Regex m_Surename_Name_Lastname;
 
+        readonly Regex m_ElnRefWithText;
+
         #endregion
 
         #region Events
@@ -90,6 +92,12 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Fields
+
+        #region Current Window
+
+        Window m_currrentWindow;
+
+        #endregion
 
         #region Viber Parser
 
@@ -798,7 +806,7 @@ namespace PatientRep.ViewModels
 
         #region Ctor
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(Window thisWindow)
         {
             #region Init Tasks
 
@@ -826,7 +834,7 @@ namespace PatientRep.ViewModels
                 }
 
                 
-            });
+            },m_cts_for_all_Tasks.Token);
 
             #endregion
 
@@ -845,6 +853,8 @@ namespace PatientRep.ViewModels
 
             #region Init Fields
 
+            m_currrentWindow = thisWindow;
+
             m_codeReg = new Regex(@"^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}");
 
             m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
@@ -853,10 +863,13 @@ namespace PatientRep.ViewModels
 
             m_Surename_Name_Lastname =
                 new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
-            
+
+            m_ElnRefWithText =
+                new Regex(@"^[а - яіїєґ'/|.А-ЯІЇЄҐ\s\S]{0,}[0-9]{4}[-.][0-9]{4}[-.][0-9]{4}[-.][0-9]{4}\s{0,}[а-яіїєґ'/|.А - ЯІЇЄҐ\s\S]{0,}");
+
             m_ViberParser = new ViberParser(
                 new OCRResultParser(m_codeReg, m_Surename_Name_Lastname,
-                m_Surename_Name, m_Name_or_Surename_or_Lastname), new OCR(configuration1),
+                m_Surename_Name, m_Name_or_Surename_or_Lastname, m_ElnRefWithText), new OCR(configuration1),
                 new JsonDataProvider<ViberParserDataProviderOperations>());
 
             m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
@@ -1142,12 +1155,23 @@ namespace PatientRep.ViewModels
 
             var temp = r.SuccessfullyRead.ToArray();
 
-            var patient = new PatientStorage(Guid.NewGuid(), temp[0], temp[1], temp[2], temp[3], String.Empty,
+            var patient = new PatientStorage(Guid.NewGuid(), temp[0] == null ? String.Empty : temp[0],
+                temp[1] == null ? String.Empty : temp[1],
+                temp[2] == null ? String.Empty : temp[2],
+                temp[3] == null ? String.Empty : temp[3],
+                String.Empty,
                 PatientStatus.Не_Погашено, DateTime.Now, new DateTime(), null, String.Empty);
-
+                       
             m_pController.AddAsync(patient, m_patients);
 
-            SearchResult.Add(patient.StorageToVisualModel());
+            m_currrentWindow.Dispatcher.Invoke(() =>
+            {
+                var temp = patient.StorageToVisualModel();
+
+                temp.Number = SearchResult.Count + 1;
+
+                SearchResult.Add(temp);
+            });            
 
             if (r.Fail)
             {
@@ -1170,7 +1194,6 @@ namespace PatientRep.ViewModels
 
                 File.Delete(r.FailedToReadPaths);
             }
-
         }
 
         private async Task M_Configuration_OnConfigChanged()
@@ -1202,8 +1225,8 @@ namespace PatientRep.ViewModels
                     MessageBoxButton.OK, MessageBoxImage.Error);                              
             }
             else
-            {
-                m_CheckViber.Start();
+            {                
+                //m_CheckViber.Start();
             }
         }
 

@@ -24,6 +24,8 @@ namespace SmartParser.Dependencies
 
         readonly Regex m_1Word;
 
+        readonly Regex m_ElnWithText;
+
         #endregion
 
         #region Maintainance Fields
@@ -53,7 +55,7 @@ namespace SmartParser.Dependencies
         #region Ctor
 
         public OCRResultParser(Regex Code, Regex Surename_Name_Lastname,
-            Regex SurenameName, Regex Word1)
+            Regex SurenameName, Regex Word1, Regex ElnRefWithText)
         {
             m_code = Code;
            
@@ -62,6 +64,8 @@ namespace SmartParser.Dependencies
             m_Surename_Name = SurenameName;
 
             m_1Word = Word1;
+
+            m_ElnWithText = ElnRefWithText;
         }
 
         #endregion
@@ -217,16 +221,30 @@ namespace SmartParser.Dependencies
             return m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound;
         }
 
-        public string FindElnRefRecursively(Paragraph p)
+        public string FindElnRefinParagraph(Paragraph[] p)
         {
             string res = null;
 
-            FindElnRefRecursively(p.Words, ref res);
+            if (p == null)
+                return res;
 
+            foreach (var paragraph in p)
+            {
+                if (m_ElnWithText.IsMatch(paragraph.Text))
+                {
+                    FindElnRefInWords(paragraph.Words, ref res);
+
+                    if (!String.IsNullOrEmpty(res))
+                    {
+                        return res;
+                    }
+                }
+            }
+            
             return res;
         }
 
-        private void FindElnRefRecursively(Word[] words, ref string eln)
+        private void FindElnRefInWords(Word[] words, ref string eln)
         {
             int length = words.Length;
                        
@@ -237,11 +255,7 @@ namespace SmartParser.Dependencies
                     eln = RewriteFromChars(words[i].Text);
 
                     break;
-                }
-                else
-                {
-                    FindElnRefRecursively(words[i].Line.Words, ref eln);
-                }
+                }               
             }                        
         }
 

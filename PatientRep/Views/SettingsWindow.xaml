@@ -33,15 +33,15 @@
             <Grid Grid.Row="1" x:Name="Buttons">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="135"/>
+                    <ColumnDefinition Width="155"/>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="102.028"/>
                     <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="145"/>
+                    <ColumnDefinition Width="165"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1" Content="Лікарі" Style="{DynamicResource Buttons2}"
