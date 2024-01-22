@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Text;
 using JsonDataProviderLibDNC.Interfaces;
 using SmartParser.Comparators;
+using IronSoftware.Drawing;
 
 namespace SmartParser.Parsers
 {
@@ -102,6 +103,8 @@ namespace SmartParser.Parsers
 
         private string m_pathToTemp;
 
+        Action<OcrInput> m_OCRInputPreprocessors;
+
         #endregion
 
         #region Properties
@@ -116,8 +119,20 @@ namespace SmartParser.Parsers
 
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
-            OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider)
+            OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider,
+            Action<OcrInput>? OCRInputPreprocessor_For_Crops_Reader = null,
+            Action<OcrInput>? OCRInputPreprocessor_For_Ordinay_Reader = null)
         {
+            if (OCRInputPreprocessor_For_Crops_Reader != null)
+            {
+                m_OCRInputPreprocessors = OCRInputPreprocessor_For_Crops_Reader;
+            }
+
+            if (OCRInputPreprocessor_For_Ordinay_Reader != null)
+            {
+                Delegate.Combine(m_OCRInputPreprocessors, OCRInputPreprocessor_For_Ordinay_Reader);
+            }
+
             if (OCRresParser == null)
                 throw new ArgumentNullException("OCRresParser");
 
@@ -261,8 +276,20 @@ namespace SmartParser.Parsers
 
                    Image image = null;
 
-                   var Crops = m_OCR.GetCropRectanglesWithText(img, out image);
+                   IEnumerable<CropRectangle> Crops = null;
 
+                   try
+                   {
+                       Crops = m_OCR.GetCropRectanglesWithText(img, out image);
+                   }
+                   catch (DivideByZeroException)//Case when finding some crope regions went wrong
+                   {
+                       FailToReadPaths = img;
+
+                       return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
+                       String.IsNullOrEmpty(FailToReadPaths) ? false : true);
+                   }
+                   
                    int j = 0;
 
                    if (!String.IsNullOrWhiteSpace(PathToDebuggingFolder))
@@ -291,13 +318,23 @@ namespace SmartParser.Parsers
                        sw = new StreamWriter(txt, true, Encoding.UTF8);
                    }
 
+                   if (Crops == null)
+                   {
+                       FailToReadPaths = img;
+
+                       return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
+                       String.IsNullOrEmpty(FailToReadPaths) ? false : true);
+                   }
+
                    foreach (var crop in Crops)
                    {
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
                            (inp) =>
                            {
-                               //inp.ToGrayScale().Dilate();
+                               //Call 1 OCR Input Preprocessor
 
+                               m_OCRInputPreprocessors?.GetInvocationList()?[0]?.DynamicInvoke(inp);
+                               
                                //Debuging system
 
                                inp.StampCropRectangleAndSaveAs(
@@ -336,12 +373,15 @@ namespace SmartParser.Parsers
                    {
                        string eln = String.Empty;
 
-                       OcrResult try2 = m_OCR.SimpleConvertToText(img, null);
+                       OcrResult try2 = m_OCR.SimpleConvertToText(img, (input)=>
+                       {
+                           m_OCRInputPreprocessors?.GetInvocationList()?[1]?.DynamicInvoke(input);
+                       });
 
                        Debug.WriteLine("Attempt to find BarCode!!!");
 
                        sw.WriteLine("Crop scaning failure anything hasn't been found!!! Try to use simple parse");
-
+#if true
                        foreach (var item in try2.Paragraphs)
                        {
                            foreach (var item2 in item.Words)
@@ -355,7 +395,7 @@ namespace SmartParser.Parsers
 
                            Debug.WriteLine("\n");
                        }
-
+#endif
                        if (try2.Barcodes.Length > 0)
                        {
                            MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;

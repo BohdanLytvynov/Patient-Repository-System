@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PatientRep.Views"
         mc:Ignorable="d"
-        Title="Settings Window" Height="450" Width="800">
+        Title="Settings Window" Height="450" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
@@ -42,6 +42,8 @@
                     <ColumnDefinition Width="102.028"/>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="225"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1" Content="Лікарі" Style="{DynamicResource Buttons2}"
@@ -55,11 +57,18 @@
                         FontSize="20"
                         Command="{Binding OnEnableExportSettingsPressed}"/>
 
-                <Button Grid.Column="9" Content="Viber - Парсер"
+                <Button Grid.Column="8" Content="Viber - Парсер"
                         FontSize="20"
                         Style="{DynamicResource Buttons2}"
-                        Command="{Binding OnViberParserButtonPressed}"
+                        Command="{Binding OnViberParserButtonPressed}" Grid.ColumnSpan="2" Margin="20,0,0,0"
                     />
+                <Button Grid.Column="11" Content="Логи(Для інженерів!)"
+                        Style="{DynamicResource Buttons2}"
+                        FontSize="20"/>
+
+            </Grid>
+
+            <Grid Grid.Row="2" x:Name="CaseLog">
             </Grid>
 
             <Grid Grid.Row="2" x:Name="CaseExport" 

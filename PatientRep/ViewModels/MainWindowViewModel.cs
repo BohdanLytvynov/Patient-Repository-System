@@ -103,6 +103,8 @@ namespace PatientRep.ViewModels
 
         ViberParser m_ViberParser;
 
+        bool m_UI_is_UsedbyViber_Parser;
+
         #endregion
 
         #region Additional Controllers 
@@ -853,6 +855,8 @@ namespace PatientRep.ViewModels
 
             #region Init Fields
 
+            m_UI_is_UsedbyViber_Parser = false;
+
             m_currrentWindow = thisWindow;
 
             m_codeReg = new Regex(@"^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}");
@@ -869,7 +873,10 @@ namespace PatientRep.ViewModels
 
             m_ViberParser = new ViberParser(
                 new OCRResultParser(m_codeReg, m_Surename_Name_Lastname,
-                m_Surename_Name, m_Name_or_Surename_or_Lastname, m_ElnRefWithText), new OCR(configuration1),
+                m_Surename_Name, m_Name_or_Surename_or_Lastname, m_ElnRefWithText,
+                new string[] { "Перевірено", "Профіль",
+                "Зв'язки", "Страхування", "Призначення", "Активне", "Нове", "Пріоритет", "Планове", "Категорія",  "Програма", 
+                "Детальніше"}), new OCR(configuration1),
                 new JsonDataProvider<ViberParserDataProviderOperations>());
 
             m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
@@ -1151,28 +1158,45 @@ namespace PatientRep.ViewModels
         {
             var r = (e.Result as ViberParserResult);
 
+            if (r == null)
+            {
+                return;
+            }
+
+        #if true
             Debug.WriteLine(r.ToString());
+        #endif
 
             var temp = r.SuccessfullyRead.ToArray();
+            
+            //Even One Data Must Be found
+            if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2]) 
+                || String.IsNullOrEmpty(temp[3])))
+            {
+                m_UI_is_UsedbyViber_Parser = true;
 
-            var patient = new PatientStorage(Guid.NewGuid(), temp[0] == null ? String.Empty : temp[0],
+                var patient = new PatientStorage(Guid.NewGuid(), temp[0] == null ? String.Empty : temp[0],
                 temp[1] == null ? String.Empty : temp[1],
                 temp[2] == null ? String.Empty : temp[2],
                 temp[3] == null ? String.Empty : temp[3],
                 String.Empty,
                 PatientStatus.Не_Погашено, DateTime.Now, new DateTime(), null, String.Empty);
-                       
-            m_pController.AddAsync(patient, m_patients);
 
-            m_currrentWindow.Dispatcher.Invoke(() =>
-            {
-                var temp = patient.StorageToVisualModel();
+                m_pController.AddAsync(patient, m_patients);
 
-                temp.Number = SearchResult.Count + 1;
+                m_currrentWindow.Dispatcher.Invoke(() =>
+                {
+                    var temp = patient.StorageToVisualModel();
 
-                SearchResult.Add(temp);
-            });            
+                    temp.Number = SearchResult.Count + 1;
 
+                    SearchResult.Add(temp);
+                });
+
+                m_UI_is_UsedbyViber_Parser = false;
+            }
+                      
+            //Move image to FailToReadPaths_Storage
             if (r.Fail)
             {
                 var fs = File.Open(r.FailedToReadPaths, FileMode.Open);
@@ -1687,7 +1711,7 @@ namespace PatientRep.ViewModels
 
                 NoteCount = m_patients.Count;
 
-            });
+            }, !m_UI_is_UsedbyViber_Parser, !m_UI_is_UsedbyViber_Parser);
         }
 
         #endregion

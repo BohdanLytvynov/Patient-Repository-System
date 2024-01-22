@@ -31,7 +31,7 @@ namespace PatientRep
         }
 
         public static MessageBoxResult CreateMessageBoxAccordingToResult<TOperationType>(OperationFinishedEventArgs<TOperationType> e, string MsgBoxtitle, 
-            Action ExecuteIfOperationSucceded)
+            Action ExecuteIfOperationSucceded, bool enableCancelMsg = true, bool enableFailMsg = true)
             where TOperationType : struct, Enum
         {
             MessageBoxResult result = MessageBoxResult.OK;
@@ -42,12 +42,18 @@ namespace PatientRep
             }
             else if (e.ExecutionStatus == Status.Canceled) // Operation Canceled
             {
-                result = CreateMessageBox($"Operation: {e.OperationType} was {e.ExecutionStatus}", MsgBoxtitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                if (enableCancelMsg)
+                {
+                    result = CreateMessageBox($"Operation: {e.OperationType} was {e.ExecutionStatus}", MsgBoxtitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                }                
             }
             else
             {
-                result = CreateMessageBox($"Operation: {e.OperationType} {e.ExecutionStatus} cause: {GetExceptionsRecursive(e.Exception)}", 
+                if (enableFailMsg)
+                {
+                    result = CreateMessageBox($"Operation: {e.OperationType} {e.ExecutionStatus} cause: {GetExceptionsRecursive(e.Exception)}",
                     MsgBoxtitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                }                
             }
 
             return result;

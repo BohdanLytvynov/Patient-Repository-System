@@ -26,6 +26,8 @@ namespace SmartParser.Dependencies
 
         readonly Regex m_ElnWithText;
 
+        readonly string[] m_KeyWords;
+
         #endregion
 
         #region Maintainance Fields
@@ -55,7 +57,7 @@ namespace SmartParser.Dependencies
         #region Ctor
 
         public OCRResultParser(Regex Code, Regex Surename_Name_Lastname,
-            Regex SurenameName, Regex Word1, Regex ElnRefWithText)
+            Regex SurenameName, Regex Word1, Regex ElnRefWithText, string [] keyWords)
         {
             m_code = Code;
            
@@ -66,12 +68,34 @@ namespace SmartParser.Dependencies
             m_1Word = Word1;
 
             m_ElnWithText = ElnRefWithText;
+
+            if (keyWords == null)
+            {
+                m_KeyWords = new string[0];
+            }
+            else
+            {
+                m_KeyWords = keyWords;
+            }
         }
 
         #endregion
 
         #region Methods
-        
+
+        private bool EqualToOneOfTheKeyWords(string text)
+        {
+            foreach (string item in m_KeyWords)
+            {
+                if (text.Equals(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public string[] Parse(OcrResult res, bool barcode = false)
         {
             string[] r = new string[4];
@@ -146,7 +170,7 @@ namespace SmartParser.Dependencies
 
                         m_nameFound = true;
                     }
-                    else if (m_1Word.Match(RewriteFromChars(paragraph.Text.ToCharArray())).Length == paragraph.Text.Length)
+                    else if (m_1Word.IsMatch(RewriteFromChars(paragraph.Text)) && !EqualToOneOfTheKeyWords(paragraph.Text) )
                     {                                                
                         if (paragraph.Words.Length == 1)
                         {
