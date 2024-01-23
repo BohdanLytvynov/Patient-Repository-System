@@ -8,6 +8,6 @@ namespace Models.PatientModel.Enums
 {
     public enum PatientStatus:byte
     {
-        Не_Погашено = 1, Погашено, Не_Прийде            
+        Не_Погашено = 1, Погашено, Не_Прийде, Потрібне_Уточнення_Данних           
     }
 }

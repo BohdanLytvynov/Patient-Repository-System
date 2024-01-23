@@ -566,21 +566,12 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Pati
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SmartParser.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\SmartParser.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.base.traineddata
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\App.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_Content.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\osd.traineddata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\OcrData\Ukrainian.ocrdata
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\OpenCv.deployment.json
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x64\native\OpenCvInterop.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\OpenCv.deployment.json
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\OpenCvInterop.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\OcrData\Ukrainian.ocrdata
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Models\DB_TD500_resnet50.onnx
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsError.png
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\Resources\Icons\IconsOk.png
@@ -635,7 +626,6 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\eng.user-words
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\liblept-5.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\libtesseract-5.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\osd.traineddata
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\pdf.ttf
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win-x86\native\pdf.ttx
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
@@ -670,11 +660,21 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\ItemManagerLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\App.baml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.AssemblyReference.cache
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.baml
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.baml
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.baml
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.baml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\App.baml
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\MainWindow.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ReportViewer.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\SettingsWindow.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\ViberParserConfig.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\App.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_Content.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep_MarkupCompile.lref
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.g.resources
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.GeneratedMSBuildEditorConfig.editorconfig
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.AssemblyInfoInputs.cache
@@ -686,3 +686,4 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll.config

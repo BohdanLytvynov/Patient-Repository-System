@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static IronOcr.OcrResult;
 
 namespace SmartParser.Dependencies.Interfaces
 {
@@ -26,5 +27,7 @@ namespace SmartParser.Dependencies.Interfaces
         void ClearSearchFlags();
 
         bool AllFound();
+
+        string FindElnRefinParagraph(Paragraph[] p);
     }
 }

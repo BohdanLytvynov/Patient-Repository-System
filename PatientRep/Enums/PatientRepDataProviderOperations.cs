@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JsonDataProviderLibDNC.Enums
+namespace PatientRep.Enums
 {
-    public enum JDataProviderOperation
+    public enum PatientRepDataProviderOperations : byte
     {
         SavePatientsDB = 1, LoadPatientsDB, SaveHistoryNotesDb, LoadHistoryNotesDb, LoadSettings, SaveSettings
     }

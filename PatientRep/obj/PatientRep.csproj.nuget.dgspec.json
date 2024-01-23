@@ -911,6 +911,9 @@
             "projectReferences": {
               "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
                 "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+              },
+              "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj": {
+                "projectPath": "C:\\Users\\Doctor14\\Desktop\\SoftwareDev\\WorkWithGit\\Patient-Repository-System\\JsonDataProviderLibDNC\\JsonDataProviderLibDNC.csproj"
               }
             }
           }

@@ -23,7 +23,14 @@ namespace NotesExporterLib
                     oper, 
                     (obj) =>
                     {
-                        JsonDataProvider.FIleNotExistsCreateIt(pathToFile);
+                        if (!File.Exists(pathToFile))
+                        {
+                            var fs = File.Create(pathToFile);
+
+                            fs.Close();
+
+                            fs.Dispose();
+                        }
 
                         StreamWriter sw = new StreamWriter(pathToFile, false, encoding: new UTF8Encoding());
                         

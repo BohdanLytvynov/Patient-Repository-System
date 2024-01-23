@@ -222,7 +222,7 @@ project.lock.json
 AppPackages/
 
 #Debug
-PatientRep\bin\Debug\net6.0-windows\Configuration\
+PatientRep\bin\Debug\net6.0-windows\Configuration\Config.json
 
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)

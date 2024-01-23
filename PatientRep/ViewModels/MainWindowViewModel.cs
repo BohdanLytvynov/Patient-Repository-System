@@ -1,30 +1,25 @@
-﻿using Models;
+﻿#region Usings
+
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ViewModelBaseLib.VM;
-using ViewModelBaseLib.Commands;
 using PatientRep.ViewModelBase.Commands;
 using DataValidation;
-using JsonDataProviderLibDNC;
-using JsonDataProviderLibDNC.Enums;
 using CRUDControllerLib.Enums;
 using CRUDControllerLib.PatientController;
 using ControllerBaseLib.Enums;
 using ControllerBaseLib.EventArgs;
 using System.IO;
 using System.Windows;
-using System.Windows.Documents;
 using CRUDControllerLib.SearchArgs;
 using Newtonsoft.Json.Linq;
 using Models.PatientModel.Enums;
 using Models.Comparators;
-using CRUDControllerLib.PatientController.Exceptions;
-using Models.Configuration.IntegratedData;
 using CRUDControllerLib.HistoryNotesController;
 using Models.Interfaces;
 using PatientRep.Views;
@@ -34,11 +29,7 @@ using Models.HistoryNoteModels.StorageModel;
 using Models.PatientModel.PatientVisualModel;
 using Models.PatientModel.PatientStorageModel;
 using Models.Configuration;
-using Models.Configuration.ReasonModels.ReasonStorageModel;
 using static Models.Configuration.IntegratedData.Reasons;
-using static Models.Configuration.IntegratedData.Physicians;
-using static Models.Configuration.IntegratedData.Investigations;
-using Models.ReportModels.ReportVisualModel;
 using Models.ExportNoteModel;
 using NotesExporterLib;
 using System.Windows.Forms;
@@ -46,20 +37,41 @@ using Models.PatientModel.Comparators;
 using AdditionalControllersLib;
 using SignalizationSystemLib;
 using SmartParser.Parsers;
-using SmartParser.Dependencies.Interfaces;
 using SmartParser;
 using SmartParser.Dependencies;
 using System.Text.RegularExpressions;
 using IronOcr;
 using System.Diagnostics;
+using PatientRep.Enums;
+using JsonDataProviderLibDNC;
+using System.Threading;
+using System.Configuration;
+using System.Collections.Specialized;
+
+
+#endregion
 
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
     {
+        #region Global Vars
+
+        bool ENABLE_OCR_DEBUG;
+
+        #endregion
+
+        #region Constants
+
+        private const int ONE_MINUTE_TOMILLISECOND_MULTIPL = 60000;
+
+        #endregion
+
         #region Tasks
 
         Task m_CheckViber;
+
+        CancellationTokenSource m_cts_for_all_Tasks;
 
         #endregion
 
@@ -73,29 +85,37 @@ namespace PatientRep.ViewModels
 
         readonly Regex m_Surename_Name_Lastname;
 
+        readonly Regex m_ElnRefWithText;
+
         #endregion
 
         #region Events
 
         public event Func<Task> OnMainWindowInitialized;
-
-       // public event Action<List<List<string>>> OnIntegratedDataUpdated;
-
+        
         #endregion
 
         #region Windows
 
-        ReportViewer m_ReportViewerWindow;
+        ReportViewer? m_ReportViewerWindow;
 
-        SettingsWindow m_SettingsWindow;
+        SettingsWindow? m_SettingsWindow;
 
         #endregion
 
         #region Fields
 
+        #region Current Window
+
+        Window m_currrentWindow;
+
+        #endregion
+
         #region Viber Parser
 
         ViberParser m_ViberParser;
+
+        bool m_UI_is_UsedbyViber_Parser;
 
         #endregion
 
@@ -107,7 +127,7 @@ namespace PatientRep.ViewModels
 
         #region SignalSystemController
 
-      
+
         #endregion
 
         #endregion
@@ -116,14 +136,14 @@ namespace PatientRep.ViewModels
 
         string m_PathToConfig;
 
-        ConfigStorage m_Configuration;
+        ConfigStorage? m_Configuration;
 
         #region Informator System
 
         string m_msg;//Information system Message
 
         OperStatus m_OperStatus;//Operation Status
-        
+
         #endregion
 
         #region History Registration System
@@ -150,7 +170,7 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<AdditionalInfoViewModel> m_HistoryRegistrationAddInfoCollection;
 
-        private List<HistoryNoteStorage> m_HistoryNotesStorageCollection;
+        private List<HistoryNoteStorage>? m_HistoryNotesStorageCollection;
 
         ObservableCollection<HistoryNote> m_HistoryNoteVisualModelCollection;
 
@@ -179,8 +199,6 @@ namespace PatientRep.ViewModels
         Visibility m_CaseSearchHistory;
 
         Visibility m_PhysicianVisibility;
-
-
 
         #endregion
 
@@ -242,7 +260,7 @@ namespace PatientRep.ViewModels
 
         #region DataProvider
 
-        JsonDataProvider m_jdataprovider;
+        JsonDataProvider<PatientRepDataProviderOperations> m_jdataprovider;
 
         #endregion
 
@@ -290,7 +308,7 @@ namespace PatientRep.ViewModels
 
         #region PatientsNotesCollection
 
-        List<PatientStorage> m_patients;
+        List<PatientStorage>? m_patients;
 
         ObservableCollection<Patient> m_SearchResult;
 
@@ -302,15 +320,15 @@ namespace PatientRep.ViewModels
 
         #region Informator System
 
-        public string Text 
-        { get=> m_msg; set=> Set(ref m_msg, value, nameof(Text)); }
+        public string Text
+        { get => m_msg; set => Set(ref m_msg, value, nameof(Text)); }
 
-        public OperStatus OperStatus 
+        public OperStatus OperStatus
         {
-            get=> m_OperStatus;
-            set=> Set(ref m_OperStatus, value, nameof(OperStatus));
+            get => m_OperStatus;
+            set => Set(ref m_OperStatus, value, nameof(OperStatus));
         }
-        
+
         #endregion
 
         #region History Registration System
@@ -368,7 +386,7 @@ namespace PatientRep.ViewModels
                 Set(ref m_Reason, value, nameof(Reason));
 
                 m_UIElementManager.SetVisibilityOfUIElementAccordingToReason(Reason, ConfigCodeUsageDictionary, "DocDep", GetCode);
-                                
+
                 if (!String.IsNullOrWhiteSpace(Reason))
                 {
                     m_ValidationArray[12] = true;
@@ -420,7 +438,7 @@ namespace PatientRep.ViewModels
             {
                 Set(ref m_IsDirExists, value, nameof(IsDirExists));
 
-                m_ReasonManager.GetReasonAccordingToExistanceOfDirection(IsDirExists, ConfigCodeUsageDictionary, 
+                m_ReasonManager.GetReasonAccordingToExistanceOfDirection(IsDirExists, ConfigCodeUsageDictionary,
                     "DateDep", GetReasonAccordingToCode);
             }
 
@@ -525,8 +543,8 @@ namespace PatientRep.ViewModels
 
         #region New Patient
 
-        public bool FocusName 
-        { get=> m_FocusName; set=> Set(ref m_FocusName, value, nameof(FocusName)); }
+        public bool FocusName
+        { get => m_FocusName; set => Set(ref m_FocusName, value, nameof(FocusName)); }
 
         public int SelectedAddInfoIndex
         {
@@ -802,8 +820,40 @@ namespace PatientRep.ViewModels
 
         #region Ctor
 
-        public MainWindowViewModel()
-        {
+        public MainWindowViewModel(Window thisWindow)
+        {      
+            //ConfigCodeUsageDictionary Manager will be used in future for connection to DB file
+
+            #region Init Tasks
+
+            m_cts_for_all_Tasks = new CancellationTokenSource();
+
+            m_CheckViber = new Task(() => 
+            {
+                for ( ; ; )
+                {
+                    DirectoryInfo d_info = new DirectoryInfo(m_Configuration.PathToViberPhoto);
+
+                    var images = d_info.GetFiles();
+
+                    if (m_ViberParser.TempData.CurrentImagesCount < images.Length)
+                    {
+                        m_ViberParser.ParseImages(images);
+                    }
+
+                    if (m_cts_for_all_Tasks.IsCancellationRequested)
+                    {
+                        break;
+                    }
+
+                    //Thread.Sleep(ONE_MINUTE_TOMILLISECOND_MULTIPL * 1);
+                }
+
+                
+            },m_cts_for_all_Tasks.Token);
+
+            #endregion
+
             #region OCR Configs
 
             var configuration1 = new TesseractConfiguration()
@@ -812,27 +862,37 @@ namespace PatientRep.ViewModels
                 BlackListCharacters = "`ë|^",
                 RenderSearchablePdfsAndHocr = true,
                 PageSegmentationMode = TesseractPageSegmentationMode.AutoOsd,
-                
+
             };
 
             #endregion
 
             #region Init Fields
 
+            m_UI_is_UsedbyViber_Parser = false;
+
+            m_currrentWindow = thisWindow;
+
             m_codeReg = new Regex(@"^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}");
 
-            m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+            m_Name_or_Surename_or_Lastname = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
 
-            m_Surename_Name = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+            m_Surename_Name = new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
 
             m_Surename_Name_Lastname =
-                new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ]{0,}\s{0,}");
+                new Regex(@"^[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{1,}[А-ЯІЇЄҐ]{1}[а-яіїєґ']{0,}\s{0,}");
 
-            m_ViberParser = new ViberParser(                                    
+            m_ElnRefWithText =
+                new Regex(@"^[а - яіїєґ'/|.А-ЯІЇЄҐ\s\S]{0,}[0-9]{4}[-.][0-9]{4}[-.][0-9]{4}[-.][0-9]{4}\s{0,}[а-яіїєґ'/|.А - ЯІЇЄҐ\s\S]{0,}");
+
+            m_ViberParser = new ViberParser(
                 new OCRResultParser(m_codeReg, m_Surename_Name_Lastname,
-                m_Surename_Name, m_Name_or_Surename_or_Lastname) ,new OCR(configuration1)                
-                );
-            
+                m_Surename_Name, m_Name_or_Surename_or_Lastname, m_ElnRefWithText,
+                new string[] { "Перевірено", "Профіль",
+                "Зв'язки", "Страхування", "Призначення", "Активне", "Нове", "Пріоритет", "Планове", "Категорія",  "Програма", 
+                "Детальніше"}), new OCR(configuration1),
+                new JsonDataProvider<ViberParserDataProviderOperations>());
+
             m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
 
             m_msg = String.Empty;
@@ -848,7 +908,7 @@ namespace PatientRep.ViewModels
             m_ReasonManager.OnOperationFinished += M_ReasonManager_OnOperationFinished;
 
             m_UIElementManager.OnOperationFinished += M_UIElementManager_OnOperationFinished;
-                        
+
             m_NoteExporterToTxt.OnOperationFinished += M_NoteExporterToTxt_OnOperationFinished;
 
             m_NewAddInfoCol = new ObservableCollection<AdditionalInfoViewModel>();
@@ -871,7 +931,7 @@ namespace PatientRep.ViewModels
             m_CaseReportSystemVisibility = Visibility.Hidden;
 
             m_SearchReport = true;
-           
+
             m_HistoryRegistrationSelectedIndex = -1;
 
             m_AddInfoSelectedIndex = -1;
@@ -910,7 +970,7 @@ namespace PatientRep.ViewModels
 
             m_tittle = "Patient Repository Storage";
 
-            m_jdataprovider = new JsonDataProvider();
+            m_jdataprovider = new JsonDataProvider<PatientRepDataProviderOperations>();
 
             m_pController = new PatientController();
 
@@ -1109,11 +1169,48 @@ namespace PatientRep.ViewModels
         }
 
         private void M_ViberParser_OnOperationFinished(object s, OperationFinishedEventArgs<ViberParserOperations> e)
-        {
+        {            
             var r = (e.Result as ViberParserResult);
 
-            Debug.WriteLine(r.ToString());
+            if (r == null)
+            {
+                return;
+            }
 
+        #if DEBUG
+            Debug.WriteLine(r.ToString());
+        #endif
+
+            var temp = r.SuccessfullyRead.ToArray();
+            
+            //Even One Data Must Be found
+            if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2]) 
+                || String.IsNullOrEmpty(temp[3])))
+            {
+                m_UI_is_UsedbyViber_Parser = true;
+
+                var patient = new PatientStorage(Guid.NewGuid(), temp[0] == null ? String.Empty : temp[0],
+                temp[1] == null ? String.Empty : temp[1],
+                temp[2] == null ? String.Empty : temp[2],
+                temp[3] == null ? String.Empty : temp[3],
+                String.Empty,
+                PatientStatus.Не_Погашено, DateTime.Now, new DateTime(), null, String.Empty);
+
+                m_pController.AddAsync(patient, m_patients);
+
+                m_currrentWindow.Dispatcher.Invoke(() =>
+                {
+                    var temp = patient.StorageToVisualModel();
+
+                    temp.Number = SearchResult.Count + 1;
+
+                    SearchResult.Add(temp);
+                });
+
+                m_UI_is_UsedbyViber_Parser = false;
+            }
+                      
+            //Move image to FailToReadPaths_Storage
             if (r.Fail)
             {
                 var fs = File.Open(r.FailedToReadPaths, FileMode.Open);
@@ -1135,12 +1232,11 @@ namespace PatientRep.ViewModels
 
                 File.Delete(r.FailedToReadPaths);
             }
-            
         }
 
         private async Task M_Configuration_OnConfigChanged()
-        {            
-            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, JDataProviderOperation.SaveSettings);
+        {
+            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.SaveSettings);
 
             var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
                 "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
@@ -1149,33 +1245,27 @@ namespace PatientRep.ViewModels
             if (r == MessageBoxResult.OK)
             {
                 System.Windows.Application.Current.Shutdown(0);
-            }                   
+            }
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
         {
-            await m_jdataprovider.LoadFileAsync(m_pathToPatientsDB, JDataProviderOperation.LoadPatientsDB);
+            await m_jdataprovider.LoadFileAsync(m_pathToPatientsDB, PatientRepDataProviderOperations.LoadPatientsDB);
 
-            await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, JDataProviderOperation.LoadHistoryNotesDb);
+            await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, PatientRepDataProviderOperations.LoadHistoryNotesDb);
 
-            await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, JDataProviderOperation.LoadSettings);
-
+            await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.LoadSettings);
             
-                if (!Directory.Exists(m_Configuration.PathToViberPhoto))
-                {
-                    //Actions when directory not found
-
-                    return;
-                }
-
-                string[] images = Directory.GetFiles(m_Configuration.PathToViberPhoto);
-
-                foreach (var item in images)
-                {
-                    m_ViberParser.Parse(item);
-                }
-
-            
+            if (!Directory.Exists(m_Configuration.PathToViberPhoto))
+            {
+                UIMessaging.CreateMessageBox("Сталася помилка при знаходженні папки з вайбер мультимедія! Перевірте налаштування шляхів системи зчитування з вайбера.",
+                    m_tittle,
+                    MessageBoxButton.OK, MessageBoxImage.Error);                              
+            }
+            else
+            {                
+                //m_CheckViber.Start();
+            }
         }
 
         #region Other Additional Methods
@@ -1287,7 +1377,7 @@ namespace PatientRep.ViewModels
                     case HistoryNotesControllerOperations.AddNote:
 
                         await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
-                            m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
+                            m_HistoryNotesStorageCollection, PatientRepDataProviderOperations.SaveHistoryNotesDb);
 
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
 
@@ -1295,7 +1385,7 @@ namespace PatientRep.ViewModels
                     case HistoryNotesControllerOperations.EditNote:
 
                         await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
-                            m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
+                            m_HistoryNotesStorageCollection, PatientRepDataProviderOperations.SaveHistoryNotesDb);
 
                         break;
                     case HistoryNotesControllerOperations.RemoveNote:
@@ -1303,7 +1393,7 @@ namespace PatientRep.ViewModels
                         HistoryNotesCount = m_HistoryNotesStorageCollection.Count;
 
                         await m_jdataprovider.SaveFileAsync(m_pathToHistoryDB,
-                            m_HistoryNotesStorageCollection, JDataProviderOperation.SaveHistoryNotesDb);
+                            m_HistoryNotesStorageCollection, PatientRepDataProviderOperations.SaveHistoryNotesDb);
 
                         break;
                     case HistoryNotesControllerOperations.GetNotes:
@@ -1359,15 +1449,15 @@ namespace PatientRep.ViewModels
             });
         }
 
-        private void M_jdataprovider_OnOperationFinished(object s, OperationFinishedEventArgs<JDataProviderOperation> e)
+        private void M_jdataprovider_OnOperationFinished(object s, OperationFinishedEventArgs<PatientRepDataProviderOperations> e)
         {
             UIMessaging.CreateMessageBoxAccordingToResult(e, m_tittle, () =>
             {
                 switch (e.OperationType)
                 {
-                    case JDataProviderOperation.SavePatientsDB:
+                    case PatientRepDataProviderOperations.SavePatientsDB:
                         break;
-                    case JDataProviderOperation.LoadPatientsDB:
+                    case PatientRepDataProviderOperations.LoadPatientsDB:
 
                         m_patients = new List<PatientStorage>();
 
@@ -1424,7 +1514,7 @@ namespace PatientRep.ViewModels
 
                         break;
 
-                    case JDataProviderOperation.LoadHistoryNotesDb:
+                    case PatientRepDataProviderOperations.LoadHistoryNotesDb:
 
                         m_HistoryNotesStorageCollection = new List<HistoryNoteStorage>();
 
@@ -1478,7 +1568,7 @@ namespace PatientRep.ViewModels
 
                         break;
 
-                    case JDataProviderOperation.LoadSettings:
+                    case PatientRepDataProviderOperations.LoadSettings:
 
                         if (e.Result == null)
                         {
@@ -1498,7 +1588,7 @@ namespace PatientRep.ViewModels
 
                         break;
 
-                    case JDataProviderOperation.SaveSettings:
+                    case PatientRepDataProviderOperations.SaveSettings:
 
 
 
@@ -1519,7 +1609,7 @@ namespace PatientRep.ViewModels
                 {
                     case PatientControllerOperations.Add:
 
-                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, PatientRepDataProviderOperations.SavePatientsDB);
 
                         OnClearFieldsButtonPressedExecute(null);
 
@@ -1545,12 +1635,12 @@ namespace PatientRep.ViewModels
                             });
                         }
 
-                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, PatientRepDataProviderOperations.SavePatientsDB);
 
                         break;
                     case PatientControllerOperations.Edit:
 
-                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, JDataProviderOperation.SavePatientsDB);
+                        await m_jdataprovider.SaveFileAsync(m_pathToPatientsDB, m_patients, PatientRepDataProviderOperations.SavePatientsDB);
 
                         break;
 
@@ -1635,7 +1725,7 @@ namespace PatientRep.ViewModels
 
                 NoteCount = m_patients.Count;
 
-            });
+            }, !m_UI_is_UsedbyViber_Parser, !m_UI_is_UsedbyViber_Parser);
         }
 
         #endregion
@@ -1653,7 +1743,18 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Methods
-        
+
+        #region On Window Closing
+
+        public void StopAllTasks()
+        {
+            m_cts_for_all_Tasks.Cancel();
+
+            m_cts_for_all_Tasks.Dispose();
+        }
+
+        #endregion
+
         #region On Settings Button Pressed
 
         private bool CanOnSettingsButtonPressedExecute(object p) => true;
@@ -2261,7 +2362,7 @@ namespace PatientRep.ViewModels
                 return !String.IsNullOrWhiteSpace(m_Configuration.NotesReportOutput) && SearchResult.Count > 0;
             }
             return false;
-            
+
         }
 
         private void OnExportNotesButtonPressedExecute(object p)
@@ -2276,7 +2377,7 @@ namespace PatientRep.ViewModels
             }
 
             m_NoteExporterToTxt.Export(NotesExporterToTxtOperations.ExportNotes,
-                path: m_Configuration.NotesReportOutput, 
+                path: m_Configuration.NotesReportOutput,
                 fileName: header + ".txt",
                 Header: header,
                 notesForExport: notes);

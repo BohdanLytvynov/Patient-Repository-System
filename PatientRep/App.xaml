@@ -648,7 +648,8 @@
                             </StackPanel>
 
                             <Button 
-                                    Margin="10" Style="{StaticResource Buttons2}" Content="Вствновити дату дослідження" Command="{Binding OnSetInvestigationDatePressed}"/>
+                                    Margin="0,10,10,10" Style="{StaticResource Buttons2}" Content="Встановити дату дослідження" 
+                                Command="{Binding OnSetInvestigationDatePressed}"/>
 
                             <ComboBox ItemsSource="{Binding Source= {StaticResource PatientStatus}}" 
                                   SelectedItem="{Binding Status, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
@@ -670,7 +671,7 @@
                             <Expander Margin="5,40,0,0">
                                 <Expander.Header>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Додаткова інформація:"/>
+                                        <TextBlock Text="Додаткова інформація: "/>
                                         <TextBlock Text="{Binding AddInfoVMCollection.Count, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, StringFormat=({0}) шт.}"/>
                                     </StackPanel>
                                 </Expander.Header>
@@ -696,7 +697,7 @@
                                 </StackPanel>
                             </Expander>
 
-                            <StackPanel Orientation="Horizontal" Margin="30,40,0,0">
+                            <StackPanel Orientation="Horizontal" Margin="30,65,0,0">
                                 <TextBlock Text="Центр:"/>
 
                                 <TextBox Margin="30,0" Width="50" Style="{StaticResource TxtBoxInputStyle}">
@@ -716,7 +717,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="5">
 
-                            <Button Margin="5,5,5,40" Content="Зберегти зміни" Command="{Binding SaveChangesButtonPressed}" Style="{StaticResource Buttons2}"/>
+                            <Button Margin="5,5,5,40" Content="    Зберегти зміни    " Command="{Binding SaveChangesButtonPressed}" Style="{StaticResource Buttons2}"/>
 
                             <Button Margin="5,5,5,40" Content="Видалити" Command="{Binding RemoveButtonPressed}" Style="{StaticResource Buttons}"/>
 
@@ -724,7 +725,7 @@
 
                     </StackPanel>
 
-                    <TextBlock x:Name="adorner" Margin="60,0"/>
+                    <TextBlock x:Name="adorner" Margin="70,0"/>
 
                 </StackPanel>
             </Border>
@@ -746,8 +747,8 @@
                 <DataTrigger Binding="{Binding Status}" Value="1">
                     <DataTrigger.Setters>
                         <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Orange"/>
-                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="2"/>
-                        <Setter TargetName="adorner" Property="Text" Value="Не Погашено!!!"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="5"/>
+                        <Setter TargetName="adorner" Property="Text" Value="Не Погашено!"/>
                         <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="DarkOrange"/>
                     </DataTrigger.Setters>
                 </DataTrigger>
@@ -755,7 +756,7 @@
                 <DataTrigger Binding="{Binding Status}" Value="2">
                     <DataTrigger.Setters>
                         <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Green"/>
-                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="2"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="5"/>
                         <Setter TargetName="adorner" Property="Text" Value="Погашено. Все Ок! ЗП прийде :)"/>
                         <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="Green"/>
                     </DataTrigger.Setters>
@@ -764,9 +765,18 @@
                 <DataTrigger Binding="{Binding Status}" Value="3">
                     <DataTrigger.Setters>
                         <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Red"/>
-                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="2"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="5"/>
                         <Setter TargetName="adorner" Property="Text" Value="Цей хворий вже не прийде! І грощі за нього не дадуть! ):"/>
                         <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="Red"/>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Status}" Value="4">
+                    <DataTrigger.Setters>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderBrush" Value="Orange"/>
+                        <Setter TargetName="bord" Property="ItemsControl.BorderThickness" Value="5"/>
+                        <Setter TargetName="adorner" Property="Text" Value="Потрібне ручне уточнення данних!"/>
+                        <Setter TargetName="adorner" Property="ItemsControl.Foreground" Value="Orange"/>
                     </DataTrigger.Setters>
                 </DataTrigger>
 
@@ -839,7 +849,7 @@
                                     </TextBox.Text>
                                 </TextBox>
 
-                                <Button Content="Зберегти" Margin="0,45,0,0" Style="{StaticResource Buttons2}" Command="{Binding OnSaveNotesButtonPressed}"/>
+                                <Button Content="   Зберегти   " Margin="0,45,0,0" Style="{StaticResource Buttons2}" Command="{Binding OnSaveNotesButtonPressed}"/>
                             </StackPanel>
 
                         </Border>
@@ -851,7 +861,8 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Центр:"/>
 
-                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox Margin="10,0,0,0"
+                                        Style="{StaticResource TxtBoxInputStyle}">
                                         <TextBox.Text>
                                             <Binding Path="Center" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                                 <Binding.ValidationRules>
@@ -866,7 +877,8 @@
 
                                     <TextBlock Text="Відділення:"/>
 
-                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox Margin="10,0,0,0"
+                                        Style="{StaticResource TxtBoxInputStyle}">
                                         <TextBox.Text>
                                             <Binding Path="Department" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                                 <Binding.ValidationRules>
@@ -878,7 +890,7 @@
 
                                 </StackPanel>
 
-                                <Button Content="Видалити" Margin="0,84,0,0" Style="{StaticResource Buttons}" Command="{Binding OnRemoveNoteButtonPressed}"/>
+                                <Button Content="   Видалити   " Margin="0,84,0,0" Style="{StaticResource Buttons}" Command="{Binding OnRemoveNoteButtonPressed}"/>
 
                             </StackPanel>
 
@@ -892,7 +904,8 @@
 
                                     <TextBlock Text="Дата Госпіталізації:"/>
 
-                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox Margin="10,0,0,0"
+                                        Style="{StaticResource TxtBoxInputStyle}">
                                         <TextBox.Text>
                                             <Binding Path="Date" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                                 <Binding.ValidationRules>
@@ -908,7 +921,8 @@
 
                                     <TextBlock Text="Час Госпіталізації:"/>
 
-                                    <TextBox Style="{StaticResource TxtBoxInputStyle}">
+                                    <TextBox Margin="10,0,0,0"
+                                        Style="{StaticResource TxtBoxInputStyle}">
                                         <TextBox.Text>
                                             <Binding Path="Time" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                                 <Binding.ValidationRules>
@@ -940,6 +954,7 @@
                                     <TextBlock Text="Лікар:"/>
 
                                     <ComboBox ItemsSource="{DynamicResource Doctors}" 
+                                              Margin="10,0,0,0"
                                               Text="{Binding Doctor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"                                              
                                               IsEditable="True"/>
 
@@ -949,7 +964,8 @@
 
                                     <TextBlock Text="Тип дослідження:"/>
 
-                                    <ComboBox ItemsSource="{DynamicResource Investigations}"
+                                    <ComboBox Margin="10,0,0,0"
+                                              ItemsSource="{DynamicResource Investigations}"
                                               Text="{Binding Investigation, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                                 </StackPanel>

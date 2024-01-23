@@ -2,14 +2,21 @@
 using IronOcr;
 using SmartParser.Dependencies.Interfaces;
 using System.Diagnostics;
-using System.Drawing.Imaging;
 using System.Text;
+using JsonDataProviderLibDNC.Interfaces;
+using SmartParser.Comparators;
+using IronSoftware.Drawing;
 
 namespace SmartParser.Parsers
 {
-    public enum ViberParserOperations
+    public enum ViberParserOperations : byte
     {
         Parse = 0
+    }
+
+    public enum ViberParserDataProviderOperations : byte
+    {
+        WriteToTemp = 0, ReadFromTemp
     }
 
     public class ViberParserResult
@@ -55,20 +62,54 @@ namespace SmartParser.Parsers
         }
     }
 
+    public class ViberParserTemp
+    {
+        public string ReadFileName { get; set; }
+
+        public DateTime ReadFileCreationDate { get; set; }
+
+        public bool MoreThenFirstTime { get; set; }
+
+        public int CurrentImagesCount { get; set; }
+
+        public ViberParserTemp(string readFileName, DateTime readFileCreationDate, bool moreThenFirstTime, int currentImagesCount)
+        {
+            ReadFileName = readFileName;
+            ReadFileCreationDate = readFileCreationDate;
+            MoreThenFirstTime = moreThenFirstTime;
+            CurrentImagesCount = currentImagesCount;
+        }
+
+        public ViberParserTemp()
+        {
+
+        }
+    }
+
     public class ViberParser : ControllerBaseClass<ViberParserOperations>,
-        ISmartParser<string, string[]>
+        ISmartParser<string>
     {
         #region Fields
+
+        IDataProvider<ViberParserDataProviderOperations> m_dataProvider;
 
         private OCR m_OCR;
 
         private IOCRResultParser<string[]> m_OCRResultParser;
 
-        private CancellationTokenSource m_cts;
+        //private CancellationTokenSource m_cts;
+
+        private ViberParserTemp m_temp;
+
+        private string m_pathToTemp;
+
+        Action<OcrInput> m_OCRInputPreprocessors;
 
         #endregion
 
         #region Properties
+
+        public ViberParserTemp TempData { get => m_temp; }
 
         public string PathToDebuggingFolder { get; set; }
 
@@ -78,24 +119,136 @@ namespace SmartParser.Parsers
 
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
-            OCR OCR)
+            OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider,
+            Action<OcrInput>? OCRInputPreprocessor_For_Crops_Reader = null,
+            Action<OcrInput>? OCRInputPreprocessor_For_Ordinay_Reader = null)
         {
+            if (OCRInputPreprocessor_For_Crops_Reader != null)
+            {
+                m_OCRInputPreprocessors = OCRInputPreprocessor_For_Crops_Reader;
+            }
+
+            if (OCRInputPreprocessor_For_Ordinay_Reader != null)
+            {
+                Delegate.Combine(m_OCRInputPreprocessors, OCRInputPreprocessor_For_Ordinay_Reader);
+            }
+
             if (OCRresParser == null)
                 throw new ArgumentNullException("OCRresParser");
 
             if (OCR == null)
                 throw new ArgumentNullException("OCR");
 
+            if (dataProvider == null)
+                throw new ArgumentNullException("dataProvider");
+
             m_OCRResultParser = OCRresParser;
 
             m_OCR = OCR;
 
-            //m_cts = cts;            
+            m_dataProvider = dataProvider;
+
+            var temp = m_dataProvider as ControllerBaseClass<ViberParserDataProviderOperations>;
+
+            if (temp != null)
+                temp.OnOperationFinished += ViberParser_OnOperationFinished;
+
+            CreateTempFile();
+
+            m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, new ViberParserTemp(), ViberParserDataProviderOperations.ReadFromTemp);
+        }
+
+        private void ViberParser_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<ViberParserDataProviderOperations> e)
+        {
+            if (e.ExecutionStatus == ControllerBaseLib.Enums.Status.Succed)
+            {
+                switch (e.OperationType)
+                {
+                    case ViberParserDataProviderOperations.ReadFromTemp:
+
+                        if (e.Result != null)
+                        {
+                            m_temp = e.Result;
+                        }
+                        else
+                        {
+                            m_temp = new ViberParserTemp("", new DateTime(), false, 0);
+                        }
+
+                        break;
+                }
+            }
+            else
+            {
+                //Error occurred
+            }
         }
 
         #endregion
 
         #region Methods
+
+        private void CreateTempFile()
+        {
+            var envPath = Environment.CurrentDirectory;
+
+            var path_to_temp_dir = envPath + Path.DirectorySeparatorChar + @"Temp";
+
+            m_dataProvider.IfDirectoryNotExistsCreateIt(path_to_temp_dir);
+
+            var path_to_temp_file = path_to_temp_dir + Path.DirectorySeparatorChar + @"temp." +
+            m_dataProvider.FileExtension;
+
+            m_dataProvider.IfFileNotExistsCreateIt(path_to_temp_file);
+
+            m_pathToTemp = path_to_temp_file;
+        }
+
+        public void ParseImages(FileInfo[] img_pathes)
+        {
+            if (img_pathes == null)
+                throw new NullReferenceException("img_pathes");
+
+            if (img_pathes.Count() == 0)
+                return;
+
+            //Decide what to parse
+
+            Array.Sort<FileInfo>(img_pathes, new FileInfo_Comparators.CompareByCreationTime());
+
+            int i = -1;
+
+            if (m_temp.MoreThenFirstTime)//Some files were already written
+            {
+                i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Comparators.CompareByName()) + 1;
+            }
+            else
+            {
+                i = 0;
+            }
+
+            if (i == -1)
+            {
+                throw new Exception("No propriate index was found in a sorted array");
+            }
+
+            int length = img_pathes.Length;
+
+            for (; i < length; i++)
+            {
+                this.Parse(img_pathes[i].FullName);
+            }
+
+            m_temp.ReadFileCreationDate = img_pathes[length - 1].CreationTime;
+
+            m_temp.ReadFileName = img_pathes[length - 1].Name;
+
+            m_temp.MoreThenFirstTime = true;
+
+            m_temp.CurrentImagesCount = length;
+
+            m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
+        }
 
         public void Parse(string img)
         {
@@ -123,8 +276,20 @@ namespace SmartParser.Parsers
 
                    Image image = null;
 
-                   var Crops = m_OCR.GetCropRectanglesWithText(img, out image);
+                   IEnumerable<CropRectangle> Crops = null;
 
+                   try
+                   {
+                       Crops = m_OCR.GetCropRectanglesWithText(img, out image);
+                   }
+                   catch (DivideByZeroException)//Case when finding some crope regions went wrong
+                   {
+                       FailToReadPaths = img;
+
+                       return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
+                       String.IsNullOrEmpty(FailToReadPaths) ? false : true);
+                   }
+                   
                    int j = 0;
 
                    if (!String.IsNullOrWhiteSpace(PathToDebuggingFolder))
@@ -153,15 +318,25 @@ namespace SmartParser.Parsers
                        sw = new StreamWriter(txt, true, Encoding.UTF8);
                    }
 
+                   if (Crops == null)
+                   {
+                       FailToReadPaths = img;
+
+                       return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
+                       String.IsNullOrEmpty(FailToReadPaths) ? false : true);
+                   }
+
                    foreach (var crop in Crops)
-                   {                       
+                   {
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
                            (inp) =>
                            {
-                               //inp.ToGrayScale().Dilate();
+                               //Call 1 OCR Input Preprocessor
 
-                               //Debuging system
+                               m_OCRInputPreprocessors?.GetInvocationList()?[0]?.DynamicInvoke(inp);
                                
+                               //Debuging system
+
                                inp.StampCropRectangleAndSaveAs(
                                    crop, IronSoftware.Drawing.Color.Red,
                                    debugFolder + Path.DirectorySeparatorChar + $"{j + 1}",
@@ -169,7 +344,6 @@ namespace SmartParser.Parsers
                                   );
 
                                j++;
-
 
                            });
 
@@ -197,16 +371,17 @@ namespace SmartParser.Parsers
 
                    if (String.IsNullOrEmpty(MainResult[MainResult.Length - 1]))//Maybe there is a barcode
                    {
-                       OcrResult try2 = m_OCR.SimpleConvertToText(img, null);
+                       string eln = String.Empty;
+
+                       OcrResult try2 = m_OCR.SimpleConvertToText(img, (input)=>
+                       {
+                           m_OCRInputPreprocessors?.GetInvocationList()?[1]?.DynamicInvoke(input);
+                       });
 
                        Debug.WriteLine("Attempt to find BarCode!!!");
 
-                       sw.WriteLine();
-
-                       sw.WriteLine("Crop scaning failure somthing hasn't been found!!! Try to use simple parse");
-
-                       sw.WriteLine();
-
+                       sw.WriteLine("Crop scaning failure anything hasn't been found!!! Try to use simple parse");
+#if DEBUG
                        foreach (var item in try2.Paragraphs)
                        {
                            foreach (var item2 in item.Words)
@@ -220,11 +395,16 @@ namespace SmartParser.Parsers
 
                            Debug.WriteLine("\n");
                        }
-
-                       
+#endif
                        if (try2.Barcodes.Length > 0)
                        {
                            MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;
+                       }
+                       else
+                       {
+                           eln = m_OCRResultParser.FindElnRefinParagraph(try2.Paragraphs);
+
+                           MainResult[MainResult.Length - 1] = eln;
                        }
                    }
 
@@ -234,7 +414,7 @@ namespace SmartParser.Parsers
 
                    if (image != null)
                        image.Dispose();
-                   
+
                    if (!AllParsedSuccesfully(MainResult))
                    {
                        FailToReadPaths = img;

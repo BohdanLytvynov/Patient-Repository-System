@@ -24,6 +24,10 @@ namespace SmartParser.Dependencies
 
         readonly Regex m_1Word;
 
+        readonly Regex m_ElnWithText;
+
+        readonly string[] m_KeyWords;
+
         #endregion
 
         #region Maintainance Fields
@@ -53,7 +57,7 @@ namespace SmartParser.Dependencies
         #region Ctor
 
         public OCRResultParser(Regex Code, Regex Surename_Name_Lastname,
-            Regex SurenameName, Regex Word1)
+            Regex SurenameName, Regex Word1, Regex ElnRefWithText, string [] keyWords)
         {
             m_code = Code;
            
@@ -62,12 +66,36 @@ namespace SmartParser.Dependencies
             m_Surename_Name = SurenameName;
 
             m_1Word = Word1;
+
+            m_ElnWithText = ElnRefWithText;
+
+            if (keyWords == null)
+            {
+                m_KeyWords = new string[0];
+            }
+            else
+            {
+                m_KeyWords = keyWords;
+            }
         }
 
         #endregion
 
         #region Methods
-        
+
+        private bool EqualToOneOfTheKeyWords(string text)
+        {
+            foreach (string item in m_KeyWords)
+            {
+                if (text.Equals(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public string[] Parse(OcrResult res, bool barcode = false)
         {
             string[] r = new string[4];
@@ -110,11 +138,11 @@ namespace SmartParser.Dependencies
                             m_nameFound = true;
 
                             m_lastnameFound = true;
-                        }
+                        }                        
                     }
 
                     //SNL Found
-                    if ((m_Surename_Name_Lastname.IsMatch(paragraph.Text))
+                    if ((m_Surename_Name_Lastname.IsMatch(RewriteFromChars(paragraph.Text.ToCharArray())))
                     && !(m_surenameFound && m_lastnameFound && m_nameFound) && !barcode)
                     {
                         if(paragraph.Words.Length == 3)
@@ -129,7 +157,7 @@ namespace SmartParser.Dependencies
 
                         m_lastnameFound = true;
                     }
-                    else if (m_Surename_Name.IsMatch(paragraph.Text)
+                    else if (m_Surename_Name.IsMatch(RewriteFromChars(paragraph.Text.ToCharArray()))
                         && !(m_surenameFound && m_nameFound))
                     {
                         if(paragraph.Words.Length == 2)
@@ -142,7 +170,7 @@ namespace SmartParser.Dependencies
 
                         m_nameFound = true;
                     }
-                    else if (m_1Word.Match(paragraph.Text).Length == paragraph.Text.Length)
+                    else if (m_1Word.IsMatch(RewriteFromChars(paragraph.Text)) && !EqualToOneOfTheKeyWords(paragraph.Text) )
                     {                                                
                         if (paragraph.Words.Length == 1)
                         {
@@ -189,6 +217,18 @@ namespace SmartParser.Dependencies
             return sb.ToString();
         }
 
+        private string RewriteFromChars(IEnumerable<char> chars)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var item in chars)
+            {
+                sb.Append(item);
+            }
+
+            return sb.ToString();
+        }
+
         public void ClearSearchFlags()
         {
             m_CodeFound = false;
@@ -204,6 +244,46 @@ namespace SmartParser.Dependencies
         {
             return m_surenameFound && m_nameFound && m_lastnameFound && m_CodeFound;
         }
+
+        public string FindElnRefinParagraph(Paragraph[] p)
+        {
+            string res = null;
+
+            if (p == null)
+                return res;
+
+            foreach (var paragraph in p)
+            {
+                if (m_ElnWithText.IsMatch(paragraph.Text))
+                {
+                    FindElnRefInWords(paragraph.Words, ref res);
+
+                    if (!String.IsNullOrEmpty(res))
+                    {
+                        return res;
+                    }
+                }
+            }
+            
+            return res;
+        }
+
+        private void FindElnRefInWords(Word[] words, ref string eln)
+        {
+            int length = words.Length;
+                       
+            for (int i = 0; i < length; i++)
+            {
+                if (m_code.IsMatch(RewriteFromChars(words[i].Text)))
+                {
+                    eln = RewriteFromChars(words[i].Text);
+
+                    break;
+                }               
+            }                        
+        }
+
+        
 
         #endregion
     }

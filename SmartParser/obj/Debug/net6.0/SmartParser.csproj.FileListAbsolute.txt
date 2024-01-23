@@ -40,3 +40,7 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Smar
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
