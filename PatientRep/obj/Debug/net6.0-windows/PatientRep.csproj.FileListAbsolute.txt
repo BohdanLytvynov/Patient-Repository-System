@@ -686,3 +686,5 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll.config
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\bin\Debug\net6.0-windows\PatientRep.dll.config

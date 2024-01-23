@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalizationSystemLib", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemManagerLib", "ItemManagerLib\ItemManagerLib.csproj", "{9971908C-7933-4897-8C8B-E58464BB7951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParser", "SmartParser\SmartParser.csproj", "{D3DA4BC0-70AE-4623-A409-58CF3CDAE64C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParser", "SmartParser\SmartParser.csproj", "{D3DA4BC0-70AE-4623-A409-58CF3CDAE64C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using ViewModelBaseLib;
 using ViewModelBaseLib.VM;
 
@@ -24,7 +25,7 @@ namespace PatientRep.ViewModels
         string m_PathToViberPhotos;
 
         string m_PathToFailToRead;
-
+        
         #endregion
 
         #region Properties
@@ -42,7 +43,7 @@ namespace PatientRep.ViewModels
 
             set => Set(ref m_PathToFailToRead, value, nameof(PathToFailToRead));
         }
-
+        
         #endregion
 
         #region IDataErrorInfo

@@ -1,4 +1,6 @@
-﻿using Models;
+﻿#region Usings
+
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,15 +42,25 @@ using SmartParser.Dependencies;
 using System.Text.RegularExpressions;
 using IronOcr;
 using System.Diagnostics;
-using SmartParser.Comparators;
 using PatientRep.Enums;
 using JsonDataProviderLibDNC;
 using System.Threading;
+using System.Configuration;
+using System.Collections.Specialized;
+
+
+#endregion
 
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
     {
+        #region Global Vars
+
+        bool ENABLE_OCR_DEBUG;
+
+        #endregion
+
         #region Constants
 
         private const int ONE_MINUTE_TOMILLISECOND_MULTIPL = 60000;
@@ -85,9 +97,9 @@ namespace PatientRep.ViewModels
 
         #region Windows
 
-        ReportViewer m_ReportViewerWindow;
+        ReportViewer? m_ReportViewerWindow;
 
-        SettingsWindow m_SettingsWindow;
+        SettingsWindow? m_SettingsWindow;
 
         #endregion
 
@@ -100,7 +112,7 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Viber Parser
-
+       
         ViberParser m_ViberParser;
 
         bool m_UI_is_UsedbyViber_Parser;
@@ -124,7 +136,7 @@ namespace PatientRep.ViewModels
 
         string m_PathToConfig;
 
-        ConfigStorage m_Configuration;
+        ConfigStorage? m_Configuration;
 
         #region Informator System
 
@@ -158,7 +170,7 @@ namespace PatientRep.ViewModels
 
         ObservableCollection<AdditionalInfoViewModel> m_HistoryRegistrationAddInfoCollection;
 
-        private List<HistoryNoteStorage> m_HistoryNotesStorageCollection;
+        private List<HistoryNoteStorage>? m_HistoryNotesStorageCollection;
 
         ObservableCollection<HistoryNote> m_HistoryNoteVisualModelCollection;
 
@@ -296,7 +308,7 @@ namespace PatientRep.ViewModels
 
         #region PatientsNotesCollection
 
-        List<PatientStorage> m_patients;
+        List<PatientStorage>? m_patients;
 
         ObservableCollection<Patient> m_SearchResult;
 
@@ -809,7 +821,9 @@ namespace PatientRep.ViewModels
         #region Ctor
 
         public MainWindowViewModel(Window thisWindow)
-        {
+        {      
+            //ConfigCodeUsageDictionary Manager will be used in future for connection to DB file
+
             #region Init Tasks
 
             m_cts_for_all_Tasks = new CancellationTokenSource();
@@ -1155,7 +1169,7 @@ namespace PatientRep.ViewModels
         }
 
         private void M_ViberParser_OnOperationFinished(object s, OperationFinishedEventArgs<ViberParserOperations> e)
-        {
+        {            
             var r = (e.Result as ViberParserResult);
 
             if (r == null)
@@ -1163,7 +1177,7 @@ namespace PatientRep.ViewModels
                 return;
             }
 
-        #if true
+        #if DEBUG
             Debug.WriteLine(r.ToString());
         #endif
 
@@ -1171,7 +1185,7 @@ namespace PatientRep.ViewModels
             
             //Even One Data Must Be found
             if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2]) 
-                || String.IsNullOrEmpty(temp[3])))
+                || String.IsNullOrEmpty(temp[3])) )
             {
                 m_UI_is_UsedbyViber_Parser = true;
 
@@ -1250,7 +1264,7 @@ namespace PatientRep.ViewModels
             }
             else
             {                
-                //m_CheckViber.Start();
+                m_CheckViber.Start();
             }
         }
 
@@ -1737,6 +1751,16 @@ namespace PatientRep.ViewModels
             m_cts_for_all_Tasks.Cancel();
 
             m_cts_for_all_Tasks.Dispose();
+
+            //m_jdataprovider.SaveFile(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.SaveSettings);
+
+            while (!m_CheckViber.IsCanceled)
+            {
+#if DEBUG
+                Debug.WriteLine("Try to cancel Task!");
+#endif
+                break;
+            }
         }
 
         #endregion

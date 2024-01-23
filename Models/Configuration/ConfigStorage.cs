@@ -36,6 +36,8 @@ namespace Models.Configuration
 
         public string PathToFailToReadPhotos { get; set; }
 
+        public bool IsViberParserActive { get; set; }
+
         #endregion
 
         #region Ctor
@@ -54,6 +56,8 @@ namespace Models.Configuration
             PathToFailToReadPhotos = String.Empty;
 
             PathToViberPhoto = String.Empty;
+
+            IsViberParserActive = false;
         }
         #endregion
 
