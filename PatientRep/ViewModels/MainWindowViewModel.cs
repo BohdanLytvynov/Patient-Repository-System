@@ -71,7 +71,7 @@ namespace PatientRep.ViewModels
 
         Task m_CheckViber;
 
-        CancellationTokenSource m_cts_for_all_Tasks;
+        CancellationTokenSource m_cts_for_Viber_Parser;
 
         #endregion
 
@@ -112,7 +112,7 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Viber Parser
-
+       
         ViberParser m_ViberParser;
 
         bool m_UI_is_UsedbyViber_Parser;
@@ -826,7 +826,7 @@ namespace PatientRep.ViewModels
 
             #region Init Tasks
 
-            m_cts_for_all_Tasks = new CancellationTokenSource();
+            m_cts_for_Viber_Parser = new CancellationTokenSource();
 
             m_CheckViber = new Task(() => 
             {
@@ -841,16 +841,16 @@ namespace PatientRep.ViewModels
                         m_ViberParser.ParseImages(images);
                     }
 
-                    if (m_cts_for_all_Tasks.IsCancellationRequested)
-                    {
-                        break;
-                    }
+                    //if (m_cts_for_Viber_Parser.IsCancellationRequested)
+                    //{
+                    //    break;
+                    //}
 
                     //Thread.Sleep(ONE_MINUTE_TOMILLISECOND_MULTIPL * 1);
                 }
 
                 
-            },m_cts_for_all_Tasks.Token);
+            },m_cts_for_Viber_Parser.Token);
 
             #endregion
 
@@ -1185,7 +1185,7 @@ namespace PatientRep.ViewModels
             
             //Even One Data Must Be found
             if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2]) 
-                || String.IsNullOrEmpty(temp[3])))
+                || String.IsNullOrEmpty(temp[3])) )
             {
                 m_UI_is_UsedbyViber_Parser = true;
 
@@ -1234,18 +1234,33 @@ namespace PatientRep.ViewModels
             }
         }
 
-        private async Task M_Configuration_OnConfigChanged()
+        private async Task M_Configuration_OnConfigChanged(bool needRestart)
         {
-            await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.SaveSettings);
-
-            var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
-                "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
-               m_tittle, MessageBoxButton.OKCancel, MessageBoxImage.Information);
-
-            if (r == MessageBoxResult.OK)
+            if (needRestart)//If restart is required for updating some data
             {
-                System.Windows.Application.Current.Shutdown(0);
+                await m_jdataprovider.SaveFileAsync(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.SaveSettings);
+
+                var r = UIMessaging.CreateMessageBox("Налаштування додатку були успішно збережені! Але потрібно перезапустити додаток щоб оновити потрібні Комбо-Бокси!" +
+                    "Якщо ви зробили всі потрібні вам налаштування тисніть - ОК, якщо ні, то доробіть, та перезапускайтесь! :)",
+                   m_tittle, MessageBoxButton.OKCancel, MessageBoxImage.Information);
+
+                if (r == MessageBoxResult.OK)
+                {
+                    System.Windows.Application.Current.Shutdown(0);
+                }
             }
+            else //Restart is not required 
+            {
+                if (m_Configuration?.IsViberParserActive ?? false)//Viber Parser is Active
+                {
+                    m_CheckViber.Start();
+                }
+                else
+                {
+                    
+                }
+            }
+            
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
@@ -1264,7 +1279,7 @@ namespace PatientRep.ViewModels
             }
             else
             {                
-                //m_CheckViber.Start();
+                m_CheckViber.Start();
             }
         }
 
@@ -1748,9 +1763,19 @@ namespace PatientRep.ViewModels
 
         public void StopAllTasks()
         {
-            m_cts_for_all_Tasks.Cancel();
+            m_cts_for_Viber_Parser.Cancel();
 
-            m_cts_for_all_Tasks.Dispose();
+            m_cts_for_Viber_Parser.Dispose();
+
+            //m_jdataprovider.SaveFile(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.SaveSettings);
+
+            while (!m_CheckViber.IsCanceled)
+            {
+#if DEBUG
+                Debug.WriteLine("Try to cancel Task!");
+#endif
+                break;
+            }
         }
 
         #endregion

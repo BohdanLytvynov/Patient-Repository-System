@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using ViewModelBaseLib;
 using ViewModelBaseLib.VM;
 
@@ -25,6 +26,8 @@ namespace PatientRep.ViewModels
 
         string m_PathToFailToRead;
 
+        bool m_IsViberParserEnabled;
+        
         #endregion
 
         #region Properties
@@ -41,6 +44,26 @@ namespace PatientRep.ViewModels
             get => m_PathToFailToRead;
 
             set => Set(ref m_PathToFailToRead, value, nameof(PathToFailToRead));
+        }
+
+        public bool IsViberParserEnabled 
+        {
+            get=> m_IsViberParserEnabled;
+            set
+            {
+                Set(ref m_IsViberParserEnabled, value, nameof(IsViberParserEnabled));
+
+                if (m_configStorage!= null)
+                {
+                    if (m_configStorage.IsViberParserActive != IsViberParserEnabled)
+                    {
+                        m_configStorage.IsViberParserActive = IsViberParserEnabled;
+
+                        m_configStorage.ConfirmChanging(false);
+                    }
+                }
+            }
+        
         }
 
         #endregion

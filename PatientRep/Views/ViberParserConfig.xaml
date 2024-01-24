@@ -11,10 +11,12 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="60*"/>
+            <RowDefinition Height="51*"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="172*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="85*"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
@@ -37,8 +39,8 @@
         </Grid>
 
         <TextBlock Text="Шлях до непрочитаних фото нейромережею:" Grid.Row="4"
-                   Style="{DynamicResource InpTextblock}" Margin="20,0,0,0"/>
-        <Grid Grid.Row="5">
+                   Style="{DynamicResource InpTextblock}" Margin="20,0,0,40" Grid.RowSpan="2"/>
+        <Grid Grid.Row="5" Margin="0,0,0,35" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition/>
@@ -53,7 +55,22 @@
                        Text="{Binding PathToFailToRead,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
-        <Grid Grid.Row="7">
+        <Grid x:Name="StarterButton" Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ToggleButton 
+                x:Name="Start_Viber_Parser" Grid.Column="1" Content="Вайбер Парсер Пуск"
+                IsChecked="{Binding IsViberParserActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"                          
+                          />
+
+
+        </Grid>
+
+        <Grid Grid.Row="9" Margin="0,1,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="150"/>

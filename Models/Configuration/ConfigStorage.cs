@@ -1,11 +1,4 @@
-﻿using Models.Configuration.IntegratedData;
-using Models.Configuration.ReasonModels.ReasonStorageModel;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Models.Configuration.ReasonModels.ReasonStorageModel;
 using static Models.Configuration.IntegratedData.Reasons;
 using static Models.Configuration.IntegratedData.Physicians;
 using static Models.Configuration.IntegratedData.Investigations;
@@ -16,7 +9,7 @@ namespace Models.Configuration
     {        
         #region Event
 
-        public event Func<Task> OnConfigChanged;
+        public event Func<bool, Task> OnConfigChanged;
         
         #endregion
 
@@ -36,6 +29,8 @@ namespace Models.Configuration
 
         public string PathToFailToReadPhotos { get; set; }
 
+        public bool IsViberParserActive { get; set; }
+
         #endregion
 
         #region Ctor
@@ -54,14 +49,16 @@ namespace Models.Configuration
             PathToFailToReadPhotos = String.Empty;
 
             PathToViberPhoto = String.Empty;
+
+            IsViberParserActive = false;
         }
         #endregion
 
         #region Methods
 
-        public void ConfirmChanging()
+        public void ConfirmChanging(bool needRestart = true)
         {
-            OnConfigChanged?.Invoke();
+            OnConfigChanged?.Invoke(needRestart);
         }
 
         public void UpdateIntegratedData()

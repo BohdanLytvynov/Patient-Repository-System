@@ -64,7 +64,7 @@ namespace SmartParser.Parsers
 
     public class ViberParserTemp
     {
-        public string ReadFileName { get; set; }
+        public string? ReadFileName { get; set; }
 
         public DateTime ReadFileCreationDate { get; set; }
 
@@ -234,18 +234,22 @@ namespace SmartParser.Parsers
 
             int length = img_pathes.Length;
 
+            int current = 0;
+
             for (; i < length; i++)
             {
                 this.Parse(img_pathes[i].FullName);
+
+                current = i;
             }
 
-            m_temp.ReadFileCreationDate = img_pathes[length - 1].CreationTime;
+            m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
 
-            m_temp.ReadFileName = img_pathes[length - 1].Name;
+            m_temp.ReadFileName = img_pathes[current].Name;
 
             m_temp.MoreThenFirstTime = true;
 
-            m_temp.CurrentImagesCount = length;
+            m_temp.CurrentImagesCount = current + 1;
 
             m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
         }
