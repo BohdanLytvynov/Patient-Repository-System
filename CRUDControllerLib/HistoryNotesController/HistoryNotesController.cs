@@ -37,6 +37,22 @@ namespace CRUDControllerLib.HistoryNotesController
                 });
         }
 
+        public void Add(HistoryNoteStorage entity, IList<HistoryNoteStorage> col)
+        {
+            ExecuteFunctionAndGetResultThroughEvent(HistoryNotesControllerOperations.AddNote,
+                (state) =>
+                {
+                    while (IsGuidExists<HistoryNoteStorage>(col, entity.Id))
+                    {
+                        entity.Id = Guid.NewGuid();
+                    }
+
+                    col.Add(entity);
+
+                    return null;
+                });
+        }
+
         public async Task EditAsync(HistoryNote entity, IList<HistoryNoteStorage> col)
         {
             await ExecuteFunctionAndGetResultThroughEventAsync

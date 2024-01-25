@@ -62,12 +62,11 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ToggleButton x:Name="Start_Viber_Parser" Grid.Column="1" Content="Вайбер Парсер Пуск"
-                          IsChecked="{Binding IsViberParserActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                          
-                          >
-                
-            </ToggleButton>
+            <ToggleButton 
+                x:Name="Start_Viber_Parser" Grid.Column="1" Content="Вайбер Парсер Пуск"                
+                IsChecked="{Binding IsViberParserEnabled, UpdateSourceTrigger=PropertyChanged}"                          
+                          />
+
 
         </Grid>
 

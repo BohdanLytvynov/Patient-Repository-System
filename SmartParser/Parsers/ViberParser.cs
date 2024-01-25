@@ -105,6 +105,10 @@ namespace SmartParser.Parsers
 
         Action<OcrInput> m_OCRInputPreprocessors;
 
+        bool m_isRunning;
+
+        CancellationTokenSource m_cts;
+
         #endregion
 
         #region Properties
@@ -113,6 +117,8 @@ namespace SmartParser.Parsers
 
         public string PathToDebuggingFolder { get; set; }
 
+        public bool IsRunning { get => m_isRunning; }
+
         #endregion
 
         #region Ctor
@@ -120,9 +126,17 @@ namespace SmartParser.Parsers
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
             OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider,
+            CancellationTokenSource cts = null,
             Action<OcrInput>? OCRInputPreprocessor_For_Crops_Reader = null,
             Action<OcrInput>? OCRInputPreprocessor_For_Ordinay_Reader = null)
         {
+            if (cts == null)
+                m_cts = new CancellationTokenSource();
+            else
+                m_cts = cts;
+
+            m_isRunning = false;
+
             if (OCRInputPreprocessor_For_Crops_Reader != null)
             {
                 m_OCRInputPreprocessors = OCRInputPreprocessor_For_Crops_Reader;
@@ -214,6 +228,15 @@ namespace SmartParser.Parsers
 
             //Decide what to parse
 
+            if (m_cts.IsCancellationRequested)
+            {
+                m_isRunning = !m_cts.IsCancellationRequested;
+
+                return;
+            }
+
+            m_isRunning = true;
+
             Array.Sort<FileInfo>(img_pathes, new FileInfo_Comparators.CompareByCreationTime());
 
             int i = -1;
@@ -232,15 +255,19 @@ namespace SmartParser.Parsers
                 throw new Exception("No propriate index was found in a sorted array");
             }
 
+            m_isRunning = !m_cts.IsCancellationRequested;
+
             int length = img_pathes.Length;
 
             int current = 0;
-
-            for (; i < length; i++)
-            {
+            //Parsing Cycle
+            for (; i < length && !m_cts.IsCancellationRequested; i++)
+            {                
                 this.Parse(img_pathes[i].FullName);
 
                 current = i;
+
+                m_isRunning = !m_cts.IsCancellationRequested;
             }
 
             m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
@@ -252,6 +279,16 @@ namespace SmartParser.Parsers
             m_temp.CurrentImagesCount = current + 1;
 
             m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
+        }
+
+        public void PrepareToRestart(CancellationTokenSource cts_new)
+        {
+            m_cts.Dispose();
+
+            if (cts_new == null)
+                return;
+            else
+                m_cts = cts_new;
         }
 
         public void Parse(string img)
@@ -269,7 +306,7 @@ namespace SmartParser.Parsers
                    string FailToReadPaths = String.Empty;
 
                    string debugFolder = String.Empty;
-
+                  
                    var txt = String.Empty;
 
                    StreamWriter sw = null;
@@ -293,7 +330,7 @@ namespace SmartParser.Parsers
                        return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
                        String.IsNullOrEmpty(FailToReadPaths) ? false : true);
                    }
-                   
+
                    int j = 0;
 
                    if (!String.IsNullOrWhiteSpace(PathToDebuggingFolder))
@@ -331,14 +368,14 @@ namespace SmartParser.Parsers
                    }
 
                    foreach (var crop in Crops)
-                   {
+                   {                       
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
                            (inp) =>
                            {
                                //Call 1 OCR Input Preprocessor
 
                                m_OCRInputPreprocessors?.GetInvocationList()?[0]?.DynamicInvoke(inp);
-                               
+
                                //Debuging system
 
                                inp.StampCropRectangleAndSaveAs(
@@ -377,15 +414,15 @@ namespace SmartParser.Parsers
                    {
                        string eln = String.Empty;
 
-                       OcrResult try2 = m_OCR.SimpleConvertToText(img, (input)=>
+                       OcrResult try2 = m_OCR.SimpleConvertToText(img, (input) =>
                        {
                            m_OCRInputPreprocessors?.GetInvocationList()?[1]?.DynamicInvoke(input);
                        });
-
+#if DEBUG
                        Debug.WriteLine("Attempt to find BarCode!!!");
 
                        sw.WriteLine("Crop scaning failure anything hasn't been found!!! Try to use simple parse");
-#if DEBUG
+
                        foreach (var item in try2.Paragraphs)
                        {
                            foreach (var item2 in item.Words)
@@ -429,7 +466,7 @@ namespace SmartParser.Parsers
                    }
 
                    SuccessfullyRead.AddRange(MainResult);
-
+                   
                    return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
                        String.IsNullOrEmpty(FailToReadPaths) ? false : true);
                }

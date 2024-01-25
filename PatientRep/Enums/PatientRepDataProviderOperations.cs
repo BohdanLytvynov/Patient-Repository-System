@@ -8,6 +8,6 @@ namespace PatientRep.Enums
 {
     public enum PatientRepDataProviderOperations : byte
     {
-        SavePatientsDB = 1, LoadPatientsDB, SaveHistoryNotesDb, LoadHistoryNotesDb, LoadSettings, SaveSettings
+        SavePatientsDB = 1, LoadPatientsDB, SaveHistoryNotesDb, LoadHistoryNotesDb, LoadSettings, SaveSettings, No_EventCall
     }
 }

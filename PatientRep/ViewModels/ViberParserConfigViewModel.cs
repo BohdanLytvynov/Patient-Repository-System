@@ -25,6 +25,8 @@ namespace PatientRep.ViewModels
         string m_PathToViberPhotos;
 
         string m_PathToFailToRead;
+
+        bool m_IsViberParserEnabled;
         
         #endregion
 
@@ -43,7 +45,27 @@ namespace PatientRep.ViewModels
 
             set => Set(ref m_PathToFailToRead, value, nameof(PathToFailToRead));
         }
+
+        public bool IsViberParserEnabled 
+        {
+            get=> m_IsViberParserEnabled;
+            set
+            {
+                Set(ref m_IsViberParserEnabled, value, nameof(IsViberParserEnabled));
+
+                if (m_configStorage!= null)
+                {
+                    if (m_configStorage.IsViberParserActive != IsViberParserEnabled)
+                    {
+                        m_configStorage.IsViberParserActive = IsViberParserEnabled;
+
+                        m_configStorage.ConfirmChanging(false);
+                    }
+                }
+            }
         
+        }
+
         #endregion
 
         #region IDataErrorInfo
