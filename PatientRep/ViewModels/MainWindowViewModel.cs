@@ -828,23 +828,19 @@ namespace PatientRep.ViewModels
 
             m_cts_for_Viber_Parser = new CancellationTokenSource();
 
-            m_CheckViber = new Task(() => 
+            m_CheckViber = new Task(async () => 
             {
-                for ( ; ; )
+                for ( ; !m_cts_for_Viber_Parser.IsCancellationRequested ; )
                 {
                     DirectoryInfo d_info = new DirectoryInfo(m_Configuration.PathToViberPhoto);
 
                     var images = d_info.GetFiles();
 
-                    if (m_ViberParser.TempData.CurrentImagesCount < images.Length)
+                    if (m_ViberParser?.TempData?.CurrentImagesCount < images?.Length)
                     {
-                        m_ViberParser.ParseImages(images);
+                        if(images.Length > 0)
+                            await m_ViberParser.ParseImagesAsync(images);
                     }
-
-                    //if (m_cts_for_Viber_Parser.IsCancellationRequested)
-                    //{
-                    //    break;
-                    //}
 
                     //Thread.Sleep(ONE_MINUTE_TOMILLISECOND_MULTIPL * 1);
                 }
@@ -891,7 +887,7 @@ namespace PatientRep.ViewModels
                 new string[] { "Перевірено", "Профіль",
                 "Зв'язки", "Страхування", "Призначення", "Активне", "Нове", "Пріоритет", "Планове", "Категорія",  "Програма", 
                 "Детальніше"}), new OCR(configuration1),
-                new JsonDataProvider<ViberParserDataProviderOperations>());
+                new JsonDataProvider<ViberParserDataProviderOperations>(), m_cts_for_Viber_Parser);
 
             m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
 
@@ -1249,15 +1245,21 @@ namespace PatientRep.ViewModels
                     System.Windows.Application.Current.Shutdown(0);
                 }
             }
-            else //Restart is not required 
+            else //Restart of app is not required 
             {
                 if (m_Configuration?.IsViberParserActive ?? false)//Viber Parser is Active
                 {
                     m_CheckViber.Start();
                 }
-                else
-                {
-                    
+                else if(!m_CheckViber.IsCanceled)
+                {                    
+                    m_cts_for_Viber_Parser.Cancel();
+
+                    m_cts_for_Viber_Parser.Dispose();
+
+                    m_cts_for_Viber_Parser = new CancellationTokenSource();
+
+                    m_ViberParser.PrepareToRestart(m_cts_for_Viber_Parser);
                 }
             }
             
@@ -1278,8 +1280,9 @@ namespace PatientRep.ViewModels
                     MessageBoxButton.OK, MessageBoxImage.Error);                              
             }
             else
-            {                
-                m_CheckViber.Start();
+            {   
+                if(m_Configuration.IsViberParserActive)
+                    m_CheckViber.Start();
             }
         }
 

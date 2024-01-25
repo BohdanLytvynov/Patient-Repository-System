@@ -105,13 +105,19 @@ namespace SmartParser.Parsers
 
         Action<OcrInput> m_OCRInputPreprocessors;
 
+        bool m_isRunning;
+
+        CancellationTokenSource m_cts;
+
         #endregion
 
         #region Properties
-
+        
         public ViberParserTemp TempData { get => m_temp; }
 
         public string PathToDebuggingFolder { get; set; }
+
+        public bool IsRunning { get=>m_isRunning; }
 
         #endregion
 
@@ -120,9 +126,17 @@ namespace SmartParser.Parsers
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
             OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider,
+            CancellationTokenSource cts= null,
             Action<OcrInput>? OCRInputPreprocessor_For_Crops_Reader = null,
             Action<OcrInput>? OCRInputPreprocessor_For_Ordinay_Reader = null)
         {
+            if(cts == null)
+                m_cts = new CancellationTokenSource();
+            else
+                m_cts = cts;
+
+            m_isRunning = false;
+
             if (OCRInputPreprocessor_For_Crops_Reader != null)
             {
                 m_OCRInputPreprocessors = OCRInputPreprocessor_For_Crops_Reader;
@@ -204,7 +218,7 @@ namespace SmartParser.Parsers
             m_pathToTemp = path_to_temp_file;
         }
 
-        public void ParseImages(FileInfo[] img_pathes)
+        public async Task ParseImagesAsync(FileInfo[] img_pathes)
         {
             if (img_pathes == null)
                 throw new NullReferenceException("img_pathes");
@@ -214,44 +228,57 @@ namespace SmartParser.Parsers
 
             //Decide what to parse
 
-            Array.Sort<FileInfo>(img_pathes, new FileInfo_Comparators.CompareByCreationTime());
+            await Task.Run(() =>
+            {                
+                m_isRunning = true;
 
-            int i = -1;
+                Array.Sort<FileInfo>(img_pathes, new FileInfo_Comparators.CompareByCreationTime());
 
-            if (m_temp.MoreThenFirstTime)//Some files were already written
-            {
-                i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Comparators.CompareByName()) + 1;
-            }
+                int i = -1;
+
+                if (m_temp.MoreThenFirstTime)//Some files were already written
+                {
+                    i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Comparators.CompareByName()) + 1;
+                }
+                else
+                {
+                    i = 0;
+                }
+
+                if (i == -1)
+                {
+                    throw new Exception("No propriate index was found in a sorted array");
+                }
+
+                int length = img_pathes.Length;
+
+                int current = 0;
+                //Parsing Cycle
+                for (; i < length && !m_cts.IsCancellationRequested; i++)
+                {
+                    this.Parse(img_pathes[i].FullName);
+
+                    current = i;
+                }
+
+                m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
+
+                m_temp.ReadFileName = img_pathes[current].Name;
+
+                m_temp.MoreThenFirstTime = true;
+
+                m_temp.CurrentImagesCount = current + 1;
+
+                m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
+            }, m_cts.Token);            
+        }
+
+        public void PrepareToRestart(CancellationTokenSource cts_new)
+        {             
+            if (cts_new == null)
+                return;
             else
-            {
-                i = 0;
-            }
-
-            if (i == -1)
-            {
-                throw new Exception("No propriate index was found in a sorted array");
-            }
-
-            int length = img_pathes.Length;
-
-            int current = 0;
-
-            for (; i < length; i++)
-            {
-                this.Parse(img_pathes[i].FullName);
-
-                current = i;
-            }
-
-            m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
-
-            m_temp.ReadFileName = img_pathes[current].Name;
-
-            m_temp.MoreThenFirstTime = true;
-
-            m_temp.CurrentImagesCount = current + 1;
-
-            m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
+                m_cts = cts_new;
         }
 
         public void Parse(string img)
@@ -269,6 +296,14 @@ namespace SmartParser.Parsers
                    string FailToReadPaths = String.Empty;
 
                    string debugFolder = String.Empty;
+
+                   if (m_cts.IsCancellationRequested)
+                   {
+                       FailToReadPaths = img;
+
+                       return new ViberParserResult(SuccessfullyRead, FailToReadPaths,
+                       String.IsNullOrEmpty(FailToReadPaths) ? false : true);
+                   }
 
                    var txt = String.Empty;
 
@@ -332,6 +367,11 @@ namespace SmartParser.Parsers
 
                    foreach (var crop in Crops)
                    {
+                       if (m_cts.IsCancellationRequested)
+                       {
+                           break;
+                       }
+
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
                            (inp) =>
                            {
@@ -373,7 +413,7 @@ namespace SmartParser.Parsers
                            break;
                    }
 
-                   if (String.IsNullOrEmpty(MainResult[MainResult.Length - 1]))//Maybe there is a barcode
+                   if (String.IsNullOrEmpty(MainResult[MainResult.Length - 1]) && !m_cts.IsCancellationRequested)//Maybe there is a barcode
                    {
                        string eln = String.Empty;
 
@@ -404,7 +444,7 @@ namespace SmartParser.Parsers
                        {
                            MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;
                        }
-                       else
+                       else if(!m_cts.IsCancellationRequested)
                        {
                            eln = m_OCRResultParser.FindElnRefinParagraph(try2.Paragraphs);
 
