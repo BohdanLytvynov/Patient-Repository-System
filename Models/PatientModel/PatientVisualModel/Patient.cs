@@ -121,25 +121,25 @@ namespace Models.PatientModel.PatientVisualModel
                     case nameof(Surename):
 
                         m_ValidationArray[0] = Validation.ValidateText(Surename, Validation.Restricted, out error);
-
+                                                                            
                         break;
 
                     case nameof(Name):
 
                         m_ValidationArray[1] = Validation.ValidateText(Name, Validation.Restricted, out error);
-
+                                                  
                         break;
 
                     case nameof(Lastname):
 
                         m_ValidationArray[2] = Validation.ValidateText(Lastname, Validation.Restricted, out error);
-
+                                                   
                         break;
 
                     case nameof(Code):
 
                         m_ValidationArray[3] = Validation.ValidateCode(Code, out error);
-
+                        
                         break;
                     case nameof(RegisterDate):
 
@@ -337,6 +337,33 @@ namespace Models.PatientModel.PatientVisualModel
         public NoteExport ConvertToExportable()
         {
             return new NoteExport(Number, this.Surename, this.Name, this.Lastname, this.Center, this.RegisterDate);
+        }
+
+        #endregion
+
+        #region Field Checker
+
+        public void Check_Properties(Dictionary<string, Func<object?, bool>> Properties_Checkers)
+        {
+            if (Properties_Checkers.Count == 0)
+            {
+                return;
+            }
+            
+            var properties = this.GetType().GetProperties();
+
+            foreach (var prop in properties)
+            {
+                if (Properties_Checkers.ContainsKey(prop.Name))
+                {
+                    if(!Properties_Checkers[prop.Name].Invoke(prop.GetValue(prop)))
+                    {
+                        this.Status = PatientStatus.Потрібне_Уточнення_Данних;
+
+                        break;
+                    }                    
+                }
+            }
         }
 
         #endregion

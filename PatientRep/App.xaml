@@ -102,12 +102,18 @@
         <Color x:Key="btn2TypeDisabled">#FF909090
         </Color>
 
+        <Color x:Key="tglButton2InitColor">#239E5E
+        </Color>
+
+        <Color x:Key="tglButton2OverColor">#0B6342
+        </Color>
+
         <!--#endregion-->
 
         <SolidColorBrush x:Key="ExtractableItemColor" Color="Orange"/>
 
 
-        <SolidColorBrush x:Key="brdPatColoFired">#239E5E
+        <SolidColorBrush x:Key="brdPatColoFired" Color="{DynamicResource tglButton2InitColor}">
         </SolidColorBrush>
 
         <SolidColorBrush x:Key="brdPatColorError">Orangered

@@ -105,9 +105,7 @@ namespace SmartParser.Parsers
 
         Action<OcrInput> m_OCRInputPreprocessors;
 
-        bool m_isRunning;
-
-        CancellationTokenSource m_cts;
+        bool m_isRunning;       
 
         #endregion
 
@@ -125,16 +123,10 @@ namespace SmartParser.Parsers
 
         public ViberParser(
             IOCRResultParser<string[]> OCRresParser,
-            OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider,
-            CancellationTokenSource cts = null,
+            OCR OCR, IDataProvider<ViberParserDataProviderOperations> dataProvider,            
             Action<OcrInput>? OCRInputPreprocessor_For_Crops_Reader = null,
             Action<OcrInput>? OCRInputPreprocessor_For_Ordinay_Reader = null)
-        {
-            if (cts == null)
-                m_cts = new CancellationTokenSource();
-            else
-                m_cts = cts;
-
+        {           
             m_isRunning = false;
 
             if (OCRInputPreprocessor_For_Crops_Reader != null)
@@ -218,7 +210,7 @@ namespace SmartParser.Parsers
             m_pathToTemp = path_to_temp_file;
         }
 
-        public void ParseImages(FileInfo[] img_pathes)
+        public void ParseImages(FileInfo[] img_pathes, CancellationTokenSource cts = null)
         {
             if (img_pathes == null)
                 throw new NullReferenceException("img_pathes");
@@ -228,9 +220,9 @@ namespace SmartParser.Parsers
 
             //Decide what to parse
 
-            if (m_cts.IsCancellationRequested)
+            if (cts.IsCancellationRequested)
             {
-                m_isRunning = !m_cts.IsCancellationRequested;
+                m_isRunning = !cts.IsCancellationRequested;
 
                 return;
             }
@@ -243,7 +235,16 @@ namespace SmartParser.Parsers
 
             if (m_temp.MoreThenFirstTime)//Some files were already written
             {
-                i = Array.BinarySearch<FileInfo>(img_pathes, new FileInfo(m_temp.ReadFileName), new FileInfo_Comparators.CompareByName()) + 1;
+                var count = img_pathes.Length;
+
+                for (int j = 0; j < count; j++)
+                {
+                    if (img_pathes[j].Name == m_temp.ReadFileName && img_pathes[j].CreationTime == m_temp.ReadFileCreationDate)
+                    {
+                        i = j + 1;
+                        break;
+                    }
+                }
             }
             else
             {
@@ -255,19 +256,19 @@ namespace SmartParser.Parsers
                 throw new Exception("No propriate index was found in a sorted array");
             }
 
-            m_isRunning = !m_cts.IsCancellationRequested;
+            m_isRunning = !cts.IsCancellationRequested;
 
             int length = img_pathes.Length;
 
             int current = 0;
             //Parsing Cycle
-            for (; i < length && !m_cts.IsCancellationRequested; i++)
+            for (; i < length && !cts.IsCancellationRequested; i++)
             {                
                 this.Parse(img_pathes[i].FullName);
 
                 current = i;
 
-                m_isRunning = !m_cts.IsCancellationRequested;
+                m_isRunning = !cts.IsCancellationRequested;
             }
 
             m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
@@ -281,16 +282,7 @@ namespace SmartParser.Parsers
             m_dataProvider.SaveFile(m_pathToTemp, m_temp, ViberParserDataProviderOperations.WriteToTemp);
         }
 
-        public void PrepareToRestart(CancellationTokenSource cts_new)
-        {
-            m_cts.Dispose();
-
-            if (cts_new == null)
-                return;
-            else
-                m_cts = cts_new;
-        }
-
+        
         public void Parse(string img)
         {
             if (String.IsNullOrEmpty(img))

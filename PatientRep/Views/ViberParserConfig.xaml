@@ -6,6 +6,73 @@
         xmlns:local="clr-namespace:PatientRep.Views"
         mc:Ignorable="d"
         Title="Viber Parser Config" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="Start_Parser_TB_Base" TargetType="ToggleButton">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border CornerRadius="5" BorderThickness="3">
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="back" Color="{DynamicResource tglButton2InitColor}"/>
+                                </Border.Background>
+                                <Border.BorderBrush>
+                                    <SolidColorBrush x:Name="brd_brush" Color="#337C4C"/>
+                                </Border.BorderBrush>
+
+                                <Label Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" 
+                                       x:Name="label" HorizontalAlignment="Center"/>
+
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="back"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{DynamicResource tglButton2InitColor}"
+                                                    Duration="{DynamicResource animDur}"
+                                                    />
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="back"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{DynamicResource tglButton2OverColor}"
+                                                    Duration="{DynamicResource animDur}"
+                                                    />
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Checked">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="back"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="Orange"
+                                                    Duration="{DynamicResource animDur}"
+                                                    />
+                                                <StringAnimationUsingKeyFrames
+                                                    Storyboard.TargetName="label"
+                                                    Storyboard.TargetProperty="Content"
+                                                    
+                                                    />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -64,8 +131,12 @@
 
             <ToggleButton 
                 x:Name="Start_Viber_Parser" Grid.Column="1" Content="Вайбер Парсер Пуск"                
-                IsChecked="{Binding IsViberParserEnabled, UpdateSourceTrigger=PropertyChanged}"                          
-                          />
+                IsChecked="{Binding IsViberParserEnabled, UpdateSourceTrigger=PropertyChanged}"                                          
+                Foreground="White"
+                Style="{DynamicResource Start_Parser_TB_Base}"
+                >
+                
+            </ToggleButton>
 
 
         </Grid>
