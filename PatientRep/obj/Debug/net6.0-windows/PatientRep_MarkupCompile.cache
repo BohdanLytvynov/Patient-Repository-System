@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\App.xaml
-42069644763
+535127012
 4-642022768
-15861059096
+161685884480
 240-1031557588
-Views\MainWindow.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;Views\ViberParserConfig.xaml;
+Views\MainWindow.xaml;Views\MessageBoxes\MsgBox.xaml;Views\ReportViewer.xaml;Views\SettingsWindow.xaml;Views\ViberParserConfig.xaml;
 
 False
 

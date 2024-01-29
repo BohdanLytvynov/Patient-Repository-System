@@ -688,3 +688,5 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.csproj.CopyComplete
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\PatientRep.genruntimeconfig.cache
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\ref\PatientRep.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\MessageBoxes\MsgBox.g.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\PatientRep\obj\Debug\net6.0-windows\Views\MessageBoxes\MsgBox.baml
