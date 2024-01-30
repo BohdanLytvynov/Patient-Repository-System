@@ -9,6 +9,11 @@ using IronSoftware.Drawing;
 
 namespace SmartParser.Parsers
 {
+    public enum ViberParserTaskStatus : byte 
+    {
+        Successfully_Done = 0, Failed, InProgress, ReadyToStart
+    }
+
     public enum ViberParserOperations : byte
     {
         Parse = 0
@@ -89,6 +94,12 @@ namespace SmartParser.Parsers
     public class ViberParser : ControllerBaseClass<ViberParserOperations>,
         ISmartParser<string>
     {
+        #region Viber Parser Events
+
+        public static event Action<float, ViberParserTaskStatus>? OnPartOfTheTaskDone;
+
+        #endregion
+
         #region Fields
 
         IDataProvider<ViberParserDataProviderOperations> m_dataProvider;
@@ -99,13 +110,15 @@ namespace SmartParser.Parsers
 
         //private CancellationTokenSource m_cts;
 
-        private ViberParserTemp m_temp;
+        private ViberParserTemp? m_temp;
 
         private string m_pathToTemp;
 
-        Action<OcrInput> m_OCRInputPreprocessors;
+        Action<OcrInput>? m_OCRInputPreprocessors;
 
-        bool m_isRunning;       
+        bool m_isRunning;
+
+        float m_prog_value;
 
         #endregion
 
@@ -113,7 +126,7 @@ namespace SmartParser.Parsers
 
         public ViberParserTemp TempData { get => m_temp; }
 
-        public string PathToDebuggingFolder { get; set; }
+        public string? PathToDebuggingFolder { get; set; }
 
         public bool IsRunning { get => m_isRunning; }
 
@@ -149,6 +162,8 @@ namespace SmartParser.Parsers
                 throw new ArgumentNullException("dataProvider");
 
             m_OCRResultParser = OCRresParser;
+
+            m_prog_value = 0f;
 
             m_OCR = OCR;
 
@@ -263,7 +278,9 @@ namespace SmartParser.Parsers
             int current = 0;
             //Parsing Cycle
             for (; i < length && !cts.IsCancellationRequested; i++)
-            {                
+            {
+                m_prog_value = 0;
+
                 this.Parse(img_pathes[i].FullName);
 
                 current = i;
@@ -359,6 +376,10 @@ namespace SmartParser.Parsers
                        String.IsNullOrEmpty(FailToReadPaths) ? false : true);
                    }
 
+                   //Calculate the amount of incrreasing value for Progress Bars
+
+                   float value = 1 / Crops.Count();
+
                    foreach (var crop in Crops)
                    {                       
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
@@ -393,6 +414,10 @@ namespace SmartParser.Parsers
                                if (String.IsNullOrEmpty(MainResult[i]))
                                    MainResult[i] = tempRes[i];
                            }
+
+                       m_prog_value += value;
+
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, ViberParserTaskStatus.InProgress);//Increase the progressbar
 
                        if (m_OCRResultParser.AllFound())
                            break;
@@ -431,7 +456,7 @@ namespace SmartParser.Parsers
 #endif
                        if (try2.Barcodes.Length > 0)
                        {
-                           MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;
+                           MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;                           
                        }
                        else
                        {
@@ -448,13 +473,19 @@ namespace SmartParser.Parsers
                    if (image != null)
                        image.Dispose();
 
+                   m_prog_value = 1;
+
                    if (!AllParsedSuccesfully(MainResult))
                    {
                        FailToReadPaths = img;
+
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, ViberParserTaskStatus.Failed);
                    }
                    else
                    {
                        Directory.Delete(debugFolder, true);
+                       
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, ViberParserTaskStatus.Successfully_Done);
                    }
 
                    SuccessfullyRead.AddRange(MainResult);

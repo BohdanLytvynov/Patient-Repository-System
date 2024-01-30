@@ -14,8 +14,10 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
-            <RowDefinition Height="120"/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="3" Text="Viber Parser" Padding="20,0,0,0" Foreground="White">
             <TextBlock.Background>
@@ -29,5 +31,8 @@
                    TextWrapping="Wrap" Text="   Будь ласка зачекайте. Відбувається зупинка зчитувача вайбер фото! Як тільки поточне фото буде опрацьоване, программа автоматично закриється. Вибачте за незручності."
                    Margin="0,20,0,0" FontSize="20"
                    />
+        <ProgressBar Grid.Row="3" Grid.Column="1"
+                     Margin="0,5"
+                     Minimum="0" Maximum="1"/>
     </Grid>
 </Window>

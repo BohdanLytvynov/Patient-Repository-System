@@ -1,5 +1,6 @@
 ﻿using Models.Configuration;
 using PatientRep.ViewModelBase.Commands;
+using SmartParser.Parsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,10 @@ namespace PatientRep.ViewModels
         string m_PathToFailToRead;
 
         bool m_IsViberParserEnabled;
+
+        ViberParserTaskStatus m_isViberParserTaskStatus;
+
+        float m_ViberParserProgress;
         
         #endregion
 
@@ -64,6 +69,18 @@ namespace PatientRep.ViewModels
                 }
             }
         
+        }
+
+        public ViberParserTaskStatus ViberParserTaskExecutionStatus 
+        {
+            get=>m_isViberParserTaskStatus;
+            set=> Set(ref m_isViberParserTaskStatus, value, nameof(ViberParserTaskExecutionStatus));
+        }
+
+        public float ViberParserProgress 
+        {
+            get=>m_ViberParserProgress;
+            set=>Set(ref m_ViberParserProgress, value, nameof(ViberParserProgress));
         }
 
         #endregion
@@ -141,6 +158,17 @@ namespace PatientRep.ViewModels
                 );
 
             #endregion
+
+            #region Event Binding
+            ViberParser.OnPartOfTheTaskDone += ViberParser_OnPartOfTheTaskDone;
+            #endregion
+        }
+
+        private void ViberParser_OnPartOfTheTaskDone(float arg1, ViberParserTaskStatus arg2)
+        {
+            ViberParserProgress = arg1;
+
+            ViberParserTaskExecutionStatus = arg2;
         }
         #endregion
 
