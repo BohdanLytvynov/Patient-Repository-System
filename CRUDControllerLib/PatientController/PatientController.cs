@@ -39,6 +39,29 @@ namespace CRUDControllerLib.PatientController
                 );
         }
 
+        public void Add(PatientStorage entity, IList<PatientStorage> col)
+        {
+            ExecuteFunctionAndGetResultThroughEvent(
+                PatientControllerOperations.Add,
+                (state) =>
+                {
+                    bool flag = false;
+
+                    for (int i = 0; i < col.Count; i++)
+                    {
+                        if (col[i].Equals(entity))
+                        {
+                            throw new EntityAlreadyExistsException("Такий хворий вже існує. Хтось його вже додав.");
+                        }
+                    }
+
+                    col.Add(entity);
+
+                    return null;
+                }
+                );
+        }
+
         public async Task RemoveAsync(Patient entity, IList<PatientStorage> col)
         {
             await ExecuteFunctionAndGetResultThroughEventAsync(

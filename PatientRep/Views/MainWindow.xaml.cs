@@ -36,6 +36,8 @@ namespace PatientRep
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             m_viewModel.StopAllTasks();
+
+            m_viewModel.SaveConfiguration();
         }
     }
 }

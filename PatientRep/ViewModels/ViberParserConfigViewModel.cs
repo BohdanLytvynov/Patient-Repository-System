@@ -59,7 +59,7 @@ namespace PatientRep.ViewModels
                     {
                         m_configStorage.IsViberParserActive = IsViberParserEnabled;
 
-                        m_configStorage.ConfirmChanging(false);
+                        //m_configStorage.ConfirmChanging(false);
                     }
                 }
             }
@@ -102,6 +102,15 @@ namespace PatientRep.ViewModels
             m_PathToViberPhotos = m_configStorage.PathToViberPhoto;
 
             m_PathToFailToRead = m_configStorage.PathToFailToReadPhotos;
+
+            if (m_configStorage.IsViberParserActive)
+            {
+                IsViberParserEnabled = true;
+            }
+            else
+            {
+                IsViberParserEnabled = false;
+            }
 
             #endregion
 

@@ -2,6 +2,8 @@
 {
     public interface ICRUDController<TEntityVisual, TEntityStorage, TEntitySearchArgs>
     {
+        void Add(TEntityStorage entity, IList<TEntityStorage> col);
+
         Task AddAsync(TEntityStorage entity, IList<TEntityStorage> col);
 
         Task RemoveAsync(TEntityVisual entity, IList<TEntityStorage> col);

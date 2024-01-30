@@ -54,7 +54,7 @@ using System.Collections.Specialized;
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
-    {
+    {        
         #region Global Vars
 
         bool ENABLE_OCR_DEBUG;
@@ -68,9 +68,7 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Tasks
-
-        Task m_CheckViber;
-
+       
         CancellationTokenSource m_cts_for_Viber_Parser;
 
         #endregion
@@ -92,7 +90,7 @@ namespace PatientRep.ViewModels
         #region Events
 
         public event Func<Task> OnMainWindowInitialized;
-        
+
         #endregion
 
         #region Windows
@@ -112,10 +110,18 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Viber Parser
-       
+
         ViberParser m_ViberParser;
 
         bool m_UI_is_UsedbyViber_Parser;
+
+        #region Properie Checkers
+
+        Func<object?, bool> m_Property_txt_Checker;
+
+        Func<object?, bool> m_Property_Code_Checker;
+
+        #endregion
 
         #endregion
 
@@ -821,33 +827,35 @@ namespace PatientRep.ViewModels
         #region Ctor
 
         public MainWindowViewModel(Window thisWindow)
-        {      
+        {
             //ConfigCodeUsageDictionary Manager will be used in future for connection to DB file
+
+            #region Checkers
+
+            m_Property_txt_Checker = new Func<object?, bool>(
+                (o)=>
+                {
+                    string _error = String.Empty;
+
+                    return Validation.ValidateText((string)o, Validation.Restricted, out _error);
+                }
+                );
+
+            m_Property_Code_Checker = new Func<object?, bool>(
+                (o)=>
+                {
+                    string _error;
+
+                    return Validation.ValidateCode((string)o, out _error);
+                }
+                );
+
+            #endregion
 
             #region Init Tasks
 
             m_cts_for_Viber_Parser = new CancellationTokenSource();
-
-            m_CheckViber = new Task(async () => 
-            {
-                for ( ; !m_cts_for_Viber_Parser.IsCancellationRequested ; )
-                {
-                    DirectoryInfo d_info = new DirectoryInfo(m_Configuration.PathToViberPhoto);
-
-                    var images = d_info.GetFiles();
-
-                    if (m_ViberParser?.TempData?.CurrentImagesCount < images?.Length)
-                    {
-                        if(images.Length > 0)
-                            await m_ViberParser.ParseImagesAsync(images);
-                    }
-
-                    //Thread.Sleep(ONE_MINUTE_TOMILLISECOND_MULTIPL * 1);
-                }
-
-                
-            },m_cts_for_Viber_Parser.Token);
-
+            
             #endregion
 
             #region OCR Configs
@@ -885,9 +893,9 @@ namespace PatientRep.ViewModels
                 new OCRResultParser(m_codeReg, m_Surename_Name_Lastname,
                 m_Surename_Name, m_Name_or_Surename_or_Lastname, m_ElnRefWithText,
                 new string[] { "Перевірено", "Профіль",
-                "Зв'язки", "Страхування", "Призначення", "Активне", "Нове", "Пріоритет", "Планове", "Категорія",  "Програма", 
+                "Зв'язки", "Страхування", "Призначення", "Активне", "Нове", "Пріоритет", "Планове", "Категорія",  "Програма",
                 "Детальніше"}), new OCR(configuration1),
-                new JsonDataProvider<ViberParserDataProviderOperations>(), m_cts_for_Viber_Parser);
+                new JsonDataProvider<ViberParserDataProviderOperations>());
 
             m_ViberParser.OnOperationFinished += M_ViberParser_OnOperationFinished;
 
@@ -1163,9 +1171,53 @@ namespace PatientRep.ViewModels
 
             OnMainWindowInitialized.Invoke();
         }
+        #endregion
+
+        #region Methods
+
+        #region Viber Parser Method
+
+        public async Task Start_Viber_ParsingAsync(CancellationTokenSource cts)
+        {
+            await Task.Run(() =>
+            {
+                for (; ; )
+                {
+                    DirectoryInfo d_info = new DirectoryInfo(m_Configuration.PathToViberPhoto);
+
+                    var images = d_info.GetFiles();
+
+                    if (m_ViberParser?.TempData?.CurrentImagesCount < images?.Length)
+                    {
+#if DEBUG
+                        Debug.WriteLine("Starting parser...");
+#endif
+                        if (images.Length > 0)
+                            m_ViberParser.ParseImages(images, cts);
+                    }
+
+                    if (cts.IsCancellationRequested)
+                    {
+#if DEBUG
+                        Debug.WriteLine("Try to cancel Viber Parser...");                       
+#endif  
+                        break;
+                    }
+
+                    //Thread.Sleep(ONE_MINUTE_TOMILLISECOND_MULTIPL * 1);
+                }
+            });
+
+            //Get ready for another async await call
+            m_cts_for_Viber_Parser.Dispose();
+
+            m_cts_for_Viber_Parser = new CancellationTokenSource();
+        }
+
+        #endregion
 
         private void M_ViberParser_OnOperationFinished(object s, OperationFinishedEventArgs<ViberParserOperations> e)
-        {            
+        {
             var r = (e.Result as ViberParserResult);
 
             if (r == null)
@@ -1173,26 +1225,29 @@ namespace PatientRep.ViewModels
                 return;
             }
 
-        #if DEBUG
+#if DEBUG
             Debug.WriteLine(r.ToString());
-        #endif
+#endif
 
             var temp = r.SuccessfullyRead.ToArray();
-            
+
             //Even One Data Must Be found
-            if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2]) 
-                || String.IsNullOrEmpty(temp[3])) )
+            if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2])
+                || String.IsNullOrEmpty(temp[3])))
             {
                 m_UI_is_UsedbyViber_Parser = true;
 
-                var patient = new PatientStorage(Guid.NewGuid(), temp[0] == null ? String.Empty : temp[0],
+                var patient = new PatientStorage(Guid.NewGuid(), 
+                temp[0] == null ? String.Empty : temp[0],
                 temp[1] == null ? String.Empty : temp[1],
                 temp[2] == null ? String.Empty : temp[2],
                 temp[3] == null ? String.Empty : temp[3],
                 String.Empty,
-                PatientStatus.Не_Погашено, DateTime.Now, new DateTime(), null, String.Empty);
+                (temp[0] == null || temp[1] == null || temp[2] == null || temp[3]==null)? 
+                PatientStatus.Потрібне_Уточнення_Данних : PatientStatus.Не_Погашено
+                ,DateTime.Now, new DateTime(), null, String.Empty);
 
-                m_pController.AddAsync(patient, m_patients);
+                m_pController.Add(patient, m_patients);
 
                 m_currrentWindow.Dispatcher.Invoke(() =>
                 {
@@ -1200,12 +1255,16 @@ namespace PatientRep.ViewModels
 
                     temp.Number = SearchResult.Count + 1;
 
+                    temp.Check_Properties(new Dictionary<string, Func<object?, bool>>()
+                    { { nameof(temp.Surename), m_Property_txt_Checker }, { nameof(temp.Name), m_Property_txt_Checker },
+                        { nameof(temp.Lastname), m_Property_txt_Checker }, {nameof(temp.Code), m_Property_Code_Checker } });
+
                     SearchResult.Add(temp);
                 });
 
                 m_UI_is_UsedbyViber_Parser = false;
             }
-                      
+
             //Move image to FailToReadPaths_Storage
             if (r.Fail)
             {
@@ -1225,8 +1284,6 @@ namespace PatientRep.ViewModels
                 ss.Close();
 
                 ss.Dispose();
-
-                File.Delete(r.FailedToReadPaths);
             }
         }
 
@@ -1247,22 +1304,19 @@ namespace PatientRep.ViewModels
             }
             else //Restart of app is not required 
             {
-                if (m_Configuration?.IsViberParserActive ?? false)//Viber Parser is Active
+                if (m_Configuration == null)
+                    return;
+
+                if (m_Configuration.IsViberParserActive)//Viber Parser is Active
                 {
-                    m_CheckViber.Start();
+                    await Start_Viber_ParsingAsync(m_cts_for_Viber_Parser);
                 }
-                else if(!m_CheckViber.IsCanceled)
-                {                    
+                else 
+                {
                     m_cts_for_Viber_Parser.Cancel();
-
-                    m_cts_for_Viber_Parser.Dispose();
-
-                    m_cts_for_Viber_Parser = new CancellationTokenSource();
-
-                    m_ViberParser.PrepareToRestart(m_cts_for_Viber_Parser);
                 }
             }
-            
+
         }
 
         private async Task MainWindowViewModel_OnMainWindowInitialized()
@@ -1272,17 +1326,17 @@ namespace PatientRep.ViewModels
             await m_jdataprovider.LoadFileAsync(m_pathToHistoryDB, PatientRepDataProviderOperations.LoadHistoryNotesDb);
 
             await m_jdataprovider.LoadFileAsync<ConfigStorage>(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.LoadSettings);
-            
+
             if (!Directory.Exists(m_Configuration.PathToViberPhoto))
             {
                 UIMessaging.CreateMessageBox("Сталася помилка при знаходженні папки з вайбер мультимедія! Перевірте налаштування шляхів системи зчитування з вайбера.",
                     m_tittle,
-                    MessageBoxButton.OK, MessageBoxImage.Error);                              
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
-            {   
-                if(m_Configuration.IsViberParserActive)
-                    m_CheckViber.Start();
+            {
+                if (m_Configuration.IsViberParserActive)
+                    await Start_Viber_ParsingAsync(m_cts_for_Viber_Parser);
             }
         }
 
@@ -1459,8 +1513,6 @@ namespace PatientRep.ViewModels
                         break;
 
                     case HistoryNotesControllerOperations.SortNotes:
-
-
 
                         break;
                 }
@@ -1748,6 +1800,8 @@ namespace PatientRep.ViewModels
 
         #endregion
 
+        #region Patient models Events
+
         private async void Pat_OnRemoveButtonPressed(Patient selected)
         {
             await m_pController.RemoveAsync(selected, m_patients);
@@ -1760,25 +1814,18 @@ namespace PatientRep.ViewModels
 
         #endregion
 
-        #region Methods
-
         #region On Window Closing
 
         public void StopAllTasks()
         {
             m_cts_for_Viber_Parser.Cancel();
 
-            m_cts_for_Viber_Parser.Dispose();
+            int i = 1;            
+        }
 
-            //m_jdataprovider.SaveFile(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.SaveSettings);
-
-            while (!m_CheckViber.IsCanceled)
-            {
-#if DEBUG
-                Debug.WriteLine("Try to cancel Task!");
-#endif
-                break;
-            }
+        public void SaveConfiguration()
+        {
+            m_jdataprovider.SaveFile(m_PathToConfig, m_Configuration, PatientRepDataProviderOperations.No_EventCall);
         }
 
         #endregion
