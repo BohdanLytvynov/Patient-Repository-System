@@ -29,7 +29,7 @@ namespace PatientRep.ViewModels
 
         bool m_IsViberParserEnabled;
 
-        ViberParserTaskStatus m_isViberParserTaskStatus;
+        int m_ViberParserTaskStatus;
 
         float m_ViberParserProgress;
         
@@ -64,17 +64,17 @@ namespace PatientRep.ViewModels
                     {
                         m_configStorage.IsViberParserActive = IsViberParserEnabled;
 
-                        //m_configStorage.ConfirmChanging(false);
+                        m_configStorage.ConfirmChanging(false);
                     }
                 }
             }
         
         }
 
-        public ViberParserTaskStatus ViberParserTaskExecutionStatus 
+        public int ViberParserTaskExecutionStatus 
         {
-            get=>m_isViberParserTaskStatus;
-            set=> Set(ref m_isViberParserTaskStatus, value, nameof(ViberParserTaskExecutionStatus));
+            get=>m_ViberParserTaskStatus;
+            set=> Set(ref m_ViberParserTaskStatus, value, nameof(ViberParserTaskExecutionStatus));
         }
 
         public float ViberParserProgress 
@@ -164,11 +164,15 @@ namespace PatientRep.ViewModels
             #endregion
         }
 
-        private void ViberParser_OnPartOfTheTaskDone(float arg1, ViberParserTaskStatus arg2)
+        private void ViberParser_OnPartOfTheTaskDone(float arg1, int arg2)
         {
-            ViberParserProgress = arg1;
+            m_window.Dispatcher.Invoke(() =>
+            {
+                ViberParserProgress = arg1;
 
-            ViberParserTaskExecutionStatus = arg2;
+                ViberParserTaskExecutionStatus = arg2;
+            });
+            
         }
         #endregion
 

@@ -718,6 +718,16 @@
           "bin/placeholder/AdditionalControllersLib.dll": {}
         }
       },
+      "BitSetLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BitSetLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BitSetLibrary.dll": {}
+        }
+      },
       "ControllerBaseLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -879,6 +889,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BitSetLibrary": "1.0.0",
           "ControllerBaseLib": "1.0.0",
           "IronOcr": "2023.11.35",
           "IronOcr.ComputerVision.Windows": "2022.11.10820",
@@ -1761,6 +1772,11 @@
       "path": "../AdditionalControllersLib/AdditionalControllersLib.csproj",
       "msbuildProject": "../AdditionalControllersLib/AdditionalControllersLib.csproj"
     },
+    "BitSetLibrary/1.0.0": {
+      "type": "project",
+      "path": "../BitSetLibrary/BitSetLibrary.csproj",
+      "msbuildProject": "../BitSetLibrary/BitSetLibrary.csproj"
+    },
     "ControllerBaseLib/1.0.0": {
       "type": "project",
       "path": "../ControllerBaseLib/ControllerBaseLib.csproj",
@@ -1835,6 +1851,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "AdditionalControllersLib >= 1.0.0",
+      "BitSetLibrary >= 1.0.0",
       "CRUDControllerLib >= 1.0.0",
       "ConvertersLib >= 1.0.0",
       "CustomIconsLib >= 1.0.0",
@@ -1884,6 +1901,9 @@
           "projectReferences": {
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\AdditionalControllersLib\\AdditionalControllersLib.csproj"
+            },
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\BitSetLibrary\\BitSetLibrary.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\BitSetLibrary\\BitSetLibrary.csproj"
             },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ConvertersLib\\ConvertersLib.csproj"

@@ -8,7 +8,7 @@
         xmlns:prgBarExt="clr-namespace:PatientRep.Extensions.ProgressBarExtensions"
         Title="Viber Parser Config" Height="450" Width="800" MinWidth="800"
         MinHeight="450" MaxHeight="450" MaxWidth="800"
-        WindowStyle="None" Background="#fcfcfc">
+        WindowStyle="SingleBorderWindow" Background="#fcfcfc">
     <Window.Resources>
         <Style x:Key="Start_Parser_TB_Base" TargetType="ToggleButton">
             <Style.Setters>
@@ -56,6 +56,17 @@
                                                     Storyboard.TargetName="back"
                                                     Storyboard.TargetProperty="Color"
                                                     To="Orange"
+                                                    Duration="{DynamicResource animDur}"
+                                                    />
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="back"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="{DynamicResource btn2TypeDisabled}"
                                                     Duration="{DynamicResource animDur}"
                                                     />
                                             </Storyboard>
@@ -165,10 +176,13 @@
                 </ToggleButton.Triggers>
             </ToggleButton>
 
-            <ProgressBar Grid.Column="2" Margin="25,5,50,5" Minimum="0" Maximum="1"
-                         Value="{Binding ViberParserProgress, UpdateSourceTrigger=PropertyChanged}"
+            <ProgressBar Grid.Column="2" Margin="25,5,50,5" Minimum="0" Maximum="1" 
+                         Value="{Binding ViberParserProgress, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         prgBarExt:TaskStatusExtension.SuccessfulFinishedTaskBrush="Green"
+                         prgBarExt:TaskStatusExtension.ProcessingTaskBrush="Orange"
+                         prgBarExt:TaskStatusExtension.FaildTaskBrush="Red"
                          prgBarExt:TaskStatusExtension.TaskExecutionStatus="{Binding ViberParserTaskExecutionStatus,
-                UpdateSourceTrigger=PropertyChanged}"
+                UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                          >
                 
             </ProgressBar>

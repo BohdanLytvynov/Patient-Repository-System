@@ -100,24 +100,6 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\ref\Tester.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.exe
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.deps.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\TimerLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\TimerLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.CopyComplete
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\refint\Tester.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\ref\Tester.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.exe
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.deps.json
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
@@ -136,3 +118,21 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Test
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Tester\obj\Debug\net6.0\ref\Tester.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.exe
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.runtimeconfig.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\Tester.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\TimerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\bin\Debug\net6.0\TimerLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\refint\Tester.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\Tester.genruntimeconfig.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Tester\obj\Debug\net6.0\ref\Tester.dll

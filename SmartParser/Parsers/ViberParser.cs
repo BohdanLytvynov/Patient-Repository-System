@@ -6,14 +6,10 @@ using System.Text;
 using JsonDataProviderLibDNC.Interfaces;
 using SmartParser.Comparators;
 using IronSoftware.Drawing;
+using BitSetLibrary;
 
 namespace SmartParser.Parsers
-{
-    public enum ViberParserTaskStatus : byte 
-    {
-        Successfully_Done = 0, Failed, InProgress, ReadyToStart
-    }
-
+{    
     public enum ViberParserOperations : byte
     {
         Parse = 0
@@ -96,7 +92,7 @@ namespace SmartParser.Parsers
     {
         #region Viber Parser Events
 
-        public static event Action<float, ViberParserTaskStatus>? OnPartOfTheTaskDone;
+        public static event Action<float, int>? OnPartOfTheTaskDone;
 
         #endregion
 
@@ -227,6 +223,13 @@ namespace SmartParser.Parsers
 
         public void ParseImages(FileInfo[] img_pathes, CancellationTokenSource cts = null)
         {
+            //Here we will use bit set for Task Execution Status: 000:
+            //000 - initial state
+            //001 - in Progress NR: 0
+            //010 - Completed NR: 1
+            //100 - Failed NR: 2
+            //Number Ranks (from rigth to left) => 0 1 2
+
             if (img_pathes == null)
                 throw new NullReferenceException("img_pathes");
 
@@ -286,6 +289,13 @@ namespace SmartParser.Parsers
                 current = i;
 
                 m_isRunning = !cts.IsCancellationRequested;
+
+                if (cts.IsCancellationRequested)
+                {
+                    m_prog_value = 0;
+
+                    OnPartOfTheTaskDone?.Invoke(m_prog_value, 0);
+                }
             }
 
             m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
@@ -378,7 +388,9 @@ namespace SmartParser.Parsers
 
                    //Calculate the amount of incrreasing value for Progress Bars
 
-                   float value = 1 / Crops.Count();
+                   float addValue = 0.2f;
+
+                   float value = (1 - addValue) / Crops.Count();
 
                    foreach (var crop in Crops)
                    {                       
@@ -417,7 +429,11 @@ namespace SmartParser.Parsers
 
                        m_prog_value += value;
 
-                       OnPartOfTheTaskDone?.Invoke(m_prog_value, ViberParserTaskStatus.InProgress);//Increase the progressbar
+#if DEBUG
+                       Debug.WriteLine($"Progress of current photo parsing: {m_prog_value}");
+#endif
+
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, BitSet.SetBit(0, 0));//Increase the progressbar
 
                        if (m_OCRResultParser.AllFound())
                            break;
@@ -473,19 +489,19 @@ namespace SmartParser.Parsers
                    if (image != null)
                        image.Dispose();
 
-                   m_prog_value = 1;
+                   m_prog_value = 1;//Task finished, with one of the results: failure, completed
 
-                   if (!AllParsedSuccesfully(MainResult))
+                   if (!AllParsedSuccesfully(MainResult))//failure
                    {
                        FailToReadPaths = img;
 
-                       OnPartOfTheTaskDone?.Invoke(m_prog_value, ViberParserTaskStatus.Failed);
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, BitSet.SetBit(0, 2));
                    }
-                   else
-                   {
+                   else//completed
+                   {                       
                        Directory.Delete(debugFolder, true);
                        
-                       OnPartOfTheTaskDone?.Invoke(m_prog_value, ViberParserTaskStatus.Successfully_Done);
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, BitSet.SetBit(0, 1));
                    }
 
                    SuccessfullyRead.AddRange(MainResult);
