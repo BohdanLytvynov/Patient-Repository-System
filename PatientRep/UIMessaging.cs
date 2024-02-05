@@ -1,5 +1,6 @@
 ﻿using ControllerBaseLib.Enums;
 using ControllerBaseLib.EventArgs;
+using ControllerBaseLib.Interfaces.Controller;
 using NotesExporterLib;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace PatientRep
             return prevmessage;            
         }
 
-        public static MessageBoxResult CreateMessageBoxAccordingToResult<TOperationType>(OperationFinishedEventArgs<TOperationType> e, string MsgBoxtitle, 
+        public static MessageBoxResult CreateMessageBoxAccordingToResult<TOperationType>(IOperationFinishedEventArgs<TOperationType> e, string MsgBoxtitle, 
             Action ExecuteIfOperationSucceded, bool enableCancelMsg = true, bool enableFailMsg = true)
             where TOperationType : struct, Enum
         {

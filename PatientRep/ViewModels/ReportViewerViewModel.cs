@@ -1,4 +1,5 @@
-﻿using Models.Configuration;
+﻿using ControllerBaseLib.Interfaces.Controller;
+using Models.Configuration;
 using Models.Configuration.IntegratedData;
 using Models.HistoryNoteModels.VisualModel;
 using Models.HistoryNotesComparators;
@@ -88,7 +89,7 @@ namespace PatientRep.ViewModels
             GenerateReport(col, type);
         }
 
-        private void M_exportToTxt_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<NotesExporterToTxtOperations> e)
+        private void M_exportToTxt_OnOperationFinished(object s, IOperationFinishedEventArgs<NotesExporterToTxtOperations> e)
         {
             UIMessaging.CreateMessageBoxAccordingToResult(e, "Patient Rep", ()=>
             {

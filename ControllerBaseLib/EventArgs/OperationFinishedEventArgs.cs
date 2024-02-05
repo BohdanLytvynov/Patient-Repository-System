@@ -1,18 +1,14 @@
 ﻿using ControllerBaseLib.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ControllerBaseLib.Interfaces.Controller;
 
 namespace ControllerBaseLib.EventArgs
 {
-    public class OperationFinishedEventArgs<TOperationtype>
+    public class OperationFinishedEventArgs<TOperationtype> : IOperationFinishedEventArgs<TOperationtype>
         where TOperationtype : struct, Enum
     {
         #region Properties
 
-        public dynamic Result { get; set; }//Result of the operation
+        public dynamic? Result { get; set; }//Result of the operation
 
         public Status ExecutionStatus { get; }//Execution status
 
@@ -31,7 +27,6 @@ namespace ControllerBaseLib.EventArgs
             Exception = ex;
 
             OperationType = OperType;
-
         }
 
         #endregion

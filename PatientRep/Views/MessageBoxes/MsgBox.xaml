@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PatientRep.Views.MessageBoxes"
+        xmlns:progBarExten="clr-namespace:PatientRep.Extensions.ProgressBarExtensions"
         mc:Ignorable="d"
         Title="MsgBox" Height="200" Width="800" WindowStyle="None" MinHeight="200" MinWidth="800">
     <Grid>
@@ -28,10 +29,16 @@
             </TextBlock.Background>
         </TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="1" 
-                   TextWrapping="Wrap" Text="   Будь ласка зачекайте. Відбувається зупинка зчитувача вайбер фото! Як тільки поточне фото буде опрацьоване, программа автоматично закриється. Вибачте за незручності."
+                   TextWrapping="Wrap" Text="   Будь ласка зачекайте. Відбувається зупинка зчитувача вайбер фото! Як тільки поточне фото буде опрацьоване, программа автоматично закриється. Вибачте за незручності. Зачекайте поки зчитувач закінчить роботу:"
                    Margin="0,20,0,0" FontSize="20"
                    />
         <ProgressBar Grid.Row="3" Grid.Column="1"
+                     progBarExten:TaskStatusExtension.FaildTaskBrush="Red"
+                     progBarExten:TaskStatusExtension.ProcessingTaskBrush="Orange"
+                     progBarExten:TaskStatusExtension.SuccessfulFinishedTaskBrush="Green"
+                     progBarExten:TaskStatusExtension.TaskExecutionStatus="{Binding ViberParserTaskStatus,
+            UpdateSourceTrigger=PropertyChanged}"
+                     Value="{Binding ViberParserProgress, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,5"
                      Minimum="0" Maximum="1"/>
     </Grid>

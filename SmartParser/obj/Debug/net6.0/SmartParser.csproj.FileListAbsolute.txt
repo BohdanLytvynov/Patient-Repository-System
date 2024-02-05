@@ -46,3 +46,5 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\BitSetLibrary.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\BitSetLibrary.pdb

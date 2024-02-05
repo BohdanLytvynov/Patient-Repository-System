@@ -143,6 +143,8 @@
                 IsChecked="{Binding IsViberParserEnabled, UpdateSourceTrigger=PropertyChanged}"                                          
                 Foreground="White"
                 Style="{DynamicResource Start_Parser_TB_Base}"
+                IsEnabled="{Binding EnableViberParserControlButton,
+                UpdateSourceTrigger=PropertyChanged}"                
                 >
                 <ToggleButton.Triggers>
                     <EventTrigger RoutedEvent="ToggleButton.Checked">

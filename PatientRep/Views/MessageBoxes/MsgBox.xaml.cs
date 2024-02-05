@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatientRep.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,10 @@ namespace PatientRep.Views.MessageBoxes
         public MsgBox()
         {
             InitializeComponent();
+
+            MsgBoxViewModel m_vm = new MsgBoxViewModel(this);
+
+            this.DataContext = m_vm;
         }
     }
 }

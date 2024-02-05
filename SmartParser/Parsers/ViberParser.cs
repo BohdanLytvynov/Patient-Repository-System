@@ -7,6 +7,7 @@ using JsonDataProviderLibDNC.Interfaces;
 using SmartParser.Comparators;
 using IronSoftware.Drawing;
 using BitSetLibrary;
+using ControllerBaseLib.Interfaces.Controller;
 
 namespace SmartParser.Parsers
 {    
@@ -175,7 +176,7 @@ namespace SmartParser.Parsers
             m_dataProvider.LoadFile<ViberParserTemp>(m_pathToTemp, new ViberParserTemp(), ViberParserDataProviderOperations.ReadFromTemp);
         }
 
-        private void ViberParser_OnOperationFinished(object s, ControllerBaseLib.EventArgs.OperationFinishedEventArgs<ViberParserDataProviderOperations> e)
+        private void ViberParser_OnOperationFinished(object s, IOperationFinishedEventArgs<ViberParserDataProviderOperations> e)
         {
             if (e.ExecutionStatus == ControllerBaseLib.Enums.Status.Succed)
             {

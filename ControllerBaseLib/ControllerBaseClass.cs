@@ -1,6 +1,6 @@
 ﻿using ControllerBaseLib.Enums;
 using ControllerBaseLib.EventArgs;
-using System.Buffers;
+using ControllerBaseLib.Interfaces.Controller;
 
 namespace ControllerBaseLib
 {
@@ -9,26 +9,14 @@ namespace ControllerBaseLib
     /// TOperType - argument type that is the Enum (Operation Type)
     /// </summary>
     /// <typeparam name="TOperType"></typeparam>
-    public abstract class ControllerBaseClass<TOperType>
+    public abstract class ControllerBaseClass<TOperType> : IController<TOperType>
         where TOperType : struct, Enum
-    {
-        #region Delegates
-        /// <summary>
-        /// Delegate that is used to create event On Operation Finished
-        /// s - object who fired the event
-        /// e - OperationFinishedEventArgs - used to deliver operation execution info.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="e"></param>
-        public delegate void OnOperationFinishedDelegate(object s, OperationFinishedEventArgs<TOperType> e);
-
-        #endregion
-
+    {       
         #region Events
         /// <summary>
         /// Event that will fire when operation execution finishes with some result  
         /// </summary>
-        public event OnOperationFinishedDelegate OnOperationFinished;
+        public event Action<object, IOperationFinishedEventArgs<TOperType>>? OnOperationFinished;
 
         #endregion
         
@@ -47,7 +35,7 @@ namespace ControllerBaseLib
         /// <param name="operType"></param>
         /// <param name="func"></param>
         /// <param name="state"></param>
-        public void ExecuteFunctionAndGetResultThroughEvent(TOperType operType, Func<object, dynamic> func, object state = null)
+        public void ExecuteFunctionAndGetResultThroughEvent(TOperType operType, Func<object, dynamic> func, object? state = null)
             
         {
             Exception ex = null;
@@ -70,7 +58,7 @@ namespace ControllerBaseLib
             }
             finally
             {
-                OperationFinishedEventArgs<TOperType> e = new OperationFinishedEventArgs<TOperType>(operStatus, operType, ex);
+                IOperationFinishedEventArgs<TOperType> e = new OperationFinishedEventArgs<TOperType>(operStatus, operType, ex);
 
                 e.Result = res;
 
@@ -78,6 +66,91 @@ namespace ControllerBaseLib
 
                 OnOperationFinished.Invoke(this, e);
             }
+        }
+
+        /// <summary>
+        /// Execute function (func) using arguments (state) synchronously.
+        /// (TOperType) - type of executed operation.
+        /// </summary>
+        /// <param name="operType"></param>
+        /// <param name="func"></param>
+        /// <param name="state"></param>
+        public IOperationFinishedEventArgs<TOperType> ExecuteFunction(TOperType operType, Func<object, dynamic> func, object? state = null)
+        {
+            Exception ex = null;
+
+            Status operStatus = Status.Succed;
+
+            dynamic res = null;
+
+            IOperationFinishedEventArgs<TOperType> e = null;
+
+            try
+            {
+                res = func.Invoke(state);
+
+                operStatus = Status.Succed;
+            }
+            catch (Exception exc)
+            {
+                operStatus = Status.Failed;
+
+                ex = exc;
+            }
+            finally
+            {
+                e = new OperationFinishedEventArgs<TOperType>(operStatus, operType, ex);
+
+                e.Result = res;
+
+                e.OperationType = operType;                
+            }
+
+            return e;
+        }
+
+        /// <summary>
+        /// Execute function asynchroniously (func) using arguments (state) synchronously.
+        /// (TOperType) - type of executed operation.
+        /// </summary>
+        /// <param name="operType"></param>
+        /// <param name="func"></param>
+        /// <param name="state"></param>
+        public async Task<IOperationFinishedEventArgs<TOperType>> ExecuteFunctionAction(TOperType operType, Func<object, dynamic> func, object? state = null)
+        {
+            Exception ex = null;
+
+            Status operStatus = Status.Succed;
+
+            dynamic res = null;
+
+            IOperationFinishedEventArgs<TOperType> e = null;
+
+            await Task.Run(() =>
+            {
+                try
+                {
+                    res = func.Invoke(state);
+
+                    operStatus = Status.Succed;
+                }
+                catch (Exception exc)
+                {
+                    operStatus = Status.Failed;
+
+                    ex = exc;
+                }
+                finally
+                {
+                    e = new OperationFinishedEventArgs<TOperType>(operStatus, operType, ex);
+
+                    e.Result = res;
+
+                    e.OperationType = operType;
+                }
+            });
+            
+            return e;
         }
 
         /// <summary>
@@ -91,7 +164,7 @@ namespace ControllerBaseLib
         /// <param name="cts"></param>
         /// <returns></returns>
         public async Task ExecuteFunctionAndGetResultThroughEventAsync(TOperType operType, Func<object, CancellationTokenSource, dynamic> func,
-            object state = null, CancellationTokenSource cts = null)
+            object? state = null, CancellationTokenSource? cts = null)
             
         {
             Exception ex = null;
@@ -126,7 +199,7 @@ namespace ControllerBaseLib
                 }
             });
 
-            OperationFinishedEventArgs<TOperType> e = new OperationFinishedEventArgs<TOperType>(operStatus, operType);
+            IOperationFinishedEventArgs<TOperType> e = new OperationFinishedEventArgs<TOperType>(operStatus, operType);
 
             e.Result = res;
 
