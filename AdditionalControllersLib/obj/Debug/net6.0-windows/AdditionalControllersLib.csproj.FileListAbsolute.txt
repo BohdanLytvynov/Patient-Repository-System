@@ -1,24 +1,3 @@
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.deps.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ControllerBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\DataValidation.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\Models.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\Models.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\DataValidation.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.GeneratedMSBuildEditorConfig.editorconfig
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.AssemblyInfoInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.AssemblyInfo.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.csproj.CoreCompileInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.csproj.CopyComplete
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\refint\AdditionalControllersLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\ref\AdditionalControllersLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.deps.json
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.pdb
@@ -61,3 +40,24 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Addi
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\refint\AdditionalControllersLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\ref\AdditionalControllersLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\AdditionalControllersLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\Models.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\Models.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\DataValidation.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\refint\AdditionalControllersLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\AdditionalControllersLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\AdditionalControllersLib\obj\Debug\net6.0-windows\ref\AdditionalControllersLib.dll

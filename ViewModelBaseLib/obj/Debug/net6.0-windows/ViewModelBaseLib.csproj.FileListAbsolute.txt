@@ -106,18 +106,6 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\refint\ViewModelBaseLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ref\ViewModelBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.deps.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.GeneratedMSBuildEditorConfig.editorconfig
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.AssemblyInfoInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.AssemblyInfo.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.csproj.CoreCompileInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\refint\ViewModelBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ref\ViewModelBaseLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.deps.json
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
@@ -130,3 +118,15 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\View
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\refint\ViewModelBaseLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ref\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\bin\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\refint\ViewModelBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ViewModelBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\ViewModelBaseLib\obj\Debug\net6.0-windows\ref\ViewModelBaseLib.dll

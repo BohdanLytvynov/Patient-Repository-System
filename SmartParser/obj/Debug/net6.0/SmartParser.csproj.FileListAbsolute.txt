@@ -1,24 +1,3 @@
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.GeneratedMSBuildEditorConfig.editorconfig
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.AssemblyInfoInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.AssemblyInfo.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.CoreCompileInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\OcrData\Ukrainian.ocrdata
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCv.deployment.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCvInterop.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x86\native\OpenCv.deployment.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x86\native\OpenCvInterop.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\Models\DB_TD500_resnet50.onnx
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.deps.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\ControllerBaseLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\ControllerBaseLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.CopyComplete
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\OcrData\Ukrainian.ocrdata
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCv.deployment.json
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCvInterop.dll
@@ -40,7 +19,32 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Smar
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\OcrData\Ukrainian.ocrdata
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCv.deployment.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x64\native\OpenCvInterop.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x86\native\OpenCv.deployment.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\runtimes\win-x86\native\OpenCvInterop.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\Models\DB_TD500_resnet50.onnx
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\SmartParser.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\BitSetLibrary.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\BitSetLibrary.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\ControllerBaseLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\bin\Debug\net6.0\JsonDataProviderLibDNC.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.csproj.CopyComplete
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\refint\SmartParser.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\SmartParser.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\SmartParser\obj\Debug\net6.0\ref\SmartParser.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\BitSetLibrary.dll
+C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\SmartParser\bin\Debug\net6.0\BitSetLibrary.pdb

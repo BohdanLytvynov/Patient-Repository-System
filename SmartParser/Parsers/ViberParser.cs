@@ -6,9 +6,10 @@ using System.Text;
 using JsonDataProviderLibDNC.Interfaces;
 using SmartParser.Comparators;
 using IronSoftware.Drawing;
+using BitSetLibrary;
 
 namespace SmartParser.Parsers
-{
+{    
     public enum ViberParserOperations : byte
     {
         Parse = 0
@@ -91,7 +92,7 @@ namespace SmartParser.Parsers
     {
         #region Viber Parser Events
 
-        public static event Action<float> OnPartOfTheTaskDone;
+        public static event Action<float, int>? OnPartOfTheTaskDone;
 
         #endregion
 
@@ -105,13 +106,15 @@ namespace SmartParser.Parsers
 
         //private CancellationTokenSource m_cts;
 
-        private ViberParserTemp m_temp;
+        private ViberParserTemp? m_temp;
 
         private string m_pathToTemp;
 
-        Action<OcrInput> m_OCRInputPreprocessors;
+        Action<OcrInput>? m_OCRInputPreprocessors;
 
-        bool m_isRunning;       
+        bool m_isRunning;
+
+        float m_prog_value;
 
         #endregion
 
@@ -119,7 +122,7 @@ namespace SmartParser.Parsers
 
         public ViberParserTemp TempData { get => m_temp; }
 
-        public string PathToDebuggingFolder { get; set; }
+        public string? PathToDebuggingFolder { get; set; }
 
         public bool IsRunning { get => m_isRunning; }
 
@@ -155,6 +158,8 @@ namespace SmartParser.Parsers
                 throw new ArgumentNullException("dataProvider");
 
             m_OCRResultParser = OCRresParser;
+
+            m_prog_value = 0f;
 
             m_OCR = OCR;
 
@@ -218,6 +223,13 @@ namespace SmartParser.Parsers
 
         public void ParseImages(FileInfo[] img_pathes, CancellationTokenSource cts = null)
         {
+            //Here we will use bit set for Task Execution Status: 000:
+            //000 - initial state
+            //001 - in Progress NR: 0
+            //010 - Completed NR: 1
+            //100 - Failed NR: 2
+            //Number Ranks (from rigth to left) => 0 1 2
+
             if (img_pathes == null)
                 throw new NullReferenceException("img_pathes");
 
@@ -269,12 +281,21 @@ namespace SmartParser.Parsers
             int current = 0;
             //Parsing Cycle
             for (; i < length && !cts.IsCancellationRequested; i++)
-            {                
+            {
+                m_prog_value = 0;
+
                 this.Parse(img_pathes[i].FullName);
 
                 current = i;
 
                 m_isRunning = !cts.IsCancellationRequested;
+
+                if (cts.IsCancellationRequested)
+                {
+                    m_prog_value = 0;
+
+                    OnPartOfTheTaskDone?.Invoke(m_prog_value, 0);
+                }
             }
 
             m_temp.ReadFileCreationDate = img_pathes[current].CreationTime;
@@ -365,6 +386,12 @@ namespace SmartParser.Parsers
                        String.IsNullOrEmpty(FailToReadPaths) ? false : true);
                    }
 
+                   //Calculate the amount of incrreasing value for Progress Bars
+
+                   float addValue = 0.2f;
+
+                   float value = (1 - addValue) / Crops.Count();
+
                    foreach (var crop in Crops)
                    {                       
                        var OcrRes = m_OCR.GetOCRResultAccordingToCropRegion(image, crop,
@@ -399,6 +426,14 @@ namespace SmartParser.Parsers
                                if (String.IsNullOrEmpty(MainResult[i]))
                                    MainResult[i] = tempRes[i];
                            }
+
+                       m_prog_value += value;
+
+#if DEBUG
+                       Debug.WriteLine($"Progress of current photo parsing: {m_prog_value}");
+#endif
+
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, BitSet.SetBit(0, 0));//Increase the progressbar
 
                        if (m_OCRResultParser.AllFound())
                            break;
@@ -437,7 +472,7 @@ namespace SmartParser.Parsers
 #endif
                        if (try2.Barcodes.Length > 0)
                        {
-                           MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;
+                           MainResult[MainResult.Length - 1] = try2.Barcodes[0].Value;                           
                        }
                        else
                        {
@@ -454,13 +489,19 @@ namespace SmartParser.Parsers
                    if (image != null)
                        image.Dispose();
 
-                   if (!AllParsedSuccesfully(MainResult))
+                   m_prog_value = 1;//Task finished, with one of the results: failure, completed
+
+                   if (!AllParsedSuccesfully(MainResult))//failure
                    {
                        FailToReadPaths = img;
+
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, BitSet.SetBit(0, 2));
                    }
-                   else
-                   {
+                   else//completed
+                   {                       
                        Directory.Delete(debugFolder, true);
+                       
+                       OnPartOfTheTaskDone?.Invoke(m_prog_value, BitSet.SetBit(0, 1));
                    }
 
                    SuccessfullyRead.AddRange(MainResult);

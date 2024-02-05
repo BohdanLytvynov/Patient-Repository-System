@@ -94,18 +94,6 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\refint\DataValidation.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\ref\DataValidation.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.deps.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.GeneratedMSBuildEditorConfig.editorconfig
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.AssemblyInfoInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.AssemblyInfo.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.csproj.CoreCompileInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\refint\DataValidation.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\ref\DataValidation.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.deps.json
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.pdb
@@ -118,3 +106,15 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Data
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\refint\DataValidation.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\ref\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\bin\Debug\net6.0-windows\DataValidation.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\refint\DataValidation.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\DataValidation.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\DataValidation\obj\Debug\net6.0-windows\ref\DataValidation.dll

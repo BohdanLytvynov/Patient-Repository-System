@@ -46,18 +46,6 @@ C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-S
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\refint\TimerLib.dll
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.pdb
 C:\Users\Doctor14\Desktop\Розробка ПО\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\ref\TimerLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.deps.json
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.csproj.AssemblyReference.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.GeneratedMSBuildEditorConfig.editorconfig
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.AssemblyInfoInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.AssemblyInfo.cs
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.csproj.CoreCompileInputs.cache
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\refint\TimerLib.dll
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.pdb
-D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\ref\TimerLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.deps.json
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.pdb
@@ -70,3 +58,15 @@ C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\Time
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\refint\TimerLib.dll
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.pdb
 C:\Users\Doctor14\Desktop\SoftwareDev\WorkWithGit\Patient-Repository-System\TimerLib\obj\Debug\net6.0\ref\TimerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.deps.json
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\bin\Debug\net6.0\TimerLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.csproj.AssemblyReference.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.AssemblyInfoInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.AssemblyInfo.cs
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.csproj.CoreCompileInputs.cache
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\refint\TimerLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\TimerLib.pdb
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\TimerLib\obj\Debug\net6.0\ref\TimerLib.dll

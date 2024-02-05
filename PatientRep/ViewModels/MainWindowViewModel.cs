@@ -47,6 +47,7 @@ using JsonDataProviderLibDNC;
 using System.Threading;
 using System.Configuration;
 using System.Collections.Specialized;
+using PatientRep.Views.MessageBoxes;
 
 
 #endregion
@@ -54,13 +55,7 @@ using System.Collections.Specialized;
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
-    {        
-        #region Global Vars
-
-        bool ENABLE_OCR_DEBUG;
-
-        #endregion
-
+    {                
         #region Constants
 
         private const int ONE_MINUTE_TOMILLISECOND_MULTIPL = 60000;
@@ -98,6 +93,8 @@ namespace PatientRep.ViewModels
         ReportViewer? m_ReportViewerWindow;
 
         SettingsWindow? m_SettingsWindow;
+
+        MsgBox? m_ViberParserStopMSGBox;
 
         #endregion
 
@@ -1231,6 +1228,11 @@ namespace PatientRep.ViewModels
 
             var temp = r.SuccessfullyRead.ToArray();
 
+            if (temp.Length == 0)
+            {
+                return;
+            }
+
             //Even One Data Must Be found
             if (!(String.IsNullOrEmpty(temp[0]) || String.IsNullOrEmpty(temp[1]) || String.IsNullOrEmpty(temp[2])
                 || String.IsNullOrEmpty(temp[3])))
@@ -1818,9 +1820,16 @@ namespace PatientRep.ViewModels
 
         public void StopAllTasks()
         {
-            m_cts_for_Viber_Parser.Cancel();
+            if (m_ViberParser.IsRunning)
+            {
+                m_cts_for_Viber_Parser.Cancel();
 
-            int i = 1;            
+                m_ViberParserStopMSGBox = new MsgBox();
+
+                m_ViberParserStopMSGBox.Topmost = true;
+
+                m_ViberParserStopMSGBox.Show();
+            }            
         }
 
         public void SaveConfiguration()

@@ -9,6 +9,7 @@
       "PatientRep/1.0.0": {
         "dependencies": {
           "AdditionalControllersLib": "1.0.0",
+          "BitSetLibrary": "1.0.0",
           "CRUDControllerLib": "1.0.0",
           "ConvertersLib": "1.0.0",
           "CustomIconsLib": "1.0.0",
@@ -474,6 +475,11 @@
           "AdditionalControllersLib.dll": {}
         }
       },
+      "BitSetLibrary/1.0.0": {
+        "runtime": {
+          "BitSetLibrary.dll": {}
+        }
+      },
       "ControllerBaseLib/1.0.0": {
         "runtime": {
           "ControllerBaseLib.dll": {}
@@ -561,6 +567,7 @@
       },
       "SmartParser/1.0.0": {
         "dependencies": {
+          "BitSetLibrary": "1.0.0",
           "ControllerBaseLib": "1.0.0",
           "IronOcr": "2023.11.35",
           "IronOcr.ComputerVision.Windows": "2022.11.10820",
@@ -810,6 +817,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "AdditionalControllersLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BitSetLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

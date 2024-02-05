@@ -101,7 +101,7 @@ namespace SignalizationSystemLib {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SignalizationSystemLib;V1.0.0.0;component/signalsystemcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SignalizationSystemLib;component/signalsystemcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SignalSystemControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

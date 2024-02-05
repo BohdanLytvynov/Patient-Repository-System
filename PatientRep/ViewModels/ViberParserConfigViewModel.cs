@@ -1,7 +1,9 @@
 ﻿using Models.Configuration;
 using PatientRep.ViewModelBase.Commands;
+using SmartParser.Parsers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,13 @@ namespace PatientRep.ViewModels
         string m_PathToFailToRead;
 
         bool m_IsViberParserEnabled;
-        
+
+        int m_ViberParserTaskStatus;
+
+        float m_ViberParserProgress;
+
+        bool m_EnableViberParserControlButton;
+
         #endregion
 
         #region Properties
@@ -46,24 +54,43 @@ namespace PatientRep.ViewModels
             set => Set(ref m_PathToFailToRead, value, nameof(PathToFailToRead));
         }
 
-        public bool IsViberParserEnabled 
+        public bool IsViberParserEnabled
         {
-            get=> m_IsViberParserEnabled;
+            get => m_IsViberParserEnabled;
             set
             {
                 Set(ref m_IsViberParserEnabled, value, nameof(IsViberParserEnabled));
 
-                if (m_configStorage!= null)
+                if (m_configStorage != null)
                 {
                     if (m_configStorage.IsViberParserActive != IsViberParserEnabled)
                     {
                         m_configStorage.IsViberParserActive = IsViberParserEnabled;
 
-                        //m_configStorage.ConfirmChanging(false);
+                        m_configStorage.ConfirmChanging(false);
                     }
                 }
             }
-        
+
+        }
+
+        public int ViberParserTaskExecutionStatus
+        {
+            get => m_ViberParserTaskStatus;
+            set => Set(ref m_ViberParserTaskStatus, value, nameof(ViberParserTaskExecutionStatus));
+        }
+
+        public float ViberParserProgress
+        {
+            get => m_ViberParserProgress;
+            set => Set(ref m_ViberParserProgress, value, nameof(ViberParserProgress));
+        }
+
+        public bool EnableViberParserControlButton
+        {
+            get => m_EnableViberParserControlButton;
+
+            set => Set(ref m_EnableViberParserControlButton, value, nameof(EnableViberParserControlButton));
         }
 
         #endregion
@@ -89,11 +116,13 @@ namespace PatientRep.ViewModels
         {
             #region Init Fields
 
+            m_EnableViberParserControlButton = true;
+
             m_configStorage = config;
 
             m_window = current;
 
-            if(String.IsNullOrEmpty(m_configStorage.PathToViberPhoto))
+            if (String.IsNullOrEmpty(m_configStorage.PathToViberPhoto))
                 m_PathToViberPhotos = String.Empty;
 
             if (String.IsNullOrEmpty(m_configStorage.PathToFailToReadPhotos))
@@ -141,6 +170,29 @@ namespace PatientRep.ViewModels
                 );
 
             #endregion
+
+            #region Event Binding
+            ViberParser.OnPartOfTheTaskDone += ViberParser_OnPartOfTheTaskDone;
+            #endregion
+        }
+
+        private void ViberParser_OnPartOfTheTaskDone(float arg1, int arg2)
+        {
+            ViberParserProgress = arg1;
+
+            ViberParserTaskExecutionStatus = arg2;
+
+            if (!IsViberParserEnabled && ViberParserProgress > 0)
+            {
+                EnableViberParserControlButton = false;                
+            }
+            else if (!IsViberParserEnabled && ViberParserProgress == 0)
+            {
+                EnableViberParserControlButton = true;
+            }
+
+            Debug.WriteLine($"EnableViberParserControlButton {EnableViberParserControlButton}");
+
         }
         #endregion
 
@@ -170,7 +222,7 @@ namespace PatientRep.ViewModels
         private bool CanOnOpen2ButtonPressedExecute(object p) => true;
 
         private void OnOpen2ButtonPressedExecute(object p)
-        { 
+        {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)

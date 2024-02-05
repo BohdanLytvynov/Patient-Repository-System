@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Reflection.Emit;
 using Models.Interfaces;
 using Models.ExportNoteModel;
+using System.Diagnostics;
 
 namespace Models.PatientModel.PatientVisualModel
 {
@@ -355,9 +356,12 @@ namespace Models.PatientModel.PatientVisualModel
             foreach (var prop in properties)
             {
                 if (Properties_Checkers.ContainsKey(prop.Name))
-                {
-                    if(!Properties_Checkers[prop.Name].Invoke(prop.GetValue(prop)))
+                {                    
+                    if(!Properties_Checkers[prop.Name].Invoke(prop.GetValue(this)))
                     {
+#if DEBUG
+                        Debug.WriteLine("Correct!!!");
+#endif
                         this.Status = PatientStatus.Потрібне_Уточнення_Данних;
 
                         break;

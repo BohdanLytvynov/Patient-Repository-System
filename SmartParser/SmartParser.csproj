@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BitSetLibrary\BitSetLibrary.csproj" />
     <ProjectReference Include="..\ControllerBaseLib\ControllerBaseLib.csproj" />
     <ProjectReference Include="..\JsonDataProviderLibDNC\JsonDataProviderLibDNC.csproj" />
   </ItemGroup>
