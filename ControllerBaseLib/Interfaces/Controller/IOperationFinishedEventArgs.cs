@@ -2,8 +2,8 @@
 
 namespace ControllerBaseLib.Interfaces.Controller
 {
-    public interface IOperationFinishedEventArgs<TOperationtype>
-        where TOperationtype : struct, Enum
+    public interface IOperationFinishedEventArgs<TOperationType>
+        where TOperationType : struct, Enum
     {
         #region Properties
 
@@ -11,7 +11,7 @@ namespace ControllerBaseLib.Interfaces.Controller
 
         public Status ExecutionStatus { get; }//Execution status
 
-        public TOperationtype OperationType { get; set; }//OperationType
+        public TOperationType OperationType { get; set; }//OperationType
 
         public Exception Exception { get; set; }//Exception that was thrown in case of error
 

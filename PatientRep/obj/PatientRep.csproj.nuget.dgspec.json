@@ -597,6 +597,9 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
+              "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+                "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+              },
               "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
                 "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
               },

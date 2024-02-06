@@ -191,3 +191,5 @@ D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Models\obj\Debug\net6.0-win
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Models\obj\Debug\net6.0-windows\refint\Models.dll
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Models\obj\Debug\net6.0-windows\Models.pdb
 D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Models\obj\Debug\net6.0-windows\ref\Models.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Models\bin\Debug\net6.0-windows\ControllerBaseLib.dll
+D:\C# Projects\Work\DBKLMP\Patient-Repository-System\Models\bin\Debug\net6.0-windows\ControllerBaseLib.pdb

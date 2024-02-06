@@ -49,6 +49,9 @@ using System.Configuration;
 using System.Collections.Specialized;
 using PatientRep.Views.MessageBoxes;
 using ControllerBaseLib.Interfaces.Controller;
+using ControllerBaseLib.Interfaces.Loger;
+using Models.Logs.Visual_Model;
+using ControllerBaseLib.LogerBase;
 
 
 #endregion
@@ -56,7 +59,7 @@ using ControllerBaseLib.Interfaces.Controller;
 namespace PatientRep.ViewModels
 {
     public class MainWindowViewModel : ViewModelBaseClass
-    {                
+    {
         #region Constants
 
         private const int ONE_MINUTE_TOMILLISECOND_MULTIPL = 60000;
@@ -64,7 +67,7 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Tasks
-       
+
         CancellationTokenSource m_cts_for_Viber_Parser;
 
         #endregion
@@ -100,6 +103,16 @@ namespace PatientRep.ViewModels
         #endregion
 
         #region Fields
+
+        #region Loger
+
+        IEnumerable<ILog> m_logStorage;
+
+        ObservableCollection<LogVM> m_LogsVisualCollection;
+
+        Loger m_loger;
+
+        #endregion
 
         #region Current Window
 
@@ -139,6 +152,8 @@ namespace PatientRep.ViewModels
         string m_selfpath;
 
         string m_PathToConfig;
+
+        string m_PathToLogs;
 
         ConfigStorage? m_Configuration;
 
@@ -831,7 +846,7 @@ namespace PatientRep.ViewModels
             #region Checkers
 
             m_Property_txt_Checker = new Func<object?, bool>(
-                (o)=>
+                (o) =>
                 {
                     string _error = String.Empty;
 
@@ -840,7 +855,7 @@ namespace PatientRep.ViewModels
                 );
 
             m_Property_Code_Checker = new Func<object?, bool>(
-                (o)=>
+                (o) =>
                 {
                     string _error;
 
@@ -853,7 +868,7 @@ namespace PatientRep.ViewModels
             #region Init Tasks
 
             m_cts_for_Viber_Parser = new CancellationTokenSource();
-            
+
             #endregion
 
             #region OCR Configs
@@ -870,6 +885,10 @@ namespace PatientRep.ViewModels
             #endregion
 
             #region Init Fields
+
+            m_loger = new Loger();
+
+            m_jdataprovider = new JsonDataProvider<PatientRepDataProviderOperations>();
 
             m_UI_is_UsedbyViber_Parser = false;
 
@@ -919,6 +938,16 @@ namespace PatientRep.ViewModels
 
             m_PathToConfig = m_selfpath + Path.DirectorySeparatorChar + "Configuration" +
                Path.DirectorySeparatorChar + "Config.json";
+
+            m_jdataprovider.IfDirectoryNotExistsCreateIt(m_selfpath + Path.DirectorySeparatorChar + "Configuration");
+
+            m_jdataprovider.IfFileNotExistsCreateIt(m_PathToConfig);
+
+            m_PathToLogs = m_selfpath + Path.DirectorySeparatorChar + "Logs" + Path.DirectorySeparatorChar + "Logs.json";
+
+            m_jdataprovider.IfDirectoryNotExistsCreateIt(m_selfpath + Path.DirectorySeparatorChar + "Logs");
+
+            m_jdataprovider.IfFileNotExistsCreateIt(m_PathToLogs);
 
             m_RepType = ReportType.По_Денний;
 
@@ -971,9 +1000,7 @@ namespace PatientRep.ViewModels
             m_StringCoincidence = StringCoincidence.Часткове;
 
             m_tittle = "Patient Repository Storage";
-
-            m_jdataprovider = new JsonDataProvider<PatientRepDataProviderOperations>();
-
+            
             m_pController = new PatientController();
 
             m_HistoryNotesController = new HistoryNotesController();
@@ -984,9 +1011,15 @@ namespace PatientRep.ViewModels
 
             m_jdataprovider.OnOperationFinished += M_jdataprovider_OnOperationFinished;
 
-            m_pathToPatientsDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "Rep.json";
+            m_pathToPatientsDB = m_selfpath + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "Rep.json";
 
-            m_pathToHistoryDB = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "HRep.json";
+            m_jdataprovider.IfDirectoryNotExistsCreateIt(m_selfpath + Path.DirectorySeparatorChar + "DB");
+
+            m_jdataprovider.IfFileNotExistsCreateIt(m_pathToPatientsDB);
+
+            m_pathToHistoryDB = m_selfpath + Path.DirectorySeparatorChar + "DB" + Path.DirectorySeparatorChar + "HRep.json";
+            
+            m_jdataprovider.IfFileNotExistsCreateIt(m_pathToHistoryDB);
 
             m_SearchResult = new ObservableCollection<Patient>();
 
@@ -1216,6 +1249,11 @@ namespace PatientRep.ViewModels
 
         private void M_ViberParser_OnOperationFinished(object s, IOperationFinishedEventArgs<ViberParserOperations> e)
         {
+            if (e.ExecutionStatus == Status.Failed)
+            {
+                m_loger.SaveOperationLogToCollection(e, m_logStorage);
+            }
+
             var r = (e.Result as ViberParserResult);
 
             if (r == null)

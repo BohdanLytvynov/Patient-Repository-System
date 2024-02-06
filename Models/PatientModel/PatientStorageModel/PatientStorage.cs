@@ -104,7 +104,7 @@ namespace Models.PatientModel.PatientStorageModel
             return new Patient(Id, Surename, Name, Lastname, Code, Diagnosis, Status, RegisterDate, InvestigationDate, Center, AdditionalInfo);
         }
 
-        public PatientStorage VisualToStorageModel()
+        PatientStorage IConvertStorageToVisualModel<PatientStorage, Patient>.VisualToStorageModel()
         {
             throw new NotImplementedException();
         }

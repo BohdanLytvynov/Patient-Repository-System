@@ -2,6 +2,16 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "ControllerBaseLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ControllerBaseLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ControllerBaseLib.dll": {}
+        }
+      },
       "DataValidation/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -28,6 +38,11 @@
     }
   },
   "libraries": {
+    "ControllerBaseLib/1.0.0": {
+      "type": "project",
+      "path": "../ControllerBaseLib/ControllerBaseLib.csproj",
+      "msbuildProject": "../ControllerBaseLib/ControllerBaseLib.csproj"
+    },
     "DataValidation/1.0.0": {
       "type": "project",
       "path": "../DataValidation/DataValidation.csproj",
@@ -41,6 +56,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "ControllerBaseLib >= 1.0.0",
       "DataValidation >= 1.0.0",
       "ViewModelBaseLib >= 1.0.0"
     ]
@@ -77,6 +93,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj": {
+              "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\ControllerBaseLib\\ControllerBaseLib.csproj"
+            },
             "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj": {
               "projectPath": "D:\\C# Projects\\Work\\DBKLMP\\Patient-Repository-System\\DataValidation\\DataValidation.csproj"
             },

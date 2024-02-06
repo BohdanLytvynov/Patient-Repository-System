@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ControllerBaseLib\ControllerBaseLib.csproj" />
     <ProjectReference Include="..\DataValidation\DataValidation.csproj" />
     <ProjectReference Include="..\ViewModelBaseLib\ViewModelBaseLib.csproj" />
   </ItemGroup>

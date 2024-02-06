@@ -8,11 +8,17 @@
     ".NETCoreApp,Version=v6.0": {
       "Models/1.0.0": {
         "dependencies": {
+          "ControllerBaseLib": "1.0.0",
           "DataValidation": "1.0.0",
           "ViewModelBaseLib": "1.0.0"
         },
         "runtime": {
           "Models.dll": {}
+        }
+      },
+      "ControllerBaseLib/1.0.0": {
+        "runtime": {
+          "ControllerBaseLib.dll": {}
         }
       },
       "DataValidation/1.0.0": {
@@ -29,6 +35,11 @@
   },
   "libraries": {
     "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ControllerBaseLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

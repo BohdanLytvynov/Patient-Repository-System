@@ -29,7 +29,7 @@ namespace Models.Configuration
 
         public string PathToFailToReadPhotos { get; set; }
 
-        public bool IsViberParserActive { get; set; }
+        public bool IsViberParserActive { get; set; }        
 
         #endregion
 
